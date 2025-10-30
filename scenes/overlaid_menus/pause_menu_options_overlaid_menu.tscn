@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1it1hfbkl7dg"]
+
+[ext_resource type="PackedScene" path="res://addons/maaacks_game_template/base/nodes/overlaid_menu/overlaid_menu_container.tscn" id="1_4m88x"]
+[ext_resource type="PackedScene" path="res://scenes/menus/options_menu/mini_options_menu_with_reset.tscn" id="2_qrg2v"]
+
+[node name="OverlaidMenuContainer" instance=ExtResource("1_4m88x")]
+menu_scene = ExtResource("2_qrg2v")
+
+[node name="TitleLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/TitleMargin" index="0"]
+text = "Options"
