@@ -7,13 +7,13 @@ func _add_timers() -> void:
 	var play_timer := Timer.new()
 	play_timer.one_shot = false
 	play_timer.process_mode = Node.PROCESS_MODE_PAUSABLE
-	play_timer.timeout.connect(func() : play_time += 1)
+	play_timer.timeout.connect(func() -> void : play_time += 1)
 	add_child(play_timer)
 	play_timer.start(1)
 	var total_timer := Timer.new()
 	total_timer.one_shot = false
 	total_timer.process_mode = Node.PROCESS_MODE_ALWAYS
-	total_timer.timeout.connect(func() : total_time += 1)
+	total_timer.timeout.connect(func() -> void : total_time += 1)
 	add_child(total_timer)
 	total_timer.start(1)
 

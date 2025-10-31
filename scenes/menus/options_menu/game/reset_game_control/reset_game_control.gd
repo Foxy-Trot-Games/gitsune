@@ -2,9 +2,12 @@ extends HBoxContainer
 
 signal reset_confirmed
 
+@onready var confirm_reset_dialog: ConfirmationDialog = $ConfirmResetDialog
+@onready var reset_button: Button = $ResetButton
+
 func _on_ResetButton_pressed() -> void:
-	$ConfirmResetDialog.popup_centered()
-	$ResetButton.disabled = true
+	confirm_reset_dialog.popup_centered()
+	reset_button.disabled = true
 
 func _on_ConfirmResetDialog_confirmed() -> void:
 	reset_confirmed.emit()
@@ -12,4 +15,4 @@ func _on_ConfirmResetDialog_confirmed() -> void:
 	SceneLoader.reload_current_scene()
 
 func _on_confirm_reset_dialog_canceled() -> void:
-	$ResetButton.disabled = false
+	reset_button.disabled = false

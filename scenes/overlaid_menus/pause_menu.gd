@@ -6,7 +6,14 @@ extends OverlaidMenu
 ## Will attempt to read from AppConfig if left empty.
 @export_file("*.tscn") var main_menu_scene_path : String
 
-var popup_open : Node
+@onready var exit_button: Button = %ExitButton
+@onready var options_button: Button = %OptionsButton
+@onready var main_menu_button: Button = %MainMenuButton
+@onready var confirm_restart: ConfirmationDialog = %ConfirmRestart
+@onready var confirm_main_menu: ConfirmationDialog = %ConfirmMainMenu
+@onready var confirm_exit: ConfirmationDialog = %ConfirmExit
+
+var popup_open : ConfirmationDialog
 var _ignore_first_cancel : bool = false
 
 func get_main_menu_scene_path() -> String:
@@ -20,12 +27,12 @@ func close_popup() -> void:
 		popup_open = null
 
 func _disable_focus() -> void:
-	for child in %MenuButtons.get_children():
+	for child : Button in %MenuButtons.get_children():
 		if child is Control:
 			child.focus_mode = FOCUS_NONE
 
 func _enable_focus() -> void:
-	for child in %MenuButtons.get_children():
+	for child : Button in %MenuButtons.get_children():
 		if child is Control:
 			child.focus_mode = FOCUS_ALL
 
@@ -51,15 +58,15 @@ func _handle_cancel_input() -> void:
 
 func _hide_exit_for_web() -> void:
 	if OS.has_feature("web"):
-		%ExitButton.hide()
+		exit_button.hide()
 
 func _hide_options_if_unset() -> void:
 	if options_packed_scene == null:
-		%OptionsButton.hide()
+		options_button.hide()
 
 func _hide_main_menu_if_unset() -> void:
 	if get_main_menu_scene_path().is_empty():
-		%MainMenuButton.hide()
+		main_menu_button.hide()
 
 func _ready() -> void:
 	_hide_exit_for_web()
@@ -69,19 +76,19 @@ func _ready() -> void:
 		_ignore_first_cancel = true
 
 func _on_restart_button_pressed() -> void:
-	%ConfirmRestart.popup_centered()
-	popup_open = %ConfirmRestart
+	confirm_restart.popup_centered()
+	popup_open = confirm_restart
 
 func _on_options_button_pressed() -> void:
 	open_options_menu()
 
 func _on_main_menu_button_pressed() -> void:
-	%ConfirmMainMenu.popup_centered()
-	popup_open = %ConfirmMainMenu
+	confirm_main_menu.popup_centered()
+	popup_open = confirm_main_menu
 
 func _on_exit_button_pressed() -> void:
-	%ConfirmExit.popup_centered()
-	popup_open = %ConfirmExit
+	confirm_exit.popup_centered()
+	popup_open = confirm_exit
 
 func _on_confirm_restart_confirmed() -> void:
 	SceneLoader.reload_current_scene()

@@ -1,4 +1,4 @@
-extends Node
+class_name TutorialManager extends Node
 ## A script to add into a level or game scene to display tutorial windows.
 
 ## A list of tutorial scenes to open, one after the other.

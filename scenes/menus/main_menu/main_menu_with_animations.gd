@@ -10,9 +10,9 @@ extends MainMenu
 
 var animation_state_machine : AnimationNodeStateMachinePlayback
 
-@onready var continue_game_button = %ContinueGameButton
-@onready var level_select_button = %LevelSelectButton
-@onready var new_game_confirmation = %NewGameConfirmationDialog
+@onready var continue_game_button : Button = %ContinueGameButton
+@onready var level_select_button : Button = %LevelSelectButton
+@onready var new_game_confirmation : ConfirmationDialog = %NewGameConfirmationDialog
 
 func load_game_scene() -> void:
 	GameState.start_game()
@@ -75,6 +75,6 @@ func _on_level_select_button_pressed() -> void:
 	if level_select_scene.has_signal("level_selected"):
 		level_select_scene.connect("level_selected", load_game_scene)
 
-func _on_new_game_confirmation_dialog_confirmed():
+func _on_new_game_confirmation_dialog_confirmed() -> void:
 	GameState.reset()
 	load_game_scene()
