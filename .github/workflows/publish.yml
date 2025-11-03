@@ -78,7 +78,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          WORKFLOW_FILE="itch.yml"
+          WORKFLOW_FILE="publish.yml"
           # API request to fetch the last successful run
           response=$(curl -s -H "Authorization: token $GH_TOKEN" \
             "https://api.github.com/repos/${{ github.repository }}/actions/workflows/$WORKFLOW_FILE/runs?status=success&event=${{ github.event_name }}&per_page=1")
@@ -114,7 +114,7 @@ jobs:
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           content: |
-            New deployment version ${{ needs.Bump-Version.outputs.new_version }} has been pushed to Gitsune :hehe: <https://crisp-lad.itch.io/gitsune> :hehe:
+            New deployment version ${{ needs.Bump-Version.outputs.new_version }} has been pushed to Gitsune :fox: <https://crisp-lad.itch.io/gitsune> :fox:
 
             Changes:
             ${{ steps.show_commits.outputs.commits }}
