@@ -600,6 +600,7 @@ texture = ExtResource("2_erhvc")
 shape = SubResource("CircleShape2D_r1bdh")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+process_callback = 0
 
 [node name="GravityZone" type="Area2D" parent="."]
 position = Vector2(-288, 212)
