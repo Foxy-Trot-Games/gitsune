@@ -1,0 +1,124 @@
+name: Deploy
+on: 
+  push:
+    branches:
+      - master
+jobs:
+
+  Bump-Version:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    outputs:
+      new_version: ${{ steps.bump_version_step.outputs.new_version }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Bump patch version
+        id: bump_version_step
+        run: |
+          file="project.godot"
+          version_line=$(grep '^config/version=' "$file")
+          current=$(echo "$version_line" | sed -E 's/.*"([0-9]+\.[0-9]+\.[0-9]+)".*/\1/')
+          IFS='.' read -r major minor patch <<< "$current"
+          patch=$((patch + 1))
+          new="$major.$minor.$patch"
+          echo "new_version=$new" >> "$GITHUB_OUTPUT"
+          sed -i -E "s/(config\/version=\")[0-9]+\.[0-9]+\.[0-9]+(\".*)/\1$new\2/" "$file"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$file"
+          git commit -m "[code] CI: bump version to $new"
+          git push
+
+  Build-and-Deploy:
+    needs: Bump-Version
+    permissions:
+      actions: read
+      contents: read
+    runs-on: ubuntu-latest
+    env:
+      GODOT_VERSION: 4.5.1
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for full `git log`
+          ref: master # needed to get the latest commited bump version commit, otherwise it'll use the commit that kicked off the action
+      - name: Download and extract Godot
+        run: |
+          wget https://github.com/godotengine/godot/releases/download/$GODOT_VERSION-stable/Godot_v$GODOT_VERSION-stable_linux.x86_64.zip
+          unzip Godot_v$GODOT_VERSION-stable_linux.x86_64.zip
+      - name: Download Export Templates
+        run: |
+          wget https://github.com/godotengine/godot/releases/download/$GODOT_VERSION-stable/Godot_v$GODOT_VERSION-stable_export_templates.tpz
+          unzip Godot_v$GODOT_VERSION-stable_export_templates.tpz
+          mkdir -p ~/.local/share/godot/export_templates/
+          mv templates ~/.local/share/godot/export_templates/$GODOT_VERSION.stable 
+      - name: Build repo
+        run: |
+          mkdir -p build
+          ./Godot_v$GODOT_VERSION-stable_linux.x86_64 --headless --import 
+          ./Godot_v$GODOT_VERSION-stable_linux.x86_64 --headless --export-release Web ./build/index.html
+      - name: Compress Build with Brotli/Gzip
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y brotli
+          brotli ./build/index.pck
+          brotli ./build/index.wasm
+          gzip --best ./build/index.wasm && mv ./build/index.wasm.gz ./build/index.wasm
+          gzip --best ./build/index.pck && mv ./build/index.pck.gz ./build/index.pck
+      - name: Push to Butler
+        uses: manleydev/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
+          CHANNEL: windows
+          ITCH_GAME: gitsune
+          ITCH_USER: crisp-lad
+          PACKAGE: build
+          VERSION: ${{ needs.Bump-Version.outputs.new_version }}
+      - name: Get previous successful commit SHA
+        id: last_run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          WORKFLOW_FILE="itch.yml"
+          # API request to fetch the last successful run
+          response=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/$WORKFLOW_FILE/runs?status=success&event=${{ github.event_name }}&per_page=1")
+          # Extract the commit SHA from the response
+          last_sha=$(echo "$response" | jq -r '.workflow_runs[0].head_sha')
+          # Handle cases where no previous run exists
+          if [ "$last_sha" = "null" ] || [ -z "$last_sha" ]; then
+            echo "last_sha=" >> $GITHUB_OUTPUT
+          else
+            echo "last_sha=$last_sha" >> $GITHUB_OUTPUT
+          fi
+      - name: Show commits since last run
+        id: show_commits
+        run: |
+          if [ -z "${{ steps.last_run.outputs.last_sha }}" ]; then
+            echo "No previous successful run. Listing all commits:"
+            git log --grep="\[code\]" --invert-grep --reverse --pretty=format:"- %s" > commits.txt
+          else
+            echo "Commits since last successful run (${{ steps.last_run.outputs.last_sha }}):"
+            git log ${{ steps.last_run.outputs.last_sha }}..HEAD --grep="\[code\]" --invert-grep --reverse --pretty=format:"- %s" > commits.txt
+          fi
+
+          cat commits.txt
+          
+          # Github requires heredoc multiline outputs
+          {
+            echo "commits<<EOF"
+            echo "$(cat commits.txt)"
+            echo EOF 
+          } >> $GITHUB_OUTPUT
+      - name: Message Discord Channel
+        uses: tsickert/discord-webhook@v6.0.0
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          content: |
+            New deployment version ${{ needs.Bump-Version.outputs.new_version }} has been pushed to Gitsune :hehe: <https://crisp-lad.itch.io/gitsune> :hehe:
+
+            Changes:
+            ${{ steps.show_commits.outputs.commits }}
