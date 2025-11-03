@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://w2qphny0t0vu"]
+[gd_scene load_steps=16 format=4 uid="uid://w2qphny0t0vu"]
 
 [ext_resource type="Script" uid="uid://bjiclinojhoa8" path="res://scenes/player/player.gd" id="1_scwes"]
 [ext_resource type="Texture2D" uid="uid://cl0ybqyk5l127" path="res://assets/player/player_mockup.png" id="2_erhvc"]
 [ext_resource type="Texture2D" uid="uid://djwl4s2q7t8gr" path="res://assets/background/full_textured.png" id="3_erhvc"]
+[ext_resource type="PackedScene" uid="uid://cxm7caqjvvyu5" path="res://scenes/enemy/enemy.tscn" id="4_r1bdh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r1bdh"]
 resource_name = "cropped"
@@ -738,3 +739,8 @@ Space to JUMP
 WASD in air to use pulse gun
 "
 label_settings = SubResource("LabelSettings_r1bdh")
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="enemy_goat_test" parent="Enemies" instance=ExtResource("4_r1bdh")]
+position = Vector2(-127, 359)
