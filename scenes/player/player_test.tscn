@@ -593,7 +593,7 @@ script = ExtResource("1_scwes")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(-0.06, -5)
+modulate = Color(0.97306556, 0.45462722, 1.92523e-07, 1)
 texture = ExtResource("2_erhvc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
