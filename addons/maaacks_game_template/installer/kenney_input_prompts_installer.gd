@@ -8,7 +8,7 @@ signal canceled
 signal completed
 
 const DownloadAndExtract = MaaacksGameTemplatePlugin.DownloadAndExtract
-const RELATIVE_PATH_TO_CONFIGURE_SCENE = "scenes/menus/options_menu/input/input_icon_mapper.tscn"
+const RELATIVE_PATH_TO_CONFIGURE_SCENE = "scenes/ui/menus/options_menu/input/input_icon_mapper.tscn"
 const REIMPORT_CHECK_DELAY : float = 0.5
 const OPEN_SCENE_DELAY : float = 0.5
 const REGEX_PREFIX = """\\[node name="InputIconMapper" type="Node"\\][\\s\\S]*"""

@@ -11,7 +11,7 @@ const DownloadAndExtract = preload(PLUGIN_PATH + "utilities/download_and_extract
 const CopyAndEdit = preload(PLUGIN_PATH + "installer/copy_and_edit_files.gd")
 
 const EXAMPLES_RELATIVE_PATH = "examples/"
-const MAIN_SCENE_RELATIVE_PATH = "scenes/opening/opening.tscn"
+const MAIN_SCENE_RELATIVE_PATH = "scenes/ui/opening/opening.tscn"
 const OVERRIDE_RELATIVE_PATH = "installer/override.cfg"
 const APP_CONFIG_RELATIVE_PATH = "base/nodes/autoloads/app_config/app_config.tscn"
 const SCENE_LOADER_RELATIVE_PATH = "base/nodes/autoloads/scene_loader/scene_loader.tscn"
