@@ -5,5 +5,3 @@
 
 [node name="Opening" instance=ExtResource("1_00080")]
 images = Array[Texture2D]([ExtResource("2_6quj5")])
-fade_in_time = 0.0
-fade_out_time = 0.0
