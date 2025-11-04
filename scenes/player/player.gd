@@ -65,8 +65,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	velocity += get_gravity() * delta
 
 	# Handle space.
 	if Input.is_action_pressed("ui_accept") && not is_on_floor():

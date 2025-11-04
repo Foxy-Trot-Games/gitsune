@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://w2qphny0t0vu"]
+[gd_scene load_steps=14 format=4 uid="uid://w2qphny0t0vu"]
 
 [ext_resource type="Script" uid="uid://bog2ukuxke2rv" path="res://scenes/game_scene/levels/level.gd" id="1_xiw1x"]
 [ext_resource type="Texture2D" uid="uid://djwl4s2q7t8gr" path="res://assets/background/full_textured.png" id="2_lwywk"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cxm7caqjvvyu5" path="res://scenes/enemy/enemy.tscn" id="5_tglvs"]
 [ext_resource type="Script" uid="uid://s3864f4i872k" path="res://scenes/game_scene/tutorial_manager.gd" id="6_0bqqu"]
 [ext_resource type="PackedScene" uid="uid://m4lsx3aqr7pp" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="6_o4mvr"]
+[ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/game_scene/level_objects/gravity_zone.tscn" id="6_xiw1x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_erhvc"]
 resource_name = "full"
@@ -411,17 +412,8 @@ domain_warp_type = 1
 noise = SubResource("FastNoiseLite_r1bdh")
 color_ramp = SubResource("Gradient_erhvc")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1bdh"]
-size = Vector2(100, 250)
-
 [sub_resource type="LabelSettings" id="LabelSettings_r1bdh"]
 font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_thmji"]
-size = Vector2(250, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_shhsb"]
-size = Vector2(250, 100)
 
 [node name="TestLevel" type="Node"]
 script = ExtResource("1_xiw1x")
@@ -434,6 +426,7 @@ tutorial_scenes = Array[PackedScene]([ExtResource("6_o4mvr")])
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAACAAMAAQABAAMAAAADAAMAAQACAAMAAAAEAAMAAQACAAMAAAAFAAMAAQADAAMAAAAKAAAAAQAAAAEAAAAKAAYAAQADAAIAAAAKAAUAAQAAAAEAAAAKAAQAAQAAAAEAAAAKAAMAAQAAAAEAAAAKAAIAAQAAAAEAAAAKAAEAAQAAAAEAAAAAAAYAAQACAAMAAAABAAYAAQACAAMAAAACAAYAAQACAAMAAAADAAYAAQACAAMAAAAEAAYAAQACAAMAAAAFAAYAAQACAAMAAAAGAAYAAQACAAMAAAAHAAYAAQACAAMAAAAIAAYAAQACAAMAAAAJAAYAAQACAAMAAAD1/wYAAQABAAIAAAD2/wYAAQACAAMAAAD3/wYAAQACAAMAAAD4/wYAAQACAAMAAAD5/wYAAQACAAMAAAD6/wYAAQACAAMAAAD7/wYAAQACAAMAAAD8/wYAAQACAAMAAAD9/wYAAQACAAMAAAD+/wYAAQACAAMAAAD//wYAAQACAAMAAAD1//j/AQAAAAEAAAD1//n/AQAAAAEAAAD1//r/AQAAAAEAAAD1//v/AQAAAAEAAAD1//z/AQAAAAEAAAD1//3/AQAAAAEAAAD1//7/AQAAAAEAAAD1////AQAAAAEAAAD1/wAAAQAAAAEAAAD1/wEAAQAAAAEAAAD1/wIAAQAAAAEAAAD1/wMAAQAAAAEAAAD1/wQAAQAAAAEAAAD1/wUAAQAAAAEAAAAKAPf/AQADAAAAAAAJAPf/AQACAAMAAAAIAPf/AQACAAMAAAAHAPf/AQACAAMAAAAGAPf/AQACAAMAAAAFAPf/AQACAAMAAAAEAPf/AQACAAMAAAADAPf/AQACAAMAAAACAPf/AQACAAMAAAABAPf/AQACAAMAAAAAAPf/AQACAAMAAAD///f/AQACAAMAAAD+//f/AQACAAMAAAD9//f/AQACAAMAAAD8//f/AQACAAMAAAD7//f/AQACAAMAAAD6//f/AQACAAMAAAD5//f/AQACAAMAAAD4//f/AQACAAMAAAD3//f/AQACAAMAAAD2//f/AQACAAMAAAD1//f/AQABAAAAAAAKAP//AQAAAAEAAAAKAP7/AQAAAAEAAAAKAP3/AQAAAAEAAAAKAPz/AQAAAAEAAAAKAPv/AQAAAAEAAAAKAPr/AQAAAAEAAAAKAPn/AQAAAAEAAAAKAPj/AQAAAAEAAAD5//z/AQAAAAAAAAD5//3/AQAAAAEAAAD5//7/AQAAAAEAAAD5////AQAAAAEAAAD5/wAAAQAAAAEAAAD5/wEAAQAAAAEAAAD5/wIAAQAAAAIAAAA=")
 tile_set = SubResource("TileSet_thmji")
+metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="TileMapLayer"]
@@ -446,132 +439,6 @@ texture = SubResource("NoiseTexture2D_thmji")
 
 [node name="Player" parent="." instance=ExtResource("3_o4mvr")]
 position = Vector2(252, 162)
-
-[node name="GravityZone" type="Area2D" parent="."]
-position = Vector2(-288, 212)
-gravity_space_override = 3
-gravity_point_unit_distance = 3.331
-gravity_point_center = Vector2(0, -1)
-gravity_direction = Vector2(0, -1)
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="GravityZone"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -125.0
-offset_right = 50.0
-offset_bottom = 125.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 1, 1, 0.47058824)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GravityZone"]
-shape = SubResource("RectangleShape2D_r1bdh")
-
-[node name="Label2" type="Label" parent="GravityZone"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -110.5
-offset_top = -50.5
-offset_right = 110.5
-offset_bottom = 50.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Gravity zone up"
-label_settings = SubResource("LabelSettings_r1bdh")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="GravityZone2" type="Area2D" parent="."]
-position = Vector2(-14, -343)
-gravity_space_override = 3
-gravity_point_unit_distance = 3.331
-gravity_point_center = Vector2(0, -1)
-gravity_direction = Vector2(0, -1)
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="GravityZone2"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -50.0
-offset_right = 125.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 1, 1, 0.47058824)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GravityZone2"]
-shape = SubResource("RectangleShape2D_thmji")
-
-[node name="Label2" type="Label" parent="GravityZone2"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -60.5
-offset_top = -11.5
-offset_right = 60.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Gravity zone up"
-label_settings = SubResource("LabelSettings_r1bdh")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="GravityZone3" type="Area2D" parent="."]
-position = Vector2(263, -104)
-gravity_space_override = 3
-gravity_point_unit_distance = 3.331
-gravity_point_center = Vector2(-1, 0)
-gravity_direction = Vector2(-1, 0)
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="GravityZone3"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -50.0
-offset_right = 125.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 1, 0, 0.47058824)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GravityZone3"]
-shape = SubResource("RectangleShape2D_shhsb")
-
-[node name="Label2" type="Label" parent="GravityZone3"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -60.5
-offset_top = -11.5
-offset_right = 60.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Gravity zone left"
-label_settings = SubResource("LabelSettings_r1bdh")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="TutorialLabel" type="Label" parent="."]
 offset_left = 150.0
@@ -587,3 +454,34 @@ label_settings = SubResource("LabelSettings_r1bdh")
 
 [node name="enemy_goat_test" parent="Enemies" instance=ExtResource("5_tglvs")]
 position = Vector2(-127, 359)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-203, -367)
+
+[node name="GravityZone" parent="." instance=ExtResource("6_xiw1x")]
+offset_left = -304.0
+offset_top = 128.0
+offset_bottom = 176.0
+rotation = -1.5707964
+gravity_value = 4000.0
+
+[node name="GravityZone2" parent="." instance=ExtResource("6_xiw1x")]
+offset_left = -112.0
+offset_top = -320.0
+offset_right = -80.0
+offset_bottom = 256.0
+rotation = -1.5707964
+
+[node name="GravityZone3" parent="." instance=ExtResource("6_xiw1x")]
+offset_left = 112.0
+offset_top = 416.0
+offset_right = 288.0
+offset_bottom = 480.0
+rotation = -2.3561945
+gravity_value = 1960.0
+
+[node name="GravityZone4" parent="." instance=ExtResource("6_xiw1x")]
+offset_left = -448.0
+offset_top = -512.0
+offset_right = -128.0
+offset_bottom = -480.0
