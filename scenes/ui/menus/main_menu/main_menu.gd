@@ -7,9 +7,9 @@ extends MainMenu
 ## If true, have the player confirm before starting a new game if a game is in progress.
 @export var confirm_new_game : bool = true
 
-@onready var continue_game_button = %ContinueGameButton
-@onready var level_select_button = %LevelSelectButton
-@onready var new_game_confirmation = %NewGameConfirmationDialog
+@onready var continue_game_button : Button = %ContinueGameButton
+@onready var level_select_button : Button = %LevelSelectButton
+@onready var new_game_confirmation : ConfirmationDialog = %NewGameConfirmationDialog
 
 func load_game_scene() -> void:
 	GameState.start_game()

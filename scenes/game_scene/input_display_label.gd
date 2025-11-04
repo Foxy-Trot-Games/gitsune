@@ -1,6 +1,6 @@
 extends Label
 
-@onready var action_names := AppSettings.get_action_names()
+@onready var action_names := AppSettings.get_action_names(true)
 
 func _get_inputs_as_string() -> String:
 	var all_inputs : String = ""

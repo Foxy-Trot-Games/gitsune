@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://01f2htb8plmg"]
+
+[ext_resource type="Script" uid="uid://bjiclinojhoa8" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="Texture2D" uid="uid://cl0ybqyk5l127" path="res://assets/player/player_mockup.png" id="2_gmlin"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r1bdh"]
+radius = 16.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_dovo2")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.97306556, 0.45462722, 1.92523e-07, 1)
+texture = ExtResource("2_gmlin")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_r1bdh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0

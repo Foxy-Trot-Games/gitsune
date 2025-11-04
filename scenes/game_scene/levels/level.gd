@@ -1,43 +1,18 @@
 extends Node
 
-signal level_lost
-signal level_won
-signal level_won_and_changed(level_path : String)
-
-## Optional path to the next level if using an open world level system.
 @export_file("*.tscn") var next_level_path : String
 
 @onready var tutorial_manager: TutorialManager = %TutorialManager
-@onready var color_picker_button: ColorPickerButton = %ColorPickerButton
-@onready var background_color: ColorRect = %BackgroundColor
 
 var level_state : LevelState
 
-func _on_lose_button_pressed() -> void:
-	level_lost.emit()
-
-func _on_win_button_pressed() -> void:
-	if not next_level_path.is_empty():
-		level_won_and_changed.emit(next_level_path)
-	else:
-		level_won.emit()
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	level_state = GameState.get_level_state(scene_file_path)
+	if !level_state.tutorial_read:
+		open_tutorials()
 
 func open_tutorials() -> void:
 	tutorial_manager.open_tutorials()
 	level_state.tutorial_read = true
 	GlobalState.save()
-
-func _ready() -> void:
-	level_state = GameState.get_level_state(scene_file_path)
-	color_picker_button.color = level_state.color
-	background_color.color = level_state.color
-	if not level_state.tutorial_read:
-		open_tutorials()
-
-func _on_color_picker_button_color_changed(color : Color) -> void:
-	background_color.color = color
-	level_state.color = color
-	GlobalState.save()
-
-func _on_tutorial_button_pressed() -> void:
-	open_tutorials()
