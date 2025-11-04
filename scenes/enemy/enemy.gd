@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-@export var PLAYER_NAME:String = "CharacterBody2D"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -12,8 +11,8 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == PLAYER_NAME:
-		print(PLAYER_NAME + " entered the area of an enemy")
+	if body is Player:
+		print("%s entered the area of an enemy" % body.get_class())
 		call_deferred("_restart_scene")
 
 
