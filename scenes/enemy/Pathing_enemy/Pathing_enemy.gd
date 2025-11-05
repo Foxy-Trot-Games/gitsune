@@ -15,9 +15,6 @@ func _ready() -> void:
 	add_to_group("enemies")
 	# Random starting frame for animation
 	animation_player.seek(randf_range(0,animation_player.current_animation_length))
-	vision.body_entered.connect(_on_vision_body_entered)
-	vision.body_exited.connect(_on_vision_body_exited)
-	hitbox.body_entered.connect(_on_hitbox_body_entered)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
