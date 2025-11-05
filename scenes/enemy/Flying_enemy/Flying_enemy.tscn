@@ -52,7 +52,7 @@ radius = 18.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jgl1o"]
 size = Vector2(143, 147)
 
-[node name="flying_enemey" type="Node2D"]
+[node name="Flying_enemy" type="Node2D"]
 script = ExtResource("1_2jxvc")
 
 [node name="hitbox_area" type="Area2D" parent="."]

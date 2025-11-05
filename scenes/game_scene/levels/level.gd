@@ -13,7 +13,7 @@ func _ready() -> void:
 	if !level_state.tutorial_read:
 		open_tutorials()
 		
-	for enemy in get_tree().get_nodes_in_group("enemies"):
+	for enemy: Enemy in get_tree().get_nodes_in_group("enemies"):
 		print("Connecting enemy signal")
 		enemy.player_hit.connect(_on_flying_enemey_player_hit)
 
@@ -24,5 +24,5 @@ func open_tutorials() -> void:
 	GlobalState.save()
 
 
-func _on_flying_enemey_player_hit(_player) -> void:
+func _on_flying_enemey_player_hit(_player: Player) -> void:
 	player.die()

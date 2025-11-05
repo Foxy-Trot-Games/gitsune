@@ -1,4 +1,4 @@
-extends Node2D
+extends Enemy
 
 @onready var vision: Area2D = $vision
 @onready var animated_sprite_2d: AnimatedSprite2D = $hitbox_area/AnimatedSprite2D

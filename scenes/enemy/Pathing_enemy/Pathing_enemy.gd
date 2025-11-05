@@ -1,4 +1,4 @@
-extends Node2D
+extends Enemy
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var vision: Area2D = $Sprite2D/vision

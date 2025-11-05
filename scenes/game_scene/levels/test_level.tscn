@@ -419,7 +419,6 @@ font_color = Color(0, 0, 0, 1)
 
 [node name="TestLevel" type="Node"]
 script = ExtResource("1_xiw1x")
-next_level_path = null
 
 [node name="TutorialManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -503,5 +502,3 @@ offset_left = -448.0
 offset_top = -512.0
 offset_right = -128.0
 offset_bottom = -480.0
-
-[connection signal="player_hit" from="Enemies/flying_enemey" to="." method="_on_flying_enemey_player_hit"]
