@@ -1,21 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://01f2htb8plmg"]
+[gd_scene load_steps=6 format=3 uid="uid://01f2htb8plmg"]
 
 [ext_resource type="Script" uid="uid://bjiclinojhoa8" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://cl0ybqyk5l127" path="res://assets/player/player_mockup.png" id="2_gmlin"]
+[ext_resource type="Script" uid="uid://ifh43o1gqhb8" path="res://scripts/pulse.gd" id="3_gmlin"]
+[ext_resource type="Script" uid="uid://b44d6kc4emnxj" path="res://scripts/player_controler.gd" id="4_lvxji"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r1bdh"]
 radius = 16.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_dovo2")
+jump_force = 100
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 modulate = Color(0.97306556, 0.45462722, 1.92523e-07, 1)
 texture = ExtResource("2_gmlin")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 shape = SubResource("CircleShape2D_r1bdh")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="PlayerCamera" type="Camera2D" parent="."]
+unique_name_in_owner = true
 process_callback = 0
+
+[node name="PlayerControler" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_lvxji")
+
+[node name="Pulse" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_gmlin")
