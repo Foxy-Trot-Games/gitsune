@@ -59,7 +59,6 @@ script = ExtResource("1_a3pup")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(2, -10.000001)
-scale = Vector2(1.09375, 1.09375)
 sprite_frames = SubResource("SpriteFrames_k30va")
 autoplay = "default"
 frame = 4
