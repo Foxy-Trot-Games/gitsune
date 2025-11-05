@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://2jpu8jkgrmga"]
+
+[ext_resource type="Script" uid="uid://cw8f5aq8nr5bq" path="res://scenes/enemy/Flying_enemy/flying_enemy.gd" id="1_2jxvc"]
+[ext_resource type="Texture2D" uid="uid://dxiqie57j511j" path="res://assets/enemy/Bat.png" id="2_ja24j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l25sg"]
+atlas = ExtResource("2_ja24j")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sh7nu"]
+atlas = ExtResource("2_ja24j")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svgm4"]
+atlas = ExtResource("2_ja24j")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npjsh"]
+atlas = ExtResource("2_ja24j")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0vee"]
+atlas = ExtResource("2_ja24j")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k30va"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l25sg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sh7nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svgm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npjsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0vee")
+}],
+"loop": true,
+"name": &"default",
+"speed": 11.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k75kq"]
+radius = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgl1o"]
+size = Vector2(143, 147)
+
+[node name="flying_enemey" type="Node2D"]
+script = ExtResource("1_2jxvc")
+
+[node name="hitbox_area" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="hitbox_area"]
+texture_filter = 1
+position = Vector2(2, -10.000001)
+sprite_frames = SubResource("SpriteFrames_k30va")
+autoplay = "default"
+frame_progress = 0.71754646
+
+[node name="hitbox_collision" type="CollisionShape2D" parent="hitbox_area"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_k75kq")
+debug_color = Color(0.99860746, 0, 0.14937201, 0.41960785)
+
+[node name="vision" type="Area2D" parent="."]
+
+[node name="vision_collision" type="CollisionShape2D" parent="vision"]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_jgl1o")
+
+[connection signal="body_entered" from="hitbox_area" to="." method="_on_hitbox_area_body_entered"]
+[connection signal="body_entered" from="vision" to="." method="_on_vision_body_entered"]
+[connection signal="body_exited" from="vision" to="." method="_on_vision_body_exited"]

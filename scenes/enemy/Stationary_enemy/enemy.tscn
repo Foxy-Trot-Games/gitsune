@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cxm7caqjvvyu5"]
 
-[ext_resource type="Script" uid="uid://baak4jrk8jixi" path="res://scenes/enemy/enemy.gd" id="1_a3pup"]
+[ext_resource type="Script" uid="uid://baak4jrk8jixi" path="res://scenes/enemy/Stationary_enemy/Pathing_enemy.gd" id="1_a3pup"]
 [ext_resource type="Texture2D" uid="uid://bk83tjkmpp7e2" path="res://assets/enemy/goatman.png" id="1_hx8jw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5uyx3"]
@@ -48,10 +48,10 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4a83h"]
 radius = 11.0
-height = 54.0
+height = 48.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40wdo"]
-size = Vector2(38, 52)
+size = Vector2(39, 52)
 
 [node name="enemy_goat_test" type="RigidBody2D"]
 script = ExtResource("1_a3pup")
@@ -65,13 +65,13 @@ frame = 4
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -1)
+position = Vector2(1, -2)
 shape = SubResource("CapsuleShape2D_4a83h")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(6, -2)
+position = Vector2(3.5, -4)
 shape = SubResource("RectangleShape2D_40wdo")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

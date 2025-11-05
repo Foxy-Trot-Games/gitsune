@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6ehygw84f8v5"
-path="res://.godot/imported/mosquito.png-aa240cb08af27399ea57d07052d2cb3e.ctex"
+uid="uid://dxiqie57j511j"
+path="res://.godot/imported/Bat.png-a337b828b065fd4d765c582c2f50eb2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/enemy/flying_enemy/mosquito.png"
-dest_files=["res://.godot/imported/mosquito.png-aa240cb08af27399ea57d07052d2cb3e.ctex"]
+source_file="res://assets/enemy/Bat.png"
+dest_files=["res://.godot/imported/Bat.png-a337b828b065fd4d765c582c2f50eb2b.ctex"]
 
 [params]
 
