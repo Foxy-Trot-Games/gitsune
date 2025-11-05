@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cxm7caqjvvyu5"]
 
-[ext_resource type="Script" uid="uid://baak4jrk8jixi" path="res://scenes/enemy/Stationary_enemy/Pathing_enemy.gd" id="1_a3pup"]
+[ext_resource type="Script" uid="uid://baak4jrk8jixi" path="res://scenes/enemy/Stationary_enemy/Sationary_enemy.gd" id="1_a3pup"]
 [ext_resource type="Texture2D" uid="uid://bk83tjkmpp7e2" path="res://assets/enemy/goatman.png" id="1_hx8jw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5uyx3"]

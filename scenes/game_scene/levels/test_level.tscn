@@ -419,6 +419,7 @@ font_color = Color(0, 0, 0, 1)
 
 [node name="TestLevel" type="Node"]
 script = ExtResource("1_xiw1x")
+next_level_path = null
 
 [node name="TutorialManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -469,6 +470,9 @@ position = Vector2(-127, 359)
 
 [node name="flying_enemies" type="Node" parent="Enemies"]
 
+[node name="flying_enemey" parent="Enemies" instance=ExtResource("9_3hanc")]
+position = Vector2(449, -16)
+
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-203, -367)
 
@@ -500,5 +504,4 @@ offset_top = -512.0
 offset_right = -128.0
 offset_bottom = -480.0
 
-[node name="flying_enemey" parent="." instance=ExtResource("9_3hanc")]
-position = Vector2(449, -16)
+[connection signal="player_hit" from="Enemies/flying_enemey" to="." method="_on_flying_enemey_player_hit"]

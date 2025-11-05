@@ -46,3 +46,8 @@ func _physics_process(delta: float) -> void:
 	_pending_knockback = Vector2.ZERO
 
 	move_and_slide()
+
+#player dying function after emiting a signal from the enemies
+func die() -> void:
+	print("Player died") # for debugging
+	get_tree().reload_current_scene()
