@@ -1,13 +1,14 @@
-[gd_scene load_steps=15 format=4 uid="uid://w2qphny0t0vu"]
+[gd_scene load_steps=16 format=4 uid="uid://w2qphny0t0vu"]
 
 [ext_resource type="Script" uid="uid://bog2ukuxke2rv" path="res://scenes/game_scene/levels/level.gd" id="1_xiw1x"]
 [ext_resource type="Texture2D" uid="uid://djwl4s2q7t8gr" path="res://assets/background/full_textured.png" id="2_lwywk"]
 [ext_resource type="PackedScene" uid="uid://01f2htb8plmg" path="res://scenes/player/player.tscn" id="3_o4mvr"]
-[ext_resource type="PackedScene" uid="uid://cxm7caqjvvyu5" path="res://scenes/enemy/enemy.tscn" id="5_tglvs"]
+[ext_resource type="PackedScene" uid="uid://cxm7caqjvvyu5" path="res://scenes/enemy/Stationary_enemy/enemy.tscn" id="5_tglvs"]
 [ext_resource type="Script" uid="uid://s3864f4i872k" path="res://scenes/game_scene/tutorial_manager.gd" id="6_0bqqu"]
 [ext_resource type="PackedScene" uid="uid://m4lsx3aqr7pp" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="6_o4mvr"]
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/game_scene/level_objects/gravity_zone.tscn" id="6_xiw1x"]
-[ext_resource type="PackedScene" uid="uid://hbspw0hu400f" path="res://scenes/enemy/flying_enemy/flying_enemey.tscn" id="8_lwywk"]
+[ext_resource type="PackedScene" uid="uid://hbspw0hu400f" path="res://scenes/enemy/Pathing_enemy/Pathing_enemy.tscn" id="8_lwywk"]
+[ext_resource type="PackedScene" uid="uid://2jpu8jkgrmga" path="res://scenes/enemy/Flying_enemy/Flying_enemy.tscn" id="9_3hanc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_erhvc"]
 resource_name = "full"
@@ -453,20 +454,20 @@ label_settings = SubResource("LabelSettings_r1bdh")
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="enemy_goat_test" parent="Enemies" instance=ExtResource("5_tglvs")]
+[node name="Pathing_enemies" type="Node" parent="Enemies"]
+
+[node name="Pathing_enemy" parent="Enemies/Pathing_enemies" instance=ExtResource("8_lwywk")]
+position = Vector2(3, 205)
+
+[node name="Pathing_enemy2" parent="Enemies/Pathing_enemies" instance=ExtResource("8_lwywk")]
+position = Vector2(10, -90)
+
+[node name="stationary_enemies" type="Node" parent="Enemies"]
+
+[node name="enemy_goat_test" parent="Enemies/stationary_enemies" instance=ExtResource("5_tglvs")]
 position = Vector2(-127, 359)
 
-[node name="Flying_enemey" parent="Enemies" instance=ExtResource("8_lwywk")]
-position = Vector2(-215, 343)
-
-[node name="Flying_enemey2" parent="Enemies" instance=ExtResource("8_lwywk")]
-position = Vector2(-205, -201)
-
-[node name="Flying_enemey3" parent="Enemies" instance=ExtResource("8_lwywk")]
-position = Vector2(-271, 344)
-
-[node name="Flying_enemey4" parent="Enemies" instance=ExtResource("8_lwywk")]
-position = Vector2(425, 304)
+[node name="flying_enemies" type="Node" parent="Enemies"]
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-203, -367)
@@ -498,3 +499,6 @@ offset_left = -448.0
 offset_top = -512.0
 offset_right = -128.0
 offset_bottom = -480.0
+
+[node name="flying_enemey" parent="." instance=ExtResource("9_3hanc")]
+position = Vector2(449, -16)
