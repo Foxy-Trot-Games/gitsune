@@ -1,19 +1,18 @@
 class_name Pulse
 extends Node2D
 
-
 const PARTICLES = preload("uid://dmwmphp4y0bya")
 const KNOCKBACK_IMPULSE: float = 200.0
 
+
 var particle_throttle := Throttle.new(.2)
-
-
+var pulse_cooldown: float = 0.5
+var can_pulse: bool = true
 
 func apply_knockback_impulse(direction: Vector2) -> void:
-	var knock_back_force = direction * KNOCKBACK_IMPULSE
-	
+	# Emit a knockback signal instead of changing velocity
+	Events.pulse_knockback(direction * KNOCKBACK_IMPULSE)
 	_create_sound_wave(direction)
-	Events.player_movement_input(knock_back_force)
 
 func _create_sound_wave(direction: Vector2) -> void:
 	var particles: GPUParticles2D = PARTICLES.instantiate()
@@ -32,6 +31,9 @@ func _create_sound_wave(direction: Vector2) -> void:
 	await get_tree().create_timer(lifetime).timeout
 	particles.queue_free()
 
-func _process(_delta: float) -> void:
-	if Input.is_action_pressed("pulse"):
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("pulse") and can_pulse:
 		apply_knockback_impulse(Vector2(0.0, -1.0))
+		can_pulse = false
+		await get_tree().create_timer(pulse_cooldown)
+		can_pulse = true
