@@ -6,8 +6,8 @@ extends CharacterBody2D
 @export var speed: int = 200
 @export var jump_force: int = 400
 
-var _move_direction = Vector2.ZERO
-var _pending_knockback = Vector2.ZERO
+var _move_direction := Vector2.ZERO
+var _pending_knockback := Vector2.ZERO
 
 
 func _ready() -> void:

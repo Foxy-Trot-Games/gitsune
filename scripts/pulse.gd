@@ -27,7 +27,7 @@ func _create_sound_wave(direction: Vector2) -> void:
 	add_child(particles)
 
 	# Free after lifetime
-	var lifetime = particles.lifetime
+	var lifetime := particles.lifetime
 	await get_tree().create_timer(lifetime).timeout
 	particles.queue_free()
 
@@ -35,5 +35,5 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("pulse") and can_pulse:
 		apply_knockback_impulse(Vector2(0.0, -1.0))
 		can_pulse = false
-		await get_tree().create_timer(pulse_cooldown)
+		await get_tree().create_timer(pulse_cooldown).timeout
 		can_pulse = true

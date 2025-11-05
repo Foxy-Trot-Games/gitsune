@@ -7,7 +7,7 @@ extends Node2D
 
 
 func _process(_delta: float) -> void:
-	var direction = Vector2.ZERO
+	var direction := Vector2.ZERO
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
 			
