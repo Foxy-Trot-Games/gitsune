@@ -62,7 +62,7 @@ texture_filter = 1
 position = Vector2(2, -10.000001)
 sprite_frames = SubResource("SpriteFrames_k30va")
 autoplay = "default"
-frame_progress = 0.71754646
+frame_progress = 0.25620034
 
 [node name="hitbox_collision" type="CollisionShape2D" parent="hitbox_area"]
 position = Vector2(0, -7)

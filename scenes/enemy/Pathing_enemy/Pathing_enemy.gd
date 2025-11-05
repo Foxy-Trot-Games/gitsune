@@ -6,11 +6,13 @@ extends Node2D
 @onready var vision_collision: CollisionShape2D = $Sprite2D/vision/vision_Collision
 @onready var hitbox: Area2D = $Sprite2D/hitbox
 
+signal player_hit
 
 var seen : bool = false 
 var player : Player
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("enemies")
 	# Random starting frame for animation
 	animation_player.seek(randf_range(0,animation_player.current_animation_length))
 	vision.body_entered.connect(_on_vision_body_entered)
@@ -48,8 +50,4 @@ func _on_vision_body_exited(body: Node2D) -> void:
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body is Player:
-		call_deferred("_kill_player")
-
-# Reload scene when player dies
-func _kill_player() -> void:
-	get_tree().reload_current_scene()
+		emit_signal("player_hit", body)

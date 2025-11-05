@@ -8,8 +8,10 @@ extends Node2D
 
 var seen : bool = false 
 var player : Player
+signal player_hit
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("enemies")
 	# Random starting frame for animation
 	vision.body_entered.connect(_on_vision_body_entered)
 	vision.body_exited.connect(_on_vision_body_exited)
@@ -39,9 +41,7 @@ func _on_vision_body_exited(body: Node2D) -> void:
 			seen=false
 			player=null
 # Reload scene when player dies
-func _kill_player() -> void:
-	get_tree().reload_current_scene()
 
 func _on_hitbox_area_body_entered(body: Node2D) -> void:
-		if body is Player:
-			call_deferred("_kill_player")
+		if body is Player: 
+			emit_signal("player_hit", body)
