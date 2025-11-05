@@ -18,4 +18,9 @@ texture = ExtResource("2_gmlin")
 shape = SubResource("CircleShape2D_r1bdh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
 process_callback = 0
+limit_left = -750
+limit_top = -750
+limit_right = 750
+limit_bottom = 500
