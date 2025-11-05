@@ -98,7 +98,7 @@ jobs:
             git log --grep="\[code\]" --invert-grep --reverse --pretty=format:"- %s" > commits.txt
           else
             echo "Commits since last successful run (${{ steps.last_run.outputs.last_sha }}):"
-            git log ${{ steps.last_run.outputs.last_sha }}..HEAD --grep="\[code\]" --invert-grep --reverse --pretty=format:"- %s" > commits.txt
+            git log ${{ steps.last_run.outputs.last_sha }}..HEAD --grep="\[code\]" --invert-grep --reverse --pretty=format:"- [%an] %s" > commits.txt
           fi
 
           cat commits.txt
