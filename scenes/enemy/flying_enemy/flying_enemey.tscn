@@ -1,0 +1,119 @@
+[gd_scene load_steps=13 format=3 uid="uid://hbspw0hu400f"]
+
+[ext_resource type="Texture2D" uid="uid://bakx0pt0to5v5" path="res://assets/enemy/mosquito.png" id="1_87ujf"]
+[ext_resource type="Script" uid="uid://142ycydyovl5" path="res://scenes/enemy/flying_enemy/flying_enemey.gd" id="1_nev1t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nev1t"]
+atlas = ExtResource("1_87ujf")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7cfs"]
+atlas = ExtResource("1_87ujf")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8rqc"]
+atlas = ExtResource("1_87ujf")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csi86"]
+atlas = ExtResource("1_87ujf")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4aodd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nev1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7cfs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8rqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csi86")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nev1t"]
+size = Vector2(193, 218)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k7cfs"]
+radius = 9.0
+
+[sub_resource type="Animation" id="Animation_pv056"]
+resource_name = "fly"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9666667, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -120), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_arcew"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ey0tg"]
+_data = {
+&"RESET": SubResource("Animation_arcew"),
+&"fly": SubResource("Animation_pv056")
+}
+
+[node name="Flying_enemey" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_nev1t")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4aodd")
+autoplay = "default"
+frame_progress = 0.8728045
+
+[node name="vision" type="Area2D" parent="Sprite2D"]
+
+[node name="vision_Collision" type="CollisionShape2D" parent="Sprite2D/vision"]
+position = Vector2(1.5, -10)
+shape = SubResource("RectangleShape2D_nev1t")
+
+[node name="hitbox" type="Area2D" parent="Sprite2D"]
+
+[node name="hitbox_Collision" type="CollisionShape2D" parent="Sprite2D/hitbox"]
+position = Vector2(3, 2)
+shape = SubResource("CapsuleShape2D_k7cfs")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -120)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ey0tg")
+}
+autoplay = "fly"
+
+[connection signal="body_entered" from="Sprite2D/vision" to="." method="_on_vision_body_entered"]
+[connection signal="body_exited" from="Sprite2D/vision" to="." method="_on_vision_body_exited"]
+[connection signal="body_shape_exited" from="Sprite2D/vision" to="." method="_on_vision_body_shape_exited"]
+[connection signal="body_entered" from="Sprite2D/hitbox" to="." method="_on_hitbox_body_entered"]
