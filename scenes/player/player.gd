@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 var _move_direction := Vector2.ZERO
 var _pending_knockback := Vector2.ZERO
-
+var _gun: Node2D
 
 func _ready() -> void:
 	Events.player_movement_input_signal.connect(_on_player_movement_input_signal)
@@ -21,13 +21,20 @@ func _on_pulse_knockback(knockback: Vector2) -> void:
 
 func _on_player_movement_input_signal(direction: Vector2) -> void:
 	_move_direction = direction
+	if !_gun:
+		for child in get_children():
+			if child.is_in_group("Gun"):
+				_gun = child
+				break
 
 	# Flip sprite
 	if direction.x > 0 and player_sprite.flip_h:
 		player_sprite.flip_h = false
+		_gun.scale.x = 1 
+
 	elif direction.x < 0 and !player_sprite.flip_h:
 		player_sprite.flip_h = true
-
+		_gun.scale.x = -1  
 
 func _physics_process(delta: float) -> void:
 	# Normal movement

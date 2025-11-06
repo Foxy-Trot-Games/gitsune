@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://01f2htb8plmg"]
+[gd_scene load_steps=7 format=3 uid="uid://01f2htb8plmg"]
 
 [ext_resource type="Script" uid="uid://bjiclinojhoa8" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://cl0ybqyk5l127" path="res://assets/player/player_mockup.png" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://ifh43o1gqhb8" path="res://scripts/pulse.gd" id="3_gmlin"]
 [ext_resource type="Script" uid="uid://b44d6kc4emnxj" path="res://scripts/player_controler.gd" id="4_lvxji"]
+[ext_resource type="PackedScene" uid="uid://dfxgljq6hf57a" path="res://scenes/gun/gun.tscn" id="5_p47bc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r1bdh"]
 radius = 16.0
@@ -30,6 +31,10 @@ process_callback = 0
 unique_name_in_owner = true
 script = ExtResource("4_lvxji")
 
-[node name="Pulse" type="Node2D" parent="."]
+[node name="Gun" parent="." instance=ExtResource("5_p47bc")]
+position = Vector2(3, 8)
+
+[node name="Pulse" type="Node2D" parent="Gun"]
 unique_name_in_owner = true
+position = Vector2(-3, -8)
 script = ExtResource("3_gmlin")
