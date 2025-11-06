@@ -9,6 +9,7 @@ extends CharacterBody2D
 var _move_direction := Vector2.ZERO
 var _pending_knockback := Vector2.ZERO
 var _gun: Node2D
+var PLAYER_AIR_RESISTENCE := 0.1 # higher is more resistence up to 1.0
 
 func _ready() -> void:
 	Events.player_movement_input_signal.connect(_on_player_movement_input_signal)
@@ -35,12 +36,15 @@ func _on_player_movement_input_signal(direction: Vector2) -> void:
 		player_sprite.flip_h = true
 
 func _physics_process(delta: float) -> void:
-	# Normal movement
-	velocity.x = _move_direction.x * speed
-
-	# Gravity
-	if not is_on_floor():
-		velocity.y += ProjectSettings.get_setting("physics/2d/default_gravity") * delta
+	# apply gravity and gravity zones
+	velocity += get_gravity() * delta
+	
+	if is_on_floor():
+		velocity.x = _move_direction.x * speed
+	elif _move_direction != Vector2.ZERO:
+		# apply horizontal velocity to the player in the air if they are actively trying to move
+		# air resistence is taken into account to slowly move the player
+		velocity.x = lerpf(velocity.x, _move_direction.x * speed, PLAYER_AIR_RESISTENCE)
 
 	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
