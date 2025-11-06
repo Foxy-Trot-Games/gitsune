@@ -32,5 +32,4 @@ position = Vector2(3, 8)
 
 [node name="Pulse" type="Node2D" parent="Gun"]
 unique_name_in_owner = true
-position = Vector2(-3, -8)
 script = ExtResource("3_gmlin")

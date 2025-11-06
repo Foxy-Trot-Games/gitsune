@@ -1,6 +1,8 @@
 class_name Pulse
 extends Node2D
 
+@onready var gun: Gun = $".."
+
 const PARTICLES = preload("uid://dmwmphp4y0bya")
 const KNOCKBACK_IMPULSE: float = 200.0
 
@@ -21,11 +23,10 @@ func _create_sound_wave(direction: Vector2) -> void:
 	var process_material: ParticleProcessMaterial = particles.process_material
 	if direction == Vector2.ZERO:
 		process_material.spread = 180
-	else:
-		process_material.direction = Vector3(-direction.x, -direction.y, 0)
-
+		
+	# gun rotation handles where the particles are emitted
 	add_child(particles)
-
+	
 	# Free after lifetime
 	var lifetime := particles.lifetime
 	await get_tree().create_timer(lifetime).timeout
@@ -33,7 +34,9 @@ func _create_sound_wave(direction: Vector2) -> void:
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("pulse") and can_pulse:
-		apply_knockback_impulse(Vector2(0.0, -1.0))
+		var rotation_normal_vector: Vector2 = Vector2.from_angle(gun.rotation)
+		# impulse player opposite where the gun is pointing
+		apply_knockback_impulse(-rotation_normal_vector)
 		can_pulse = false
 		await get_tree().create_timer(pulse_cooldown).timeout
 		can_pulse = true
