@@ -12,23 +12,29 @@ func _process(delta: float) -> void:
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	var target_pos: Vector2 = mouse_pos
 
+	# move the gun position so it's centered on the players mouth
 	if player.player_sprite.flip_h:
-		# Mirror horizontally relative to gun position
-		target_pos.x = global_position.x - (mouse_pos.x - global_position.x)
-		scale.x = -1
+		position.x = -abs(position.x)
 	else:
-		scale.x = 1
-
+		position.x = abs(position.x)
+	
+	# flip gun axis depending on its rotation so its never rotated upside down
+	var angle := Vector2.from_angle(rotation)
+	if angle.x > 0:
+		scale.y = abs(scale.y)
+	else:
+		scale.y = -abs(scale.y)
+	
 	look_at(target_pos)
 
-	debug_timer -= delta
-	if debug_timer <= 0:
-		print("Gun global pos:", global_position)
-		print("Muzzle global pos:", muzzle.global_position)
-		print("Mouse pos:", mouse_pos)
-		print("Target pos (look_at):", target_pos)
-		print("Gun rotation (rad):", rotation, "Player flipped:", player.player_sprite.flip_h)
-		debug_timer = 0.2
+	#debug_timer -= delta
+	#if debug_timer <= 0:
+		#print("Gun global pos:", global_position)
+		#print("Muzzle global pos:", muzzle.global_position)
+		#print("Mouse pos:", mouse_pos)
+		#print("Target po s (look_at):", target_pos)
+		#print("Gun rotation (rad):", rotation, "Player flipped:", player.player_sprite.flip_h)
+		#debug_timer = 0.2
 
 	queue_redraw()
 
@@ -38,8 +44,7 @@ func _draw() -> void:
 		return
 
 	var local_muzzle: Vector2 = muzzle.position
-	var local_mouse: Vector2 = to_local(get_global_mouse_position())
-
-	draw_line(local_muzzle, local_mouse, Color(1, 0, 0), 2)
-
-	draw_line(local_muzzle, to_local(get_global_mouse_position()), Color(0, 1, 0), 2)
+	
+	#draw_line(local_muzzle, to_local(get_global_mouse_position()), Color(1, 0, 0), 2)
+	
+	draw_line(local_muzzle, get_local_mouse_position(), Color(0, 1, 0), 2, false)

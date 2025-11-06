@@ -30,11 +30,9 @@ func _on_player_movement_input_signal(direction: Vector2) -> void:
 	# Flip sprite
 	if direction.x > 0 and player_sprite.flip_h:
 		player_sprite.flip_h = false
-		_gun.scale.x = 1 
 
 	elif direction.x < 0 and !player_sprite.flip_h:
 		player_sprite.flip_h = true
-		_gun.scale.x = -1  
 
 func _physics_process(delta: float) -> void:
 	# Normal movement
