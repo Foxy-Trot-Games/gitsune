@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://x0obeyaoirks"]
+
+[ext_resource type="Script" uid="uid://c6j4unhal2kjo" path="res://scenes/game_scene/camera/camera_zone.gd" id="1_y6m5l"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_hkwhp"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_hkwhp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsimd"]
+resource_local_to_scene = true
+size = Vector2(640, 360)
+
+[sub_resource type="Resource" id="Resource_hhgjy"]
+script = ExtResource("3_hkwhp")
+duration = 0.0
+
+[node name="CameraZone" type="Area2D"]
+script = ExtResource("1_y6m5l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(320, 180)
+shape = SubResource("RectangleShape2D_bsimd")
+debug_color = Color(0.3137255, 0, 0.18431373, 0.15294118)
+
+[node name="PhantomCamera2D" type="Node2D" parent="."]
+top_level = true
+position = Vector2(640, 360)
+script = ExtResource("2_hkwhp")
+follow_mode = 5
+snap_to_pixel = true
+frame_preview = false
+tween_resource = SubResource("Resource_hhgjy")
+tween_on_load = false
+dead_zone_width = 0.8
+dead_zone_height = 0.8
+draw_limits = true
+limit_target = NodePath("../CollisionShape2D")
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="dead_zone_reached" from="PhantomCamera2D" to="PhantomCamera2D" method="_on_dead_zone_reached"]
