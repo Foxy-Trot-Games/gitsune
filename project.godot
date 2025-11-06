@@ -24,6 +24,7 @@ ProjectMusicController="*res://addons/maaacks_game_template/base/nodes/autoloads
 ProjectUISoundController="*res://addons/maaacks_game_template/base/nodes/autoloads/ui_sound_controller/project_ui_sound_controller.tscn"
 Events="*res://autoloads/events.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+Globals="*res://autoloads/globals.gd"
 
 [debug]
 
@@ -63,6 +64,7 @@ folder_colors={
 [global_group]
 
 Gun="Gun Group"
+Player="Player Group "
 
 [gui]
 

@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bjiclinojhoa8" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://cl0ybqyk5l127" path="res://assets/player/player_mockup.png" id="2_gmlin"]
-[ext_resource type="Script" uid="uid://ifh43o1gqhb8" path="res://scripts/pulse.gd" id="3_gmlin"]
 [ext_resource type="Script" uid="uid://b44d6kc4emnxj" path="res://scripts/player_controler.gd" id="4_lvxji"]
 [ext_resource type="PackedScene" uid="uid://dfxgljq6hf57a" path="res://scenes/gun/gun.tscn" id="5_p47bc"]
+[ext_resource type="Script" uid="uid://csfv8f14k2ogw" path="res://scripts/ammo_count.gd" id="6_75vfm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r1bdh"]
 radius = 16.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_dovo2")
 jump_force = 200
 metadata/_edit_group_ = true
@@ -30,6 +30,15 @@ script = ExtResource("4_lvxji")
 [node name="Gun" parent="." instance=ExtResource("5_p47bc")]
 position = Vector2(3, 8)
 
-[node name="Pulse" type="Node2D" parent="Gun"]
+[node name="AmmoCount" type="Label" parent="."]
 unique_name_in_owner = true
-script = ExtResource("3_gmlin")
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -19.0
+offset_top = -37.0
+offset_right = 21.0
+offset_bottom = -14.0
+grow_horizontal = 2
+text = "Test"
+script = ExtResource("6_75vfm")
