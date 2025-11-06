@@ -559,6 +559,7 @@ snap_to_pixel = true
 frame_preview = false
 tween_resource = SubResource("Resource_i6cby")
 tween_on_load = false
+follow_damping = true
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
