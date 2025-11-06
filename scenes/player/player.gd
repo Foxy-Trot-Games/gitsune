@@ -59,4 +59,5 @@ func _physics_process(delta: float) -> void:
 #player dying function after emiting a signal from the enemies
 func die() -> void:
 	print("Player died") # for debugging
-	get_tree().reload_current_scene()
+	get_tree.call_deferred("reload_current_scene") # Using call_defered() here to avoid potential issues, removing collision bodies during 
+												  # _physics_process can lead to dumb and anoying issues. 

@@ -1,6 +1,9 @@
 class_name Pulse
 extends Node2D
 
+signal pulse_activated_signal
+
+
 @onready var gun: Gun = $".."
 
 const PARTICLES = preload("uid://dmwmphp4y0bya")
@@ -33,7 +36,8 @@ func _create_sound_wave(direction: Vector2) -> void:
 	particles.queue_free()
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("pulse") and can_pulse:
+	if Input.is_action_just_pressed("pulse") and can_pulse and Globals.active_gun_ammo_count > 0 :
+		emit_signal("pulse_activated_signal")
 		var rotation_normal_vector: Vector2 = Vector2.from_angle(gun.rotation)
 		# impulse player opposite where the gun is pointing
 		apply_knockback_impulse(-rotation_normal_vector)

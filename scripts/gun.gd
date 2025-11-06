@@ -1,9 +1,21 @@
 class_name Gun extends Node2D
 
 @onready var muzzle: Node2D = %Muzzle
+@onready var pulse: Pulse = %Pulse
+
+
+const MAX_AMMO: int = 10
 
 var player: Player
 var debug_timer := 0.0  # Timer to throttle debug prints
+
+var _current_ammo_count: int 
+
+func _ready() -> void:
+	_current_ammo_count = MAX_AMMO
+	Events.current_gun_ammo(_current_ammo_count)
+	pulse.pulse_activated_signal.connect(_on_pulse_activated_signal)
+	Events.current_gun_ammo_signal.connect(_on_current_gun_ammo_signal)
 
 func _process(delta: float) -> void:
 	if player == null:
@@ -27,16 +39,21 @@ func _process(delta: float) -> void:
 	
 	look_at(target_pos)
 
-	#debug_timer -= delta
-	#if debug_timer <= 0:
-		#print("Gun global pos:", global_position)
-		#print("Muzzle global pos:", muzzle.global_position)
-		#print("Mouse pos:", mouse_pos)
-		#print("Target po s (look_at):", target_pos)
-		#print("Gun rotation (rad):", rotation, "Player flipped:", player.player_sprite.flip_h)
-		#debug_timer = 0.2
-
 	queue_redraw()
+
+func _on_current_gun_ammo_signal(ammo_count: int)->void:
+	_current_ammo_count = Globals.active_gun_ammo_count 
+	print(self, "Received current gun ammo signal." , _current_ammo_count)
+
+
+func _on_pulse_activated_signal()->void:
+	print(self, "_on_pulse_activated_signal." , _current_ammo_count)
+	if _current_ammo_count < 2:
+		pulse.can_pulse = false
+		print(pulse.can_pulse)
+	_current_ammo_count -= 1
+	Events.current_gun_ammo(_current_ammo_count)
+	
 
 
 func _draw() -> void:
@@ -44,7 +61,5 @@ func _draw() -> void:
 		return
 
 	var local_muzzle: Vector2 = muzzle.position
-	
-	#draw_line(local_muzzle, to_local(get_global_mouse_position()), Color(1, 0, 0), 2)
 	
 	draw_line(local_muzzle, get_local_mouse_position(), Color(0, 1, 0), 2, false)

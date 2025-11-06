@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://w2qphny0t0vu"]
+[gd_scene load_steps=23 format=4 uid="uid://w2qphny0t0vu"]
 
 [ext_resource type="Script" uid="uid://bog2ukuxke2rv" path="res://scenes/game_scene/levels/level.gd" id="1_xiw1x"]
 [ext_resource type="PackedScene" uid="uid://01f2htb8plmg" path="res://scenes/player/player.tscn" id="3_o4mvr"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="10_0bqqu"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="11_hy41p"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="12_u4ne6"]
+[ext_resource type="PackedScene" uid="uid://dj26b32jiqwfe" path="res://scenes/objects/ammo.tscn" id="13_hy41p"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_aegw0"]
 resource_name = "Enemies"
@@ -562,5 +563,29 @@ tween_on_load = false
 follow_damping = true
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Ammo" parent="." instance=ExtResource("13_hy41p")]
+position = Vector2(154, 112)
+
+[node name="Ammo2" parent="." instance=ExtResource("13_hy41p")]
+position = Vector2(-372, 378)
+
+[node name="Ammo3" parent="." instance=ExtResource("13_hy41p")]
+position = Vector2(-282, -122)
+
+[node name="Ammo4" parent="." instance=ExtResource("13_hy41p")]
+position = Vector2(86, -346)
+
+[node name="Ammo5" parent="." instance=ExtResource("13_hy41p")]
+position = Vector2(416, -351)
+
+[node name="Ammo6" parent="." instance=ExtResource("13_hy41p")]
+position = Vector2(267, -228)
+
+[node name="Ammo7" parent="." instance=ExtResource("13_hy41p")]
+position = Vector2(526, 360)
+
+[node name="Ammo8" parent="." instance=ExtResource("13_hy41p")]
+position = Vector2(189, 359)
 
 [connection signal="body_entered" from="NextLevelArea" to="." method="_next_level_exit_area_entered"]

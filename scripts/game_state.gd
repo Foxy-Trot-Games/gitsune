@@ -13,6 +13,7 @@ const FILE_PATH = "res://scripts/game_state.gd"
 
 static func get_level_state(level_state_key : String) -> LevelState:
 	if not has_game_state(): 
+		
 		return
 	var game_state := get_or_create_state()
 	if level_state_key.is_empty() : return
@@ -25,6 +26,7 @@ static func get_level_state(level_state_key : String) -> LevelState:
 		return new_level_state
 
 static func has_game_state() -> bool:
+	print(has_game_state)
 	return GlobalState.has_state(STATE_NAME)
 
 static func get_or_create_state() -> GameState:
