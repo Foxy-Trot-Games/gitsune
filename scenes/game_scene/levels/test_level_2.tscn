@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://dlbp53q02q38q"]
+[gd_scene load_steps=10 format=4 uid="uid://dlbp53q02q38q"]
 
 [ext_resource type="Script" uid="uid://bog2ukuxke2rv" path="res://scenes/game_scene/levels/level.gd" id="1_vjdap"]
 [ext_resource type="Script" uid="uid://s3864f4i872k" path="res://scenes/game_scene/tutorial_manager.gd" id="2_44sh1"]
@@ -8,7 +8,13 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_hsp6w"]
 [ext_resource type="PackedScene" uid="uid://2jpu8jkgrmga" path="res://scenes/enemy/Flying_enemy/Flying_enemy.tscn" id="7_wrnb2"]
 
-[node name="Level1" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjdap"]
+size = Vector2(32, 40)
+
+[sub_resource type="LabelSettings" id="LabelSettings_44sh1"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="Level2" type="Node2D"]
 script = ExtResource("1_vjdap")
 
 [node name="TutorialManager" type="Node" parent="."]
@@ -59,3 +65,28 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Flying_enemy" parent="." instance=ExtResource("7_wrnb2")]
 position = Vector2(65, -122)
+
+[node name="NextLevelArea" type="Area2D" parent="."]
+position = Vector2(86, -253)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevelArea"]
+position = Vector2(396, 170)
+shape = SubResource("RectangleShape2D_vjdap")
+
+[node name="ColorRect" type="ColorRect" parent="NextLevelArea"]
+offset_left = 380.0
+offset_top = 150.0
+offset_right = 412.0
+offset_bottom = 191.0
+color = Color(0, 0, 0, 0.72156864)
+
+[node name="TutorialLabel2" type="Label" parent="NextLevelArea"]
+offset_left = 344.0
+offset_top = 126.0
+offset_right = 479.0
+offset_bottom = 149.0
+text = "Exit to Next Level"
+label_settings = SubResource("LabelSettings_44sh1")
+
+[connection signal="body_entered" from="NextLevelArea" to="." method="_next_level_exit_area_entered"]

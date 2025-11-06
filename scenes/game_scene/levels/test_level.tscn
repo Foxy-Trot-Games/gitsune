@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://w2qphny0t0vu"]
+[gd_scene load_steps=22 format=4 uid="uid://w2qphny0t0vu"]
 
 [ext_resource type="Script" uid="uid://bog2ukuxke2rv" path="res://scenes/game_scene/levels/level.gd" id="1_xiw1x"]
 [ext_resource type="PackedScene" uid="uid://01f2htb8plmg" path="res://scenes/player/player.tscn" id="3_o4mvr"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://uqxnqvc5ghf0" path="res://assets/background/walls_tileset.png" id="7_3hanc"]
 [ext_resource type="PackedScene" uid="uid://hbspw0hu400f" path="res://scenes/enemy/Pathing_enemy/Pathing_enemy.tscn" id="8_lwywk"]
 [ext_resource type="PackedScene" uid="uid://2jpu8jkgrmga" path="res://scenes/enemy/Flying_enemy/Flying_enemy.tscn" id="9_3hanc"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="10_0bqqu"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="11_hy41p"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="12_u4ne6"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_aegw0"]
 resource_name = "Enemies"
@@ -420,8 +423,15 @@ color_ramp = SubResource("Gradient_erhvc")
 [sub_resource type="LabelSettings" id="LabelSettings_r1bdh"]
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hanc"]
+size = Vector2(32, 40)
+
+[sub_resource type="Resource" id="Resource_i6cby"]
+script = ExtResource("12_u4ne6")
+
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_xiw1x")
+next_level_path = "uid://dlbp53q02q38q"
 
 [node name="TutorialManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -447,9 +457,9 @@ position = Vector2(262, 156)
 
 [node name="TutorialLabel" type="Label" parent="."]
 offset_left = 150.0
-offset_top = 41.0
-offset_right = 329.0
-offset_bottom = 142.0
+offset_top = 6.0
+offset_right = 499.0
+offset_bottom = 107.0
 text = "WD to move on ground
 WASD in air to use pulse gun to move around
 Space to stop in the air"
@@ -505,3 +515,51 @@ offset_left = -448.0
 offset_top = -512.0
 offset_right = -128.0
 offset_bottom = -480.0
+
+[node name="NextLevelArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevelArea"]
+position = Vector2(396, 170)
+shape = SubResource("RectangleShape2D_3hanc")
+
+[node name="ColorRect" type="ColorRect" parent="NextLevelArea"]
+offset_left = 380.0
+offset_top = 150.0
+offset_right = 412.0
+offset_bottom = 191.0
+color = Color(0, 0, 0, 0.72156864)
+
+[node name="TutorialLabel2" type="Label" parent="NextLevelArea"]
+offset_left = 344.0
+offset_top = 126.0
+offset_right = 479.0
+offset_bottom = 149.0
+text = "Exit to Next Level"
+label_settings = SubResource("LabelSettings_r1bdh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(262, 156)
+process_callback = 0
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("10_0bqqu")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(262, 156)
+script = ExtResource("11_hy41p")
+follow_mode = 1
+follow_target = NodePath("../Player")
+snap_to_pixel = true
+frame_preview = false
+tween_resource = SubResource("Resource_i6cby")
+tween_on_load = false
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[connection signal="body_entered" from="NextLevelArea" to="." method="_next_level_exit_area_entered"]

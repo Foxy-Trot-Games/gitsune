@@ -22,10 +22,6 @@ texture = ExtResource("2_gmlin")
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_r1bdh")
 
-[node name="PlayerCamera" type="Camera2D" parent="."]
-unique_name_in_owner = true
-process_callback = 0
-
 [node name="PlayerControler" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_lvxji")

@@ -1,4 +1,8 @@
-extends Node
+class_name Level extends Node
+
+signal level_lost
+signal level_won
+signal level_won_and_changed(level_path : String)
 
 @export_file("*.tscn") var next_level_path : String
 
@@ -17,12 +21,17 @@ func _ready() -> void:
 		print("Connecting enemy signal")
 		enemy.player_hit.connect(_on_flying_enemey_player_hit)
 
-
 func open_tutorials() -> void:
 	tutorial_manager.open_tutorials()
 	level_state.tutorial_read = true
 	GlobalState.save()
 
-
 func _on_flying_enemey_player_hit(_player: Player) -> void:
 	player.die()
+
+func _next_level_exit_area_entered(body: Node2D) -> void:
+	if body is Player:
+		if not next_level_path.is_empty():
+			level_won_and_changed.emit(next_level_path)
+		else:
+			level_won.emit()

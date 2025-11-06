@@ -43,7 +43,7 @@ level_won_scene = ExtResource("8_rkfhe")
 
 [node name="SceneLister" type="Node" parent="LevelManager"]
 script = ExtResource("9_g2ndc")
-files = Array[String](["res://scenes/game_scene/levels/test_level.tscn"])
+files = Array[String](["res://scenes/game_scene/levels/test_level.tscn", "res://scenes/game_scene/levels/test_level_2.tscn"])
 directory = "res://scenes/game_scene/levels"
 
 [node name="LevelLoadingScreen" parent="." instance=ExtResource("10_0v86b")]
