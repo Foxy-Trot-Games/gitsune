@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://dlbp53q02q38q"]
+[gd_scene load_steps=22 format=4 uid="uid://dlbp53q02q38q"]
 
 [ext_resource type="Script" uid="uid://bog2ukuxke2rv" path="res://scenes/game_scene/levels/level.gd" id="1_vjdap"]
 [ext_resource type="Script" uid="uid://s3864f4i872k" path="res://scenes/game_scene/tutorial_manager.gd" id="2_44sh1"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="8_44sh1"]
 [ext_resource type="Script" uid="uid://c44mmw8o77ec6" path="res://scenes/objects/util/snap_to_grid.gd" id="9_a83hk"]
 [ext_resource type="AudioStream" uid="uid://cswpoy06il3tq" path="res://assets/sounds/Foks_Spaceship_Atmosphere3_SFX.mp3" id="12_hsp6w"]
+[ext_resource type="PackedScene" uid="uid://b8e2qcdmlxsvi" path="res://scenes/enemy/IA_enemy/enemy.tscn" id="12_wrnb2"]
 
 [sub_resource type="Gradient" id="Gradient_erhvc"]
 colors = PackedColorArray(0.44097933, 0.44097927, 0.44097927, 1, 1, 1, 1, 1)
@@ -137,7 +138,7 @@ player = NodePath("../Player")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("4_a88x5")]
-position = Vector2(432, 224)
+position = Vector2(224, 208)
 
 [node name="RechargeGun" parent="Player" instance=ExtResource("5_44sh1")]
 
@@ -235,5 +236,9 @@ max_distance = 1000.0
 attenuation = 2.0000002
 panning_strength = 3.0
 bus = &"SFX"
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("12_wrnb2")]
+position = Vector2(417, 269)
+Player = NodePath("../Player")
 
 [connection signal="body_entered" from="NextLevelArea" to="." method="_next_level_exit_area_entered"]
