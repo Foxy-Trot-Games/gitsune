@@ -542,6 +542,10 @@ label_settings = SubResource("LabelSettings_r1bdh")
 physics_interpolation_mode = 1
 position = Vector2(256, 144)
 process_callback = 0
+limit_left = 0
+limit_top = 0
+limit_right = 640
+limit_bottom = 360
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
