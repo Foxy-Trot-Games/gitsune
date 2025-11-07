@@ -12,10 +12,9 @@ var debug_timer := 0.0  # Timer to throttle debug prints
 
 
 func _ready() -> void:
+	Events.gun_equipped(MAX_AMMO) ## TODO will create a picked up function. 
 	Events.current_gun_ammo(MAX_AMMO)
 	pulse.pulse_activated_signal.connect(_on_pulse_activated_signal)
-	Events.gun_equipped(MAX_AMMO) ## TODO will create a picked up function. 
-	
 
 
 func _process(delta: float) -> void:
