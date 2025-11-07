@@ -68,7 +68,7 @@ Player="Player Group "
 
 [gui]
 
-theme/custom="res://resources/themes/expedition.tres"
+theme/custom="uid://cc0n4ehj8064q"
 
 [input]
 

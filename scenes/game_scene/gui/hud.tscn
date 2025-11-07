@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://df4m8l5j2c6dy"]
+
+[ext_resource type="Script" uid="uid://doc518npbkkgp" path="res://scripts/ammo_display.gd" id="1_crjap"]
+
+[node name="Hud" type="CanvasLayer"]
+
+[node name="AmmoDisplay" type="ProgressBar" parent="."]
+anchors_preset = -1
+anchor_left = 0.81000006
+anchor_right = 0.99700004
+anchor_bottom = 0.057000004
+offset_left = 0.19995117
+offset_top = 4.0
+offset_right = -0.16003418
+offset_bottom = -0.040000916
+max_value = 10.0
+step = 1.0
+value = 10.0
+script = ExtResource("1_crjap")
