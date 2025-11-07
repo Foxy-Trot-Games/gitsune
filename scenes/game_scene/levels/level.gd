@@ -30,7 +30,7 @@ func open_tutorials() -> void:
 	GlobalState.save()
 
 func _on_flying_enemey_player_hit(_player: Player) -> void:
-	player.die()
+	Events.player_died.emit()
 	
 ## quick n dirty way for a level to simulate looking through the game_ui subviewport
 func _debug_adjust_camera_size() -> void:

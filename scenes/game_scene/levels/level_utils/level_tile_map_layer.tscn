@@ -1,15 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://btt7i2y5c6sme"]
+[gd_scene load_steps=14 format=3 uid="uid://btt7i2y5c6sme"]
 
 [ext_resource type="PackedScene" uid="uid://2jpu8jkgrmga" path="res://scenes/enemy/Flying_enemy/Flying_enemy.tscn" id="1_lemp8"]
 [ext_resource type="PackedScene" uid="uid://hbspw0hu400f" path="res://scenes/enemy/Pathing_enemy/Pathing_enemy.tscn" id="2_ver8h"]
 [ext_resource type="PackedScene" uid="uid://cxm7caqjvvyu5" path="res://scenes/enemy/Stationary_enemy/enemy.tscn" id="3_4qmth"]
 [ext_resource type="Texture2D" uid="uid://uqxnqvc5ghf0" path="res://assets/background/walls_tileset.png" id="4_nkpyk"]
+[ext_resource type="PackedScene" uid="uid://wpnqp08cv3bm" path="res://scenes/objects/spikes.tscn" id="5_0a5vj"]
+[ext_resource type="PackedScene" uid="uid://dj26b32jiqwfe" path="res://scenes/objects/ammo.tscn" id="5_vmygg"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_aegw0"]
 resource_name = "Enemies"
 scenes/1/scene = ExtResource("1_lemp8")
 scenes/2/scene = ExtResource("2_ver8h")
 scenes/3/scene = ExtResource("3_4qmth")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_vk6bf"]
+resource_name = "Objects"
+scenes/2/scene = ExtResource("5_0a5vj")
+scenes/3/scene = ExtResource("5_vmygg")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tglvs"]
 resource_name = "Walls"
@@ -398,6 +405,7 @@ terrain_set_0/terrain_0/name = "Walls"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetScenesCollectionSource_aegw0")
 sources/2 = SubResource("TileSetAtlasSource_tglvs")
+sources/1 = SubResource("TileSetScenesCollectionSource_vk6bf")
 
 [sub_resource type="Gradient" id="Gradient_erhvc"]
 colors = PackedColorArray(0.44097933, 0.44097927, 0.44097927, 1, 1, 1, 1, 1)

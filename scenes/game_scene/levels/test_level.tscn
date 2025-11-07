@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cxm7caqjvvyu5" path="res://scenes/enemy/Stationary_enemy/enemy.tscn" id="5_tglvs"]
 [ext_resource type="Script" uid="uid://s3864f4i872k" path="res://scenes/game_scene/tutorial_manager.gd" id="6_0bqqu"]
 [ext_resource type="PackedScene" uid="uid://m4lsx3aqr7pp" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="6_o4mvr"]
-[ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/game_scene/level_objects/gravity_zone.tscn" id="6_xiw1x"]
+[ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="6_xiw1x"]
 [ext_resource type="Texture2D" uid="uid://uqxnqvc5ghf0" path="res://assets/background/walls_tileset.png" id="7_3hanc"]
 [ext_resource type="PackedScene" uid="uid://hbspw0hu400f" path="res://scenes/enemy/Pathing_enemy/Pathing_enemy.tscn" id="8_lwywk"]
 [ext_resource type="PackedScene" uid="uid://2jpu8jkgrmga" path="res://scenes/enemy/Flying_enemy/Flying_enemy.tscn" id="9_3hanc"]

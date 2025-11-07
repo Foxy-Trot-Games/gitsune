@@ -14,6 +14,7 @@ var PLAYER_AIR_RESISTENCE := 0.1 # higher is more resistence up to 1.0
 func _ready() -> void:
 	Events.player_movement_input_signal.connect(_on_player_movement_input_signal)
 	Events.pulse_knockback_signal.connect(_on_pulse_knockback)
+	Events.player_died.connect(_player_died)
 
 func _on_pulse_knockback(knockback: Vector2) -> void:
 	_pending_knockback += knockback
@@ -55,7 +56,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 #player dying function after emiting a signal from the enemies
-func die() -> void:
+func _player_died() -> void:
 	print("Player died") # for debugging
-	get_tree.call_deferred("reload_current_scene") # Using call_defered() here to avoid potential issues, removing collision bodies during 
+	get_tree().call_deferred("reload_current_scene") # Using call_defered() here to avoid potential issues, removing collision bodies during 
 												  # _physics_process can lead to dumb and anoying issues. 
