@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://w2qphny0t0vu"]
+[gd_scene load_steps=23 format=4 uid="uid://w2qphny0t0vu"]
 
 [ext_resource type="Script" uid="uid://bog2ukuxke2rv" path="res://scenes/game_scene/levels/level.gd" id="1_xiw1x"]
 [ext_resource type="PackedScene" uid="uid://01f2htb8plmg" path="res://scenes/player/player.tscn" id="3_o4mvr"]
@@ -13,7 +13,6 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="11_hy41p"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="12_u4ne6"]
 [ext_resource type="PackedScene" uid="uid://dj26b32jiqwfe" path="res://scenes/objects/ammo.tscn" id="13_hy41p"]
-[ext_resource type="PackedScene" uid="uid://df4m8l5j2c6dy" path="res://scenes/game_scene/gui/hud.tscn" id="14_u4ne6"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_aegw0"]
 resource_name = "Enemies"
@@ -617,7 +616,5 @@ position = Vector2(-104, -505)
 
 [node name="Ammo17" parent="Ammo" instance=ExtResource("13_hy41p")]
 position = Vector2(-425, -62)
-
-[node name="Hud" parent="." instance=ExtResource("14_u4ne6")]
 
 [connection signal="body_entered" from="NextLevelArea" to="." method="_next_level_exit_area_entered"]
