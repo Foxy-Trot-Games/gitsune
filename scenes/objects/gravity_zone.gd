@@ -19,11 +19,6 @@ func _process(_delta: float) -> void:
 		queue_redraw()
 
 func _draw() -> void:
-	# snap to 16x16 grid
-	position = position.snappedf(16)
-	size = size.snappedf(16)
-	# snap rotation to 45 degress (8 directions)
-	rotation_degrees = snappedf(rotation_degrees, 45)
 	# lock scale so it can't be changed
 	scale = Vector2.ONE
 	

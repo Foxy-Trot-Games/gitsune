@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://01f2htb8plmg"]
+[gd_scene load_steps=9 format=3 uid="uid://01f2htb8plmg"]
 
 [ext_resource type="Script" uid="uid://bjiclinojhoa8" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://cl0ybqyk5l127" path="res://assets/player/player_mockup.png" id="2_gmlin"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dfxgljq6hf57a" path="res://scenes/gun/gun.tscn" id="5_p47bc"]
 [ext_resource type="PackedScene" uid="uid://df4m8l5j2c6dy" path="res://scenes/game_scene/gui/hud.tscn" id="6_0owmy"]
 [ext_resource type="Script" uid="uid://csfv8f14k2ogw" path="res://scripts/ammo_count.gd" id="6_75vfm"]
+[ext_resource type="Script" uid="uid://c44mmw8o77ec6" path="res://scenes/objects/util/snap_to_grid.gd" id="7_0owmy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r1bdh"]
 radius = 16.0
@@ -46,3 +47,7 @@ text = "Test"
 script = ExtResource("6_75vfm")
 
 [node name="Hud" parent="." instance=ExtResource("6_0owmy")]
+
+[node name="SnapToGrid" type="Node" parent="."]
+script = ExtResource("7_0owmy")
+metadata/_custom_type_script = "uid://c44mmw8o77ec6"

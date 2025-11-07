@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://wpnqp08cv3bm"]
+[gd_scene load_steps=5 format=3 uid="uid://wpnqp08cv3bm"]
 
 [ext_resource type="Texture2D" uid="uid://dxiw1rjhx0gmc" path="res://assets/objects/spikes.png" id="1_bxa7l"]
 [ext_resource type="Script" uid="uid://da3r4u78r1ul1" path="res://scenes/objects/spikes.gd" id="1_tkv1w"]
+[ext_resource type="Script" uid="uid://c44mmw8o77ec6" path="res://scenes/objects/util/snap_to_grid.gd" id="3_y7a2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxa7l"]
 size = Vector2(16, 16)
@@ -16,5 +17,9 @@ texture = ExtResource("1_bxa7l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_bxa7l")
+
+[node name="SnapToGrid" type="Node" parent="."]
+script = ExtResource("3_y7a2x")
+metadata/_custom_type_script = "uid://c44mmw8o77ec6"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -454,7 +454,7 @@ offset_bottom = 430.0
 texture = SubResource("NoiseTexture2D_thmji")
 
 [node name="Player" parent="." instance=ExtResource("3_o4mvr")]
-position = Vector2(262, 156)
+position = Vector2(256, 144)
 
 [node name="TutorialLabel" type="Label" parent="."]
 offset_left = 150.0
@@ -471,20 +471,20 @@ label_settings = SubResource("LabelSettings_r1bdh")
 [node name="Pathing_enemies" type="Node" parent="Enemies"]
 
 [node name="Pathing_enemy" parent="Enemies/Pathing_enemies" instance=ExtResource("8_lwywk")]
-position = Vector2(3, 205)
+position = Vector2(0, 208)
 
 [node name="Pathing_enemy2" parent="Enemies/Pathing_enemies" instance=ExtResource("8_lwywk")]
-position = Vector2(10, -90)
+position = Vector2(16, -96)
 
 [node name="stationary_enemies" type="Node" parent="Enemies"]
 
 [node name="enemy_goat_test" parent="Enemies/stationary_enemies" instance=ExtResource("5_tglvs")]
-position = Vector2(-127, 359)
+position = Vector2(-112, 400)
 
 [node name="flying_enemies" type="Node" parent="Enemies"]
 
 [node name="flying_enemey" parent="Enemies" instance=ExtResource("9_3hanc")]
-position = Vector2(449, -16)
+position = Vector2(464, -32)
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-203, -367)
@@ -540,7 +540,7 @@ label_settings = SubResource("LabelSettings_r1bdh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(262, 156)
+position = Vector2(256, 144)
 process_callback = 0
 editor_draw_limits = true
 
@@ -552,7 +552,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(262, 156)
+position = Vector2(256, 144)
 script = ExtResource("11_hy41p")
 follow_mode = 1
 follow_target = NodePath("../Player")
@@ -567,54 +567,54 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="Ammo" type="Node2D" parent="."]
 
 [node name="Ammo1" parent="Ammo" instance=ExtResource("13_hy41p")]
-position = Vector2(154, 112)
+position = Vector2(160, 112)
 
 [node name="Ammo9" parent="Ammo" instance=ExtResource("13_hy41p")]
-position = Vector2(154, 112)
+position = Vector2(160, 112)
 
 [node name="Ammo2" parent="Ammo" instance=ExtResource("13_hy41p")]
-position = Vector2(-372, 378)
+position = Vector2(-368, 384)
 
 [node name="Ammo3" parent="Ammo" instance=ExtResource("13_hy41p")]
-position = Vector2(-282, -122)
+position = Vector2(-288, -128)
 
 [node name="Ammo4" parent="Ammo" instance=ExtResource("13_hy41p")]
-position = Vector2(86, -346)
+position = Vector2(80, -352)
 
 [node name="Ammo5" parent="Ammo" instance=ExtResource("13_hy41p")]
-position = Vector2(416, -351)
+position = Vector2(416, -352)
 
 [node name="Ammo6" parent="Ammo" instance=ExtResource("13_hy41p")]
-position = Vector2(267, -228)
+position = Vector2(272, -224)
 
 [node name="Ammo7" parent="Ammo" instance=ExtResource("13_hy41p")]
-position = Vector2(526, 360)
+position = Vector2(528, 368)
 
 [node name="Ammo8" parent="Ammo" instance=ExtResource("13_hy41p")]
-position = Vector2(325, 161)
+position = Vector2(336, 128)
 
 [node name="Ammo10" parent="Ammo" instance=ExtResource("13_hy41p")]
-position = Vector2(130, 384)
+position = Vector2(128, 384)
 
 [node name="Ammo11" parent="Ammo" instance=ExtResource("13_hy41p")]
-position = Vector2(405, 14)
+position = Vector2(400, 16)
 
 [node name="Ammo12" parent="Ammo" instance=ExtResource("13_hy41p")]
-position = Vector2(600, -434)
+position = Vector2(608, -432)
 
 [node name="Ammo13" parent="Ammo" instance=ExtResource("13_hy41p")]
-position = Vector2(573, -434)
+position = Vector2(576, -432)
 
 [node name="Ammo14" parent="Ammo" instance=ExtResource("13_hy41p")]
-position = Vector2(545, -434)
+position = Vector2(544, -432)
 
 [node name="Ammo15" parent="Ammo" instance=ExtResource("13_hy41p")]
-position = Vector2(-364, -388)
+position = Vector2(-368, -384)
 
 [node name="Ammo16" parent="Ammo" instance=ExtResource("13_hy41p")]
-position = Vector2(-104, -505)
+position = Vector2(-96, -512)
 
 [node name="Ammo17" parent="Ammo" instance=ExtResource("13_hy41p")]
-position = Vector2(-425, -62)
+position = Vector2(-432, -64)
 
 [connection signal="body_entered" from="NextLevelArea" to="." method="_next_level_exit_area_entered"]

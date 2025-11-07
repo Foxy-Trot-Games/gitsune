@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://hbspw0hu400f"]
+[gd_scene load_steps=14 format=3 uid="uid://hbspw0hu400f"]
 
 [ext_resource type="Texture2D" uid="uid://bakx0pt0to5v5" path="res://assets/enemy/mosquito.png" id="1_87ujf"]
 [ext_resource type="Script" uid="uid://142ycydyovl5" path="res://scenes/enemy/Pathing_enemy/Pathing_enemy.gd" id="1_nev1t"]
+[ext_resource type="Script" uid="uid://c44mmw8o77ec6" path="res://scenes/objects/util/snap_to_grid.gd" id="3_7utl5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nev1t"]
 atlas = ExtResource("1_87ujf")
@@ -101,7 +102,6 @@ shape = SubResource("RectangleShape2D_nev1t")
 [node name="hitbox" type="Area2D" parent="Sprite2D"]
 
 [node name="hitbox_Collision" type="CollisionShape2D" parent="Sprite2D/hitbox"]
-position = Vector2(3, 2)
 shape = SubResource("CapsuleShape2D_k7cfs")
 debug_color = Color(0.9925576, 0, 0.25677583, 0.41960785)
 
@@ -113,6 +113,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_ey0tg")
 }
 autoplay = "fly"
+
+[node name="SnapToGrid" type="Node" parent="."]
+script = ExtResource("3_7utl5")
+metadata/_custom_type_script = "uid://c44mmw8o77ec6"
 
 [connection signal="body_entered" from="Sprite2D/vision" to="." method="_on_vision_body_entered"]
 [connection signal="body_exited" from="Sprite2D/vision" to="." method="_on_vision_body_exited"]

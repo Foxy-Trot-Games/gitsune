@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxm7caqjvvyu5"]
+[gd_scene load_steps=11 format=3 uid="uid://cxm7caqjvvyu5"]
 
 [ext_resource type="Script" uid="uid://baak4jrk8jixi" path="res://scenes/enemy/Stationary_enemy/Sationary_enemy.gd" id="1_a3pup"]
 [ext_resource type="Texture2D" uid="uid://bk83tjkmpp7e2" path="res://assets/enemy/goatman.png" id="1_hx8jw"]
+[ext_resource type="Script" uid="uid://c44mmw8o77ec6" path="res://scenes/objects/util/snap_to_grid.gd" id="3_b20br"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5uyx3"]
 atlas = ExtResource("1_hx8jw")
@@ -55,7 +56,7 @@ script = ExtResource("1_a3pup")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(2, -10.000001)
+position = Vector2(-1, -10)
 sprite_frames = SubResource("SpriteFrames_k30va")
 autoplay = "default"
 frame = 4
@@ -64,7 +65,10 @@ frame_progress = 1.0
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(1, -2)
 shape = SubResource("CapsuleShape2D_4a83h")
+
+[node name="SnapToGrid" type="Node" parent="."]
+script = ExtResource("3_b20br")
+metadata/_custom_type_script = "uid://c44mmw8o77ec6"
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_area_2d_body_entered"]

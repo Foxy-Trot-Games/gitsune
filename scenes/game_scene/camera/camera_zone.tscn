@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://x0obeyaoirks"]
+[gd_scene load_steps=7 format=3 uid="uid://x0obeyaoirks"]
 
 [ext_resource type="Script" uid="uid://c6j4unhal2kjo" path="res://scenes/game_scene/camera/camera_zone.gd" id="1_y6m5l"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_hkwhp"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_hkwhp"]
+[ext_resource type="Script" uid="uid://c44mmw8o77ec6" path="res://scenes/objects/util/snap_to_grid.gd" id="4_hhgjy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bsimd"]
 resource_local_to_scene = true
@@ -34,6 +35,10 @@ dead_zone_height = 0.8
 draw_limits = true
 limit_target = NodePath("../CollisionShape2D")
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="SnapToGrid" type="Node" parent="."]
+script = ExtResource("4_hhgjy")
+metadata/_custom_type_script = "uid://c44mmw8o77ec6"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

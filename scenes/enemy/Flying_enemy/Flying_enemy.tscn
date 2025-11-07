@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://2jpu8jkgrmga"]
+[gd_scene load_steps=12 format=3 uid="uid://2jpu8jkgrmga"]
 
 [ext_resource type="Script" uid="uid://cw8f5aq8nr5bq" path="res://scenes/enemy/Flying_enemy/flying_enemy.gd" id="1_2jxvc"]
 [ext_resource type="Texture2D" uid="uid://dxiqie57j511j" path="res://assets/enemy/Bat.png" id="2_ja24j"]
+[ext_resource type="Script" uid="uid://c44mmw8o77ec6" path="res://scenes/objects/util/snap_to_grid.gd" id="3_ja24j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l25sg"]
 atlas = ExtResource("2_ja24j")
@@ -59,21 +60,22 @@ script = ExtResource("1_2jxvc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="hitbox_area"]
 texture_filter = 1
-position = Vector2(2, -10.000001)
 sprite_frames = SubResource("SpriteFrames_k30va")
 autoplay = "default"
 frame_progress = 0.25620034
 
 [node name="hitbox_collision" type="CollisionShape2D" parent="hitbox_area"]
-position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_k75kq")
 debug_color = Color(0.99860746, 0, 0.14937201, 0.41960785)
 
 [node name="vision" type="Area2D" parent="."]
 
 [node name="vision_collision" type="CollisionShape2D" parent="vision"]
-position = Vector2(-0.5, -1.5)
 shape = SubResource("RectangleShape2D_jgl1o")
+
+[node name="SnapToGrid" type="Node" parent="."]
+script = ExtResource("3_ja24j")
+metadata/_custom_type_script = "uid://c44mmw8o77ec6"
 
 [connection signal="body_entered" from="hitbox_area" to="." method="_on_hitbox_area_body_entered"]
 [connection signal="body_entered" from="vision" to="." method="_on_vision_body_entered"]
