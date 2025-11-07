@@ -17,4 +17,5 @@ func _on_body_entered(body: Node2D)->void:
 	if body.is_in_group("Player"):
 		var increase_ammo_count: int = Globals.active_gun_ammo_count + ammo_value
 		Events.current_gun_ammo(increase_ammo_count)
+		print(self, "Adding ", increase_ammo_count )
 		queue_free()

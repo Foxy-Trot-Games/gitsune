@@ -10,13 +10,10 @@ const MAX_AMMO: int = 10
 var player: Player
 var debug_timer := 0.0  # Timer to throttle debug prints
 
-var _current_ammo_count: int 
 
 func _ready() -> void:
-	_current_ammo_count = MAX_AMMO
-	Events.current_gun_ammo(_current_ammo_count)
+	Events.current_gun_ammo(MAX_AMMO)
 	pulse.pulse_activated_signal.connect(_on_pulse_activated_signal)
-	Events.current_gun_ammo_signal.connect(_on_current_gun_ammo_signal)
 	Events.gun_equipped(MAX_AMMO) ## TODO will create a picked up function. 
 	
 
@@ -45,13 +42,10 @@ func _process(delta: float) -> void:
 
 	queue_redraw()
 
-func _on_current_gun_ammo_signal(ammo_count: int)->void:
-	_current_ammo_count = Globals.active_gun_ammo_count 
-	print(self, "Received current gun ammo signal." , _current_ammo_count)
-
 
 func _on_pulse_activated_signal()->void:
-	print(self, "_on_pulse_activated_signal." , _current_ammo_count)
+	
+	var _current_ammo_count = Globals.active_gun_ammo_count
 	if _current_ammo_count < 2:
 		pulse.can_pulse = false
 		print(pulse.can_pulse)
@@ -62,8 +56,6 @@ func _on_pulse_activated_signal()->void:
 
 	Events.current_gun_ammo(_current_ammo_count)
 
-
-	
 
 
 func _draw() -> void:

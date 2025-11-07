@@ -13,15 +13,6 @@ func pulse_knockback(direction:Vector2) -> void:
 	emit_signal("pulse_knockback_signal", direction)
 
 func current_gun_ammo(ammo_count: int) -> void:
-	var new_ammo_count: int = ammo_count + Globals.active_gun_ammo_count
-
-	if new_ammo_count > Globals.ACTIVE_GUN_MAX_AMMO:
-		var clamped_ammo_count: int = Globals.ACTIVE_GUN_MAX_AMMO - Globals.active_gun_ammo_count
-		
-		emit_signal("current_gun_ammo_signal", clamped_ammo_count)
-		print(Globals.ACTIVE_GUN_MAX_AMMO)
-		return
-
 	emit_signal("current_gun_ammo_signal", ammo_count)
 
 

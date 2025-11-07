@@ -14,4 +14,4 @@ func _on_gun_equipped_signal(MAX_AMMO: int) -> void:
 
 func _on_current_gun_ammo_signal(ammo_count: int) -> void:
 	set_value(ammo_count)
-	print(ammo_count)
+	print(self, ammo_count)
