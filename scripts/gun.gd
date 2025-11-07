@@ -1,5 +1,6 @@
 class_name Gun extends Node2D
 
+
 @onready var muzzle: Node2D = %Muzzle
 @onready var pulse: Pulse = %Pulse
 
@@ -16,6 +17,9 @@ func _ready() -> void:
 	Events.current_gun_ammo(_current_ammo_count)
 	pulse.pulse_activated_signal.connect(_on_pulse_activated_signal)
 	Events.current_gun_ammo_signal.connect(_on_current_gun_ammo_signal)
+	Events.gun_equipped(MAX_AMMO) ## TODO will create a picked up function. 
+	
+
 
 func _process(delta: float) -> void:
 	if player == null:
@@ -52,7 +56,13 @@ func _on_pulse_activated_signal()->void:
 		pulse.can_pulse = false
 		print(pulse.can_pulse)
 	_current_ammo_count -= 1
+	
+	if _current_ammo_count > MAX_AMMO :
+		_current_ammo_count = MAX_AMMO
+
 	Events.current_gun_ammo(_current_ammo_count)
+
+
 	
 
 

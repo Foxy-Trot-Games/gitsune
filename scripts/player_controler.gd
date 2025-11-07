@@ -1,8 +1,6 @@
-# PlayerController.gd
-class_name PlayerController
-extends Node2D
-@onready var player: Player = $".."
+class_name PlayerController extends Node2D
 
+@onready var player: Player = $".."
 @onready var player_sprite: Sprite2D = %PlayerSprite
 
 

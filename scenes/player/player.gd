@@ -16,8 +16,6 @@ func _ready() -> void:
 	Events.pulse_knockback_signal.connect(_on_pulse_knockback)
 
 func _on_pulse_knockback(knockback: Vector2) -> void:
-	# Instead of directly changing velocity here, you could
-	# store it in a variable and apply it in _physics_process
 	_pending_knockback += knockback
 
 func _on_player_movement_input_signal(direction: Vector2) -> void:
