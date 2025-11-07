@@ -1,19 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://df4m8l5j2c6dy"]
+[gd_scene load_steps=5 format=3 uid="uid://df4m8l5j2c6dy"]
 
 [ext_resource type="Script" uid="uid://doc518npbkkgp" path="res://scripts/ammo_display.gd" id="1_crjap"]
+[ext_resource type="Material" uid="uid://cwpllw3i8ak6u" path="res://scenes/util/sine_wave_vfx.tres" id="1_fenen"]
+[ext_resource type="Texture2D" uid="uid://cuwk1yqrq0wv7" path="res://assets/util/GitsunePalette.png" id="3_jd5ix"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_fenen"]
 
 [node name="Hud" type="CanvasLayer"]
 
-[node name="AmmoDisplay" type="ProgressBar" parent="."]
+[node name="AmmoDisplay" type="TextureRect" parent="."]
+top_level = true
+material = ExtResource("1_fenen")
 anchors_preset = -1
-anchor_left = 0.81000006
+anchor_left = 0.49300003
 anchor_right = 0.99700004
-anchor_bottom = 0.057000004
-offset_left = 0.19995117
+anchor_bottom = 0.21100001
+offset_left = -0.040039063
 offset_top = 4.0
 offset_right = -0.16003418
-offset_bottom = -0.040000916
-max_value = 10.0
-step = 1.0
-value = 10.0
+offset_bottom = 0.07998657
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_fenen")
 script = ExtResource("1_crjap")
+
+[node name="Panel" type="Panel" parent="AmmoDisplay"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.277
+anchor_right = 1.0
+anchor_bottom = 0.791
+offset_left = -3.0
+offset_top = -4.996002
+offset_bottom = -0.06800079
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GitsunePalette" type="Sprite2D" parent="AmmoDisplay"]
+position = Vector2(743, 193)
+texture = ExtResource("3_jd5ix")
