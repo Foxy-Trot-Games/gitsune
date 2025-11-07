@@ -39,8 +39,11 @@ func _process(delta: float) -> void:
 		scale.y = -abs(scale.y)
 	
 	look_at(target_pos)
+	
+	# snap gun rotation to 8 cardinal directions
+	rotation_degrees = snappedf(rotation_degrees, 45)
 
-	queue_redraw()
+	#queue_redraw()
 
 
 func _on_pulse_activated_signal()->void:
@@ -58,10 +61,10 @@ func _on_pulse_activated_signal()->void:
 
 
 
-func _draw() -> void:
-	if not is_instance_valid(muzzle):
-		return
-
-	var local_muzzle: Vector2 = muzzle.position
-	
-	draw_line(local_muzzle, get_local_mouse_position(), Color(0, 1, 0), 2, false)
+#func _draw() -> void:
+	#if not is_instance_valid(muzzle):
+		#return
+#
+	#var local_muzzle: Vector2 = muzzle.position
+	#
+	#draw_line(local_muzzle, get_local_mouse_position(), Color(0, 1, 0), 2, false)
