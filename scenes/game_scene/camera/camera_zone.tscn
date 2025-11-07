@@ -15,6 +15,7 @@ duration = 0.0
 
 [node name="CameraZone" type="Area2D"]
 script = ExtResource("1_y6m5l")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(320, 180)
@@ -23,7 +24,6 @@ debug_color = Color(0.3137255, 0, 0.18431373, 0.15294118)
 
 [node name="PhantomCamera2D" type="Node2D" parent="."]
 top_level = true
-position = Vector2(640, 360)
 script = ExtResource("2_hkwhp")
 follow_mode = 5
 snap_to_pixel = true
@@ -38,6 +38,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="SnapToGrid" type="Node" parent="."]
 script = ExtResource("4_hhgjy")
+grid_size = Vector2(64, 36)
 metadata/_custom_type_script = "uid://c44mmw8o77ec6"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
