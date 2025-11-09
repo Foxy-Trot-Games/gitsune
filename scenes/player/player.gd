@@ -10,6 +10,7 @@ var _move_direction := Vector2.ZERO
 var _pending_knockback := Vector2.ZERO
 var _gun: Node2D
 var PLAYER_AIR_RESISTENCE := 0.1 # higher is more resistence up to 1.0
+var MAX_PLAYER_SPEED := 500
 
 func _ready() -> void:
 	Events.player_movement_input_signal.connect(_on_player_movement_input_signal)
@@ -35,8 +36,6 @@ func _on_player_movement_input_signal(direction: Vector2) -> void:
 		player_sprite.flip_h = true
 
 func _physics_process(delta: float) -> void:
-	# apply gravity and gravity zones
-	velocity += get_gravity() * delta
 	
 	if is_on_floor():
 		velocity.x = _move_direction.x * speed
@@ -52,7 +51,12 @@ func _physics_process(delta: float) -> void:
 	# Apply pending knockback from pulse
 	velocity += _pending_knockback
 	_pending_knockback = Vector2.ZERO
-
+	
+	# apply gravity and any gravity zones
+	velocity += get_gravity() * delta
+	# prevent moving faster than set amount
+	velocity = velocity.clampf(-MAX_PLAYER_SPEED, MAX_PLAYER_SPEED)
+	
 	move_and_slide()
 
 #player dying function after emiting a signal from the enemies
