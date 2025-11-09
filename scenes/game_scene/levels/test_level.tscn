@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://w2qphny0t0vu"]
+[gd_scene load_steps=24 format=4 uid="uid://w2qphny0t0vu"]
 
 [ext_resource type="Script" uid="uid://bog2ukuxke2rv" path="res://scenes/game_scene/levels/level.gd" id="1_xiw1x"]
 [ext_resource type="PackedScene" uid="uid://01f2htb8plmg" path="res://scenes/player/player.tscn" id="3_o4mvr"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="11_hy41p"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="12_u4ne6"]
 [ext_resource type="PackedScene" uid="uid://dj26b32jiqwfe" path="res://scenes/objects/ammo.tscn" id="13_hy41p"]
+[ext_resource type="PackedScene" uid="uid://b8e2qcdmlxsvi" path="res://scenes/enemy/IA_enemy/enemy.tscn" id="14_u4ne6"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_aegw0"]
 resource_name = "Enemies"
@@ -542,10 +543,6 @@ label_settings = SubResource("LabelSettings_r1bdh")
 physics_interpolation_mode = 1
 position = Vector2(256, 144)
 process_callback = 0
-limit_left = 0
-limit_top = 0
-limit_right = 640
-limit_bottom = 360
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -620,5 +617,8 @@ position = Vector2(-96, -512)
 
 [node name="Ammo17" parent="Ammo" instance=ExtResource("13_hy41p")]
 position = Vector2(-432, -64)
+
+[node name="Enemy" parent="." instance=ExtResource("14_u4ne6")]
+position = Vector2(354, 425)
 
 [connection signal="body_entered" from="NextLevelArea" to="." method="_next_level_exit_area_entered"]
