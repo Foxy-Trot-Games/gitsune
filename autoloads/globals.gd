@@ -9,8 +9,6 @@ func _ready() -> void:
 	Events.gun_equipped_signal.connect(_on_gun_equipped_signal)
 
 func _on_current_gun_ammo_signal(ammo_count: int) -> void:
-	print(self, "received:", ammo_count)
-
 	# Clamp ammo to max
 	ammo_count = min(ammo_count, ACTIVE_GUN_MAX_AMMO)
 
@@ -19,8 +17,6 @@ func _on_current_gun_ammo_signal(ammo_count: int) -> void:
 		active_gun_ammo_count = max(active_gun_ammo_count - 1, 0)
 	else:
 		active_gun_ammo_count = ammo_count
-
-	print(self, "Updated active_gun_ammo_count:", active_gun_ammo_count)
 
 
 func _on_gun_equipped_signal(MAX_AMMO: int) -> void:

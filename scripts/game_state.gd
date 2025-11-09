@@ -26,7 +26,6 @@ static func get_level_state(level_state_key : String) -> LevelState:
 		return new_level_state
 
 static func has_game_state() -> bool:
-	print(has_game_state)
 	return GlobalState.has_state(STATE_NAME)
 
 static func get_or_create_state() -> GameState:

@@ -83,10 +83,10 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -624
-limit_top = -2704
-limit_right = 624
-limit_bottom = 336
+limit_left = -688
+limit_top = -496
+limit_right = 704
+limit_bottom = 448
 editor_draw_limits = true
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
@@ -123,3 +123,5 @@ offset_right = 77.0
 offset_bottom = -24.0
 text = "Exit to Next Level"
 label_settings = SubResource("LabelSettings_t62rc")
+
+[connection signal="body_entered" from="NextLevelArea" to="." method="_next_level_exit_area_entered"]
