@@ -23,7 +23,7 @@ offset_top = -2704.0
 offset_bottom = 336.0
 
 [node name="Player" parent="." index="1"]
-position = Vector2(0, 224)
+position = Vector2(0, 208)
 
 [node name="RechargeGun" parent="Player" index="7" instance=ExtResource("2_qga8p")]
 
@@ -86,6 +86,7 @@ offset_bottom = -1168.0
 rotation = -1.5707964
 color = Color(0, 1, 0.25490198, 0.47058824)
 gravity_value = 0.0
+slows_down_player = true
 
 [node name="Area2D" parent="GravityZone4" index="0"]
 position = Vector2(296, 176)
