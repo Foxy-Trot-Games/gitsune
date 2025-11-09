@@ -8,7 +8,7 @@ extends Enemy
 
 var seen : bool = false 
 var player : Player
-signal player_hit
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("enemies")
@@ -40,4 +40,4 @@ func _on_vision_body_exited(body: Node2D) -> void:
 
 func _on_hitbox_area_body_entered(body: Node2D) -> void:
 		if body is Player: 
-			emit_signal("player_hit", body)
+			Events.player_died.emit()

@@ -6,8 +6,6 @@ extends Enemy
 @onready var vision_collision: CollisionShape2D = $Sprite2D/vision/vision_Collision
 @onready var hitbox: Area2D = $Sprite2D/hitbox
 
-signal player_hit
-
 var seen : bool = false 
 var player : Player
 # Called when the node enters the scene tree for the first time.
@@ -47,4 +45,4 @@ func _on_vision_body_exited(body: Node2D) -> void:
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body is Player:
-		emit_signal("player_hit", body)
+		Events.player_died.emit()

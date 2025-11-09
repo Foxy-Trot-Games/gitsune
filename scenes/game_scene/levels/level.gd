@@ -16,10 +16,6 @@ func _ready() -> void:
 	level_state = GameState.get_level_state(scene_file_path)
 	if !level_state.tutorial_read:
 		open_tutorials()
-		
-	for enemy: Enemy in get_tree().get_nodes_in_group("enemies"):
-		print("Connecting enemy signal")
-		enemy.player_hit.connect(_on_flying_enemey_player_hit)
 
 	_debug_adjust_camera_size()
 
@@ -28,9 +24,6 @@ func open_tutorials() -> void:
 	tutorial_manager.open_tutorials()
 	level_state.tutorial_read = true
 	GlobalState.save()
-
-func _on_flying_enemey_player_hit(_player: Player) -> void:
-	Events.player_died.emit()
 	
 ## quick n dirty way for a level to simulate looking through the game_ui subviewport
 func _debug_adjust_camera_size() -> void:
