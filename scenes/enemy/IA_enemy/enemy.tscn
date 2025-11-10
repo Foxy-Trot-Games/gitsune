@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b8e2qcdmlxsvi"]
+[gd_scene load_steps=25 format=3 uid="uid://b8e2qcdmlxsvi"]
 
 [ext_resource type="Script" uid="uid://dh327n4cqurwm" path="res://scenes/enemy/IA_enemy/enemy.gd" id="1_rdi22"]
 [ext_resource type="Texture2D" uid="uid://dv2je0ocn5c4i" path="res://assets/enemy/Bringer-of-Death-SpritSheet.png" id="2_ijaua"]
@@ -147,6 +147,9 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijaua"]
+size = Vector2(29, 46)
+
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_rdi22")
 
@@ -163,10 +166,35 @@ frame_progress = 0.4489997
 
 [node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D"]
 position = Vector2(4, 8)
-target_position = Vector2(125, 0)
+target_position = Vector2(100, 0)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = -66.0
+offset_top = -89.0
+offset_right = -40.0
+offset_bottom = -63.0
+
+[node name="Label" type="Label" parent="Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 11.0
+offset_top = 1.0
+offset_right = 16.0
+offset_bottom = 24.0
+text = "!"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-52, -34)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_ijaua")
+debug_color = Color(0.9707081, 0.17353451, 5.7756904e-07, 0.41960785)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
