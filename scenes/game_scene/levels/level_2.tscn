@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://bbs5nnw0ywg3v"]
+[gd_scene load_steps=8 format=4 uid="uid://bbs5nnw0ywg3v"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_7ge0l"]
 [ext_resource type="PackedScene" uid="uid://yjog1sws2ras" path="res://scenes/gun/recharge_gun.tscn" id="2_qga8p"]
 [ext_resource type="PackedScene" uid="uid://hbspw0hu400f" path="res://scenes/enemy/Pathing_enemy/Pathing_enemy.tscn" id="3_3p566"]
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="3_irplr"]
+[ext_resource type="PackedScene" uid="uid://b8e2qcdmlxsvi" path="res://scenes/enemy/IA_enemy/enemy.tscn" id="5_rgywr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8s04l"]
 resource_local_to_scene = true
@@ -107,5 +108,9 @@ offset_top = -752.0
 offset_right = 464.0
 offset_bottom = -704.0
 rotation = -1.5707964
+
+[node name="Enemy" parent="." index="14" node_paths=PackedStringArray("Player") instance=ExtResource("5_rgywr")]
+position = Vector2(271, 252)
+Player = NodePath("../Player")
 
 [editable path="GravityZone4"]

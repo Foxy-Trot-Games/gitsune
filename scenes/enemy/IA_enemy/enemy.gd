@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var SPEED: int = 50
 @export var CHASE_SPEED: int = 150
 @export var ACCELERATION: int = 300
+@onready var panel: Panel = $Panel
 
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -22,11 +23,12 @@ enum States {
 var current_state : States = States.WANDER
 
 func _ready() -> void:
+	
 	direction = Vector2(1, 0)  # Start moving right
 	animated_sprite_2d.flip_h = false  # flip_h = true means facing right
-	ray_cast_2d.target_position = Vector2(125, 0)  # raycast pointing right
-	left_bounds = self.position + Vector2(-125, 0)
-	right_bounds = self.position + Vector2(125, 0)
+	ray_cast_2d.target_position = Vector2(100, 0)  # raycast pointing right
+	left_bounds = self.position + Vector2(-100, 0)
+	right_bounds = self.position + Vector2(100, 0)
 	
 	
 func _physics_process(delta: float) -> void:
@@ -39,22 +41,28 @@ func look_for_player() -> void:
 	if ray_cast_2d.is_colliding():
 		var collider = ray_cast_2d.get_collider()
 		if collider == Player:
-			chase_player()
+			chase_player()		
+			
 		elif current_state == States.CHASE:
 			stop_chase()
 	elif current_state == States.CHASE:
 		stop_chase()
+		
+		
 
 func chase_player() -> void:
 	timer.stop()
 	current_state = States.CHASE
+	panel.visible=true
 
 func stop_chase() -> void:
 	if timer.time_left <= 0:
+		
 		timer.start()
 	
 func handle_movement(delta: float) -> void:
 	if current_state == States.WANDER:
+		panel.visible=false
 		velocity = velocity.move_toward(direction * SPEED, ACCELERATION * delta)
 	else:
 		velocity = velocity.move_toward(direction * CHASE_SPEED, ACCELERATION * delta)
@@ -66,7 +74,7 @@ func change_direction() -> void:
 			if self.position.x >= right_bounds.x:  # reached right bound
 				# flip to moving left
 				animated_sprite_2d.flip_h = true
-				ray_cast_2d.target_position = Vector2(-125, 0)
+				ray_cast_2d.target_position = Vector2(-100, 0)
 				direction = Vector2(-1, 0)
 			else:
 				direction = Vector2(1, 0)
@@ -74,7 +82,7 @@ func change_direction() -> void:
 			if self.position.x <= left_bounds.x:  # reached left bound
 				# flip to moving right
 				animated_sprite_2d.flip_h = false
-				ray_cast_2d.target_position = Vector2(125, 0)
+				ray_cast_2d.target_position = Vector2(100, 0)
 				direction = Vector2(1, 0)
 			else:
 				direction = Vector2(-1, 0)
@@ -82,14 +90,19 @@ func change_direction() -> void:
 		direction = (Player.position - self.position).normalized()
 		if direction.x > 0: # moving right
 			animated_sprite_2d.flip_h = false
-			ray_cast_2d.target_position = Vector2(125, 0)
+			ray_cast_2d.target_position = Vector2(100, 0)
 		else: # moving left
 			animated_sprite_2d.flip_h = true
-			ray_cast_2d.target_position = Vector2(-125, 0)
+			ray_cast_2d.target_position = Vector2(-100, 0)
 
 
 func handle_gravity(delta: float) -> void:
 	if not is_on_floor():
-		velocity.y += 300 * delta
+		velocity.y += 400 * delta
 func _on_timer_timeout() -> void:
 	current_state = States.WANDER
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Player:
+		get_tree().reload_current_scene()
