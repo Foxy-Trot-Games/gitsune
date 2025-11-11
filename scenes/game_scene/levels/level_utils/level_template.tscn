@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4fbrapcblr3k"]
+[gd_scene load_steps=15 format=3 uid="uid://c4fbrapcblr3k"]
 
 [ext_resource type="Script" uid="uid://s3864f4i872k" path="res://scenes/game_scene/tutorial_manager.gd" id="1_2ya6o"]
 [ext_resource type="Script" uid="uid://bog2ukuxke2rv" path="res://scenes/game_scene/levels/level.gd" id="1_dcgko"]
@@ -8,20 +8,7 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_wn38r"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_686pq"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_3tkib"]
-
-[sub_resource type="Gradient" id="Gradient_erhvc"]
-colors = PackedColorArray(0.44097933, 0.44097927, 0.44097927, 1, 1, 1, 1, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_r1bdh"]
-noise_type = 2
-cellular_return_type = 0
-domain_warp_enabled = true
-domain_warp_type = 1
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2ya6o"]
-noise = SubResource("FastNoiseLite_r1bdh")
-color_ramp = SubResource("Gradient_erhvc")
-seamless = true
+[ext_resource type="Texture2D" uid="uid://b22p5n68vm2ld" path="res://assets/objects/objects.png" id="8_wn38r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ya6o"]
 resource_local_to_scene = true
@@ -33,10 +20,14 @@ duration = 0.0
 metadata/_custom_type_script = "uid://8umksf8e80fw"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_urmku"]
-size = Vector2(32, 48)
+size = Vector2(16, 32)
 
 [sub_resource type="LabelSettings" id="LabelSettings_t62rc"]
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_686pq"]
+atlas = ExtResource("8_wn38r")
+region = Rect2(160, 112, 16, 32)
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource("1_dcgko")
@@ -45,32 +36,22 @@ metadata/_edit_lock_ = true
 [node name="TileMapLayer" parent="." instance=ExtResource("2_ddmk6")]
 metadata/_edit_group_ = true
 
-[node name="TextureRect2" type="TextureRect" parent="TileMapLayer"]
-z_index = -1
-offset_left = -640.0
-offset_top = -448.0
-offset_right = 624.0
-offset_bottom = 408.0
-texture = SubResource("NoiseTexture2D_2ya6o")
-stretch_mode = 1
+[node name="CameraManager" type="Node" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("3_dcgko")]
-unique_name_in_owner = true
-
-[node name="CameraLimits" type="Area2D" parent="."]
+[node name="CameraLimits" type="Area2D" parent="CameraManager"]
 script = ExtResource("4_ddmk6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraLimits"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager/CameraLimits"]
 position = Vector2(8, -24)
 shape = SubResource("RectangleShape2D_2ya6o")
 debug_color = Color(0.8153795, 0.40670243, 3.85046e-07, 0.16862746)
 metadata/_edit_lock_ = true
 
-[node name="PhantomCamera2D" type="Node2D" parent="CameraLimits" node_paths=PackedStringArray("follow_target")]
+[node name="PhantomCamera2D" type="Node2D" parent="CameraManager/CameraLimits" node_paths=PackedStringArray("follow_target")]
 top_level = true
 script = ExtResource("5_686pq")
 follow_mode = 1
-follow_target = NodePath("../../Player")
+follow_target = NodePath("../../../LevelObjects/Player")
 snap_to_pixel = true
 frame_preview = false
 tween_resource = SubResource("Resource_2ya6o")
@@ -80,7 +61,7 @@ draw_limits = true
 limit_target = NodePath("../CollisionShape2D")
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="CameraManager"]
 physics_interpolation_mode = 1
 process_callback = 0
 limit_left = -688
@@ -91,7 +72,7 @@ editor_draw_limits = true
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+[node name="PhantomCameraHost" type="Node" parent="CameraManager/Camera2D"]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("4_wn38r")
@@ -102,26 +83,29 @@ unique_name_in_owner = true
 script = ExtResource("1_2ya6o")
 metadata/_custom_type_script = "uid://s3864f4i872k"
 
-[node name="NextLevelArea" type="Area2D" parent="."]
-position = Vector2(-32, -32)
+[node name="LevelObjects" type="Node" parent="."]
+
+[node name="NextLevelArea" type="Area2D" parent="LevelObjects"]
+position = Vector2(-40, -24)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevelArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/NextLevelArea"]
 shape = SubResource("RectangleShape2D_urmku")
 
-[node name="ColorRect" type="ColorRect" parent="NextLevelArea"]
-offset_left = -16.0
-offset_top = -24.0
-offset_right = 16.0
-offset_bottom = 24.0
-color = Color(0, 0, 0, 0.72156864)
-
-[node name="TutorialLabel2" type="Label" parent="NextLevelArea"]
-offset_left = -58.0
-offset_top = -47.0
-offset_right = 77.0
-offset_bottom = -24.0
-text = "Exit to Next Level"
+[node name="TutorialLabel2" type="Label" parent="LevelObjects/NextLevelArea"]
+offset_left = -14.38
+offset_top = -37.775
+offset_right = 14.62
+offset_bottom = -14.775002
+text = "Exit"
 label_settings = SubResource("LabelSettings_t62rc")
 
-[connection signal="body_entered" from="NextLevelArea" to="." method="_next_level_exit_area_entered"]
+[node name="Sprite2D" type="Sprite2D" parent="LevelObjects/NextLevelArea"]
+texture = SubResource("AtlasTexture_686pq")
+
+[node name="Player" parent="LevelObjects" instance=ExtResource("3_dcgko")]
+unique_name_in_owner = true
+
+[connection signal="body_entered" from="LevelObjects/NextLevelArea" to="." method="_next_level_exit_area_entered"]
+
+[editable path="TileMapLayer"]

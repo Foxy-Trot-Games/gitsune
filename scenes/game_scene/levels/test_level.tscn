@@ -455,6 +455,7 @@ offset_bottom = 430.0
 texture = SubResource("NoiseTexture2D_thmji")
 
 [node name="Player" parent="." instance=ExtResource("3_o4mvr")]
+unique_name_in_owner = true
 position = Vector2(256, 144)
 
 [node name="TutorialLabel" type="Label" parent="."]

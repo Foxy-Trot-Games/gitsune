@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://01f2htb8plmg"]
+[gd_scene load_steps=10 format=3 uid="uid://01f2htb8plmg"]
 
 [ext_resource type="Script" uid="uid://bjiclinojhoa8" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://cl0ybqyk5l127" path="res://assets/player/player_mockup.png" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://b44d6kc4emnxj" path="res://scripts/player_controler.gd" id="4_lvxji"]
 [ext_resource type="PackedScene" uid="uid://dfxgljq6hf57a" path="res://scenes/gun/gun.tscn" id="5_p47bc"]
+[ext_resource type="PackedScene" uid="uid://yjog1sws2ras" path="res://scenes/gun/recharge_gun.tscn" id="5_qek5x"]
 [ext_resource type="PackedScene" uid="uid://df4m8l5j2c6dy" path="res://scenes/game_scene/gui/hud.tscn" id="6_0owmy"]
 [ext_resource type="Script" uid="uid://csfv8f14k2ogw" path="res://scripts/ammo_count.gd" id="6_75vfm"]
 [ext_resource type="Script" uid="uid://c44mmw8o77ec6" path="res://scenes/objects/util/snap_to_grid.gd" id="7_0owmy"]
@@ -31,6 +32,8 @@ script = ExtResource("4_lvxji")
 
 [node name="Gun" parent="." instance=ExtResource("5_p47bc")]
 position = Vector2(3, 8)
+
+[node name="RechargeGun" parent="." instance=ExtResource("5_qek5x")]
 
 [node name="AmmoCount" type="Label" parent="."]
 unique_name_in_owner = true

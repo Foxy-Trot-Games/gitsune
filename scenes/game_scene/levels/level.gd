@@ -7,7 +7,7 @@ signal level_won_and_changed(level_path : String)
 @export_file("*.tscn") var next_level_path : String
 
 @onready var tutorial_manager: TutorialManager = %TutorialManager
-@onready var player: Player = $Player
+@onready var player: Player = %Player
 
 var level_state : LevelState
 
