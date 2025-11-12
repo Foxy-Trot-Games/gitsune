@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl0ybqyk5l127"
-path="res://.godot/imported/player_mockup.png-97c05910096501e827a2908e7f86a8bc.ctex"
+uid="uid://c610im4e6xtpi"
+path="res://.godot/imported/fox_jump-Sheet.png-ae2fe9d4f33e4a47769acbe6b665d91f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/player_mockup.png"
-dest_files=["res://.godot/imported/player_mockup.png-97c05910096501e827a2908e7f86a8bc.ctex"]
+source_file="res://assets/player/fox_jump-Sheet.png"
+dest_files=["res://.godot/imported/fox_jump-Sheet.png-ae2fe9d4f33e4a47769acbe6b665d91f.ctex"]
 
 [params]
 

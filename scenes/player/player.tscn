@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://01f2htb8plmg"]
+[gd_scene load_steps=22 format=3 uid="uid://01f2htb8plmg"]
 
 [ext_resource type="Script" uid="uid://bjiclinojhoa8" path="res://scenes/player/player.gd" id="1_dovo2"]
-[ext_resource type="Texture2D" uid="uid://cl0ybqyk5l127" path="res://assets/player/player_mockup.png" id="2_gmlin"]
+[ext_resource type="Texture2D" uid="uid://ydltprl5fb4f" path="res://assets/player/fox_fall-Sheet.png" id="2_h17s1"]
+[ext_resource type="Texture2D" uid="uid://c1bia3m155lki" path="res://assets/player/fox_walk-Sheet.png" id="3_je7p5"]
+[ext_resource type="Texture2D" uid="uid://c610im4e6xtpi" path="res://assets/player/fox_jump-Sheet.png" id="4_fm80t"]
 [ext_resource type="Script" uid="uid://b44d6kc4emnxj" path="res://scripts/player_controler.gd" id="4_lvxji"]
 [ext_resource type="PackedScene" uid="uid://dfxgljq6hf57a" path="res://scenes/gun/gun.tscn" id="5_p47bc"]
 [ext_resource type="PackedScene" uid="uid://yjog1sws2ras" path="res://scenes/gun/recharge_gun.tscn" id="5_qek5x"]
@@ -9,29 +11,116 @@
 [ext_resource type="Script" uid="uid://csfv8f14k2ogw" path="res://scripts/ammo_count.gd" id="6_75vfm"]
 [ext_resource type="Script" uid="uid://c44mmw8o77ec6" path="res://scenes/objects/util/snap_to_grid.gd" id="7_0owmy"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_r1bdh"]
-radius = 16.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx1jg"]
+atlas = ExtResource("2_h17s1")
+region = Rect2(0, 0, 22, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugbui"]
+atlas = ExtResource("2_h17s1")
+region = Rect2(22, 0, 22, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcs02"]
+atlas = ExtResource("2_h17s1")
+region = Rect2(44, 0, 22, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myrg7"]
+atlas = ExtResource("3_je7p5")
+region = Rect2(0, 0, 22, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf5tr"]
+atlas = ExtResource("4_fm80t")
+region = Rect2(22, 0, 22, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgqa7"]
+atlas = ExtResource("4_fm80t")
+region = Rect2(44, 0, 22, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j4b4"]
+atlas = ExtResource("3_je7p5")
+region = Rect2(22, 0, 22, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj68g"]
+atlas = ExtResource("3_je7p5")
+region = Rect2(44, 0, 22, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ioxgp"]
+atlas = ExtResource("3_je7p5")
+region = Rect2(66, 0, 22, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0owmy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx1jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugbui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcs02")
+}],
+"loop": false,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myrg7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uf5tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgqa7")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3j4b4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yj68g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ioxgp")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h17s1"]
+size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_dovo2")
 jump_force = 200
 metadata/_edit_group_ = true
 
-[node name="PlayerSprite" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-modulate = Color(0.97306556, 0.45462722, 1.92523e-07, 1)
-texture = ExtResource("2_gmlin")
+sprite_frames = SubResource("SpriteFrames_0owmy")
+animation = &"idle"
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-shape = SubResource("CircleShape2D_r1bdh")
+shape = SubResource("RectangleShape2D_h17s1")
 
 [node name="PlayerControler" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_lvxji")
 
 [node name="Gun" parent="." instance=ExtResource("5_p47bc")]
-position = Vector2(3, 8)
+position = Vector2(8, -1.1920929e-07)
+scale = Vector2(0.615, 0.615)
 
 [node name="RechargeGun" parent="." instance=ExtResource("5_qek5x")]
 
