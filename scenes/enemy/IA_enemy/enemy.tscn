@@ -164,10 +164,6 @@ animation = &"walking"
 autoplay = "walking"
 frame_progress = 0.4489997
 
-[node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D"]
-position = Vector2(4, 8)
-target_position = Vector2(100, 0)
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
@@ -195,6 +191,11 @@ position = Vector2(-52, -34)
 position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_ijaua")
 debug_color = Color(0.9707081, 0.17353451, 5.7756904e-07, 0.41960785)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-52, -21)
+exclude_parent = false
+target_position = Vector2(100, 0)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

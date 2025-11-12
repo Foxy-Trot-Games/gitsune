@@ -8,8 +8,8 @@ extends CharacterBody2D
 
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var ray_cast_2d: RayCast2D = $AnimatedSprite2D/RayCast2D
 @onready var timer: Timer = $Timer
+@onready var ray_cast_2d: RayCast2D = $RayCast2D
 
 var direction: Vector2
 var right_bounds: Vector2
@@ -39,6 +39,7 @@ func _physics_process(delta: float) -> void:
 
 func look_for_player() -> void:
 	if ray_cast_2d.is_colliding():
+		print("1")
 		var collider = ray_cast_2d.get_collider()
 		if collider == Player:
 			chase_player()		
