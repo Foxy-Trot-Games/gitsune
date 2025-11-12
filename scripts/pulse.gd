@@ -27,8 +27,11 @@ func _create_sound_wave(direction: Vector2) -> void:
 	if direction == Vector2.ZERO:
 		process_material.spread = 180
 		
-	# gun rotation handles where the particles are emitted
-	add_child(particles)
+	# add the particles to the scene root and modify its props
+	# we do this instead of adding as a child of the gun because turning the gun would turn and glitch out the particles 
+	particles.global_position = global_position
+	particles.rotation = gun.rotation
+	get_tree().get_root().add_child(particles)
 	
 	# Free after lifetime
 	var lifetime := particles.lifetime
