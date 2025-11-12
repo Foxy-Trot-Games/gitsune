@@ -45,6 +45,7 @@ _data = {
 }
 
 [node name="ReactorBlastWave" type="Area2D"]
+position = Vector2(-2500, 0)
 gravity_space_override = 3
 gravity_point_center = Vector2(1, 0)
 gravity_direction = Vector2(1, 0)
@@ -71,9 +72,6 @@ libraries = {
 }
 autoplay = "wave"
 speed_scale = 0.5
-
-[node name="AudioListener2D" type="AudioListener2D" parent="."]
-position = Vector2(16, 176)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_aqc8a")

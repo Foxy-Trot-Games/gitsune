@@ -3,13 +3,13 @@
 [ext_resource type="TileSet" uid="uid://28o3066vdu43" path="res://scenes/game_scene/levels/level_utils/level_tileset.tres" id="1_xkp31"]
 [ext_resource type="TileSet" uid="uid://y4ydrkwovoh6" path="res://scenes/game_scene/levels/level_utils/wall_and_floor_tileset.tres" id="2_i64iq"]
 
-[node name="TileMapLayer" type="Node"]
+[node name="TileMapLayer" type="Node2D"]
 
 [node name="TileMapLayerBackdrop" type="TileMapLayer" parent="."]
 z_index = -5
 tile_set = ExtResource("1_xkp31")
 
-[node name="Parallax" type="Node" parent="."]
+[node name="Parallax" type="Node2D" parent="."]
 
 [node name="Parallax2LayerFar" type="Parallax2D" parent="Parallax"]
 physics_interpolation_mode = 0
