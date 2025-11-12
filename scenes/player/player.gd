@@ -22,6 +22,7 @@ enum PlayerStates {
 }
 
 func _ready() -> void:
+	add_to_group("player")
 	Events.player_movement_input_signal.connect(_on_player_movement_input_signal)
 	Events.pulse_knockback_signal.connect(_on_pulse_knockback)
 	Events.player_died.connect(_player_died)
