@@ -13,6 +13,7 @@ func pulse_knockback(direction:Vector2) -> void:
 	emit_signal("pulse_knockback_signal", direction)
 
 func current_gun_ammo(ammo_count: int) -> void:
+	ammo_count = clampi(ammo_count, 0, Globals.ACTIVE_GUN_MAX_AMMO)
 	emit_signal("current_gun_ammo_signal", ammo_count)
 
 

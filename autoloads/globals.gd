@@ -9,14 +9,7 @@ func _ready() -> void:
 	Events.gun_equipped_signal.connect(_on_gun_equipped_signal)
 
 func _on_current_gun_ammo_signal(ammo_count: int) -> void:
-	# Clamp ammo to max
-	ammo_count = min(ammo_count, ACTIVE_GUN_MAX_AMMO)
-
-	# Handle the case when ammo equals max
-	if ammo_count == ACTIVE_GUN_MAX_AMMO and ammo_count == active_gun_ammo_count:
-		active_gun_ammo_count = max(active_gun_ammo_count - 1, 0)
-	else:
-		active_gun_ammo_count = ammo_count
+	active_gun_ammo_count = ammo_count
 
 
 func _on_gun_equipped_signal(MAX_AMMO: int) -> void:

@@ -12,7 +12,6 @@ func _ready() -> void:
 	Events.current_gun_ammo_signal.connect(_on_current_gun_ammo_signal)
 	Events.gun_equipped_signal.connect(_on_gun_equipped_signal)
 	_current_ammo_count = Globals.active_gun_ammo_count
-	_MAX_AMMO_COUNT = Globals.ACTIVE_GUN_MAX_AMMO
 
 func _on_current_gun_ammo_signal(ammo_count: int) -> void:
 	_current_ammo_count = ammo_count

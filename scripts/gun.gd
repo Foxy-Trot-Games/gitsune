@@ -5,7 +5,7 @@ class_name Gun extends Node2D
 @onready var pulse: Pulse = %Pulse
 
 
-const MAX_AMMO: int = 10
+const MAX_AMMO: int = 3
 
 var player: Player
 var debug_timer := 0.0  # Timer to throttle debug prints
