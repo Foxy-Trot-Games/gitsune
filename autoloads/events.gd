@@ -19,5 +19,4 @@ func current_gun_ammo(ammo_count: int) -> void:
 
 func gun_equipped(MAX_AMMO: int) -> void:
 	emit_signal("gun_equipped_signal", MAX_AMMO)
-	print(self, MAX_AMMO)
 	

@@ -47,7 +47,6 @@ func _on_pulse_activated_signal()->void:
 	var _current_ammo_count := Globals.active_gun_ammo_count
 	if _current_ammo_count < 2:
 		pulse.can_pulse = false
-		print(pulse.can_pulse)
 	_current_ammo_count -= 1
 	
 	if _current_ammo_count > MAX_AMMO :

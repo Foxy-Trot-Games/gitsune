@@ -66,6 +66,7 @@ folder_colors={
 
 Gun="Gun Group"
 Player="Player Group "
+Level="Level Group"
 
 [gui]
 

@@ -17,9 +17,6 @@ func _ready() -> void:
 	if !level_state.tutorial_read:
 		open_tutorials()
 
-	_debug_adjust_camera_size()
-
-
 func open_tutorials() -> void:
 	tutorial_manager.open_tutorials()
 	level_state.tutorial_read = true
@@ -28,14 +25,6 @@ func open_tutorials() -> void:
 ## if level started from clicking start game from main menu
 func started_from_main_menu() -> bool:
 	return get_tree().current_scene is not Level
-
-## quick n dirty way for a level to simulate looking through the game_ui subviewport
-func _debug_adjust_camera_size() -> void:
-	# if running a level directly with current scene run option
-	if !started_from_main_menu():
-		for camera in PhantomCameraManager.get_phantom_camera_2ds():
-			# scale up all cameras to same as the SubViewPort in game_ui.scn
-			camera.zoom = Vector2.ONE * 2
 
 func _next_level_exit_area_entered(body: Node2D) -> void:
 	if body is Player:

@@ -14,3 +14,6 @@ func _on_current_gun_ammo_signal(ammo_count: int) -> void:
 
 func _on_gun_equipped_signal(MAX_AMMO: int) -> void:
 	ACTIVE_GUN_MAX_AMMO = MAX_AMMO
+
+func get_level() -> Level:
+	return get_tree().get_first_node_in_group("Level")

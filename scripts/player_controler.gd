@@ -1,7 +1,6 @@
 class_name PlayerController extends Node2D
 
 @onready var player: Player = $".."
-@onready var player_sprite: Sprite2D = %PlayerSprite
 
 
 func _process(_delta: float) -> void:
