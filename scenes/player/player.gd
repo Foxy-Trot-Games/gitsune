@@ -14,11 +14,10 @@ var MAX_PLAYER_SPEED := 500
 var _player_state := PlayerStates.IDLING
 
 enum PlayerStates {
-	JUMPING,
 	IDLING,
 	RUNNING,
 	FALLING,
-	PULSING
+	RISING,
 }
 
 func _ready() -> void:
@@ -63,22 +62,23 @@ func _physics_process(delta: float) -> void:
 	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -jump_force
-		_update_state(PlayerStates.JUMPING)
 
 	# Apply pending knockback from pulse
 	if _pending_knockback != Vector2.ZERO:
 		velocity += _pending_knockback
 		_pending_knockback = Vector2.ZERO
-		_update_state(PlayerStates.PULSING)
 	
 	# apply gravity and any gravity zones
 	velocity += get_gravity() * delta
 	# prevent moving faster than set amount
 	velocity = velocity.clampf(-MAX_PLAYER_SPEED, MAX_PLAYER_SPEED)
 	
-	# if falling by arbitraty amount
+	# if falling by arbitrary amount
 	if velocity.y > 50:
 		_update_state(PlayerStates.FALLING)
+	# if rising by arbitrary amount
+	elif velocity.y < -50:
+		_update_state(PlayerStates.RISING)
 	
 	move_and_slide()
 	
@@ -91,7 +91,7 @@ func _check_state() -> void:
 	match(_player_state):
 		PlayerStates.IDLING:
 			_play_animation("idle")
-		PlayerStates.JUMPING, PlayerStates.PULSING:
+		PlayerStates.RISING:
 			_play_animation("jump")
 		PlayerStates.FALLING:
 			_play_animation("fall")
