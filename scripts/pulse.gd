@@ -11,7 +11,7 @@ const KNOCKBACK_IMPULSE: float = 200.0
 
 
 var particle_throttle := Throttle.new(.2)
-var pulse_cooldown: float = 0.2
+var pulse_cooldown: float = 0.1
 var can_pulse: bool = true
 
 func apply_knockback_impulse(direction: Vector2) -> void:
