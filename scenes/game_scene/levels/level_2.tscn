@@ -82,7 +82,6 @@ offset_top = -1520.0
 offset_right = -16.0
 offset_bottom = -1168.0
 rotation = -1.5707964
-color = Color(0, 1, 0.25490198, 0.47058824)
 gravity_value = 0.0
 slows_down_player = true
 

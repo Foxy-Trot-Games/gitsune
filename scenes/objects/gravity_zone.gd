@@ -1,6 +1,6 @@
 @tool
 # Using a control node is a quick and dirty way to quickly resize/rotate the zone with handlebars in the editor
-extends ColorRect
+extends TextureRect
 
 @export_range(-4096, 4096, 1, "suffix:px/s²") var gravity_value : float = 980.0
 @export var slows_down_player := false
