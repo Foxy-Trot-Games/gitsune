@@ -4,6 +4,7 @@ signal level_lost
 signal level_won
 signal level_won_and_changed(level_path : String)
 
+@export var bgm: AudioStreamMP3
 @export_file("*.tscn") var next_level_path : String
 
 @onready var tutorial_manager: TutorialManager = %TutorialManager
@@ -16,6 +17,8 @@ func _ready() -> void:
 	level_state = GameState.get_level_state(scene_file_path)
 	if !level_state.tutorial_read:
 		open_tutorials()
+		
+	Audio.play_bgm(bgm)
 
 func open_tutorials() -> void:
 	tutorial_manager.open_tutorials()

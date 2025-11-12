@@ -31,7 +31,7 @@ func _create_sound_wave(direction: Vector2) -> void:
 	# we do this instead of adding as a child of the gun because turning the gun would turn and glitch out the particles 
 	particles.global_position = global_position
 	particles.rotation = gun.rotation
-	Globals.get_level().add_child(particles)
+	Globals.add_child_to_level(particles)
 	
 	# Free after lifetime
 	var lifetime := particles.lifetime

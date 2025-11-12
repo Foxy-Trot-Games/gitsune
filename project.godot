@@ -25,6 +25,7 @@ ProjectUISoundController="*res://addons/maaacks_game_template/base/nodes/autoloa
 Events="*res://autoloads/events.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 Globals="*res://autoloads/globals.gd"
+Audio="*res://autoloads/audio.gd"
 
 [debug]
 
@@ -67,6 +68,7 @@ folder_colors={
 Gun="Gun Group"
 Player="Player Group "
 Level="Level Group"
+BGMPlayer="BGM Player"
 
 [gui]
 

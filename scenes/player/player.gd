@@ -18,7 +18,10 @@ enum PlayerStates {
 	RUNNING,
 	FALLING,
 	RISING,
+	
 }
+
+const PLAYER_FOOTSTEP_IND_1 = preload("uid://xgvd557bddwe")
 
 func _ready() -> void:
 	add_to_group("player")
@@ -97,6 +100,7 @@ func _check_state() -> void:
 			_play_animation("fall")
 		PlayerStates.RUNNING:
 			_play_animation("run")
+			Audio.play_sfx(PLAYER_FOOTSTEP_IND_1, self, 200)
 
 func _play_animation(animation: String) -> void:
 	# only play the animation once, even the looping ones
