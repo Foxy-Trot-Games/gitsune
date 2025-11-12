@@ -1,13 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://bbs5nnw0ywg3v"]
+[gd_scene load_steps=5 format=4 uid="uid://bbs5nnw0ywg3v"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_7ge0l"]
 [ext_resource type="PackedScene" uid="uid://hbspw0hu400f" path="res://scenes/enemy/Pathing_enemy/Pathing_enemy.tscn" id="3_3p566"]
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="3_irplr"]
 [ext_resource type="PackedScene" uid="uid://b8e2qcdmlxsvi" path="res://scenes/enemy/IA_enemy/enemy.tscn" id="5_rgywr"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgywr"]
-resource_local_to_scene = true
-size = Vector2(592, 352)
 
 [node name="Level2" instance=ExtResource("1_7ge0l")]
 
@@ -90,19 +86,6 @@ color = Color(0, 1, 0.25490198, 0.47058824)
 gravity_value = 0.0
 slows_down_player = true
 
-[node name="Area2D" parent="LevelObjects/GravityZones/GravityZone4" index="0"]
-position = Vector2(296, 176)
-gravity_point_center = Vector2(-4.371139e-08, -1)
-gravity_direction = Vector2(-4.371139e-08, -1)
-gravity = 0.0
-
-[node name="CollisionShape2D" parent="LevelObjects/GravityZones/GravityZone4/Area2D" index="0"]
-shape = SubResource("RectangleShape2D_rgywr")
-
-[node name="Arrow" parent="LevelObjects/GravityZones/GravityZone4" index="1"]
-visible = false
-position = Vector2(296, 176)
-
 [node name="GravityZone5" parent="LevelObjects/GravityZones" index="4" instance=ExtResource("3_irplr")]
 offset_left = 288.0
 offset_top = -752.0
@@ -111,4 +94,3 @@ offset_bottom = -704.0
 rotation = -1.5707964
 
 [editable path="TileMapLayer"]
-[editable path="LevelObjects/GravityZones/GravityZone4"]

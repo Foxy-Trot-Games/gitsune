@@ -1,12 +1,18 @@
 [gd_scene load_steps=5 format=3 uid="uid://nn5y86qb6rk0"]
 
 [ext_resource type="Script" uid="uid://cwo33na0bv378" path="res://scenes/objects/gravity_zone.gd" id="1_6j3xy"]
-[ext_resource type="Texture2D" uid="uid://dlxcs283t7gl2" path="res://assets/objects/arrow.png" id="2_j0u3c"]
 [ext_resource type="Script" uid="uid://c44mmw8o77ec6" path="res://scenes/objects/util/snap_to_grid.gd" id="3_l6gxy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1bdh"]
 resource_local_to_scene = true
 size = Vector2(16, 16)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l6gxy"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(8, 8, 1)
+gravity = Vector3(98, 0, 0)
 
 [node name="GravityZone" type="ColorRect"]
 custom_minimum_size = Vector2(16, 16)
@@ -28,15 +34,16 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_r1bdh")
-metadata/_edit_lock_ = true
 
-[node name="Arrow" type="Sprite2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(8, 8)
-rotation = 1.5707964
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_j0u3c")
-metadata/_edit_lock_ = true
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_l6gxy")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+unique_name_in_owner = true
+rect = Rect2(0, 0, 16, 16)
 
 [node name="SnapToGrid" type="Node" parent="."]
 script = ExtResource("3_l6gxy")
