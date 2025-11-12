@@ -39,9 +39,6 @@ func _process(delta: float) -> void:
 	
 	look_at(target_pos)
 	
-	# snap gun rotation to 8 cardinal directions
-	rotation_degrees = snappedf(rotation_degrees, 45)
-
 	#queue_redraw()
 
 
