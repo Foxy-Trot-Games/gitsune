@@ -1,15 +1,14 @@
 extends CharacterBody2D
 
-@export var Player : CharacterBody2D
 @export var SPEED: int = 50
 @export var CHASE_SPEED: int = 150
 @export var ACCELERATION: int = 300
 @onready var panel: Panel = $Panel
-
-
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
+
+
 
 var direction: Vector2
 var right_bounds: Vector2
@@ -23,7 +22,6 @@ enum States {
 var current_state : States = States.WANDER
 
 func _ready() -> void:
-	
 	direction = Vector2(1, 0)  # Start moving right
 	animated_sprite_2d.flip_h = false  # flip_h = true means facing right
 	ray_cast_2d.target_position = Vector2(100, 0)  # raycast pointing right
@@ -39,9 +37,9 @@ func _physics_process(delta: float) -> void:
 
 func look_for_player() -> void:
 	if ray_cast_2d.is_colliding():
-		print("1")
-		var collider = ray_cast_2d.get_collider()
-		if collider == Player:
+		var collider : Node2D = ray_cast_2d.get_collider()
+		print(collider)
+		if collider is Player:
 			chase_player()		
 			
 		elif current_state == States.CHASE:
@@ -87,14 +85,16 @@ func change_direction() -> void:
 				direction = Vector2(1, 0)
 			else:
 				direction = Vector2(-1, 0)
-	else: # Chase state. Follow player
-		direction = (Player.position - self.position).normalized()
-		if direction.x > 0: # moving right
-			animated_sprite_2d.flip_h = false
-			ray_cast_2d.target_position = Vector2(100, 0)
-		else: # moving left
-			animated_sprite_2d.flip_h = true
-			ray_cast_2d.target_position = Vector2(-100, 0)
+	else: # Chase state. Follow player.
+		var player : CharacterBody2D = get_tree().get_first_node_in_group("player")
+		if player:
+				direction = (player.position - self.position).normalized()
+				if direction.x > 0: # moving right
+					animated_sprite_2d.flip_h = false
+					ray_cast_2d.target_position = Vector2(100, 0)
+				else: # moving left
+					animated_sprite_2d.flip_h = true
+					ray_cast_2d.target_position = Vector2(-100, 0)
 
 
 func handle_gravity(delta: float) -> void:
