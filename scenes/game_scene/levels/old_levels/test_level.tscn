@@ -1,29 +1,29 @@
 [gd_scene load_steps=24 format=4 uid="uid://w2qphny0t0vu"]
 
-[ext_resource type="Script" uid="uid://bog2ukuxke2rv" path="res://scenes/game_scene/levels/level.gd" id="1_xiw1x"]
-[ext_resource type="PackedScene" uid="uid://01f2htb8plmg" path="res://scenes/player/player.tscn" id="3_o4mvr"]
-[ext_resource type="PackedScene" uid="uid://cxm7caqjvvyu5" path="res://scenes/enemy/Stationary_enemy/enemy.tscn" id="5_tglvs"]
-[ext_resource type="Script" uid="uid://s3864f4i872k" path="res://scenes/game_scene/tutorial_manager.gd" id="6_0bqqu"]
-[ext_resource type="PackedScene" uid="uid://m4lsx3aqr7pp" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="6_o4mvr"]
-[ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="6_xiw1x"]
-[ext_resource type="Texture2D" uid="uid://uqxnqvc5ghf0" path="res://assets/background/walls_tileset.png" id="7_3hanc"]
-[ext_resource type="PackedScene" uid="uid://hbspw0hu400f" path="res://scenes/enemy/Pathing_enemy/Pathing_enemy.tscn" id="8_lwywk"]
-[ext_resource type="PackedScene" uid="uid://2jpu8jkgrmga" path="res://scenes/enemy/Flying_enemy/Flying_enemy.tscn" id="9_3hanc"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="10_0bqqu"]
-[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="11_hy41p"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="12_u4ne6"]
-[ext_resource type="PackedScene" uid="uid://dj26b32jiqwfe" path="res://scenes/objects/ammo.tscn" id="13_hy41p"]
-[ext_resource type="PackedScene" uid="uid://b8e2qcdmlxsvi" path="res://scenes/enemy/IA_enemy/enemy.tscn" id="14_u4ne6"]
+[ext_resource type="Script" uid="uid://bog2ukuxke2rv" path="res://scenes/game_scene/levels/level_utils/level.gd" id="1_vc3dj"]
+[ext_resource type="Script" uid="uid://s3864f4i872k" path="res://scenes/game_scene/tutorial_manager.gd" id="2_2dffu"]
+[ext_resource type="PackedScene" uid="uid://m4lsx3aqr7pp" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="3_n1kcu"]
+[ext_resource type="PackedScene" uid="uid://2jpu8jkgrmga" path="res://scenes/enemy/Flying_enemy/Flying_enemy.tscn" id="4_ushw0"]
+[ext_resource type="PackedScene" uid="uid://hbspw0hu400f" path="res://scenes/enemy/Pathing_enemy/Pathing_enemy.tscn" id="5_4oph4"]
+[ext_resource type="PackedScene" uid="uid://cxm7caqjvvyu5" path="res://scenes/enemy/Stationary_enemy/enemy.tscn" id="6_paw1y"]
+[ext_resource type="Texture2D" uid="uid://uqxnqvc5ghf0" path="res://assets/background/walls_tileset.png" id="7_ka0t6"]
+[ext_resource type="PackedScene" uid="uid://01f2htb8plmg" path="res://scenes/player/player.tscn" id="8_nhb35"]
+[ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="9_52ipi"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="10_ax45o"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="11_eiumh"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="12_mh80m"]
+[ext_resource type="PackedScene" uid="uid://dj26b32jiqwfe" path="res://scenes/objects/ammo.tscn" id="13_e3uhm"]
+[ext_resource type="PackedScene" uid="uid://b8e2qcdmlxsvi" path="res://scenes/enemy/IA_enemy/enemy.tscn" id="14_qucjj"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_aegw0"]
 resource_name = "Enemies"
-scenes/1/scene = ExtResource("9_3hanc")
-scenes/2/scene = ExtResource("8_lwywk")
-scenes/3/scene = ExtResource("5_tglvs")
+scenes/1/scene = ExtResource("4_ushw0")
+scenes/2/scene = ExtResource("5_4oph4")
+scenes/3/scene = ExtResource("6_paw1y")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tglvs"]
 resource_name = "Walls"
-texture = ExtResource("7_3hanc")
+texture = ExtResource("7_ka0t6")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -429,16 +429,16 @@ font_color = Color(0, 0, 0, 1)
 size = Vector2(32, 40)
 
 [sub_resource type="Resource" id="Resource_i6cby"]
-script = ExtResource("12_u4ne6")
+script = ExtResource("12_mh80m")
 
 [node name="TestLevel" type="Node2D"]
-script = ExtResource("1_xiw1x")
+script = ExtResource("1_vc3dj")
 next_level_path = "uid://dlbp53q02q38q"
 
 [node name="TutorialManager" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("6_0bqqu")
-tutorial_scenes = Array[PackedScene]([ExtResource("6_o4mvr")])
+script = ExtResource("2_2dffu")
+tutorial_scenes = Array[PackedScene]([ExtResource("3_n1kcu")])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAiABoAAgACAAMAAAAhABoAAgACAAMAAAAgABoAAgACAAMAAAAfABoAAgACAAMAAAAeABoAAgACAAMAAAAdABoAAgACAAMAAAAcABoAAgACAAMAAAAbABoAAgACAAMAAAAaABoAAgACAAMAAAAZABoAAgACAAMAAAAYABoAAgACAAMAAAAXABoAAgACAAMAAAAWABoAAgACAAMAAAAVABoAAgACAAMAAAAUABoAAgACAAMAAAATABoAAgACAAMAAAASABoAAgACAAMAAAARABoAAgACAAMAAAAQABoAAgACAAMAAAAPABoAAgACAAMAAAAOABoAAgACAAMAAAANABoAAgACAAMAAAAMABoAAgACAAMAAAALABoAAgACAAMAAAAKABoAAgACAAMAAAAJABoAAgACAAMAAAAIABoAAgACAAMAAAAHABoAAgACAAMAAAAGABoAAgACAAMAAAAFABoAAgACAAMAAAAEABoAAgACAAMAAAADABoAAgACAAMAAAACABoAAgACAAMAAAABABoAAgACAAMAAAAAABoAAgACAAMAAAD//xoAAgACAAMAAAD+/xoAAgACAAMAAAD9/xoAAgACAAMAAAD8/xoAAgACAAMAAAD7/xoAAgACAAMAAAD6/xoAAgACAAMAAAD5/xoAAgACAAMAAAD4/xoAAgACAAMAAAD3/xoAAgACAAMAAAD2/xoAAgACAAMAAAD1/xoAAgACAAMAAAD0/xoAAgACAAMAAADz/xoAAgACAAMAAADy/xoAAgACAAMAAADx/xoAAgACAAMAAADw/xoAAgACAAMAAADv/xoAAgACAAMAAADu/xoAAgACAAMAAADt/xoAAgACAAMAAADs/xoAAgACAAMAAADr/xoAAgACAAMAAADq/xoAAgACAAMAAADp/xoAAgACAAMAAADo/xoAAgACAAMAAADn/xoAAgACAAMAAADm/xoAAgACAAMAAADl/xoAAgACAAMAAADk/xoAAgACAAMAAADj/xoAAgACAAMAAADi/xoAAgACAAMAAADh/xoAAgACAAMAAADg/xoAAgACAAMAAADf/xoAAgACAAMAAADe/xoAAgABAAIAAAAnABoAAgADAAIAAAAmABoAAgACAAMAAAAlABoAAgACAAMAAAAkABoAAgACAAMAAAAjABoAAgACAAMAAAAnAOj/AgAAAAEAAAAnAOn/AgAAAAEAAAAnAOr/AgAAAAEAAAAnAOv/AgAAAAEAAAAnAOz/AgAAAAEAAAAnAO3/AgAAAAEAAAAnAO7/AgAAAAEAAAAnAO//AgAAAAEAAAAnAPD/AgAAAAEAAAAnAPH/AgAAAAEAAAAnAPL/AgAAAAEAAAAnAPP/AgAAAAEAAAAnAPT/AgAAAAEAAAAnAPX/AgAAAAEAAAAnAPb/AgAAAAEAAAAnAPf/AgAAAAEAAAAnAPj/AgAAAAEAAAAnAPn/AgAAAAEAAAAnAPr/AgAAAAEAAAAnAPv/AgAAAAEAAAAnAPz/AgAAAAEAAAAnAP3/AgAAAAEAAAAnAP7/AgAAAAEAAAAnAP//AgAAAAEAAAAnAAAAAgAAAAEAAAAnAAEAAgAAAAEAAAAnAAIAAgAAAAEAAAAnAAMAAgAAAAEAAAAnAAQAAgAAAAEAAAAnAAUAAgAAAAEAAAAnAAYAAgAAAAEAAAAnAAcAAgAAAAEAAAAnAAgAAgAAAAEAAAAnAAkAAgAAAAEAAAAnAAoAAgAAAAEAAAAnAAsAAgAAAAEAAAAnAAwAAgAAAAEAAAAnAA0AAgAAAAEAAAAnAA4AAgAAAAEAAAAnAA8AAgAAAAEAAAAnABAAAgAAAAEAAAAnABEAAgAAAAEAAAAnABIAAgAAAAEAAAAnABMAAgAAAAEAAAAnABQAAgAAAAEAAAAnABUAAgAAAAEAAAAnABYAAgAAAAEAAAAnABcAAgAAAAEAAAAnABgAAgAAAAEAAAAnABkAAgAAAAEAAAAnAN//AgADAAAAAAAnAOD/AgAAAAEAAAAnAOH/AgAAAAEAAAAnAOL/AgAAAAEAAAAnAOP/AgAAAAEAAAAnAOT/AgAAAAEAAAAnAOX/AgAAAAEAAAAnAOb/AgAAAAEAAAAnAOf/AgADAAEAAADe/9//AgABAAAAAADf/9//AgACAAMAAADg/9//AgACAAMAAADh/9//AgACAAMAAADi/9//AgACAAMAAADj/9//AgACAAMAAADk/9//AgACAAMAAADl/9//AgACAAMAAADm/9//AgACAAMAAADn/9//AgACAAMAAADo/9//AgACAAMAAADp/9//AgACAAMAAADq/9//AgACAAMAAADr/9//AgACAAMAAADs/9//AgACAAMAAADt/9//AgACAAMAAADu/9//AgACAAMAAADv/9//AgACAAMAAADw/9//AgACAAMAAADx/9//AgACAAMAAADy/9//AgACAAMAAADz/9//AgACAAMAAAD0/9//AgACAAMAAAD1/9//AgACAAMAAAD2/9//AgACAAMAAAD3/9//AgACAAMAAAD4/9//AgACAAMAAAD5/9//AgACAAMAAAD6/9//AgACAAMAAAD7/9//AgACAAMAAAD8/9//AgACAAMAAAD9/9//AgACAAMAAAD+/9//AgACAAMAAAD//9//AgACAAMAAAAAAN//AgACAAMAAAABAN//AgACAAMAAAACAN//AgACAAMAAAADAN//AgACAAMAAAAEAN//AgACAAMAAAAFAN//AgACAAMAAAAGAN//AgACAAMAAAAHAN//AgACAAMAAAAIAN//AgACAAMAAAAJAN//AgACAAMAAAAKAN//AgACAAMAAAALAN//AgACAAMAAAAMAN//AgACAAMAAAANAN//AgACAAMAAAAOAN//AgACAAMAAAAPAN//AgACAAMAAAAQAN//AgACAAMAAAARAN//AgACAAMAAAASAN//AgACAAMAAAATAN//AgACAAMAAAAUAN//AgACAAMAAAAVAN//AgACAAMAAAAWAN//AgACAAMAAAAXAN//AgACAAMAAAAYAN//AgACAAMAAAAZAN//AgACAAMAAAAaAN//AgACAAMAAAAbAN//AgACAAMAAAAcAN//AgACAAMAAAAdAN//AgACAAMAAAAeAN//AgACAAMAAAAfAN//AgACAAMAAAAgAN//AgACAAMAAAAhAN//AgACAAMAAAAiAN//AgACAAMAAAAjAN//AgACAAMAAAAkAN//AgACAAMAAAAlAN//AgACAAMAAAAmAN//AgACAAMAAADe/+D/AgAAAAEAAADe/+H/AgAAAAEAAADe/+L/AgAAAAEAAADe/+P/AgAAAAEAAADe/+T/AgAAAAEAAADe/+X/AgAAAAEAAADe/+b/AgAAAAEAAADe/+f/AgAAAAEAAADe/+j/AgAAAAEAAADe/+n/AgAAAAEAAADe/+r/AgAAAAEAAADe/+v/AgAAAAEAAADe/+z/AgAAAAEAAADe/+3/AgAAAAEAAADe/+7/AgAAAAEAAADe/+//AgAAAAEAAADe//D/AgAAAAEAAADe//H/AgAAAAEAAADe//L/AgAAAAEAAADe//P/AgAAAAEAAADe//T/AgAAAAEAAADe//X/AgAAAAEAAADe//b/AgAAAAEAAADe//f/AgAAAAEAAADe//j/AgAAAAEAAADe//n/AgAAAAEAAADe//r/AgAAAAEAAADe//v/AgAAAAEAAADe//z/AgAAAAEAAADe//3/AgAAAAEAAADe//7/AgAAAAEAAADe////AgAAAAEAAADe/wAAAgAAAAEAAADe/wEAAgAAAAEAAADe/wIAAgAAAAEAAADe/wMAAgAAAAEAAADe/wQAAgAAAAEAAADe/wUAAgAAAAEAAADe/wYAAgAAAAEAAADe/wcAAgAAAAEAAADe/wgAAgAAAAEAAADe/wkAAgAAAAEAAADe/woAAgAAAAEAAADe/wsAAgAAAAEAAADe/wwAAgAAAAEAAADe/w0AAgAAAAEAAADe/w4AAgAAAAEAAADe/w8AAgAAAAEAAADe/xAAAgAAAAEAAADe/xEAAgAAAAEAAADe/xIAAgAAAAEAAADe/xMAAgAAAAEAAADe/xQAAgAAAAEAAADe/xUAAgAAAAEAAADe/xYAAgAAAAEAAADe/xcAAgAAAAEAAADe/xgAAgAAAAEAAADe/xkAAgAAAAEAAAAaAAwAAgADAAMAAAAZAAwAAgACAAMAAAAYAAwAAgACAAMAAAAXAAwAAgACAAMAAAAWAAwAAgACAAMAAAAVAAwAAgACAAMAAAAUAAwAAgACAAMAAAATAAwAAgACAAMAAAASAAwAAgACAAMAAAARAAwAAgACAAMAAAAQAAwAAgACAAMAAAAPAAwAAgACAAMAAAAOAAwAAgACAAMAAAANAAwAAgACAAMAAAAMAAwAAgACAAMAAAALAAwAAgACAAMAAAAKAAwAAgAGAAMAAAAJAAwAAgAIAAMAAADn/xQAAgALAAMAAADn/xMAAgALAAIAAADn/xIAAgALAAIAAADn/xEAAgALAAIAAADn/xAAAgALAAIAAADn/w8AAgALAAIAAADn/w4AAgALAAIAAADn/w0AAgALAAIAAADn/wwAAgALAAIAAADn/wsAAgALAAIAAADn/woAAgALAAIAAADn/wkAAgALAAIAAADn/wgAAgALAAIAAADn/wcAAgALAAIAAADn/wYAAgALAAIAAADn/wUAAgALAAIAAADn/wQAAgALAAIAAADn/wMAAgALAAIAAADn/wIAAgALAAIAAADn/wEAAgALAAIAAADn/wAAAgALAAIAAADn////AgALAAIAAADn//7/AgALAAAAAADm/xQAAgAIAAMAAADm/xMAAgAIAAEAAADm/xIAAgAIAAEAAADm/xEAAgAIAAEAAADm/xAAAgAIAAEAAADm/w8AAgAIAAEAAADm/w4AAgAIAAEAAADm/w0AAgAIAAEAAADm/wwAAgAIAAEAAADm/wsAAgAIAAEAAADm/woAAgAIAAEAAADm/wkAAgAIAAEAAADm/wgAAgAIAAEAAADm/wcAAgAIAAEAAADm/wYAAgAIAAEAAADm/wUAAgAIAAEAAADm/wQAAgAIAAEAAADm/wMAAgAIAAEAAADm/wIAAgAIAAEAAADm/wEAAgAIAAEAAADm/wAAAgAIAAEAAADm////AgAIAAEAAADm//7/AgAIAAAAAADr/+7/AgALAAMAAADr/+3/AgALAAIAAADr/+z/AgALAAIAAADr/+v/AgALAAIAAADr/+r/AgALAAAAAADq/+7/AgAJAAMAAADq/+3/AgAJAAIAAADq/+z/AgAJAAIAAADq/+v/AgAJAAIAAADq/+r/AgAKAAAAAADp/+7/AgAJAAMAAADp/+3/AgAJAAIAAADp/+z/AgAJAAIAAADp/+v/AgAJAAIAAADp/+r/AgAKAAAAAADo/+7/AgAJAAMAAADo/+3/AgAJAAIAAADo/+z/AgAJAAIAAADo/+v/AgAJAAIAAADo/+r/AgAKAAAAAADn/+7/AgAJAAMAAADn/+3/AgAJAAIAAADn/+z/AgAJAAIAAADn/+v/AgAJAAIAAADn/+r/AgAKAAAAAADm/+7/AgAIAAMAAADm/+3/AgAIAAEAAADm/+z/AgAIAAEAAADm/+v/AgAIAAEAAADm/+r/AgAIAAAAAAAKAAsAAgALAAIAAAAKAAoAAgALAAIAAAAKAAkAAgALAAAAAAAJAAsAAgAIAAEAAAAJAAoAAgAIAAEAAAAJAAkAAgAIAAAAAAATAPj/AgALAAMAAAATAPf/AgALAAIAAAATAPb/AgALAAIAAAATAPX/AgALAAIAAAATAPT/AgALAAAAAAASAPj/AgAJAAMAAAASAPf/AgAJAAIAAAASAPb/AgAJAAIAAAASAPX/AgAJAAIAAAASAPT/AgAKAAAAAAARAPj/AgAJAAMAAAARAPf/AgAJAAIAAAARAPb/AgAJAAIAAAARAPX/AgAJAAIAAAARAPT/AgAKAAAAAAAQAPj/AgAJAAMAAAAQAPf/AgAJAAIAAAAQAPb/AgAJAAIAAAAQAPX/AgAJAAIAAAAQAPT/AgAKAAAAAAAPAPj/AgAJAAMAAAAPAPf/AgAJAAIAAAAPAPb/AgAJAAIAAAAPAPX/AgAJAAIAAAAPAPT/AgAKAAAAAAAOAPj/AgAIAAMAAAAOAPf/AgAIAAEAAAAOAPb/AgAIAAEAAAAOAPX/AgAIAAEAAAAOAPT/AgAIAAAAAAAmAOf/AgACAAMAAAAlAOf/AgACAAMAAAAkAOf/AgACAAMAAAAjAOf/AgACAAMAAAAiAOf/AgACAAMAAAAhAOf/AgABAAMAAAA=")
@@ -454,7 +454,7 @@ offset_right = 630.0
 offset_bottom = 430.0
 texture = SubResource("NoiseTexture2D_thmji")
 
-[node name="Player" parent="." instance=ExtResource("3_o4mvr")]
+[node name="Player" parent="." instance=ExtResource("8_nhb35")]
 unique_name_in_owner = true
 position = Vector2(256, 144)
 
@@ -472,40 +472,40 @@ label_settings = SubResource("LabelSettings_r1bdh")
 
 [node name="Pathing_enemies" type="Node" parent="Enemies"]
 
-[node name="Pathing_enemy" parent="Enemies/Pathing_enemies" instance=ExtResource("8_lwywk")]
+[node name="Pathing_enemy" parent="Enemies/Pathing_enemies" instance=ExtResource("5_4oph4")]
 position = Vector2(0, 208)
 
-[node name="Pathing_enemy2" parent="Enemies/Pathing_enemies" instance=ExtResource("8_lwywk")]
+[node name="Pathing_enemy2" parent="Enemies/Pathing_enemies" instance=ExtResource("5_4oph4")]
 position = Vector2(16, -96)
 
 [node name="stationary_enemies" type="Node" parent="Enemies"]
 
-[node name="enemy_goat_test" parent="Enemies/stationary_enemies" instance=ExtResource("5_tglvs")]
+[node name="enemy_goat_test" parent="Enemies/stationary_enemies" instance=ExtResource("6_paw1y")]
 position = Vector2(-112, 400)
 
 [node name="flying_enemies" type="Node" parent="Enemies"]
 
-[node name="flying_enemey" parent="Enemies" instance=ExtResource("9_3hanc")]
+[node name="flying_enemey" parent="Enemies" instance=ExtResource("4_ushw0")]
 position = Vector2(464, -32)
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-203, -367)
 
-[node name="GravityZone" parent="." instance=ExtResource("6_xiw1x")]
+[node name="GravityZone" parent="." instance=ExtResource("9_52ipi")]
 offset_left = -304.0
 offset_top = 128.0
 offset_bottom = 176.0
 rotation = -1.5707964
 gravity_value = 4000.0
 
-[node name="GravityZone2" parent="." instance=ExtResource("6_xiw1x")]
+[node name="GravityZone2" parent="." instance=ExtResource("9_52ipi")]
 offset_left = -112.0
 offset_top = -320.0
 offset_right = -80.0
 offset_bottom = 256.0
 rotation = -1.5707964
 
-[node name="GravityZone3" parent="." instance=ExtResource("6_xiw1x")]
+[node name="GravityZone3" parent="." instance=ExtResource("9_52ipi")]
 offset_left = 80.0
 offset_top = 416.0
 offset_right = 256.0
@@ -513,7 +513,7 @@ offset_bottom = 480.0
 rotation = -2.3561945
 gravity_value = 1960.0
 
-[node name="GravityZone4" parent="." instance=ExtResource("6_xiw1x")]
+[node name="GravityZone4" parent="." instance=ExtResource("9_52ipi")]
 offset_left = -448.0
 offset_top = -512.0
 offset_right = -128.0
@@ -549,13 +549,13 @@ editor_draw_limits = true
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300
 process_physics_priority = 300
-script = ExtResource("10_0bqqu")
+script = ExtResource("10_ax45o")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 top_level = true
 position = Vector2(256, 144)
-script = ExtResource("11_hy41p")
+script = ExtResource("11_eiumh")
 follow_mode = 1
 follow_target = NodePath("../Player")
 snap_to_pixel = true
@@ -568,58 +568,58 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Ammo" type="Node2D" parent="."]
 
-[node name="Ammo1" parent="Ammo" instance=ExtResource("13_hy41p")]
+[node name="Ammo1" parent="Ammo" instance=ExtResource("13_e3uhm")]
 position = Vector2(160, 112)
 
-[node name="Ammo9" parent="Ammo" instance=ExtResource("13_hy41p")]
+[node name="Ammo9" parent="Ammo" instance=ExtResource("13_e3uhm")]
 position = Vector2(160, 112)
 
-[node name="Ammo2" parent="Ammo" instance=ExtResource("13_hy41p")]
+[node name="Ammo2" parent="Ammo" instance=ExtResource("13_e3uhm")]
 position = Vector2(-368, 384)
 
-[node name="Ammo3" parent="Ammo" instance=ExtResource("13_hy41p")]
+[node name="Ammo3" parent="Ammo" instance=ExtResource("13_e3uhm")]
 position = Vector2(-288, -128)
 
-[node name="Ammo4" parent="Ammo" instance=ExtResource("13_hy41p")]
+[node name="Ammo4" parent="Ammo" instance=ExtResource("13_e3uhm")]
 position = Vector2(80, -352)
 
-[node name="Ammo5" parent="Ammo" instance=ExtResource("13_hy41p")]
+[node name="Ammo5" parent="Ammo" instance=ExtResource("13_e3uhm")]
 position = Vector2(416, -352)
 
-[node name="Ammo6" parent="Ammo" instance=ExtResource("13_hy41p")]
+[node name="Ammo6" parent="Ammo" instance=ExtResource("13_e3uhm")]
 position = Vector2(272, -224)
 
-[node name="Ammo7" parent="Ammo" instance=ExtResource("13_hy41p")]
+[node name="Ammo7" parent="Ammo" instance=ExtResource("13_e3uhm")]
 position = Vector2(528, 368)
 
-[node name="Ammo8" parent="Ammo" instance=ExtResource("13_hy41p")]
+[node name="Ammo8" parent="Ammo" instance=ExtResource("13_e3uhm")]
 position = Vector2(336, 128)
 
-[node name="Ammo10" parent="Ammo" instance=ExtResource("13_hy41p")]
+[node name="Ammo10" parent="Ammo" instance=ExtResource("13_e3uhm")]
 position = Vector2(128, 384)
 
-[node name="Ammo11" parent="Ammo" instance=ExtResource("13_hy41p")]
+[node name="Ammo11" parent="Ammo" instance=ExtResource("13_e3uhm")]
 position = Vector2(400, 16)
 
-[node name="Ammo12" parent="Ammo" instance=ExtResource("13_hy41p")]
+[node name="Ammo12" parent="Ammo" instance=ExtResource("13_e3uhm")]
 position = Vector2(608, -432)
 
-[node name="Ammo13" parent="Ammo" instance=ExtResource("13_hy41p")]
+[node name="Ammo13" parent="Ammo" instance=ExtResource("13_e3uhm")]
 position = Vector2(576, -432)
 
-[node name="Ammo14" parent="Ammo" instance=ExtResource("13_hy41p")]
+[node name="Ammo14" parent="Ammo" instance=ExtResource("13_e3uhm")]
 position = Vector2(544, -432)
 
-[node name="Ammo15" parent="Ammo" instance=ExtResource("13_hy41p")]
+[node name="Ammo15" parent="Ammo" instance=ExtResource("13_e3uhm")]
 position = Vector2(-368, -384)
 
-[node name="Ammo16" parent="Ammo" instance=ExtResource("13_hy41p")]
+[node name="Ammo16" parent="Ammo" instance=ExtResource("13_e3uhm")]
 position = Vector2(-96, -512)
 
-[node name="Ammo17" parent="Ammo" instance=ExtResource("13_hy41p")]
+[node name="Ammo17" parent="Ammo" instance=ExtResource("13_e3uhm")]
 position = Vector2(-432, -64)
 
-[node name="Enemy" parent="." instance=ExtResource("14_u4ne6")]
+[node name="Enemy" parent="." instance=ExtResource("14_qucjj")]
 position = Vector2(354, 425)
 
 [connection signal="body_entered" from="NextLevelArea" to="." method="_next_level_exit_area_entered"]

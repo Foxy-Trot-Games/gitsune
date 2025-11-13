@@ -15,7 +15,7 @@ var level_state : LevelState
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	level_state = GameState.get_level_state(scene_file_path)
-	if !level_state.tutorial_read:
+	if level_state && !level_state.tutorial_read:
 		open_tutorials()
 		
 	Audio.play_bgm(bgm)
