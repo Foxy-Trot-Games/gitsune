@@ -431,7 +431,7 @@ size = Vector2(32, 40)
 [sub_resource type="Resource" id="Resource_i6cby"]
 script = ExtResource("12_mh80m")
 
-[node name="TestLevel" type="Node2D"]
+[node name="TestLevel" type="Node2D" groups=["Level"]]
 script = ExtResource("1_vc3dj")
 next_level_path = "uid://dlbp53q02q38q"
 
@@ -543,7 +543,12 @@ label_settings = SubResource("LabelSettings_r1bdh")
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
 position = Vector2(256, 144)
+zoom = Vector2(2, 2)
 process_callback = 0
+limit_left = -544
+limit_top = -528
+limit_right = 640
+limit_bottom = 432
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -558,12 +563,12 @@ position = Vector2(256, 144)
 script = ExtResource("11_eiumh")
 follow_mode = 1
 follow_target = NodePath("../Player")
-snap_to_pixel = true
+zoom = Vector2(2, 2)
 frame_preview = false
 tween_resource = SubResource("Resource_i6cby")
 tween_on_load = false
-follow_damping = true
 draw_limits = true
+limit_target = NodePath("../TileMapLayer")
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Ammo" type="Node2D" parent="."]
