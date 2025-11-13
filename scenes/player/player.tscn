@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://01f2htb8plmg"]
+[gd_scene load_steps=23 format=3 uid="uid://01f2htb8plmg"]
 
 [ext_resource type="Script" uid="uid://bjiclinojhoa8" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://ydltprl5fb4f" path="res://assets/player/fox_fall-Sheet.png" id="2_h17s1"]
@@ -35,17 +35,21 @@ region = Rect2(22, 0, 22, 17)
 atlas = ExtResource("4_fm80t")
 region = Rect2(44, 0, 22, 17)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3j4b4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_je7p5"]
 atlas = ExtResource("3_je7p5")
 region = Rect2(22, 0, 22, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yj68g"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fm80t"]
 atlas = ExtResource("3_je7p5")
 region = Rect2(44, 0, 22, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ioxgp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvlxm"]
 atlas = ExtResource("3_je7p5")
 region = Rect2(66, 0, 22, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h17s1"]
+atlas = ExtResource("3_je7p5")
+region = Rect2(0, 0, 22, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0owmy"]
 animations = [{
@@ -84,13 +88,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3j4b4")
+"texture": SubResource("AtlasTexture_je7p5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yj68g")
+"texture": SubResource("AtlasTexture_fm80t")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ioxgp")
+"texture": SubResource("AtlasTexture_kvlxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h17s1")
 }],
 "loop": true,
 "name": &"run",
@@ -102,7 +109,6 @@ size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_dovo2")
-jump_force = 200
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

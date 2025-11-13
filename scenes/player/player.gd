@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var player_sprite: AnimatedSprite2D = %AnimatedSprite2D
 
 @export var speed: int = 200
-@export var jump_force: int = 400
+@export var jump_force: int = 200
 
 var _move_direction := Vector2.ZERO
 var _pending_knockback := Vector2.ZERO
