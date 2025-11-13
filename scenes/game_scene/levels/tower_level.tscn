@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b8e2qcdmlxsvi" path="res://scenes/enemy/IA_enemy/enemy.tscn" id="4_rcob3"]
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="5_olebf"]
 
-[node name="Level2" instance=ExtResource("1_kq305")]
+[node name="TowerLevel" instance=ExtResource("1_kq305")]
 bgm = ExtResource("2_bsl2r")
 
 [node name="TileMapLayerFar" parent="TileMapLayer/Parallax/Parallax2LayerFar" index="0"]
