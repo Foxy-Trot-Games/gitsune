@@ -113,7 +113,8 @@ func _check_state() -> void:
 			_play_animation("fall")
 		PlayerStates.RUNNING:
 			_play_animation("run")
-			Audio.play_sfx(PLAYER_FOOTSTEP_IND_1, self, 200)
+			if is_on_floor():
+				Audio.play_sfx(PLAYER_FOOTSTEP_IND_1, self, 200, -40)
 
 func _play_animation(animation: String) -> void:
 	# only play the animation once, even the looping ones
