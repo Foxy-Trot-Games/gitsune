@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://01f2htb8plmg"]
+[gd_scene load_steps=22 format=3 uid="uid://01f2htb8plmg"]
 
 [ext_resource type="Script" uid="uid://bjiclinojhoa8" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://ydltprl5fb4f" path="res://assets/player/fox_fall-Sheet.png" id="2_h17s1"]
@@ -18,10 +18,6 @@ region = Rect2(0, 0, 22, 17)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ugbui"]
 atlas = ExtResource("2_h17s1")
 region = Rect2(22, 0, 22, 17)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fcs02"]
-atlas = ExtResource("2_h17s1")
-region = Rect2(44, 0, 22, 17)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_myrg7"]
 atlas = ExtResource("3_je7p5")
@@ -59,9 +55,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ugbui")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fcs02")
 }],
 "loop": false,
 "name": &"fall",
@@ -114,7 +107,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_0owmy")
-animation = &"idle"
+animation = &"fall"
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
