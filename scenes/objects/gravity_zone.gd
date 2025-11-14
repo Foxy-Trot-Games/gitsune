@@ -1,13 +1,14 @@
 @tool
 # Using a control node is a quick and dirty way to quickly resize/rotate the zone with handlebars in the editor
-extends ColorRect
+extends TextureRect
 
 @export_range(-4096, 4096, 1, "suffix:px/s²") var gravity_value : float = 980.0
 @export var slows_down_player := false
 
 @onready var area_2d: Area2D = %Area2D
 @onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
-@onready var arrow: Sprite2D = %Arrow
+@onready var gpu_particles_2d: GPUParticles2D = %GravityParticles
+@onready var visible_on_screen_enabler_2d: VisibleOnScreenEnabler2D = %VisibleOnScreenEnabler2D
 
 var _debug_label : Label
 
@@ -34,9 +35,19 @@ func _draw() -> void:
 	var center := size / 2
 	
 	# set element positions when the node is resized or position is updated
-	arrow.position = center
 	area_2d.position = center
-	(collision_shape_2d.shape as RectangleShape2D).size = size
+	
+	var shape : RectangleShape2D = collision_shape_2d.shape
+	shape.size = size
+	
+	# set the visible_on_screen_enabler_2d rect, since it doesn't have size we have to build one to assign to rect
+	visible_on_screen_enabler_2d.rect = Rect2(Vector2.ZERO, size)
+	
+	# set particle positions/size
+	gpu_particles_2d.position = center
+	var process_material : ParticleProcessMaterial = gpu_particles_2d.process_material
+	process_material.emission_box_extents = Vector3(center.x, center.y, 1)
+	process_material.gravity = Vector3(gravity_value / 10, 0, 0)
 	
 	# set gravity vector based on node rotation (which is in radians)
 	area_2d.gravity_direction = Vector2(cos(rotation), sin(rotation))

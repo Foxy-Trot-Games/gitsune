@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var player_sprite: AnimatedSprite2D = %AnimatedSprite2D
 
 @export var speed: int = 200
-@export var jump_force: int = 400
+@export var jump_force: int = 200
 
 var _move_direction := Vector2.ZERO
 var _pending_knockback := Vector2.ZERO
@@ -14,12 +14,14 @@ var MAX_PLAYER_SPEED := 500
 var _player_state := PlayerStates.IDLING
 
 enum PlayerStates {
-	JUMPING,
 	IDLING,
 	RUNNING,
 	FALLING,
-	PULSING
+	RISING,
+	
 }
+
+const PLAYER_FOOTSTEP_IND_1 = preload("uid://xgvd557bddwe")
 
 func _ready() -> void:
 	add_to_group("player")
@@ -51,8 +53,16 @@ func _on_player_movement_input_signal(direction: Vector2) -> void:
 		else:
 			_update_state(PlayerStates.RUNNING)
 
+# rising by arbitrary amount
+func _is_rising() -> bool:
+	return velocity.y < -50
+
+func _is_falling() -> bool:
+	return velocity.y > 50
+
 func _physics_process(delta: float) -> void:
 	
+	# Apply movement
 	if is_on_floor():
 		velocity.x = _move_direction.x * speed
 	elif _move_direction != Vector2.ZERO:
@@ -60,25 +70,31 @@ func _physics_process(delta: float) -> void:
 		# air resistence is taken into account to slowly move the player
 		velocity.x = lerpf(velocity.x, _move_direction.x * speed, PLAYER_AIR_RESISTENCE)
 
-	# Jump
+	# Apply Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -jump_force
-		_update_state(PlayerStates.JUMPING)
 
 	# Apply pending knockback from pulse
 	if _pending_knockback != Vector2.ZERO:
+		# if player is falling we want to apply the full impulse so they 'pogo' back up
+		# instead of just reducing the velocity
+		if _is_falling():
+			velocity.y = 0
 		velocity += _pending_knockback
 		_pending_knockback = Vector2.ZERO
-		_update_state(PlayerStates.PULSING)
 	
 	# apply gravity and any gravity zones
 	velocity += get_gravity() * delta
+	
 	# prevent moving faster than set amount
 	velocity = velocity.clampf(-MAX_PLAYER_SPEED, MAX_PLAYER_SPEED)
 	
-	# if falling by arbitraty amount
-	if velocity.y > 50:
+	# if falling
+	if _is_falling():
 		_update_state(PlayerStates.FALLING)
+	# if rising
+	elif _is_rising():
+		_update_state(PlayerStates.RISING)
 	
 	move_and_slide()
 	
@@ -91,12 +107,14 @@ func _check_state() -> void:
 	match(_player_state):
 		PlayerStates.IDLING:
 			_play_animation("idle")
-		PlayerStates.JUMPING, PlayerStates.PULSING:
+		PlayerStates.RISING:
 			_play_animation("jump")
 		PlayerStates.FALLING:
 			_play_animation("fall")
 		PlayerStates.RUNNING:
 			_play_animation("run")
+			if is_on_floor():
+				Audio.play_sfx(PLAYER_FOOTSTEP_IND_1, self, 200, -40)
 
 func _play_animation(animation: String) -> void:
 	# only play the animation once, even the looping ones

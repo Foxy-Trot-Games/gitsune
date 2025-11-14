@@ -11,6 +11,8 @@ class_name SceneLister
 	set(value):
 		directory = value
 		_refresh_files()
+@export_tool_button("Refresh Files") var _refresh_files_button = _refresh_files
+@export var refresh_on_editor_start := false
 
 func _refresh_files():
 	if not is_inside_tree() or directory.is_empty(): return
@@ -21,3 +23,7 @@ func _refresh_files():
 			if not file.ends_with(".tscn"):
 				continue
 			files.append(directory + "/" + file)
+
+func _ready() -> void:
+	if refresh_on_editor_start && Engine.is_editor_hint():
+		_refresh_files()

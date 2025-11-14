@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://c4fbrapcblr3k"]
 
 [ext_resource type="Script" uid="uid://s3864f4i872k" path="res://scenes/game_scene/tutorial_manager.gd" id="1_2ya6o"]
-[ext_resource type="Script" uid="uid://bog2ukuxke2rv" path="res://scenes/game_scene/levels/level.gd" id="1_dcgko"]
+[ext_resource type="Script" uid="uid://bog2ukuxke2rv" path="res://scenes/game_scene/levels/level_utils/level.gd" id="1_dcgko"]
 [ext_resource type="PackedScene" uid="uid://btt7i2y5c6sme" path="res://scenes/game_scene/levels/level_utils/level_tile_map_layer.tscn" id="2_ddmk6"]
 [ext_resource type="PackedScene" uid="uid://01f2htb8plmg" path="res://scenes/player/player.tscn" id="3_dcgko"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_wn38r"]
@@ -39,10 +39,10 @@ unique_name_in_owner = true
 top_level = true
 position = Vector2(336, 196)
 script = ExtResource("5_686pq")
+priority = 1
 follow_mode = 1
 follow_target = NodePath("../../LevelObjects/Player")
 zoom = Vector2(2, 2)
-snap_to_pixel = true
 frame_preview = false
 tween_resource = SubResource("Resource_2ya6o")
 tween_on_load = false
@@ -52,6 +52,7 @@ limit_margin = Vector4i(16, 16, 16, 16)
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Camera2D" type="Camera2D" parent="CameraManager"]
+unique_name_in_owner = true
 physics_interpolation_mode = 1
 position = Vector2(336, 196)
 zoom = Vector2(2, 2)

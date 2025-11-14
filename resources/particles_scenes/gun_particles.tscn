@@ -21,10 +21,14 @@ scale_max = 3.0
 color = Color(1, 0, 0.8833332, 1)
 color_ramp = SubResource("GradientTexture1D_4miey")
 
+<<<<<<< HEAD:scenes/player/sound_particles.tscn
 [sub_resource type="CircleShape2D" id="CircleShape2D_7vo7j"]
 radius = 50.0
 
 [node name="SoundParticles" type="GPUParticles2D"]
+=======
+[node name="GunParticles" type="GPUParticles2D"]
+>>>>>>> main:resources/particles_scenes/gun_particles.tscn
 emitting = false
 amount = 128
 lifetime = 2.0

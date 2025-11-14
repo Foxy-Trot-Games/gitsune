@@ -1,18 +1,51 @@
-[gd_scene load_steps=5 format=3 uid="uid://nn5y86qb6rk0"]
+[gd_scene load_steps=11 format=3 uid="uid://nn5y86qb6rk0"]
 
 [ext_resource type="Script" uid="uid://cwo33na0bv378" path="res://scenes/objects/gravity_zone.gd" id="1_6j3xy"]
-[ext_resource type="Texture2D" uid="uid://dlxcs283t7gl2" path="res://assets/objects/arrow.png" id="2_j0u3c"]
+[ext_resource type="Shader" uid="uid://ula7reohgr3f" path="res://scenes/objects/gravity_zone.gdshader" id="1_l6gxy"]
 [ext_resource type="Script" uid="uid://c44mmw8o77ec6" path="res://scenes/objects/util/snap_to_grid.gd" id="3_l6gxy"]
+[ext_resource type="PackedScene" uid="uid://dtrk3kn5lheu8" path="res://resources/particles_scenes/gravity_particles.tscn" id="3_w7ajn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l6gxy"]
+shader = ExtResource("1_l6gxy")
+shader_parameter/wave_frequency = 10.0
+shader_parameter/wave_speed = 0.05
+shader_parameter/wave_amplitude = 0.005
+shader_parameter/wave_color = Color(0.5568628, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_4fuhv"]
+offsets = PackedFloat32Array(0.41107872, 0.7521866, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.5, 1, 1, 1, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_l6gxy"]
+noise_type = 2
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_w7ajn"]
+noise = SubResource("FastNoiseLite_l6gxy")
+color_ramp = SubResource("Gradient_4fuhv")
+seamless = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1bdh"]
 resource_local_to_scene = true
 size = Vector2(16, 16)
 
-[node name="GravityZone" type="ColorRect"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tiknf"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(8, 8, 1)
+gravity = Vector3(98, 0, 0)
+
+[node name="GravityZone" type="TextureRect"]
+material = SubResource("ShaderMaterial_l6gxy")
 custom_minimum_size = Vector2(16, 16)
 offset_right = 16.0
 offset_bottom = 16.0
-color = Color(0, 1, 1, 0.47058824)
+texture = SubResource("NoiseTexture2D_w7ajn")
+expand_mode = 1
+stretch_mode = 1
 script = ExtResource("1_6j3xy")
 metadata/_edit_group_ = true
 
@@ -28,15 +61,15 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_r1bdh")
-metadata/_edit_lock_ = true
 
-[node name="Arrow" type="Sprite2D" parent="."]
+[node name="GravityParticles" parent="." instance=ExtResource("3_w7ajn")]
 unique_name_in_owner = true
 position = Vector2(8, 8)
-rotation = 1.5707964
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_j0u3c")
-metadata/_edit_lock_ = true
+process_material = SubResource("ParticleProcessMaterial_tiknf")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+unique_name_in_owner = true
+rect = Rect2(0, 0, 16, 16)
 
 [node name="SnapToGrid" type="Node" parent="."]
 script = ExtResource("3_l6gxy")

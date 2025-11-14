@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Gitsune"
-config/version="0.0.25"
+config/version="0.0.30"
 run/main_scene="uid://cuyrgck0mpt8p"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -25,6 +25,7 @@ ProjectUISoundController="*res://addons/maaacks_game_template/base/nodes/autoloa
 Events="*res://autoloads/events.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 Globals="*res://autoloads/globals.gd"
+Audio="*res://autoloads/audio.gd"
 
 [debug]
 
@@ -67,6 +68,7 @@ folder_colors={
 Gun="Gun Group"
 Player="Player Group "
 Level="Level Group"
+BGMPlayer="BGM Player"
 
 [gui]
 
@@ -153,4 +155,3 @@ common/physics_interpolation=true
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-2d/snap/snap_2d_transforms_to_pixel=true
