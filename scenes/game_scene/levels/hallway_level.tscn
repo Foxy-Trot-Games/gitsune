@@ -21,10 +21,6 @@ position = Vector2(272, 172)
 
 [node name="Camera2D" parent="CameraManager" index="1"]
 position = Vector2(272, 172)
-limit_left = -1904
-limit_top = 0
-limit_right = 624
-limit_bottom = 352
 
 [node name="NextLevelArea" parent="LevelObjects" index="0"]
 position = Vector2(-1328, 80)
@@ -46,5 +42,9 @@ rotation = -2.3561945
 gravity_value = 1960.0
 
 [node name="ReactorBlastWave" parent="LevelObjects" index="4" instance=ExtResource("11_0b6gl")]
+offset_left = -2544.0
+offset_top = -360.0
+offset_right = -2511.9998
+offset_bottom = 712.0
 
 [editable path="TileMapLayer"]

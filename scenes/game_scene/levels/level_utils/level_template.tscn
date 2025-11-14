@@ -52,6 +52,7 @@ limit_margin = Vector4i(16, 16, 16, 16)
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Camera2D" type="Camera2D" parent="CameraManager"]
+unique_name_in_owner = true
 physics_interpolation_mode = 1
 position = Vector2(336, 196)
 zoom = Vector2(2, 2)
