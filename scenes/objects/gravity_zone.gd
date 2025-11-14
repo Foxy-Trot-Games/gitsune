@@ -7,7 +7,7 @@ extends TextureRect
 
 @onready var area_2d: Area2D = %Area2D
 @onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
-@onready var gpu_particles_2d: GPUParticles2D = %GPUParticles2D
+@onready var gpu_particles_2d: GPUParticles2D = %GravityParticles
 @onready var visible_on_screen_enabler_2d: VisibleOnScreenEnabler2D = %VisibleOnScreenEnabler2D
 
 var _debug_label : Label
