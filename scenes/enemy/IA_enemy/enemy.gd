@@ -24,6 +24,7 @@ var stunned: bool = false
 var stun_timer: Timer
 
 func _ready() -> void:
+	add_to_group("enemy")
 	direction = Vector2(1, 0)  # Start moving right
 	animated_sprite_2d.flip_h = false  # flip_h = true means facing right
 	ray_cast_2d.target_position = Vector2(100, 0)  # raycast pointing right
@@ -42,7 +43,7 @@ func _on_pulse_stun(knockback_direction: Vector2, radius: float, duration: float
 	var normalized_direction = knockback_direction.normalized()
 	
 	velocity.x = normalized_direction.x * knockback_force
-	velocity.y = normalized_direction.y * knockback_force * 0.3
+	velocity.y = normalized_direction.y * knockback_force * 0.5
 
 	stunned = true
 	stun_timer.start(duration)
@@ -55,8 +56,8 @@ func _physics_process(delta: float) -> void:
 		change_direction()
 		look_for_player()
 	else:
-		# Apply friction during stun (reduced for better knockback feel)
-		velocity.x = lerp(velocity.x, 0.0, 1.5 * delta)
+		# Apply lighter friction during stun for better visual feedback
+		velocity.x = lerp(velocity.x, 0.0, 0.8 * delta)
 	
 	# Always call move_and_slide at the end
 	move_and_slide()
@@ -64,7 +65,6 @@ func _physics_process(delta: float) -> void:
 func look_for_player() -> void:
 	if ray_cast_2d.is_colliding():
 		var collider : Node2D = ray_cast_2d.get_collider()
-		print(collider)
 		if collider is Player:
 			chase_player()		
 			

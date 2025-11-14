@@ -6,7 +6,7 @@ signal pulse_activated_signal
 
 @onready var gun: Gun = $".."
 
-const PARTICLES = preload("uid://dmwmphp4y0bya")
+const PARTICLES = preload("uid://oc3nknueoo5d")  # SoundParticles scene with collision detection
 const KNOCKBACK_IMPULSE: float = 200.0
 
 
@@ -27,13 +27,10 @@ func _create_sound_wave(direction: Vector2) -> void:
 	if direction == Vector2.ZERO:
 		process_material.spread = 180
 		
-	# add the particles to the scene root and modify its props
-	# we do this instead of adding as a child of the gun because turning the gun would turn and glitch out the particles 
 	particles.global_position = global_position
 	particles.rotation = gun.rotation
 	Globals.add_child_to_level(particles)
 	
-	# Free after lifetime
 	var lifetime := particles.lifetime
 	await get_tree().create_timer(lifetime).timeout
 	particles.queue_free()
