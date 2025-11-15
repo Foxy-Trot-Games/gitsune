@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://wpnqp08cv3bm"]
 
 [ext_resource type="Script" uid="uid://da3r4u78r1ul1" path="res://scenes/objects/spikes.gd" id="1_tkv1w"]
-[ext_resource type="Texture2D" uid="uid://b22p5n68vm2ld" path="res://assets/objects/objects.png" id="2_tkv1w"]
+[ext_resource type="Texture2D" uid="uid://bywrd5w72kyf1" path="res://assets/objects/objects.png" id="2_tkv1w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxa7l"]
 size = Vector2(16, 16)
@@ -47,6 +47,5 @@ shape = SubResource("RectangleShape2D_bxa7l")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 sprite_frames = SubResource("SpriteFrames_iqieh")
 autoplay = "default"
-frame_progress = 0.73277456
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

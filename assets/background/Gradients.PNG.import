@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://booqlbd6nnwr5"
-path="res://.godot/imported/wall_objects2.png-5b502eedf3479188ea35a19f370a4d1a.ctex"
+uid="uid://cirptdnn2gcg6"
+path="res://.godot/imported/Gradients.png-75471377ceb19980bb488df9d764c6fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/wall_objects2.png"
-dest_files=["res://.godot/imported/wall_objects2.png-5b502eedf3479188ea35a19f370a4d1a.ctex"]
+source_file="res://assets/background/Gradients.png"
+dest_files=["res://.godot/imported/Gradients.png-75471377ceb19980bb488df9d764c6fc.ctex"]
 
 [params]
 
