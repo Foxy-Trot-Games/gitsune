@@ -50,8 +50,9 @@ position = Vector2(352, -1216)
 [node name="Pathing_enemy3" parent="LevelObjects/Enemies" index="2" instance=ExtResource("3_v6c7n")]
 position = Vector2(-112, -2272)
 
-[node name="Enemy" parent="LevelObjects/Enemies" index="3" instance=ExtResource("4_rcob3")]
+[node name="Enemy" parent="LevelObjects/Enemies" index="3" node_paths=PackedStringArray("Player") instance=ExtResource("5_rgywr")]
 position = Vector2(246, 252)
+Player = NodePath("../../Player")
 
 [node name="GravityZones" type="Node2D" parent="LevelObjects" index="3"]
 
