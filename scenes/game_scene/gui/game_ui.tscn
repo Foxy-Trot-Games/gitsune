@@ -120,7 +120,7 @@ script = ExtResource("13_d657n")
 [node name="ParticleSceneLister" type="Node" parent="SceneCacheManager"]
 unique_name_in_owner = true
 script = ExtResource("9_hubgp")
-files = Array[String](["res://resources/particles_scenes/gravity_particles.tscn", "res://resources/particles_scenes/gun_particles.tscn"])
+files = Array[String](["res://resources/particles_scenes/gravity_particles.tscn", "res://resources/particles_scenes/gun_sound_particles.tscn"])
 directory = "res://resources/particles_scenes"
 refresh_on_editor_start = true
 metadata/_custom_type_script = "uid://wjq7li836lwj"

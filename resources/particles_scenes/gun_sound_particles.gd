@@ -19,7 +19,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Use process instead of physics_process for smoother visual movement
 	var distance_this_frame := speed * delta
-	var from_pos := global_position
+	var from_pos := pulse_area.global_position
 	var to_pos := from_pos + travel_direction * distance_this_frame
 	
 	# Raycast to check for enemies we might pass through
@@ -37,10 +37,10 @@ func _physics_process(delta: float) -> void:
 			_apply_knockback_to_enemy(collider)
 	
 	# Smooth movement
-	global_position += travel_direction * distance_this_frame
+	pulse_area.global_position += travel_direction * distance_this_frame
 	
 	# Destroy pulse after going too far
-	if global_position.distance_to(spawn_position) > 2000:
+	if pulse_area.global_position.distance_to(spawn_position) > 2000:
 		queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
