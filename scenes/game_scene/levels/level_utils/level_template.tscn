@@ -124,12 +124,14 @@ metadata/_custom_type_script = "uid://s3864f4i872k"
 
 [node name="NextLevelArea" type="Area2D" parent="LevelObjects"]
 position = Vector2(-40, -24)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/NextLevelArea"]
 shape = SubResource("RectangleShape2D_urmku")
 
 [node name="Sprite2D" type="Sprite2D" parent="LevelObjects/NextLevelArea"]
 texture = SubResource("AtlasTexture_686pq")
+flip_h = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LevelObjects/NextLevelArea"]
 position = Vector2(0, -24)

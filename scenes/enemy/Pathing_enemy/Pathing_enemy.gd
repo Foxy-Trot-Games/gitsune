@@ -23,10 +23,10 @@ func _process(delta: float) -> void:
 func change_direction() -> void:
 	if player.position.x < position.x:
 		# Player is left of enemy
-		sprite_2d.flip_h = false
+		sprite_2d.flip_h = true
 	else:
 		# Player is right of enemy
-		sprite_2d.flip_h = true
+		sprite_2d.flip_h = false
 
 
 

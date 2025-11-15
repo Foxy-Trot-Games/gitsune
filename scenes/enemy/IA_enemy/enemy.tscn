@@ -1,12 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://b8e2qcdmlxsvi"]
+[gd_scene load_steps=19 format=3 uid="uid://b8e2qcdmlxsvi"]
 
 [ext_resource type="Script" uid="uid://dh327n4cqurwm" path="res://scenes/enemy/IA_enemy/enemy.gd" id="1_rdi22"]
 [ext_resource type="Texture2D" uid="uid://dv2je0ocn5c4i" path="res://assets/enemy/Bringer-of-Death-SpritSheet.png" id="2_ijaua"]
-[ext_resource type="Texture2D" uid="uid://488ol7xvnypw" path="res://assets/enemy/Skeleton_01_White_Walk.png" id="3_ijaua"]
+[ext_resource type="Texture2D" uid="uid://brtclyuf5bjk8" path="res://assets/enemy/crab-Sheet.png" id="3_ijaua"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fh6ne"]
-radius = 12.0
-height = 46.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fh6ne"]
+size = Vector2(32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kwsiy"]
 atlas = ExtResource("2_ijaua")
@@ -40,45 +39,21 @@ region = Rect2(840, 0, 140, 93)
 atlas = ExtResource("2_ijaua")
 region = Rect2(980, 0, 140, 93)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fh6ne"]
-atlas = ExtResource("3_ijaua")
-region = Rect2(0, 0, 96, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_aclb5"]
 atlas = ExtResource("3_ijaua")
-region = Rect2(96, 0, 96, 64)
+region = Rect2(0, 0, 31, 27)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xepsc"]
 atlas = ExtResource("3_ijaua")
-region = Rect2(192, 0, 96, 64)
+region = Rect2(31, 0, 31, 27)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qsmn3"]
 atlas = ExtResource("3_ijaua")
-region = Rect2(288, 0, 96, 64)
+region = Rect2(62, 0, 31, 27)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4u8kr"]
 atlas = ExtResource("3_ijaua")
-region = Rect2(384, 0, 96, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3yfer"]
-atlas = ExtResource("3_ijaua")
-region = Rect2(480, 0, 96, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mp1ta"]
-atlas = ExtResource("3_ijaua")
-region = Rect2(576, 0, 96, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qt7aq"]
-atlas = ExtResource("3_ijaua")
-region = Rect2(672, 0, 96, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0mu1y"]
-atlas = ExtResource("3_ijaua")
-region = Rect2(768, 0, 96, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lkikw"]
-atlas = ExtResource("3_ijaua")
-region = Rect2(864, 0, 96, 64)
+region = Rect2(93, 0, 31, 27)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aclb5"]
 animations = [{
@@ -113,9 +88,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fh6ne")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_aclb5")
 }, {
 "duration": 1.0,
@@ -126,21 +98,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4u8kr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3yfer")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mp1ta")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qt7aq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0mu1y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lkikw")
 }],
 "loop": true,
 "name": &"walking",
@@ -148,7 +105,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ijaua"]
-size = Vector2(29, 46)
+size = Vector2(40, 16)
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_rdi22")
@@ -157,15 +114,14 @@ CHASE_SPEED = null
 ACCELERATION = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-52, -35)
-shape = SubResource("CapsuleShape2D_fh6ne")
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_fh6ne")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-49, -44)
 sprite_frames = SubResource("SpriteFrames_aclb5")
 animation = &"walking"
 autoplay = "walking"
-frame_progress = 0.4489997
+frame_progress = 0.9470824
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
@@ -173,10 +129,11 @@ one_shot = true
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
-offset_left = -66.0
-offset_top = -89.0
-offset_right = -40.0
-offset_bottom = -63.0
+offset_left = -13.0
+offset_top = -42.0
+offset_right = 13.0
+offset_bottom = -16.0
+metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="Panel"]
 texture_filter = 1
@@ -188,15 +145,13 @@ offset_bottom = 24.0
 text = "!"
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-52, -34)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, -1)
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_ijaua")
 debug_color = Color(0.9707081, 0.17353451, 5.7756904e-07, 0.41960785)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(-52, -21)
 exclude_parent = false
 target_position = Vector2(100, 0)
 

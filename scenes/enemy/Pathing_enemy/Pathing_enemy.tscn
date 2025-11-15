@@ -1,39 +1,32 @@
-[gd_scene load_steps=14 format=3 uid="uid://hbspw0hu400f"]
+[gd_scene load_steps=13 format=3 uid="uid://hbspw0hu400f"]
 
-[ext_resource type="Texture2D" uid="uid://bakx0pt0to5v5" path="res://assets/enemy/mosquito.png" id="1_87ujf"]
 [ext_resource type="Script" uid="uid://142ycydyovl5" path="res://scenes/enemy/Pathing_enemy/Pathing_enemy.gd" id="1_nev1t"]
+[ext_resource type="Texture2D" uid="uid://c5yfh6kythhvw" path="res://assets/enemy/fly1-Sheet.png" id="2_7utl5"]
 [ext_resource type="Script" uid="uid://c44mmw8o77ec6" path="res://scenes/objects/util/snap_to_grid.gd" id="3_7utl5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nev1t"]
-atlas = ExtResource("1_87ujf")
-region = Rect2(0, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bs7x"]
+atlas = ExtResource("2_7utl5")
+region = Rect2(0, 0, 31, 33)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k7cfs"]
-atlas = ExtResource("1_87ujf")
-region = Rect2(48, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_aetdg"]
+atlas = ExtResource("2_7utl5")
+region = Rect2(31, 0, 31, 33)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o8rqc"]
-atlas = ExtResource("1_87ujf")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_csi86"]
-atlas = ExtResource("1_87ujf")
-region = Rect2(144, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_wf88f"]
+atlas = ExtResource("2_7utl5")
+region = Rect2(62, 0, 31, 33)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4aodd"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nev1t")
+"texture": SubResource("AtlasTexture_4bs7x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k7cfs")
+"texture": SubResource("AtlasTexture_aetdg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o8rqc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_csi86")
+"texture": SubResource("AtlasTexture_wf88f")
 }],
 "loop": true,
 "name": &"default",
@@ -91,7 +84,7 @@ script = ExtResource("1_nev1t")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4aodd")
 autoplay = "default"
-frame_progress = 0.8728045
+frame_progress = 0.9525345
 
 [node name="vision" type="Area2D" parent="Sprite2D"]
 
