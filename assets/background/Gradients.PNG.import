@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cirptdnn2gcg6"
-path="res://.godot/imported/Gradients.png-75471377ceb19980bb488df9d764c6fc.ctex"
+path="res://.godot/imported/Gradients.PNG-1f932bcd898d0b20b7ce7c5711a2e605.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/Gradients.png"
-dest_files=["res://.godot/imported/Gradients.png-75471377ceb19980bb488df9d764c6fc.ctex"]
+source_file="res://assets/background/Gradients.PNG"
+dest_files=["res://.godot/imported/Gradients.PNG-1f932bcd898d0b20b7ce7c5711a2e605.ctex"]
 
 [params]
 

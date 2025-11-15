@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c4fbrapcblr3k"]
+[gd_scene load_steps=19 format=3 uid="uid://c4fbrapcblr3k"]
 
 [ext_resource type="Script" uid="uid://s3864f4i872k" path="res://scenes/game_scene/tutorial_manager.gd" id="1_2ya6o"]
 [ext_resource type="Script" uid="uid://bog2ukuxke2rv" path="res://scenes/game_scene/levels/level_utils/level.gd" id="1_dcgko"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_wn38r"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_686pq"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_3tkib"]
+[ext_resource type="Texture2D" uid="uid://d0i67rmduh3jj" path="res://assets/background/Runes.PNG" id="8_686pq"]
 [ext_resource type="Texture2D" uid="uid://bywrd5w72kyf1" path="res://assets/objects/objects.png" id="8_wn38r"]
 
 [sub_resource type="Resource" id="Resource_2ya6o"]
@@ -17,12 +18,52 @@ metadata/_custom_type_script = "uid://8umksf8e80fw"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_urmku"]
 size = Vector2(16, 32)
 
-[sub_resource type="LabelSettings" id="LabelSettings_t62rc"]
-font_color = Color(0, 0, 0, 1)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_686pq"]
 atlas = ExtResource("8_wn38r")
 region = Rect2(160, 112, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tkib"]
+atlas = ExtResource("8_686pq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0dxg"]
+atlas = ExtResource("8_686pq")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8xd4"]
+atlas = ExtResource("8_686pq")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl7ul"]
+atlas = ExtResource("8_686pq")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn38r"]
+atlas = ExtResource("8_686pq")
+region = Rect2(144, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_10mtc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tkib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0dxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8xd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dl7ul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn38r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [node name="LevelTemplate" type="Node2D" groups=["Level"]]
 script = ExtResource("1_dcgko")
@@ -83,21 +124,18 @@ metadata/_custom_type_script = "uid://s3864f4i872k"
 
 [node name="NextLevelArea" type="Area2D" parent="LevelObjects"]
 position = Vector2(-40, -24)
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/NextLevelArea"]
 shape = SubResource("RectangleShape2D_urmku")
 
-[node name="TutorialLabel2" type="Label" parent="LevelObjects/NextLevelArea"]
-offset_left = -14.38
-offset_top = -37.775
-offset_right = 14.62
-offset_bottom = -14.775002
-text = "Exit"
-label_settings = SubResource("LabelSettings_t62rc")
-
 [node name="Sprite2D" type="Sprite2D" parent="LevelObjects/NextLevelArea"]
 texture = SubResource("AtlasTexture_686pq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LevelObjects/NextLevelArea"]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_10mtc")
+autoplay = "default"
+frame_progress = 0.62124085
 
 [node name="Player" parent="LevelObjects" instance=ExtResource("3_dcgko")]
 unique_name_in_owner = true

@@ -1,15 +1,10 @@
-[gd_resource type="TileSet" load_steps=36 format=3 uid="uid://28o3066vdu43"]
+[gd_resource type="TileSet" load_steps=32 format=3 uid="uid://28o3066vdu43"]
 
-[ext_resource type="PackedScene" uid="uid://2jpu8jkgrmga" path="res://scenes/enemy/Flying_enemy/Flying_enemy.tscn" id="1_uxekd"]
-[ext_resource type="PackedScene" uid="uid://hbspw0hu400f" path="res://scenes/enemy/Pathing_enemy/Pathing_enemy.tscn" id="2_1yjvj"]
-[ext_resource type="PackedScene" uid="uid://cxm7caqjvvyu5" path="res://scenes/enemy/Stationary_enemy/enemy.tscn" id="3_caxap"]
-[ext_resource type="PackedScene" uid="uid://b8e2qcdmlxsvi" path="res://scenes/enemy/IA_enemy/enemy.tscn" id="4_bspnc"]
-[ext_resource type="PackedScene" uid="uid://wpnqp08cv3bm" path="res://scenes/objects/spikes.tscn" id="5_6seo5"]
-[ext_resource type="PackedScene" uid="uid://dj26b32jiqwfe" path="res://scenes/objects/ammo.tscn" id="6_pt010"]
 [ext_resource type="Texture2D" uid="uid://d0i67rmduh3jj" path="res://assets/background/Runes.PNG" id="7_caxap"]
 [ext_resource type="Texture2D" uid="uid://uqxnqvc5ghf0" path="res://assets/background/walls_tileset.png" id="7_wj4xs"]
 [ext_resource type="Texture2D" uid="uid://cik7u4ts61k5g" path="res://assets/background/walls2_tileset.png" id="8_b0pys"]
-[ext_resource type="Texture2D" uid="uid://dnm732j6r7fso" path="res://assets/background/Environment.png" id="8_bspnc"]
+[ext_resource type="Texture2D" uid="uid://dnm732j6r7fso" path="res://assets/background/Environment.PNG" id="8_bspnc"]
+[ext_resource type="Texture2D" uid="uid://cirptdnn2gcg6" path="res://assets/background/Gradients.PNG" id="9_bspnc"]
 [ext_resource type="Texture2D" uid="uid://b0hoeiplnp4ka" path="res://assets/background/walls3_tileset.png" id="9_hbkr3"]
 [ext_resource type="Texture2D" uid="uid://clfyedk8db5o6" path="res://assets/background/walls4_tileset.png" id="10_stai2"]
 [ext_resource type="Texture2D" uid="uid://bywrd5w72kyf1" path="res://assets/objects/objects.png" id="11_rd7l0"]
@@ -38,17 +33,11 @@ tile_data = PackedInt32Array(0, 524292, 9, 65536, 524292, 10)
 [sub_resource type="TileMapPattern" id="TileMapPattern_p2s3p"]
 tile_data = PackedInt32Array(0, 589828, 10, 65536, 589828, 11, 131072, 589828, 12)
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_aegw0"]
-resource_name = "Enemies"
-scenes/1/scene = ExtResource("1_uxekd")
-scenes/2/scene = ExtResource("2_1yjvj")
-scenes/3/scene = ExtResource("3_caxap")
-scenes/4/scene = ExtResource("4_bspnc")
+[sub_resource type="TileMapPattern" id="TileMapPattern_caxap"]
+tile_data = PackedInt32Array(0, 589835, 9, 65536, 589835, 10, 131072, 589835, 11, 196608, 589835, 10, 262144, 589835, 11, 327680, 589835, 10, 393216, 589835, 11, 458752, 589835, 10, 524288, 589835, 11, 589824, 589835, 10, 655360, 589835, 11, 720896, 589835, 10, 786432, 589835, 11, 851968, 589835, 10, 917504, 589835, 11, 983040, 589835, 10, 1048576, 589835, 11, 1114112, 589835, 10, 1179648, 589835, 11, 1245184, 589835, 10, 1310720, 589835, 11, 1, 655371, 9, 65537, 655371, 10, 131073, 655371, 11, 196609, 655371, 10, 262145, 655371, 11, 327681, 655371, 10, 393217, 655371, 11, 458753, 655371, 10, 524289, 655371, 11, 589825, 655371, 10, 655361, 655371, 11, 720897, 655371, 10, 786433, 655371, 11, 851969, 655371, 10, 917505, 655371, 11, 983041, 655371, 10, 1048577, 655371, 11, 1114113, 655371, 10, 1179649, 655371, 11, 1245185, 655371, 10, 1310721, 655371, 11)
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_vk6bf"]
-resource_name = "Level Interactables"
-scenes/2/scene = ExtResource("5_6seo5")
-scenes/3/scene = ExtResource("6_pt010")
+[sub_resource type="TileMapPattern" id="TileMapPattern_bspnc"]
+tile_data = PackedInt32Array(0, 589835, 10, 65536, 589835, 11, 131072, 589835, 11, 196608, 589835, 10, 262144, 589835, 11, 327680, 589835, 10, 393216, 589835, 11, 458752, 589835, 10, 524288, 589835, 11, 589824, 589835, 10, 655360, 589835, 11, 720896, 589835, 10, 786432, 589835, 11, 851968, 589835, 10, 917504, 589835, 11, 1, 655371, 10, 65537, 655371, 11, 131073, 655371, 11, 196609, 655371, 10, 262145, 655371, 11, 327681, 655371, 10, 393217, 655371, 11, 458753, 655371, 10, 524289, 655371, 11, 589825, 655371, 10, 655361, 655371, 11, 720897, 655371, 10, 786433, 655371, 11, 851969, 655371, 10, 917505, 655371, 11)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pt010"]
 resource_name = "Runes"
@@ -276,6 +265,92 @@ texture = ExtResource("8_bspnc")
 1:13/0 = 0
 1:14/0 = 0
 1:15/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6seo5"]
+texture = ExtResource("9_bspnc")
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+2:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+7:11/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+7:12/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+7:13/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tglvs"]
 resource_name = "Metal Panel Walls"
@@ -2226,9 +2301,7 @@ terrain_set_0/terrain_3/name = "Stone Walls"
 terrain_set_0/terrain_3/color = Color(0.4246607, 0.3696376, 0.33634683, 1)
 terrain_set_0/terrain_4/name = "Pipes"
 terrain_set_0/terrain_4/color = Color(0.2400428, 0.40432838, 1, 1)
-sources/0 = SubResource("TileSetScenesCollectionSource_aegw0")
 sources/2 = SubResource("TileSetAtlasSource_tglvs")
-sources/1 = SubResource("TileSetScenesCollectionSource_vk6bf")
 sources/3 = SubResource("TileSetAtlasSource_vk6bf")
 sources/4 = SubResource("TileSetAtlasSource_8duue")
 sources/5 = SubResource("TileSetAtlasSource_biwt1")
@@ -2238,6 +2311,7 @@ sources/8 = SubResource("TileSetAtlasSource_g46di")
 sources/9 = SubResource("TileSetAtlasSource_ep0t0")
 sources/10 = SubResource("TileSetAtlasSource_pt010")
 sources/11 = SubResource("TileSetAtlasSource_wj4xs")
+sources/12 = SubResource("TileSetAtlasSource_6seo5")
 pattern_0 = SubResource("TileMapPattern_vk6bf")
 pattern_1 = SubResource("TileMapPattern_wie53")
 pattern_2 = SubResource("TileMapPattern_8duue")
@@ -2245,3 +2319,5 @@ pattern_3 = SubResource("TileMapPattern_biwt1")
 pattern_4 = SubResource("TileMapPattern_81sle")
 pattern_5 = SubResource("TileMapPattern_fxkfo")
 pattern_6 = SubResource("TileMapPattern_p2s3p")
+pattern_7 = SubResource("TileMapPattern_caxap")
+pattern_8 = SubResource("TileMapPattern_bspnc")

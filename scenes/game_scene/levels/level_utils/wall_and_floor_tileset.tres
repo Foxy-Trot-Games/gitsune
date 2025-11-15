@@ -1,9 +1,16 @@
-[gd_resource type="TileSet" load_steps=16 format=3 uid="uid://y4ydrkwovoh6"]
+[gd_resource type="TileSet" load_steps=26 format=3 uid="uid://y4ydrkwovoh6"]
 
+[ext_resource type="Texture2D" uid="uid://db1jl6yf87ru1" path="res://assets/background/floor.png" id="1_hqnv6"]
+[ext_resource type="PackedScene" uid="uid://wpnqp08cv3bm" path="res://scenes/objects/spikes.tscn" id="6_icoyr"]
+[ext_resource type="PackedScene" uid="uid://dj26b32jiqwfe" path="res://scenes/objects/ammo.tscn" id="7_6n6g1"]
 [ext_resource type="Texture2D" uid="uid://uqxnqvc5ghf0" path="res://assets/background/walls_tileset.png" id="7_kauwh"]
 [ext_resource type="Texture2D" uid="uid://cik7u4ts61k5g" path="res://assets/background/walls2_tileset.png" id="8_jwdsv"]
+[ext_resource type="PackedScene" uid="uid://cxm7caqjvvyu5" path="res://scenes/enemy/Stationary_enemy/enemy.tscn" id="8_xe3hx"]
 [ext_resource type="Texture2D" uid="uid://b0hoeiplnp4ka" path="res://assets/background/walls3_tileset.png" id="9_cxt27"]
+[ext_resource type="PackedScene" uid="uid://2jpu8jkgrmga" path="res://scenes/enemy/Flying_enemy/Flying_enemy.tscn" id="9_qwveq"]
 [ext_resource type="Texture2D" uid="uid://clfyedk8db5o6" path="res://assets/background/walls4_tileset.png" id="10_8p68r"]
+[ext_resource type="PackedScene" uid="uid://hbspw0hu400f" path="res://scenes/enemy/Pathing_enemy/Pathing_enemy.tscn" id="10_htd1m"]
+[ext_resource type="PackedScene" uid="uid://b8e2qcdmlxsvi" path="res://scenes/enemy/IA_enemy/enemy.tscn" id="11_opqfu"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_vk6bf"]
 tile_data = PackedInt32Array(0, 655364, 7, 65536, 655364, 8)
@@ -25,6 +32,43 @@ tile_data = PackedInt32Array(0, 524292, 9, 65536, 524292, 10)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_p2s3p"]
 tile_data = PackedInt32Array(0, 589828, 10, 65536, 589828, 11, 131072, 589828, 12)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85mbc"]
+texture = ExtResource("1_hqnv6")
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:3/0 = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:3/0 = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:3/0 = 0
+8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:7/0 = 0
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -2.6666665, -2.6666665, 2.666667, 2.666667, 8, 8, 8, -8)
+1:7/0 = 0
+1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 2.6666665, -2.6666665, -2.666667, 2.666667, -8, 8, -8, -8)
+0:9/0 = 0
+0:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.6666665, -8, 8, -8, 8, -2.6666665, -2.6666665, -2.6666665)
+1:9/0 = 0
+1:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -2.6666665, -8, -2.6666665)
+2:9/0 = 0
+2:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.6666665, -8, -8, -8, -8, -2.6666665, 2.6666665, -2.6666665)
+0:11/0 = 0
+0:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.6666665, -8, 8, -8, 8, -2.6666665, -2.6666665, -2.6666665)
+1:11/0 = 0
+1:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -2.6666665, -8, -2.6666665)
+2:11/0 = 0
+2:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.6666665, -8, -8, -8, -8, -2.6666665, 2.6666665, -2.6666665)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tglvs"]
 resource_name = "Metal Panel Walls"
@@ -1548,6 +1592,18 @@ texture = ExtResource("10_8p68r")
 11:3/0/terrains_peering_bit/top_left_corner = 3
 11:3/0/terrains_peering_bit/top_side = 3
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0mavu"]
+resource_name = "Level Interactables"
+scenes/1/scene = ExtResource("6_icoyr")
+scenes/2/scene = ExtResource("7_6n6g1")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_m3kbm"]
+resource_name = "Enemies"
+scenes/1/scene = ExtResource("8_xe3hx")
+scenes/2/scene = ExtResource("9_qwveq")
+scenes/3/scene = ExtResource("10_htd1m")
+scenes/4/scene = ExtResource("11_opqfu")
+
 [resource]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
@@ -1563,6 +1619,9 @@ sources/2 = SubResource("TileSetAtlasSource_tglvs")
 sources/3 = SubResource("TileSetAtlasSource_vk6bf")
 sources/4 = SubResource("TileSetAtlasSource_8duue")
 sources/5 = SubResource("TileSetAtlasSource_biwt1")
+sources/0 = SubResource("TileSetAtlasSource_85mbc")
+sources/6 = SubResource("TileSetScenesCollectionSource_0mavu")
+sources/7 = SubResource("TileSetScenesCollectionSource_m3kbm")
 pattern_0 = SubResource("TileMapPattern_vk6bf")
 pattern_1 = SubResource("TileMapPattern_wie53")
 pattern_2 = SubResource("TileMapPattern_8duue")
