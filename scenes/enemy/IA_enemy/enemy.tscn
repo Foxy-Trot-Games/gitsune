@@ -152,6 +152,9 @@ size = Vector2(29, 46)
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_rdi22")
+SPEED = null
+CHASE_SPEED = null
+ACCELERATION = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-52, -35)

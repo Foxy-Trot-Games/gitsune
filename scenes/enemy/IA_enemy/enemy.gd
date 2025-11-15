@@ -20,20 +20,47 @@ enum States {
 }
 
 var current_state : States = States.WANDER
+var stunned: bool = false
+var stun_timer: Timer
 
 func _ready() -> void:
+	add_to_group("enemy")
 	direction = Vector2(1, 0)  # Start moving right
 	animated_sprite_2d.flip_h = false  # flip_h = true means facing right
 	ray_cast_2d.target_position = Vector2(100, 0)  # raycast pointing right
 	left_bounds = self.position + Vector2(-100, 0)
 	right_bounds = self.position + Vector2(100, 0)
 	
+	# Timer to handle stun duration
+	 # Timer to handle stun duration
+	stun_timer = Timer.new()
+	stun_timer.one_shot = true
+	stun_timer.connect("timeout", Callable(self, "_on_stun_timeout"))
+	add_child(stun_timer)
+
 	
+func _on_pulse_stun(knockback_direction: Vector2, radius: float, duration: float, knockback_force: float) -> void:
+	var normalized_direction = knockback_direction.normalized()
+	
+	velocity.x = normalized_direction.x * knockback_force
+	velocity.y = normalized_direction.y * knockback_force * 0.3
+
+	stunned = true
+	stun_timer.start(duration)
+
 func _physics_process(delta: float) -> void:
 	handle_gravity(delta)
-	handle_movement(delta)
-	change_direction()
-	look_for_player()
+	
+	if not stunned:
+		handle_movement(delta)
+		change_direction()
+		look_for_player()
+	else:
+		# Apply friction during stun (reduced for better knockback feel)
+		velocity.x = lerp(velocity.x, 0.0, 1.5 * delta)
+	
+	# Always call move_and_slide at the end
+	move_and_slide()
 
 func look_for_player() -> void:
 	if ray_cast_2d.is_colliding():
@@ -59,12 +86,16 @@ func stop_chase() -> void:
 		timer.start()
 	
 func handle_movement(delta: float) -> void:
+	if stunned:
+		return
 	if current_state == States.WANDER:
-		panel.visible=false
+		panel.visible = false
 		velocity = velocity.move_toward(direction * SPEED, ACCELERATION * delta)
 	else:
 		velocity = velocity.move_toward(direction * CHASE_SPEED, ACCELERATION * delta)
-	move_and_slide()
+
+func _on_stun_timeout() -> void:
+	stunned = false
 
 func change_direction() -> void:
 	if current_state == States.WANDER:
@@ -101,6 +132,7 @@ func handle_gravity(delta: float) -> void:
 		velocity += get_gravity() * delta
 func _on_timer_timeout() -> void:
 	current_state = States.WANDER
+
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
