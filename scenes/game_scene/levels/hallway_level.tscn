@@ -21,6 +21,10 @@ position = Vector2(272, 172)
 
 [node name="Camera2D" parent="CameraManager" index="1"]
 position = Vector2(272, 172)
+limit_left = -1904
+limit_top = 0
+limit_right = 624
+limit_bottom = 352
 
 [node name="NextLevelArea" parent="LevelObjects" index="0"]
 position = Vector2(-1328, 80)

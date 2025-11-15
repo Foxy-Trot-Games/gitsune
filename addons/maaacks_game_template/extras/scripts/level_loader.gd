@@ -12,7 +12,10 @@ signal level_ready
 ## Optional reference to a loading screen in the scene.
 @export var level_loading_screen : LoadingScreen
 @export_group("Debugging")
-@export var current_level : Node
+@export var current_level : Level
+
+@onready var screen_transition_effect: ColorRect = %ScreenTransitionEffect
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 var is_loading : bool = false
 
@@ -24,11 +27,15 @@ func _attach_level(level_resource : Resource):
 
 func load_level(level_path : String):
 	if is_loading : return
+	
+	is_loading = true
+	
 	if is_instance_valid(current_level):
+		await _fade_out()
 		current_level.queue_free()
 		await current_level.tree_exited
 		current_level = null
-	is_loading = true
+		
 	SceneLoader.load_scene(level_path, true)
 	if level_loading_screen:
 		level_loading_screen.reset()
@@ -36,8 +43,27 @@ func load_level(level_path : String):
 	await SceneLoader.scene_loaded
 	is_loading = false
 	current_level = _attach_level(SceneLoader.get_resource())
+	
 	if level_loading_screen:
 		level_loading_screen.close()
 	level_loaded.emit()
 	await current_level.ready
 	level_ready.emit()
+	await _fade_in()
+
+func _fade_out() -> Signal:
+	screen_transition_effect.show()
+	get_tree().paused = true
+	animation_player.play(&"fade_out")
+	return animation_player.animation_finished
+
+func _fade_in() -> Signal:
+	get_tree().paused = false
+	animation_player.play(&"fade_in")
+	var finished := animation_player.animation_finished
+	finished.connect(func(name: String) -> void:
+		# hide effect on finish
+		screen_transition_effect.hide()
+	)
+	return finished
+	

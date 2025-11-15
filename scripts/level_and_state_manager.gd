@@ -23,10 +23,9 @@ func _shortcut_input(event: InputEvent) -> void:
 	if level_change_shortcut.matches_event(event) and event.is_pressed() and not event.is_echo():
 		var key_event : InputEventKey = event
 		var key_pressed := key_event.keycode % 48 - 1
-		var file : Variant = scene_lister.files.get(key_pressed)
 		
-		if file:
-			current_level_path = file
+		if scene_lister.files.size() > key_pressed:
+			current_level_path = scene_lister.files.get(key_pressed)
 		else:
 			current_level_path = ASSET_LEVEL
 		
