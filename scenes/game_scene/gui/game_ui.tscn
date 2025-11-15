@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://y7o11v2qkpec"]
+[gd_scene load_steps=15 format=3 uid="uid://y7o11v2qkpec"]
 
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="1_uiwav"]
 [ext_resource type="PackedScene" uid="uid://cltlqkq4vm2y7" path="res://scenes/ui/overlaid_menus/pause_menu.tscn" id="2_d657n"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://cky55keub2m40" path="res://scripts/level_and_state_manager.gd" id="5_d8vx4"]
 [ext_resource type="PackedScene" uid="uid://bih50i74jlrdt" path="res://scenes/ui/overlaid_menus/game_won_menu.tscn" id="6_qa7j3"]
 [ext_resource type="Script" uid="uid://wjq7li836lwj" path="res://addons/maaacks_game_template/extras/scripts/scene_lister.gd" id="9_hubgp"]
-[ext_resource type="PackedScene" uid="uid://o6rc8asla1hu" path="res://scenes/ui/loading_screen/level_loading_screen.tscn" id="10_y5pei"]
 [ext_resource type="Script" uid="uid://crf22ob1ac5nj" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="11_s1qmy"]
 [ext_resource type="Script" uid="uid://bhhkpl5qbkqrm" path="res://scenes/game_scene/game_timer.gd" id="12_82h2j"]
 [ext_resource type="Script" uid="uid://bexiob1ubclxm" path="res://scenes/game_scene/gui/scene_cache_manager.gd" id="13_d657n"]
@@ -24,11 +23,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_vebjy"]
 resource_name = "fade_in"
+length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -36,7 +36,7 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -58,6 +58,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_2rafl"]
 resource_name = "fade_out"
+length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -65,7 +66,7 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -107,16 +108,12 @@ focused_viewport = NodePath("../ViewportContainer/ConfigurableSubViewport")
 
 [node name="BackgroundMusicPlayer" parent="." instance=ExtResource("3_ipxfc")]
 
-[node name="LevelLoader" type="Node" parent="." node_paths=PackedStringArray("level_container", "level_loading_screen")]
+[node name="LevelLoader" type="Node" parent="." node_paths=PackedStringArray("level_container")]
 script = ExtResource("4_l4eg4")
 level_container = NodePath("../ViewportContainer/ConfigurableSubViewport")
-level_loading_screen = NodePath("LevelLoadingScreen")
-
-[node name="LevelLoadingScreen" parent="LevelLoader" instance=ExtResource("10_y5pei")]
 
 [node name="ScreenTransitionEffect" type="ColorRect" parent="LevelLoader"]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
