@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name IAEnemy extends CharacterBody2D
 
 @export var SPEED: int = 50
 @export var CHASE_SPEED: int = 150
@@ -40,7 +40,7 @@ func _ready() -> void:
 
 	
 func _on_pulse_stun(knockback_direction: Vector2, radius: float, duration: float, knockback_force: float) -> void:
-	var normalized_direction = knockback_direction.normalized()
+	var normalized_direction := knockback_direction.normalized()
 	
 	velocity.x = normalized_direction.x * knockback_force
 	velocity.y = normalized_direction.y * knockback_force * 0.5

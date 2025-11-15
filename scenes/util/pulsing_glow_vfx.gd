@@ -19,7 +19,7 @@ func _on_current_gun_ammo_signal(ammo_count: int) -> void:
 	var ammo_ratio: float = 0.0
 	ammo_ratio = clamp(float(_current_ammo_count) / float(_MAX_AMMO_COUNT), 0.0, 1.0)
 
-	material.set_shader_parameter("pulse_speed", lerp(0.0, 3.0, ammo_ratio))
+	(material as ShaderMaterial).set_shader_parameter("pulse_speed", lerp(0.0, 3.0, ammo_ratio))
 
 
 

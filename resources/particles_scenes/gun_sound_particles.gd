@@ -18,21 +18,21 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Use process instead of physics_process for smoother visual movement
-	var distance_this_frame = speed * delta
-	var from_pos = global_position
-	var to_pos = from_pos + travel_direction * distance_this_frame
+	var distance_this_frame := speed * delta
+	var from_pos := global_position
+	var to_pos := from_pos + travel_direction * distance_this_frame
 	
 	# Raycast to check for enemies we might pass through
-	var space_state = get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(from_pos, to_pos)
+	var space_state := get_world_2d().direct_space_state
+	var query := PhysicsRayQueryParameters2D.create(from_pos, to_pos)
 	query.collide_with_areas = false
 	query.collide_with_bodies = true
 	query.collision_mask = 0xFFFFFFFF
 	
-	var result = space_state.intersect_ray(query)
+	var result := space_state.intersect_ray(query)
 	
 	if result:
-		var collider = result.collider
+		var collider : Node2D = result.collider
 		if collider.is_in_group("enemy") and collider not in hit_enemies:
 			_apply_knockback_to_enemy(collider)
 	
@@ -43,19 +43,19 @@ func _physics_process(delta: float) -> void:
 	if global_position.distance_to(spawn_position) > 2000:
 		queue_free()
 
-func _on_area_2d_body_entered(body: Node) -> void:
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy") and body not in hit_enemies:
 		_apply_knockback_to_enemy(body)
 
-func _apply_knockback_to_enemy(body: Node) -> void:
-	var distance_from_player = body.global_position.distance_to(spawn_position)
+func _apply_knockback_to_enemy(body: Node2D) -> void:
+	var distance_from_player := body.global_position.distance_to(spawn_position)
 	
 	if distance_from_player > max_knockback_range:
 		hit_enemies.append(body)
 		return
 	
-	var knockback_force = 600.0
-	var stun_duration = 1.2
-	if body.has_method("_on_pulse_stun"):
-		body._on_pulse_stun(travel_direction, pulse_radius, stun_duration, knockback_force)
+	var knockback_force := 600.0
+	var stun_duration := 1.2
+	if body is IAEnemy:
+		(body as IAEnemy)._on_pulse_stun(travel_direction, pulse_radius, stun_duration, knockback_force)
 		hit_enemies.append(body)
