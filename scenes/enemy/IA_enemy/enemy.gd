@@ -8,6 +8,8 @@ extends CharacterBody2D
 @onready var timer: Timer = $Timer
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 
+
+
 var direction: Vector2
 var right_bounds: Vector2
 var left_bounds: Vector2
