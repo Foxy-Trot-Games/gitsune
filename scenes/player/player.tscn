@@ -1,14 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://01f2htb8plmg"]
+[gd_scene load_steps=20 format=3 uid="uid://01f2htb8plmg"]
 
 [ext_resource type="Script" uid="uid://bjiclinojhoa8" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://ydltprl5fb4f" path="res://assets/player/fox_fall-Sheet.png" id="2_h17s1"]
 [ext_resource type="Texture2D" uid="uid://c1bia3m155lki" path="res://assets/player/fox_walk-Sheet.png" id="3_je7p5"]
 [ext_resource type="Texture2D" uid="uid://c610im4e6xtpi" path="res://assets/player/fox_jump-Sheet.png" id="4_fm80t"]
-[ext_resource type="Script" path="res://scripts/player_controler.gd" id="4_lvxji"]
+[ext_resource type="Script" uid="uid://b44d6kc4emnxj" path="res://scripts/player_controler.gd" id="4_lvxji"]
 [ext_resource type="PackedScene" uid="uid://dfxgljq6hf57a" path="res://scenes/gun/gun.tscn" id="5_p47bc"]
-[ext_resource type="PackedScene" uid="uid://yjog1sws2ras" path="res://scenes/gun/recharge_gun.tscn" id="5_qek5x"]
 [ext_resource type="PackedScene" uid="uid://df4m8l5j2c6dy" path="res://scenes/game_scene/gui/hud.tscn" id="6_0owmy"]
-[ext_resource type="Script" path="res://scripts/ammo_count.gd" id="6_75vfm"]
+[ext_resource type="Script" uid="uid://csfv8f14k2ogw" path="res://scripts/ammo_count.gd" id="6_75vfm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gx1jg"]
 atlas = ExtResource("2_h17s1")
@@ -120,8 +119,6 @@ script = ExtResource("4_lvxji")
 position = Vector2(8, -1.1920929e-07)
 scale = Vector2(0.615, 0.615)
 
-[node name="RechargeGun" parent="." instance=ExtResource("5_qek5x")]
-
 [node name="AmmoCount" type="Label" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -133,7 +130,6 @@ offset_top = -37.0
 offset_right = 21.0
 offset_bottom = -14.0
 grow_horizontal = 2
-text = "Test"
 script = ExtResource("6_75vfm")
 
 [node name="Hud" parent="." instance=ExtResource("6_0owmy")]

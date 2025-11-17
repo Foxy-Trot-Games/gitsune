@@ -48,7 +48,6 @@ script = ExtResource("1_fj73r")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fj73r")
 autoplay = "default"
-frame_progress = 0.39170048
 
 [node name="PlayerDetection" type="Area2D" parent="."]
 unique_name_in_owner = true

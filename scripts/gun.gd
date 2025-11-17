@@ -1,21 +1,20 @@
 class_name Gun extends Node2D
 
-
 @onready var muzzle: Node2D = %Muzzle
 @onready var pulse: Pulse = %Pulse
 
-
-const MAX_AMMO: int = 3
+var max_ammo: int = 3
+var current_ammo := max_ammo
 
 var player: Player
 var debug_timer := 0.0  # Timer to throttle debug prints
 
-
 func _ready() -> void:
-	Events.gun_equipped(MAX_AMMO) ## TODO will create a picked up function. 
-	Events.current_gun_ammo(MAX_AMMO)
 	pulse.pulse_activated_signal.connect(_on_pulse_activated_signal)
-
+	Events.ammo_picked_up.connect(_ammo_picked_up)
+	
+	# send out signal to update displays
+	_update_gun_stats()
 
 func _process(delta: float) -> void:
 	if player == null:
@@ -38,28 +37,13 @@ func _process(delta: float) -> void:
 		scale.y = -abs(scale.y)
 	
 	look_at(target_pos)
+
+func _ammo_picked_up(ammo_amount: int = -1) -> void:
+	_update_gun_stats(ammo_amount if ammo_amount != -1 else max_ammo)
+
+func _on_pulse_activated_signal() -> void:
+	_update_gun_stats(-1)
 	
-	#queue_redraw()
-
-
-func _on_pulse_activated_signal()->void:
-	
-	var _current_ammo_count := Globals.active_gun_ammo_count
-	if _current_ammo_count < 2:
-		pulse.can_pulse = false
-	_current_ammo_count -= 1
-	
-	if _current_ammo_count > MAX_AMMO :
-		_current_ammo_count = MAX_AMMO
-
-	Events.current_gun_ammo(_current_ammo_count)
-
-
-
-#func _draw() -> void:
-	#if not is_instance_valid(muzzle):
-		#return
-#
-	#var local_muzzle: Vector2 = muzzle.position
-	#
-	#draw_line(local_muzzle, get_local_mouse_position(), Color(0, 1, 0), 2, false)
+func _update_gun_stats(ammo_amount: int = 0) -> void:
+	current_ammo = clampi(current_ammo + ammo_amount, 0, max_ammo)
+	Events.gun_stats_updated.emit(current_ammo, max_ammo)
