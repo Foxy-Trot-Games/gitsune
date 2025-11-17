@@ -56,6 +56,6 @@ gravity_value = 1960.0
 position = Vector2(-352, 224)
 
 [node name="Enemy" parent="." index="5" instance=ExtResource("5_sqnu7")]
-position = Vector2(416, 207)
+position = Vector2(-182, 174)
 
 [editable path="TileMapLayer"]
