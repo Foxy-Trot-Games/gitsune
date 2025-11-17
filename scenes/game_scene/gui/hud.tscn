@@ -12,8 +12,7 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -352.0
-offset_top = -94.0
+offset_top = -10.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/margin_bottom = 10
@@ -23,7 +22,11 @@ script = ExtResource("1_crjap")
 layout_mode = 2
 texture = ExtResource("3_jd5ix")
 
-[node name="PulseColorRect" type="ColorRect" parent="MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+
+[node name="PulseColorRect" type="ColorRect" parent="MarginContainer/MarginContainer"]
+unique_name_in_owner = true
 material = ExtResource("1_fenen")
-custom_minimum_size = Vector2(352, 94)
 layout_mode = 2

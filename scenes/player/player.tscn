@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://01f2htb8plmg"]
+[gd_scene load_steps=23 format=3 uid="uid://01f2htb8plmg"]
 
 [ext_resource type="Script" uid="uid://bjiclinojhoa8" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://ydltprl5fb4f" path="res://assets/player/fox_fall-Sheet.png" id="2_h17s1"]
 [ext_resource type="Texture2D" uid="uid://c1bia3m155lki" path="res://assets/player/fox_walk-Sheet.png" id="3_je7p5"]
+[ext_resource type="Texture2D" uid="uid://byq87424y0kqr" path="res://assets/player/fox_idle-Sheet.png" id="4_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://c610im4e6xtpi" path="res://assets/player/fox_jump-Sheet.png" id="4_fm80t"]
 [ext_resource type="Script" uid="uid://b44d6kc4emnxj" path="res://scripts/player_controler.gd" id="4_lvxji"]
 [ext_resource type="PackedScene" uid="uid://dfxgljq6hf57a" path="res://scenes/gun/gun.tscn" id="5_p47bc"]
@@ -17,9 +18,17 @@ region = Rect2(0, 0, 22, 17)
 atlas = ExtResource("2_h17s1")
 region = Rect2(22, 0, 22, 17)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_myrg7"]
-atlas = ExtResource("3_je7p5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcs02"]
+atlas = ExtResource("4_5gtgg")
 region = Rect2(0, 0, 22, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myrg7"]
+atlas = ExtResource("4_5gtgg")
+region = Rect2(22, 0, 22, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ydkj"]
+atlas = ExtResource("4_5gtgg")
+region = Rect2(44, 0, 22, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uf5tr"]
 atlas = ExtResource("4_fm80t")
@@ -60,11 +69,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_fcs02")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_myrg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ydkj")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -108,6 +123,7 @@ metadata/_edit_group_ = true
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_0owmy")
 animation = &"idle"
+autoplay = "idle"
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

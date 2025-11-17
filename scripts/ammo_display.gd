@@ -1,7 +1,7 @@
 class_name AmmoDisplay
 extends Control
 
-@onready var color_rect: ColorRect = $PulseColorRect
+@onready var color_rect: ColorRect = %PulseColorRect
 
 func _ready() -> void:
 	# Connect your signals
