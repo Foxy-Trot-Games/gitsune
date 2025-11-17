@@ -8,7 +8,6 @@ extends CharacterBody2D
 @onready var panel: Panel = $Panel
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
-@onready var ray_cast_2d: RayCast2D = $RayCast2D
 
 var direction: Vector2
 var right_bounds: Vector2
@@ -30,7 +29,6 @@ func _ready() -> void:
 
 	direction = Vector2.RIGHT
 	animated_sprite_2d.flip_h = false
-	ray_cast_2d.target_position = Vector2(100, 0)
 
 	left_bounds = position + Vector2(-100, 0)
 	right_bounds = position + Vector2(100, 0)
@@ -89,7 +87,6 @@ func change_direction() -> void:
 		if not animated_sprite_2d.flip_h:
 			if position.x >= right_bounds.x:
 				animated_sprite_2d.flip_h = true
-				ray_cast_2d.target_position = Vector2(-100, 0)
 				direction = Vector2.LEFT
 			else:
 				direction = Vector2.RIGHT
@@ -98,7 +95,6 @@ func change_direction() -> void:
 		else:
 			if position.x <= left_bounds.x:
 				animated_sprite_2d.flip_h = false
-				ray_cast_2d.target_position = Vector2(100, 0)
 				direction = Vector2.RIGHT
 			else:
 				direction = Vector2.LEFT
@@ -110,24 +106,14 @@ func change_direction() -> void:
 
 			if direction.x > 0:
 				animated_sprite_2d.flip_h = false
-				ray_cast_2d.target_position = Vector2(100, 0)
 			else:
 				animated_sprite_2d.flip_h = true
-				ray_cast_2d.target_position = Vector2(-100, 0)
 
 
 # ======================
 #  CHASE LOGIC
 # ======================
-func look_for_player() -> void: 
-	if ray_cast_2d.is_colliding(): 
-		var collider : Node2D = ray_cast_2d.get_collider() 
-		if collider is Player: 
-			chase_player() 
-		elif current_state == States.CHASE: 
-			stop_chase() 
-		elif current_state == States.CHASE: 
-			stop_chase()
+
 
 
 func chase_player() -> void:
