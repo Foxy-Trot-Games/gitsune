@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://cya258o1v5myq"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_0nr2a"]
-[ext_resource type="Shader" path="res://scenes/objects/gravity_zone.gdshader" id="3_h6hj3"]
+[ext_resource type="Shader" uid="uid://ula7reohgr3f" path="res://scenes/objects/gravity_zone.gdshader" id="3_h6hj3"]
 [ext_resource type="PackedScene" uid="uid://dmeyxqrmciogn" path="res://scenes/enemy/IA_enemy_flying/enemy-flying.tscn" id="5_sqnu7"]
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="8_5hj03"]
 [ext_resource type="PackedScene" uid="uid://2jpu8jkgrmga" path="res://scenes/enemy/Flying_enemy/Flying_enemy.tscn" id="10_h6ldy"]
@@ -36,7 +36,7 @@ limit_right = 624
 limit_bottom = 352
 
 [node name="ReactorBlastWave" parent="LevelObjects" index="0"]
-position = Vector2(630.99817, 243)
+position = Vector2(1281, 243)
 
 [node name="NextLevelArea" parent="LevelObjects" index="1"]
 position = Vector2(-1329, 72)
@@ -44,7 +44,7 @@ position = Vector2(-1329, 72)
 [node name="Player" parent="LevelObjects" index="2"]
 position = Vector2(281, 243)
 
-[node name="GravityZone" parent="LevelObjects" index="2" instance=ExtResource("8_5hj03")]
+[node name="GravityZone" parent="LevelObjects" index="3" instance=ExtResource("8_5hj03")]
 material = SubResource("ShaderMaterial_pdxx2")
 offset_left = -736.0
 offset_top = 288.0
@@ -58,7 +58,7 @@ gravity_value = 1960.0
 [node name="Flying_enemy" parent="LevelObjects/Enemies" index="0" instance=ExtResource("10_h6ldy")]
 position = Vector2(-352, 224)
 
-[node name="Enemy" parent="." index="5" instance=ExtResource("5_sqnu7")]
+[node name="Enemy" parent="." index="4" instance=ExtResource("5_sqnu7")]
 position = Vector2(-182, 174)
 
 [editable path="TileMapLayer"]

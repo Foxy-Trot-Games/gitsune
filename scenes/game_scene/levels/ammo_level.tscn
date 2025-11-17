@@ -20,12 +20,15 @@ limit_top = -416
 limit_right = 3312
 limit_bottom = 256
 
-[node name="NextLevelArea" parent="LevelObjects" index="0"]
+[node name="ReactorBlastWave" parent="LevelObjects" index="0"]
+position = Vector2(720, 0)
+
+[node name="NextLevelArea" parent="LevelObjects" index="1"]
 position = Vector2(3272, 168)
 
-[node name="Player" parent="LevelObjects" index="1"]
+[node name="Player" parent="LevelObjects" index="2"]
 position = Vector2(-280, 168)
 
-[node name="Ammo" type="Node2D" parent="LevelObjects" index="2"]
+[node name="Ammo" type="Node2D" parent="LevelObjects" index="3"]
 
 [editable path="TileMapLayer"]

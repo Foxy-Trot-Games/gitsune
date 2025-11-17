@@ -1,7 +1,48 @@
-[gd_scene load_steps=3 format=4 uid="uid://4vt7gpq3gv6"]
+[gd_scene load_steps=9 format=4 uid="uid://4vt7gpq3gv6"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_fbxgo"]
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="2_qv8id"]
+[ext_resource type="Shader" uid="uid://ula7reohgr3f" path="res://scenes/objects/gravity_zone.gdshader" id="3_2lp6h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ag8u2"]
+resource_local_to_scene = true
+shader = ExtResource("3_2lp6h")
+shader_parameter/wave_frequency = 10.0
+shader_parameter/wave_speed = 0.05
+shader_parameter/wave_amplitude = 0.005
+shader_parameter/wave_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oarqv"]
+resource_local_to_scene = true
+shader = ExtResource("3_2lp6h")
+shader_parameter/wave_frequency = 10.0
+shader_parameter/wave_speed = 0.05
+shader_parameter/wave_amplitude = 0.005
+shader_parameter/wave_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u5awn"]
+resource_local_to_scene = true
+shader = ExtResource("3_2lp6h")
+shader_parameter/wave_frequency = 10.0
+shader_parameter/wave_speed = 0.05
+shader_parameter/wave_amplitude = 0.005
+shader_parameter/wave_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6pdx5"]
+resource_local_to_scene = true
+shader = ExtResource("3_2lp6h")
+shader_parameter/wave_frequency = 10.0
+shader_parameter/wave_speed = 0.05
+shader_parameter/wave_amplitude = 0.005
+shader_parameter/wave_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lk58v"]
+resource_local_to_scene = true
+shader = ExtResource("3_2lp6h")
+shader_parameter/wave_frequency = 10.0
+shader_parameter/wave_speed = 0.05
+shader_parameter/wave_amplitude = 0.005
+shader_parameter/wave_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
 
 [node name="GravityZoneLevel" instance=ExtResource("1_fbxgo")]
 
@@ -21,15 +62,19 @@ limit_top = -416
 limit_right = 3312
 limit_bottom = 256
 
-[node name="NextLevelArea" parent="LevelObjects" index="0"]
+[node name="ReactorBlastWave" parent="LevelObjects" index="0"]
+position = Vector2(720, 0)
+
+[node name="NextLevelArea" parent="LevelObjects" index="1"]
 position = Vector2(3272, 168)
 
-[node name="Player" parent="LevelObjects" index="1"]
+[node name="Player" parent="LevelObjects" index="2"]
 position = Vector2(-280, 168)
 
-[node name="GravityZones" type="Node2D" parent="LevelObjects" index="2"]
+[node name="GravityZones" type="Node2D" parent="LevelObjects" index="3"]
 
 [node name="GravityZone" parent="LevelObjects/GravityZones" index="0" instance=ExtResource("2_qv8id")]
+material = SubResource("ShaderMaterial_ag8u2")
 offset_left = 80.0
 offset_top = 192.0
 offset_right = 256.0
@@ -38,6 +83,7 @@ rotation = -1.5707964
 recharges_gun = true
 
 [node name="GravityZone2" parent="LevelObjects/GravityZones" index="1" instance=ExtResource("2_qv8id")]
+material = SubResource("ShaderMaterial_oarqv")
 offset_left = 576.0
 offset_top = 192.0
 offset_right = 752.0
@@ -46,6 +92,7 @@ rotation = -1.5707964
 recharges_gun = true
 
 [node name="GravityZone3" parent="LevelObjects/GravityZones" index="2" instance=ExtResource("2_qv8id")]
+material = SubResource("ShaderMaterial_u5awn")
 offset_left = 1056.0
 offset_top = -144.0
 offset_right = 1088.0
@@ -54,6 +101,7 @@ rotation = -1.5707964
 recharges_gun = true
 
 [node name="GravityZone4" parent="LevelObjects/GravityZones" index="3" instance=ExtResource("2_qv8id")]
+material = SubResource("ShaderMaterial_6pdx5")
 offset_left = 1936.0
 offset_top = 176.0
 offset_right = 2112.0
@@ -62,6 +110,7 @@ rotation = -1.5707964
 recharges_gun = true
 
 [node name="GravityZone5" parent="LevelObjects/GravityZones" index="4" instance=ExtResource("2_qv8id")]
+material = SubResource("ShaderMaterial_lk58v")
 offset_left = 2576.0
 offset_top = 176.0
 offset_right = 2752.0

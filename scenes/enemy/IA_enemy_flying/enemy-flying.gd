@@ -1,5 +1,4 @@
-class_name IAEnemy
-extends CharacterBody2D
+extends IAEnemy
 
 @export var SPEED: int = 50
 @export var CHASE_SPEED: int = 150
@@ -25,7 +24,6 @@ var stun_timer: Timer
 
 func _ready() -> void:
 	add_to_group("enemy")
-	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
 
 	direction = Vector2.RIGHT
 	animated_sprite_2d.flip_h = false

@@ -77,7 +77,7 @@ limit_right = 640
 limit_bottom = 320
 
 [node name="ReactorBlastWave" parent="LevelObjects" index="0"]
-position = Vector2(-64.99998, 40)
+position = Vector2(640, 40)
 
 [node name="NextLevelArea" parent="LevelObjects" index="1"]
 position = Vector2(424, -2616)
@@ -85,23 +85,23 @@ position = Vector2(424, -2616)
 [node name="Player" parent="LevelObjects" index="2"]
 position = Vector2(-360, 40)
 
-[node name="Enemies" type="Node2D" parent="." index="4"]
+[node name="Enemies" type="Node2D" parent="LevelObjects" index="3"]
 
-[node name="Pathing_enemy" parent="Enemies" index="0" instance=ExtResource("3_v6c7n")]
+[node name="Pathing_enemy" parent="LevelObjects/Enemies" index="0" instance=ExtResource("3_v6c7n")]
 position = Vector2(16, -704)
 
-[node name="Pathing_enemy2" parent="Enemies" index="1" instance=ExtResource("3_v6c7n")]
+[node name="Pathing_enemy2" parent="LevelObjects/Enemies" index="1" instance=ExtResource("3_v6c7n")]
 position = Vector2(352, -1216)
 
-[node name="Pathing_enemy3" parent="Enemies" index="2" instance=ExtResource("3_v6c7n")]
+[node name="Pathing_enemy3" parent="LevelObjects/Enemies" index="2" instance=ExtResource("3_v6c7n")]
 position = Vector2(-112, -2272)
 
-[node name="Enemy" parent="Enemies" index="3" instance=ExtResource("4_rcob3")]
+[node name="Enemy" parent="LevelObjects/Enemies" index="3" instance=ExtResource("4_rcob3")]
 position = Vector2(248, 216)
 
-[node name="GravityZones" type="Node2D" parent="." index="5"]
+[node name="GravityZones" type="Node2D" parent="LevelObjects" index="4"]
 
-[node name="GravityZone" parent="GravityZones" index="0" instance=ExtResource("5_olebf")]
+[node name="GravityZone" parent="LevelObjects/GravityZones" index="0" instance=ExtResource("5_olebf")]
 material = SubResource("ShaderMaterial_bsl2r")
 offset_left = -256.0
 offset_top = 240.0
@@ -109,7 +109,7 @@ offset_right = -112.0
 offset_bottom = 272.0
 rotation = -1.5707964
 
-[node name="GravityZone2" parent="GravityZones" index="1" instance=ExtResource("5_olebf")]
+[node name="GravityZone2" parent="LevelObjects/GravityZones" index="1" instance=ExtResource("5_olebf")]
 material = SubResource("ShaderMaterial_v6c7n")
 offset_left = -192.0
 offset_top = -496.0
@@ -118,7 +118,7 @@ offset_bottom = -464.0
 rotation = -0.7853982
 recharges_gun = true
 
-[node name="GravityZone3" parent="GravityZones" index="2" instance=ExtResource("5_olebf")]
+[node name="GravityZone3" parent="LevelObjects/GravityZones" index="2" instance=ExtResource("5_olebf")]
 material = SubResource("ShaderMaterial_rcob3")
 offset_left = 576.0
 offset_top = -1104.0
@@ -127,7 +127,7 @@ offset_bottom = -1072.0
 rotation = -1.5707964
 recharges_gun = true
 
-[node name="GravityZone4" parent="GravityZones" index="3" instance=ExtResource("5_olebf")]
+[node name="GravityZone4" parent="LevelObjects/GravityZones" index="3" instance=ExtResource("5_olebf")]
 material = SubResource("ShaderMaterial_olebf")
 offset_left = -576.0
 offset_top = -1520.0
@@ -136,7 +136,7 @@ rotation = -1.5707964
 gravity_value = 0.0
 slows_down_player = true
 
-[node name="GravityZone5" parent="GravityZones" index="4" instance=ExtResource("5_olebf")]
+[node name="GravityZone5" parent="LevelObjects/GravityZones" index="4" instance=ExtResource("5_olebf")]
 material = SubResource("ShaderMaterial_8awif")
 offset_left = 288.0
 offset_top = -752.0

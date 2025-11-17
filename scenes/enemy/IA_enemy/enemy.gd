@@ -1,5 +1,4 @@
-class_name IAEnemy
-extends CharacterBody2D
+extends IAEnemy
 
 @export var SPEED: int = 50
 @export var CHASE_SPEED: int = 150

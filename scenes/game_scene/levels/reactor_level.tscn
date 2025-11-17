@@ -118,19 +118,22 @@ limit_top = -272
 limit_right = 672
 limit_bottom = 224
 
-[node name="NextLevelArea" parent="LevelObjects" index="0"]
+[node name="ReactorBlastWave" parent="LevelObjects" index="0"]
+position = Vector2(656, 0)
+
+[node name="NextLevelArea" parent="LevelObjects" index="1"]
 position = Vector2(616, 104)
 
-[node name="Player" parent="LevelObjects" index="1"]
+[node name="Player" parent="LevelObjects" index="2"]
 position = Vector2(-344, 120)
 
-[node name="Door" type="AnimatedSprite2D" parent="LevelObjects" index="2"]
+[node name="Door" type="AnimatedSprite2D" parent="LevelObjects" index="3"]
 z_index = -1
 position = Vector2(-344, 104)
 sprite_frames = SubResource("SpriteFrames_db41i")
 frame_progress = 0.13099843
 
-[node name="ReactorZone" type="Area2D" parent="LevelObjects" index="3"]
+[node name="ReactorZone" type="Area2D" parent="LevelObjects" index="4"]
 position = Vector2(152, -72)
 gravity_space_override = 3
 gravity_point = true
@@ -170,7 +173,7 @@ sprite_frames = SubResource("SpriteFrames_1aj08")
 autoplay = "default"
 frame = 3
 
-[node name="Enemy-flying" parent="." index="5" instance=ExtResource("5_fevk0")]
+[node name="Enemy-flying" parent="." index="4" instance=ExtResource("5_fevk0")]
 position = Vector2(448, -9)
 
 [editable path="TileMapLayer"]
