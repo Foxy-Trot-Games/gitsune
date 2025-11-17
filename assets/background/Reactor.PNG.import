@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://booqlbd6nnwr5"
-path="res://.godot/imported/wall_objects2.png-5b502eedf3479188ea35a19f370a4d1a.ctex"
+uid="uid://clm8sud0boggs"
+path="res://.godot/imported/Reactor.PNG-f94a60bcf6b32e358d10d3b2ca2fff7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/wall_objects2.png"
-dest_files=["res://.godot/imported/wall_objects2.png-5b502eedf3479188ea35a19f370a4d1a.ctex"]
+source_file="res://assets/background/Reactor.PNG"
+dest_files=["res://.godot/imported/Reactor.PNG-f94a60bcf6b32e358d10d3b2ca2fff7c.ctex"]
 
 [params]
 

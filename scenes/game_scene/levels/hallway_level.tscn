@@ -27,7 +27,7 @@ limit_right = 624
 limit_bottom = 352
 
 [node name="NextLevelArea" parent="LevelObjects" index="0"]
-position = Vector2(-1328, 80)
+position = Vector2(-1329, 72)
 
 [node name="Player" parent="LevelObjects" index="1"]
 position = Vector2(296, 264)
