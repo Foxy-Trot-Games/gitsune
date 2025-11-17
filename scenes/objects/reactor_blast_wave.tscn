@@ -1,25 +1,33 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnuggijmxgf0u"]
 
-[ext_resource type="AudioStream" uid="uid://cswpoy06il3tq" path="res://assets/sounds/background_ambience/Foks_Spaceship_Atmosphere3_SFX.mp3" id="1_aqc8a"]
 [ext_resource type="Script" uid="uid://yp3tr0jq0jyu" path="res://scenes/objects/reactor_blast_wave.gd" id="1_tc2bw"]
+[ext_resource type="AudioStream" uid="uid://b7bu25pcmedvf" path="res://assets/sounds/background_ambience/Foks_Spaceship_Atmosphere_SFX.mp3" id="2_tc2bw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a88x5"]
 resource_local_to_scene = true
-size = Vector2(32, 360)
+size = Vector2(32, 720)
 
-[node name="ReactorBlastWave" type="ColorRect"]
-custom_minimum_size = Vector2(32, 360)
-offset_right = 32.0
-offset_bottom = 360.0
-color = Color(0, 0.16629922, 0.16629922, 0.3372549)
+[node name="ReactorBlastWave" type="Node2D"]
 script = ExtResource("1_tc2bw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(32, 360)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -360.0
+offset_right = 16.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.16629922, 0.16629922, 0.3372549)
 
 [node name="Area2D" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(16, 180)
 gravity_space_override = 3
-gravity_point_center = Vector2(0, 0)
-gravity_direction = Vector2(0, 0)
+gravity_point_center = Vector2(-1, 0)
+gravity_direction = Vector2(-1, 0)
 gravity = 1960.0
 metadata/_edit_group_ = true
 
@@ -29,8 +37,7 @@ shape = SubResource("RectangleShape2D_a88x5")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(16, 180)
-stream = ExtResource("1_aqc8a")
+stream = ExtResource("2_tc2bw")
 autoplay = true
 max_distance = 1000.0
 attenuation = 2.0000002

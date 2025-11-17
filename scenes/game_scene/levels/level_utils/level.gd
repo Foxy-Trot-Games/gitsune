@@ -12,8 +12,6 @@ signal level_won_and_changed(level_path : String)
 @onready var player: Player = %Player
 @onready var camera_2d: Camera2D = $CameraManager/Camera2D
 
-const REACTOR_BLAST_WAVE = preload("uid://cnuggijmxgf0u")
-
 var level_state : LevelState
 
 # Called when the node enters the scene tree for the first time.
@@ -25,9 +23,6 @@ func _ready() -> void:
 			open_tutorials()
 			
 		Audio.play_bgm(bgm)
-		
-		# spawn first wave
-		_spawn_reactor_wave()
 
 func open_tutorials() -> void:
 	tutorial_manager.open_tutorials()
@@ -57,10 +52,3 @@ func get_level_rect() -> Rect2:
 	)
 	
 	return rect
-
-func _on_reactor_blast_wave_timer_timeout() -> void:
-	_spawn_reactor_wave()
-	
-func _spawn_reactor_wave() -> void:
-	var wave := REACTOR_BLAST_WAVE.instantiate()
-	add_child(wave)

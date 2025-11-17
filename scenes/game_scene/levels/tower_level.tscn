@@ -1,9 +1,50 @@
-[gd_scene load_steps=5 format=4 uid="uid://bbs5nnw0ywg3v"]
+[gd_scene load_steps=11 format=4 uid="uid://bbs5nnw0ywg3v"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_kq305"]
 [ext_resource type="PackedScene" uid="uid://hbspw0hu400f" path="res://scenes/enemy/Pathing_enemy/Pathing_enemy.tscn" id="3_v6c7n"]
 [ext_resource type="PackedScene" uid="uid://b8e2qcdmlxsvi" path="res://scenes/enemy/IA_enemy/enemy.tscn" id="4_rcob3"]
+[ext_resource type="Shader" uid="uid://ula7reohgr3f" path="res://scenes/objects/gravity_zone.gdshader" id="5_kq305"]
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="5_olebf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bsl2r"]
+resource_local_to_scene = true
+shader = ExtResource("5_kq305")
+shader_parameter/wave_frequency = 10.0
+shader_parameter/wave_speed = 0.05
+shader_parameter/wave_amplitude = 0.005
+shader_parameter/wave_color = Color(0.5568628, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6c7n"]
+resource_local_to_scene = true
+shader = ExtResource("5_kq305")
+shader_parameter/wave_frequency = 10.0
+shader_parameter/wave_speed = 0.05
+shader_parameter/wave_amplitude = 0.005
+shader_parameter/wave_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rcob3"]
+resource_local_to_scene = true
+shader = ExtResource("5_kq305")
+shader_parameter/wave_frequency = 10.0
+shader_parameter/wave_speed = 0.05
+shader_parameter/wave_amplitude = 0.005
+shader_parameter/wave_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_olebf"]
+resource_local_to_scene = true
+shader = ExtResource("5_kq305")
+shader_parameter/wave_frequency = 10.0
+shader_parameter/wave_speed = 0.05
+shader_parameter/wave_amplitude = 0.005
+shader_parameter/wave_color = Color(0, 0.5019608, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8awif"]
+resource_local_to_scene = true
+shader = ExtResource("5_kq305")
+shader_parameter/wave_frequency = 10.0
+shader_parameter/wave_speed = 0.05
+shader_parameter/wave_amplitude = 0.005
+shader_parameter/wave_color = Color(0.85490197, 0.64705884, 0.1254902, 1)
 
 [node name="TowerLevel" instance=ExtResource("1_kq305")]
 
@@ -26,22 +67,25 @@ tile_map_data = PackedByteArray("AAAoABQAAwALAAMAAAAoABMAAwALAAIAAAAoABIAAwALAAI
 tile_map_data = PackedByteArray("AADe/w8ACQAOAAEAAADg/w8ACQAPAAAAAADo/w8ACQAPAAAAAADp/w8ACQAPAAEAAADq/w8ACQAPAAAAAADr/w8ACQANAAAAAADs/w8ACQANAAEAAADt/w8ACQANAAAAAADu/w8ACQAOAAEAAAD9/w8ACQAOAAEAAAD7/w8ACQAPAAEAAAD8/w8ACQANAAAAAAATAA8ACQAOAAAAAAAUAA8ACQAPAAAAAAAVAA8ACQAPAAEAAAAWAA8ACQAOAAEAAAAXAA8ACQAPAAEAAAAYAA8ACQAPAAEAAAAZAA8ACQANAAAAAAAaAA8ACQAOAAEAAAAjAA8ACQANAAEAAAAkAA8ACQAOAAAAAAAFAA8ACQAPAAAAAAAGAA8ACQAPAAEAAAAHAA8ACQANAAEAAAAIAA8ACQAOAAEAAAAJAA8ACQAPAAEAAAAKAA8ACQANAAEAAADm//v/CQAOAAEAAADl//v/CQAOAAAAAAADAO//CQAOAAAAAAAEAO//CQANAAAAAAAFAO//CQAOAAAAAADq/+H/CQAPAAAAAADr/+H/CQAPAAAAAADs/+H/CQANAAEAAADt/+H/CQAOAAAAAADu/+H/CQAPAAAAAADv/+H/CQAPAAAAAAAXANH/CQANAAAAAAAWANH/CQAPAAAAAAAbANH/CQAOAAAAAAAcANH/CQANAAEAAAAdANH/CQAPAAEAAAAjANH/CQAOAAAAAAAZAMb/CQAPAAEAAAAaAMb/CQAPAAAAAAAgALv/CQAOAAAAAAAiALv/CQAOAAAAAAAKAKv/CQAPAAAAAAALAKv/CQAOAAAAAADk/6H/CQAOAAAAAADl/6H/CQANAAAAAADs/6H/CQAOAAEAAADt/6H/CQAPAAAAAADu/6H/CQANAAEAAADv/6H/CQAOAAAAAADw/6H/CQANAAEAAADx/6H/CQANAAEAAADy/6H/CQAPAAAAAADz/6H/CQAPAAAAAAD0/6H/CQAPAAAAAAD6/6H/CQAPAAAAAAD7/6H/CQANAAEAAADz/3v/CQAOAAAAAAD0/3v/CQAPAAAAAAD1/3v/CQAOAAAAAAD2/3v/CQAOAAAAAAD4/3v/CQAPAAAAAAD+/2n/CQANAAEAAAD//2n/CQAOAAEAAAAAAGn/CQANAAAAAAAIAF7/CQAPAAAAAAAJAF7/CQAPAAAAAAAKAF7/CQAOAAEAAAALAF7/CQAOAAAAAAAMAF7/CQAOAAEAAAANAF7/CQAPAAEAAAAOAF7/CQAPAAEAAAAPAF7/CQAPAAEAAAAWAF7/CQAPAAAAAAAgAA8ACQAPAAEAAAAhAA8ACQAOAAAAAADq/w4ABgALAAwAAAD2/w4ABgALAAwAAAAKAA4ABgALAAwAAAAXAA4ABgAJAAoAAAAdAA4ABgALAAwAAADk/w4ABgAJAAoAAAD3/w4ABgAJAAoAAAD//w4ABgAJAAoAAAAgAA4ABgAJAAoAAAA=")
 
 [node name="PhantomCamera2D" parent="CameraManager" index="0"]
-position = Vector2(-320, 140)
+position = Vector2(-320, 40)
 
 [node name="Camera2D" parent="CameraManager" index="1"]
-position = Vector2(-320, 140)
+position = Vector2(-320, 40)
 limit_left = -640
 limit_top = -2720
 limit_right = 640
 limit_bottom = 320
 
-[node name="NextLevelArea" parent="LevelObjects" index="0"]
+[node name="ReactorBlastWave" parent="LevelObjects" index="0"]
+position = Vector2(-64.99998, 40)
+
+[node name="NextLevelArea" parent="LevelObjects" index="1"]
 position = Vector2(424, -2616)
 
-[node name="Player" parent="LevelObjects" index="1"]
-position = Vector2(-408, 232)
+[node name="Player" parent="LevelObjects" index="2"]
+position = Vector2(-360, 40)
 
-[node name="Enemies" type="Node2D" parent="." index="5"]
+[node name="Enemies" type="Node2D" parent="." index="4"]
 
 [node name="Pathing_enemy" parent="Enemies" index="0" instance=ExtResource("3_v6c7n")]
 position = Vector2(16, -704)
@@ -55,9 +99,10 @@ position = Vector2(-112, -2272)
 [node name="Enemy" parent="Enemies" index="3" instance=ExtResource("4_rcob3")]
 position = Vector2(248, 216)
 
-[node name="GravityZones" type="Node2D" parent="." index="6"]
+[node name="GravityZones" type="Node2D" parent="." index="5"]
 
 [node name="GravityZone" parent="GravityZones" index="0" instance=ExtResource("5_olebf")]
+material = SubResource("ShaderMaterial_bsl2r")
 offset_left = -256.0
 offset_top = 240.0
 offset_right = -112.0
@@ -65,6 +110,7 @@ offset_bottom = 272.0
 rotation = -1.5707964
 
 [node name="GravityZone2" parent="GravityZones" index="1" instance=ExtResource("5_olebf")]
+material = SubResource("ShaderMaterial_v6c7n")
 offset_left = -192.0
 offset_top = -496.0
 offset_right = -112.0
@@ -73,6 +119,7 @@ rotation = -0.7853982
 recharges_gun = true
 
 [node name="GravityZone3" parent="GravityZones" index="2" instance=ExtResource("5_olebf")]
+material = SubResource("ShaderMaterial_rcob3")
 offset_left = 576.0
 offset_top = -1104.0
 offset_right = 688.0
@@ -81,6 +128,7 @@ rotation = -1.5707964
 recharges_gun = true
 
 [node name="GravityZone4" parent="GravityZones" index="3" instance=ExtResource("5_olebf")]
+material = SubResource("ShaderMaterial_olebf")
 offset_left = -576.0
 offset_top = -1520.0
 offset_bottom = -1296.0
@@ -89,6 +137,7 @@ gravity_value = 0.0
 slows_down_player = true
 
 [node name="GravityZone5" parent="GravityZones" index="4" instance=ExtResource("5_olebf")]
+material = SubResource("ShaderMaterial_8awif")
 offset_left = 288.0
 offset_top = -752.0
 offset_right = 464.0

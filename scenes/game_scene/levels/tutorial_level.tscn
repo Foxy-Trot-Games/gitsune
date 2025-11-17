@@ -29,17 +29,20 @@ limit_top = -1056
 limit_right = 4160
 limit_bottom = 96
 
+[node name="ReactorBlastWave" parent="LevelObjects" index="0"]
+position = Vector2(1000, 8)
+
+[node name="NextLevelArea" parent="LevelObjects" index="1"]
+position = Vector2(3968, -712)
+
+[node name="Player" parent="LevelObjects" index="2"]
+position = Vector2(0, 8)
+
 [node name="Label" type="Label" parent="." index="4"]
 offset_left = -132.0
 offset_top = -77.0
 offset_right = 268.0
 offset_bottom = -54.0
 text = "Use CTRL/CMD + 1,2,3,4,etc to quickly change levels!"
-
-[node name="NextLevelArea" parent="LevelObjects" index="0"]
-position = Vector2(3968, -712)
-
-[node name="Player" parent="LevelObjects" index="1"]
-position = Vector2(0, 8)
 
 [editable path="TileMapLayer"]

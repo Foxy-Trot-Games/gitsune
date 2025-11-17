@@ -1,15 +1,16 @@
 @tool
-extends ColorRect
+extends Node2D
 
 @export_enum("left","right") var start_position : int = Position.RIGHT
 @export var wave_speed := 100 # pixels
+## how many seconds it takes for wave to loop
+@export var wave_period := 20.0 # seconds
 
 @onready var area_2d: Area2D = %Area2D
-@onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = %AudioStreamPlayer2D
+@onready var _player : Player = get_player()
+@onready var _x_offset := wave_speed * wave_period / 2
 
-var _phantom_camera_2d: PhantomCamera2D
-const _additional_padding := Vector2(640,360)
+var _actual_wave_speed : int
 
 enum Position {
 	LEFT,
@@ -18,71 +19,37 @@ enum Position {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	# get_tree() is needed so this works in the editor
-	var level : Level = get_tree().get_first_node_in_group("Level")
-	
-	if !level:
+	if !_player:
 		return
 	
-	if !level.is_node_ready():
-		await level.ready
-	
-	var level_rect := level.get_level_rect()
-	
-	var start_pos : Vector2
-	var end_pos : Vector2
-	
-	if start_position == Position.LEFT:
-		start_pos = level_rect.position - _additional_padding
-		end_pos = level_rect.end + _additional_padding
-		area_2d.gravity_direction = Vector2.RIGHT
-	else:
-		# top-right
-		start_pos = Vector2(
-			level_rect.position.x + level_rect.size.x + _additional_padding.x, 
-			level_rect.position.y - _additional_padding.y
-		)
-		end_pos = level_rect.position - _additional_padding
+	if start_position == Position.RIGHT:
 		area_2d.gravity_direction = Vector2.LEFT
-		
-	position = start_pos
-		
-	size.y = level_rect.size.y + _additional_padding.y * 2
-	
-	# don't actually animate the wave in the editor
-	if Engine.is_editor_hint():
-		return
-	
-	# get camera
-	_phantom_camera_2d = PhantomCameraManager.get_phantom_camera_2ds().front()
-		
-	var duration := (level_rect.size.x + _additional_padding.x) / wave_speed
-	
-	var tween := create_tween()
-	tween.tween_property(self, "position", Vector2(end_pos.x, position.y), duration).from_current()
-	tween.finished.connect(func() -> void: 
-		queue_free()
-	)
+		global_position.x = _player.global_position.x + _x_offset
+		_actual_wave_speed = -wave_speed
+	else:
+		area_2d.gravity_direction = Vector2.RIGHT
+		global_position.x = _player.global_position.x - _x_offset
+		_actual_wave_speed = wave_speed
 
 func _physics_process(delta: float) -> void:
-	# if we are in the editor we want to redraw every frame so it updates correctly when editing
+	# don't animate in the editor
 	if Engine.is_editor_hint():
 		return
-		
-	# set the audio_stream_player_2d y position to always align with the camera y position
-	# this makes it so the audio_stream_player_2d will always be in the middle of the wave on screen no matter the player y coords
-	audio_stream_player_2d.global_position.y = _phantom_camera_2d.global_position.y
+	
+	# update the wave y so it's always on the player y
+	global_position.y = _player.global_position.y
+	
+	# move the wave
+	global_position.x +=  _actual_wave_speed * delta
+	
+	# wrap the wave if too far from player
+	var wrapped_wave_x := wrapf(global_position.x, _player.global_position.x - _x_offset, _player.global_position.x + _x_offset)
+	
+	# wrapped should occured
+	if wrapped_wave_x != global_position.x:
+		global_position.x = wrapped_wave_x
+		reset_physics_interpolation()
 
-func _draw() -> void:
-	
-	# lock scale so it can't be changed
-	scale = Vector2.ONE
-	
-	var center := size / 2
-	
-	# set element positions when the node is resized or position is updated
-	area_2d.position = center
-	
-	var shape : RectangleShape2D = collision_shape_2d.shape
-	shape.size = size
+func get_player() -> Player:
+	# get_tree() is needed so this works in the editor
+	return get_tree().get_first_node_in_group("Player")
