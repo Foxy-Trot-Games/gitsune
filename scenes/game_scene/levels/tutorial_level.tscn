@@ -37,9 +37,9 @@ offset_bottom = -54.0
 text = "Use CTRL/CMD + 1,2,3,4,etc to quickly change levels!"
 
 [node name="NextLevelArea" parent="LevelObjects" index="0"]
-position = Vector2(3965, -712)
+position = Vector2(3968, -712)
 
 [node name="Player" parent="LevelObjects" index="1"]
-position = Vector2(8, 8)
+position = Vector2(0, 8)
 
 [editable path="TileMapLayer"]

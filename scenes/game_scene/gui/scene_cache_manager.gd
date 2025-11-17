@@ -20,4 +20,4 @@ func _cache_particle_scenes() -> void:
 		
 		add_child(scene)
 		# free after adding it to the world, this will cache it internally after adding it
-		scene.ready.connect(scene.queue_free)
+		#scene.ready.connect(scene.queue_free)

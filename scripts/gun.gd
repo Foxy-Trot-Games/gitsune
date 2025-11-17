@@ -3,22 +3,27 @@ class_name Gun extends Node2D
 @onready var muzzle: Node2D = %Muzzle
 @onready var pulse: Pulse = %Pulse
 
-var max_ammo: int = 3
-var current_ammo := max_ammo
+var max_ammo: int = 3 :
+	set(value):
+		max_ammo = value
+		current_ammo = value
+		# send out signal to update displays
+		_update_gun_stats()
+		
+var current_ammo : int
 
 var player: Player
 var debug_timer := 0.0  # Timer to throttle debug prints
 
 func _ready() -> void:
+	player = get_parent()
+	
 	pulse.pulse_activated_signal.connect(_on_pulse_activated_signal)
 	Events.ammo_picked_up.connect(_ammo_picked_up)
 	
-	# send out signal to update displays
-	_update_gun_stats()
+	max_ammo = player.max_ammo
 
 func _process(delta: float) -> void:
-	if player == null:
-		player = get_parent()
 
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	var target_pos: Vector2 = mouse_pos
@@ -39,7 +44,7 @@ func _process(delta: float) -> void:
 	look_at(target_pos)
 
 func _ammo_picked_up(ammo_amount: int = -1) -> void:
-	_update_gun_stats(ammo_amount if ammo_amount != -1 else max_ammo)
+	_update_gun_stats(max_ammo if ammo_amount == -1 else ammo_amount)
 
 func _on_pulse_activated_signal() -> void:
 	_update_gun_stats(-1)

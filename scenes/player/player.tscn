@@ -102,6 +102,8 @@ size = Vector2(16, 16)
 script = ExtResource("1_dovo2")
 metadata/_edit_group_ = true
 
+[node name="Hud" parent="." instance=ExtResource("6_0owmy")]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_0owmy")
@@ -131,5 +133,3 @@ offset_right = 21.0
 offset_bottom = -14.0
 grow_horizontal = 2
 script = ExtResource("6_75vfm")
-
-[node name="Hud" parent="." instance=ExtResource("6_0owmy")]

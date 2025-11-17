@@ -2,9 +2,11 @@ class_name Player
 extends CharacterBody2D
 
 @onready var player_sprite: AnimatedSprite2D = %AnimatedSprite2D
+@onready var gun: Gun = $Gun
 
 @export var speed: int = 200
 @export var jump_force: int = 200
+@export var max_ammo := 3
 
 var _move_direction := Vector2.ZERO
 var _pending_knockback := Vector2.ZERO
@@ -18,7 +20,6 @@ enum PlayerStates {
 	RUNNING,
 	FALLING,
 	RISING,
-	
 }
 
 const PLAYER_FOOTSTEP_IND_1 = preload("uid://xgvd557bddwe")
