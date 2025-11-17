@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_686pq"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_3tkib"]
 [ext_resource type="Texture2D" uid="uid://d0i67rmduh3jj" path="res://assets/background/Runes.PNG" id="8_686pq"]
-[ext_resource type="Texture2D" uid="uid://dg5x7a1k3mcj4" path="res://assets/objects/objects.png" id="8_wn38r"]
+[ext_resource type="Texture2D" uid="uid://dg5x7a1k3mcj4" path="res://assets/objects/Objects.PNG" id="8_wn38r"]
 
 [sub_resource type="Resource" id="Resource_2ya6o"]
 script = ExtResource("6_3tkib")
@@ -68,6 +68,11 @@ animations = [{
 [node name="LevelTemplate" type="Node2D" groups=["Level"]]
 script = ExtResource("1_dcgko")
 metadata/_edit_lock_ = true
+
+[node name="ReactorBlastWaveTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 10.0
+autostart = true
 
 [node name="TileMapLayer" parent="." instance=ExtResource("2_ddmk6")]
 metadata/_edit_group_ = true
@@ -141,6 +146,7 @@ frame_progress = 0.62124085
 [node name="Player" parent="LevelObjects" instance=ExtResource("3_dcgko")]
 unique_name_in_owner = true
 
+[connection signal="timeout" from="ReactorBlastWaveTimer" to="." method="_on_reactor_blast_wave_timer_timeout"]
 [connection signal="body_entered" from="LevelObjects/NextLevelArea" to="." method="_next_level_exit_area_entered"]
 
 [editable path="TileMapLayer"]

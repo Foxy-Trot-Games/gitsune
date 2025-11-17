@@ -123,13 +123,19 @@ position = Vector2(616, 104)
 [node name="Player" parent="LevelObjects" index="1"]
 position = Vector2(-344, 120)
 
-[node name="Door" type="AnimatedSprite2D" parent="LevelObjects" index="2"]
+[node name="ReactorBlastWave" parent="LevelObjects" index="2"]
+offset_left = 1312.0
+offset_top = -632.0
+offset_right = 1344.0
+offset_bottom = 584.0
+
+[node name="Door" type="AnimatedSprite2D" parent="LevelObjects" index="3"]
 z_index = -1
 position = Vector2(-344, 104)
 sprite_frames = SubResource("SpriteFrames_db41i")
 frame_progress = 0.13099843
 
-[node name="ReactorZone" type="Area2D" parent="LevelObjects" index="3"]
+[node name="ReactorZone" type="Area2D" parent="LevelObjects" index="4"]
 position = Vector2(152, -72)
 gravity_space_override = 3
 gravity_point = true

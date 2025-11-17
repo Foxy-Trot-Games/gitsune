@@ -1,15 +1,14 @@
 @tool
 extends ColorRect
 
-@export_enum("left","right") var start_position : int
-@export var wave_speed := 1000 # pixels
-@export var wave_interval := 3.0 # seconds
+@export_enum("left","right") var start_position : int = Position.RIGHT
+@export var wave_speed := 100 # pixels
 
 @onready var area_2d: Area2D = %Area2D
 @onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = %AudioStreamPlayer2D
-@onready var camera_2d: Camera2D = %Camera2D
 
+var _phantom_camera_2d: PhantomCamera2D
 const _additional_padding := Vector2(640,360)
 
 enum Position {
@@ -25,8 +24,9 @@ func _ready() -> void:
 	
 	if !level:
 		return
-		
-	await level.ready
+	
+	if !level.is_node_ready():
+		await level.ready
 	
 	var level_rect := level.get_level_rect()
 	
@@ -54,14 +54,15 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 	
+	# get camera
+	_phantom_camera_2d = PhantomCameraManager.get_phantom_camera_2ds().front()
+		
 	var duration := (level_rect.size.x + _additional_padding.x) / wave_speed
 	
 	var tween := create_tween()
-	tween.set_loops()
 	tween.tween_property(self, "position", Vector2(end_pos.x, position.y), duration).from_current()
-	tween.tween_interval(wave_interval - duration) # wait to start until interval
-	tween.loop_finished.connect(func(i: int) -> void: 
-		reset_physics_interpolation()
+	tween.finished.connect(func() -> void: 
+		queue_free()
 	)
 
 func _physics_process(delta: float) -> void:
@@ -71,7 +72,7 @@ func _physics_process(delta: float) -> void:
 		
 	# set the audio_stream_player_2d y position to always align with the camera y position
 	# this makes it so the audio_stream_player_2d will always be in the middle of the wave on screen no matter the player y coords
-	audio_stream_player_2d.global_position.y = camera_2d.global_position.y
+	audio_stream_player_2d.global_position.y = _phantom_camera_2d.global_position.y
 
 func _draw() -> void:
 	
