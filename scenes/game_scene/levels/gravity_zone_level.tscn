@@ -35,6 +35,7 @@ offset_top = 192.0
 offset_right = 256.0
 offset_bottom = 240.0
 rotation = -1.5707964
+recharges_gun = true
 
 [node name="GravityZone2" parent="LevelObjects/GravityZones" index="1" instance=ExtResource("2_qv8id")]
 offset_left = 576.0
@@ -42,6 +43,7 @@ offset_top = 192.0
 offset_right = 752.0
 offset_bottom = 240.0
 rotation = -1.5707964
+recharges_gun = true
 
 [node name="GravityZone3" parent="LevelObjects/GravityZones" index="2" instance=ExtResource("2_qv8id")]
 offset_left = 1056.0
@@ -49,6 +51,7 @@ offset_top = -144.0
 offset_right = 1088.0
 offset_bottom = 432.0
 rotation = -1.5707964
+recharges_gun = true
 
 [node name="GravityZone4" parent="LevelObjects/GravityZones" index="3" instance=ExtResource("2_qv8id")]
 offset_left = 1936.0
@@ -56,6 +59,7 @@ offset_top = 176.0
 offset_right = 2112.0
 offset_bottom = 224.0
 rotation = -1.5707964
+recharges_gun = true
 
 [node name="GravityZone5" parent="LevelObjects/GravityZones" index="4" instance=ExtResource("2_qv8id")]
 offset_left = 2576.0
@@ -63,5 +67,6 @@ offset_top = 176.0
 offset_right = 2752.0
 offset_bottom = 224.0
 rotation = -1.5707964
+recharges_gun = true
 
 [editable path="TileMapLayer"]

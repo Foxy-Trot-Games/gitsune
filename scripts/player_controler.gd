@@ -2,7 +2,7 @@ class_name PlayerController extends Node2D
 
 @onready var player: Player = $".."
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction := Vector2.ZERO
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1

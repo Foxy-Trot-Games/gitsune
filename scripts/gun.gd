@@ -23,7 +23,7 @@ func _ready() -> void:
 	
 	max_ammo = player.max_ammo
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	var target_pos: Vector2 = mouse_pos

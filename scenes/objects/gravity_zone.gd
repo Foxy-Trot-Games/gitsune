@@ -4,6 +4,7 @@ extends TextureRect
 
 @export_range(-4096, 4096, 1, "suffix:px/s²") var gravity_value : float = 980.0
 @export var slows_down_player := false
+@export var recharges_gun := false
 
 @onready var area_2d: Area2D = %Area2D
 @onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
@@ -15,7 +16,7 @@ var _debug_label : Label
 func _ready() -> void:
 	area_2d.gravity = gravity_value
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# if we are in the editor we want to redraw every frame so it updates correctly when editing
 	if Engine.is_editor_hint():
 		queue_redraw()
@@ -52,6 +53,12 @@ func _draw() -> void:
 	# set gravity vector based on node rotation (which is in radians)
 	area_2d.gravity_direction = Vector2(cos(rotation), sin(rotation))
 	
+	# update gravity zone color based on export params
+	if slows_down_player:
+		(material as ShaderMaterial).set_shader_parameter("wave_color", Color.WEB_GREEN)
+	elif recharges_gun:
+		(material as ShaderMaterial).set_shader_parameter("wave_color", Color.GOLDENROD)
+	
 	_update_debug_label()
 
 func _update_debug_label() -> void:
@@ -72,3 +79,7 @@ func _update_debug_label() -> void:
 	
 	# unrotate since we might have rotated it when setting
 	_debug_label.rotation = -rotation
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Player && recharges_gun:
+		Events.ammo_picked_up.emit()

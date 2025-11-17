@@ -70,6 +70,7 @@ offset_top = -496.0
 offset_right = -112.0
 offset_bottom = -464.0
 rotation = -0.7853982
+recharges_gun = true
 
 [node name="GravityZone3" parent="GravityZones" index="2" instance=ExtResource("5_olebf")]
 offset_left = 576.0
@@ -77,12 +78,12 @@ offset_top = -1104.0
 offset_right = 688.0
 offset_bottom = -1072.0
 rotation = -1.5707964
+recharges_gun = true
 
 [node name="GravityZone4" parent="GravityZones" index="3" instance=ExtResource("5_olebf")]
-offset_left = -608.0
+offset_left = -576.0
 offset_top = -1520.0
-offset_right = -16.0
-offset_bottom = -1168.0
+offset_bottom = -1296.0
 rotation = -1.5707964
 gravity_value = 0.0
 slows_down_player = true
@@ -93,5 +94,6 @@ offset_top = -752.0
 offset_right = 464.0
 offset_bottom = -704.0
 rotation = -1.5707964
+recharges_gun = true
 
 [editable path="TileMapLayer"]

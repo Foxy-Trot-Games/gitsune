@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dtrk3kn5lheu8" path="res://resources/particles_scenes/gravity_particles.tscn" id="3_w7ajn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l6gxy"]
+resource_local_to_scene = true
 shader = ExtResource("1_l6gxy")
 shader_parameter/wave_frequency = 10.0
 shader_parameter/wave_speed = 0.05
@@ -74,3 +75,5 @@ rect = Rect2(0, 0, 16, 16)
 [node name="SnapToGrid" type="Node" parent="."]
 script = ExtResource("3_l6gxy")
 metadata/_custom_type_script = "uid://c44mmw8o77ec6"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
