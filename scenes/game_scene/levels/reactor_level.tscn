@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=4 uid="uid://3an4c0jv4wcj"]
+[gd_scene load_steps=21 format=4 uid="uid://3an4c0jv4wcj"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_tv48y"]
 [ext_resource type="Texture2D" uid="uid://clm8sud0boggs" path="res://assets/background/Reactor.PNG" id="2_866b4"]
-[ext_resource type="Texture2D" uid="uid://dg5x7a1k3mcj4" path="res://assets/objects/Objects.PNG" id="4_4jd34"]
+[ext_resource type="Texture2D" uid="uid://dg5x7a1k3mcj4" path="res://assets/objects/objects.png" id="4_4jd34"]
 [ext_resource type="Script" uid="uid://17ed8l8egmug" path="res://scripts/reactor_zone.gd" id="5_866b4"]
+[ext_resource type="PackedScene" uid="uid://dmeyxqrmciogn" path="res://scenes/enemy/IA_enemy_flying/enemy-flying.tscn" id="5_fevk0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1aj08"]
 atlas = ExtResource("4_4jd34")
@@ -123,19 +124,13 @@ position = Vector2(616, 104)
 [node name="Player" parent="LevelObjects" index="1"]
 position = Vector2(-344, 120)
 
-[node name="ReactorBlastWave" parent="LevelObjects" index="2"]
-offset_left = 1312.0
-offset_top = -632.0
-offset_right = 1344.0
-offset_bottom = 584.0
-
-[node name="Door" type="AnimatedSprite2D" parent="LevelObjects" index="3"]
+[node name="Door" type="AnimatedSprite2D" parent="LevelObjects" index="2"]
 z_index = -1
 position = Vector2(-344, 104)
 sprite_frames = SubResource("SpriteFrames_db41i")
 frame_progress = 0.13099843
 
-[node name="ReactorZone" type="Area2D" parent="LevelObjects" index="4"]
+[node name="ReactorZone" type="Area2D" parent="LevelObjects" index="3"]
 position = Vector2(152, -72)
 gravity_space_override = 3
 gravity_point = true
@@ -174,5 +169,8 @@ rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_1aj08")
 autoplay = "default"
 frame = 3
+
+[node name="Enemy-flying" parent="." index="5" instance=ExtResource("5_fevk0")]
+position = Vector2(448, -9)
 
 [editable path="TileMapLayer"]

@@ -30,9 +30,6 @@ func _ready() -> void:
 	direction = Vector2.RIGHT
 	animated_sprite_2d.flip_h = false
 
-	left_bounds = position + Vector2(-100, 0)
-	right_bounds = position + Vector2(100, 0)
-
 	stun_timer = Timer.new()
 	stun_timer.one_shot = true
 	stun_timer.connect("timeout", Callable(self, "_on_stun_timeout"))
@@ -45,9 +42,8 @@ func _ready() -> void:
 # ======================
 func _on_pulse_stun(knockback_direction: Vector2, radius: float, duration: float, knockback_force: float) -> void:
 	var normalized_direction := knockback_direction.normalized()
-
-	velocity.x = normalized_direction.x * knockback_force * 0.1
-	velocity.y = normalized_direction.y * knockback_force * 0.1
+	velocity.x = normalized_direction.x * knockback_force * 0.15
+	velocity.y = normalized_direction.y * knockback_force * 0.15
 	stunned = true
 	stun_timer.start(duration)
 
