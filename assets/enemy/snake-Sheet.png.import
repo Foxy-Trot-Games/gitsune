@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://488ol7xvnypw"
-path="res://.godot/imported/Skeleton_01_White_Walk.png-e8d334df6309c31be752c0f596ed5e4f.ctex"
+uid="uid://bfjp5g3ptwptc"
+path="res://.godot/imported/snake-Sheet.png-1ca9d1bc5b06361016e7b0b25425c9a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy/Skeleton_01_White_Walk.png"
-dest_files=["res://.godot/imported/Skeleton_01_White_Walk.png-e8d334df6309c31be752c0f596ed5e4f.ctex"]
+source_file="res://assets/enemy/snake-Sheet.png"
+dest_files=["res://.godot/imported/snake-Sheet.png-1ca9d1bc5b06361016e7b0b25425c9a0.ctex"]
 
 [params]
 

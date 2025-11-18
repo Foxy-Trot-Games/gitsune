@@ -1,28 +1,32 @@
-[gd_scene load_steps=12 format=3 uid="uid://2jpu8jkgrmga"]
+[gd_scene load_steps=13 format=3 uid="uid://2jpu8jkgrmga"]
 
 [ext_resource type="Script" uid="uid://cw8f5aq8nr5bq" path="res://scenes/enemy/Flying_enemy/flying_enemy.gd" id="1_2jxvc"]
-[ext_resource type="Texture2D" uid="uid://dxiqie57j511j" path="res://assets/enemy/Bat.png" id="2_ja24j"]
+[ext_resource type="Texture2D" uid="uid://bfjp5g3ptwptc" path="res://assets/enemy/snake-Sheet.png" id="2_ja24j"]
 [ext_resource type="Script" uid="uid://c44mmw8o77ec6" path="res://scenes/objects/util/snap_to_grid.gd" id="3_ja24j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l25sg"]
 atlas = ExtResource("2_ja24j")
-region = Rect2(0, 0, 48, 48)
+region = Rect2(0, 0, 15, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sh7nu"]
 atlas = ExtResource("2_ja24j")
-region = Rect2(48, 0, 48, 48)
+region = Rect2(15, 0, 15, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svgm4"]
 atlas = ExtResource("2_ja24j")
-region = Rect2(96, 0, 48, 48)
+region = Rect2(30, 0, 15, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_npjsh"]
 atlas = ExtResource("2_ja24j")
-region = Rect2(144, 0, 48, 48)
+region = Rect2(45, 0, 15, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a0vee"]
 atlas = ExtResource("2_ja24j")
-region = Rect2(192, 0, 48, 48)
+region = Rect2(60, 0, 15, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k75kq"]
+atlas = ExtResource("2_ja24j")
+region = Rect2(75, 0, 15, 31)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k30va"]
 animations = [{
@@ -41,6 +45,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a0vee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k75kq")
 }],
 "loop": true,
 "name": &"default",
@@ -62,7 +69,7 @@ script = ExtResource("1_2jxvc")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_k30va")
 autoplay = "default"
-frame_progress = 0.25620034
+frame_progress = 0.57514614
 
 [node name="hitbox_collision" type="CollisionShape2D" parent="hitbox_area"]
 shape = SubResource("CircleShape2D_k75kq")

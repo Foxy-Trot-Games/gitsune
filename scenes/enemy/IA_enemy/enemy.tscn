@@ -1,43 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://b8e2qcdmlxsvi"]
+[gd_scene load_steps=10 format=3 uid="uid://b8e2qcdmlxsvi"]
 
 [ext_resource type="Script" uid="uid://dh327n4cqurwm" path="res://scenes/enemy/IA_enemy/enemy.gd" id="1_rdi22"]
-[ext_resource type="Texture2D" uid="uid://dv2je0ocn5c4i" path="res://assets/enemy/Bringer-of-Death-SpritSheet.png" id="2_ijaua"]
 [ext_resource type="Texture2D" uid="uid://brtclyuf5bjk8" path="res://assets/enemy/crab-Sheet.png" id="3_ijaua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fh6ne"]
 size = Vector2(32, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kwsiy"]
-atlas = ExtResource("2_ijaua")
-region = Rect2(0, 0, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rj3ki"]
-atlas = ExtResource("2_ijaua")
-region = Rect2(140, 0, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0jt6f"]
-atlas = ExtResource("2_ijaua")
-region = Rect2(280, 0, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ol3qj"]
-atlas = ExtResource("2_ijaua")
-region = Rect2(420, 0, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nw7wr"]
-atlas = ExtResource("2_ijaua")
-region = Rect2(560, 0, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e7qdr"]
-atlas = ExtResource("2_ijaua")
-region = Rect2(700, 0, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ydyik"]
-atlas = ExtResource("2_ijaua")
-region = Rect2(840, 0, 140, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a7tu5"]
-atlas = ExtResource("2_ijaua")
-region = Rect2(980, 0, 140, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aclb5"]
 atlas = ExtResource("3_ijaua")
@@ -57,35 +24,6 @@ region = Rect2(93, 0, 31, 27)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aclb5"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kwsiy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rj3ki")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0jt6f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ol3qj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nw7wr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e7qdr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ydyik")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a7tu5")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aclb5")
@@ -118,7 +56,7 @@ shape = SubResource("RectangleShape2D_fh6ne")
 sprite_frames = SubResource("SpriteFrames_aclb5")
 animation = &"walking"
 autoplay = "walking"
-frame_progress = 0.9470824
+frame_progress = 0.91095877
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
