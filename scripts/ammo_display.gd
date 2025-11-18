@@ -16,8 +16,8 @@ func _gun_stats_updated(current_ammo: int, max_ammo: int) -> void:
 		shader.set_shader_parameter("current_ammo", current_ammo)
 		
 		# update speed
-		#var ammo_ratio := clampf(float(current_ammo) / float(max_ammo), 0.1, 1.0)
-		#shader.set_shader_parameter("speed", 0.01 + 3.0 * ammo_ratio)
+		var ammo_ratio := clampf(float(current_ammo) / float(max_ammo), 0.1, 1.0)
+		shader.set_shader_parameter("speed", 0.01 + 3.0 * ammo_ratio)
 		
 		# update color
 		var color_lerp : Color = lerp(Color.RED, Color(0.498, 1.0, 0.659), float(current_ammo) / float(max_ammo))
