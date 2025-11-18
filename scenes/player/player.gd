@@ -14,6 +14,8 @@ var _gun: Node2D
 var PLAYER_AIR_RESISTENCE := 0.1 # higher is more resistence up to 1.0
 var MAX_PLAYER_SPEED := 500
 var _player_state := PlayerStates.IDLING
+var _allow_gravity_zone_movement := false
+var _in_gravity_zone := false
 
 enum PlayerStates {
 	IDLING,
@@ -29,6 +31,8 @@ func _ready() -> void:
 	Events.player_movement_input_signal.connect(_on_player_movement_input_signal)
 	Events.pulse_knockback_signal.connect(_on_pulse_knockback)
 	Events.player_died.connect(_player_died)
+	Events.entered_gravity_zone.connect(_set_gravity_zone_var.bind(true))
+	Events.exited_gravity_zone.connect(_set_gravity_zone_var.bind(false))
 
 func _on_pulse_knockback(knockback: Vector2) -> void:
 	_pending_knockback += knockback
@@ -54,6 +58,10 @@ func _on_player_movement_input_signal(direction: Vector2) -> void:
 		else:
 			_update_state(PlayerStates.RUNNING)
 
+func _set_gravity_zone_var(allow_movement: bool, entered: bool) -> void:
+	_in_gravity_zone = entered
+	_allow_gravity_zone_movement = allow_movement
+
 # rising by arbitrary amount
 func _is_rising() -> bool:
 	return velocity.y < -50
@@ -64,13 +72,15 @@ func _is_falling() -> bool:
 func _physics_process(delta: float) -> void:
 	
 	# Apply movement
-	if is_on_floor():
+	if _allow_gravity_zone_movement:
+		velocity += lerp(Vector2.ZERO, _move_direction * speed / 10, .15)
+	elif is_on_floor():
 		velocity.x = _move_direction.x * speed
-	elif _move_direction != Vector2.ZERO:
+	elif _move_direction != Vector2.ZERO && !_in_gravity_zone:
 		# apply horizontal velocity to the player in the air if they are actively trying to move
 		# air resistence is taken into account to slowly move the player
 		velocity.x = lerpf(velocity.x, _move_direction.x * speed, PLAYER_AIR_RESISTENCE)
-
+	
 	# Apply Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -jump_force

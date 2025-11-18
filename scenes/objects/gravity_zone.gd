@@ -5,6 +5,7 @@ extends TextureRect
 @export_range(-4096, 4096, 1, "suffix:px/s²") var gravity_value : float = 980.0
 @export var slows_down_player := false
 @export var recharges_gun := false
+@export var allow_movement := false
 
 @onready var area_2d: Area2D = %Area2D
 @onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
@@ -27,7 +28,7 @@ func _physics_process(_delta: float) -> void:
 		for body in area_2d.get_overlapping_bodies():
 			if body is Player:
 				var player : Player = body
-				player.velocity = player.velocity.lerp(Vector2.ZERO, .015)
+				player.velocity = player.velocity.lerp(Vector2.ZERO, .025)
 
 func _draw() -> void:
 	# lock scale so it can't be changed
@@ -81,5 +82,11 @@ func _update_debug_label() -> void:
 	_debug_label.rotation = -rotation
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is Player && recharges_gun:
-		Events.ammo_picked_up.emit()
+	if body is Player:
+		Events.entered_gravity_zone.emit(allow_movement)
+		if recharges_gun:
+			Events.ammo_picked_up.emit()
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body is Player:
+		Events.exited_gravity_zone.emit(allow_movement)

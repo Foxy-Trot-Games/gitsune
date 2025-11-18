@@ -3,14 +3,7 @@ class_name PlayerController extends Node2D
 @onready var player: Player = $".."
 
 func _physics_process(_delta: float) -> void:
-	var direction := Vector2.ZERO
-	if Input.is_action_pressed("move_right"):
-		direction.x += 1
-			
-	if Input.is_action_pressed("move_left"):
-		direction.x -= 1
-
-	if Input.is_action_just_pressed("jump") and player.is_on_floor():
-		direction.y -= 1
-		
-	Events.player_movement_input(direction.normalized())
+	var xdir := Input.get_axis("move_left", "move_right")
+	var ydir := Input.get_axis("move_up", "move_down")
+	
+	Events.player_movement_input(Vector2(xdir, ydir))

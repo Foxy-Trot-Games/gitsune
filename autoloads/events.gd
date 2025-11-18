@@ -2,6 +2,8 @@ extends Node
 
 signal pulse_knockback_signal(direction: Vector2)
 signal player_movement_input_signal
+signal entered_gravity_zone(allow_movement: bool)
+signal exited_gravity_zone(allow_movement: bool)
 
 signal ammo_picked_up(amount_picked_up: int)
 signal gun_stats_updated(ammo_count_left: int, max_ammo: int)
