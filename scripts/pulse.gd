@@ -33,7 +33,15 @@ func _create_sound_wave(direction: Vector2) -> void:
 	particles.queue_free()
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("pulse") and gun.current_ammo > 0:
+	
+	if gun.current_ammo <= 0:
+		return
+	
+	if Input.is_action_just_pressed("pulse"):
+		pulse_throttle.call_throttled(_fire_pulse)
+	
+	var pulse_dir := Globals.get_keyboard_pulse_fired_dir()
+	if pulse_dir:
 		pulse_throttle.call_throttled(_fire_pulse)
 		
 func _fire_pulse() -> void:

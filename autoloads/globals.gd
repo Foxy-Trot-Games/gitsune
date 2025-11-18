@@ -15,3 +15,11 @@ func set_random_frame(animated_sprite_2d: AnimatedSprite2D, animation := "defaul
 	var frame_count: int = sprite_frames.get_frame_count(animation)
 	var random_index: int = randi() % frame_count
 	animated_sprite_2d.frame = random_index
+
+func get_keyboard_pulse_fired_dir() -> Vector2:
+	if Input.is_action_just_pressed("pulse_right") || Input.is_action_just_pressed("pulse_left") || \
+		Input.is_action_just_pressed("pulse_up") || 	Input.is_action_just_pressed("pulse_right"):
+		var pulse_dir := Vector2(Input.get_axis("pulse_right","pulse_left"), Input.get_axis("pulse_down","pulse_up"))
+		return pulse_dir
+	else:
+		return Vector2.ZERO

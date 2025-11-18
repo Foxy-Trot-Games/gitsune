@@ -8,6 +8,7 @@ resource_local_to_scene = true
 size = Vector2(32, 720)
 
 [node name="ReactorBlastWave" type="Node2D"]
+z_index = 1
 script = ExtResource("1_tc2bw")
 
 [node name="ColorRect" type="ColorRect" parent="."]

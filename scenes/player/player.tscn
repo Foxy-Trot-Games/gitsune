@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c1bia3m155lki" path="res://assets/player/fox_walk-Sheet.png" id="3_je7p5"]
 [ext_resource type="Texture2D" uid="uid://byq87424y0kqr" path="res://assets/player/fox_idle-Sheet.png" id="4_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://c610im4e6xtpi" path="res://assets/player/fox_jump-Sheet.png" id="4_fm80t"]
-[ext_resource type="Script" uid="uid://b44d6kc4emnxj" path="res://scripts/player_controler.gd" id="4_lvxji"]
+[ext_resource type="Script" uid="uid://b44d6kc4emnxj" path="res://scripts/player_controller.gd" id="4_lvxji"]
 [ext_resource type="PackedScene" uid="uid://dfxgljq6hf57a" path="res://scenes/gun/gun.tscn" id="5_p47bc"]
 [ext_resource type="PackedScene" uid="uid://df4m8l5j2c6dy" path="res://scenes/game_scene/gui/hud.tscn" id="6_0owmy"]
 [ext_resource type="Script" uid="uid://csfv8f14k2ogw" path="res://scripts/ammo_count.gd" id="6_75vfm"]
@@ -129,7 +129,7 @@ autoplay = "idle"
 unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_h17s1")
 
-[node name="PlayerControler" type="Node2D" parent="."]
+[node name="PlayerController" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_lvxji")
 
