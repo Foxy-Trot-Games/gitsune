@@ -115,6 +115,7 @@ size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_dovo2")
+max_ammo = 4
 metadata/_edit_group_ = true
 
 [node name="Hud" parent="." instance=ExtResource("6_0owmy")]
