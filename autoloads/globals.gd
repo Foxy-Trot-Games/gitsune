@@ -1,6 +1,8 @@
 ## Planning on using this to store Global Variables. 
 extends Node
 
+var air_movement := true
+
 func get_level() -> Level:
 	return get_tree().get_first_node_in_group("Level")
 	
