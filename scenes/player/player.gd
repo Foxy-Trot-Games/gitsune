@@ -21,6 +21,7 @@ enum PlayerStates {
 	RUNNING,
 	FALLING,
 	RISING,
+	IN_ZERO_GRAVITY,
 }
 
 const PLAYER_FOOTSTEP_IND_1 = preload("uid://xgvd557bddwe")
@@ -80,8 +81,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerpf(velocity.x, _move_direction.x * speed, PLAYER_AIR_RESISTENCE)
 	
 	# Apply Jump
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = -jump_force
+	#if Input.is_action_just_pressed("jump") and is_on_floor():
+		#velocity.y = -jump_force
 
 	# Apply pending knockback from pulse
 	if _pending_knockback != Vector2.ZERO:

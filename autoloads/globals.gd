@@ -20,7 +20,7 @@ func set_random_frame(animated_sprite_2d: AnimatedSprite2D, animation := "defaul
 
 func get_keyboard_pulse_fired_dir() -> Vector2:
 	if Input.is_action_just_pressed("pulse_right") || Input.is_action_just_pressed("pulse_left") || \
-		Input.is_action_just_pressed("pulse_up") || 	Input.is_action_just_pressed("pulse_right"):
+		Input.is_action_just_pressed("pulse_up") || 	Input.is_action_just_pressed("pulse_down"):
 		var pulse_dir := Vector2(Input.get_axis("pulse_right","pulse_left"), Input.get_axis("pulse_down","pulse_up"))
 		return pulse_dir
 	else:
