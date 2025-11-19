@@ -11,6 +11,8 @@ const KNOCKBACK_IMPULSE: float = 200.0
 var pulse_cooldown: float = 0.1
 var pulse_throttle := Throttle.new(pulse_cooldown)
 
+var _prev_pulse_dir : Vector2
+
 func apply_knockback_impulse(direction: Vector2) -> void:
 	# Emit a knockback signal instead of changing velocity
 	Events.pulse_knockback(direction * KNOCKBACK_IMPULSE)
@@ -41,8 +43,13 @@ func _physics_process(delta: float) -> void:
 		pulse_throttle.call_throttled(_fire_pulse)
 	
 	var pulse_dir := Globals.get_keyboard_pulse_fired_dir()
-	if pulse_dir:
+	
+	# add a one frame delay to keyboard input so that diagonal inputs are more consistently detected
+	if _prev_pulse_dir:
 		pulse_throttle.call_throttled(_fire_pulse)
+		_prev_pulse_dir = Vector2.ZERO
+	else:
+		_prev_pulse_dir = pulse_dir
 		
 func _fire_pulse() -> void:
 	pulse_activated_signal.emit()
