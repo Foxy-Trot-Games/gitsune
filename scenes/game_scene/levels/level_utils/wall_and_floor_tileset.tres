@@ -1,6 +1,6 @@
-[gd_resource type="TileSet" load_steps=27 format=3 uid="uid://y4ydrkwovoh6"]
+[gd_resource type="TileSet" load_steps=28 format=3 uid="uid://y4ydrkwovoh6"]
 
-[ext_resource type="Texture2D" uid="uid://db1jl6yf87ru1" path="res://assets/background/Floor Merged.png" id="1_hqnv6"]
+[ext_resource type="Texture2D" uid="uid://cptmkw4ai58fx" path="res://assets/background/Floor Merged.PNG" id="1_hqnv6"]
 [ext_resource type="PackedScene" uid="uid://wpnqp08cv3bm" path="res://scenes/objects/spikes.tscn" id="6_icoyr"]
 [ext_resource type="PackedScene" uid="uid://dj26b32jiqwfe" path="res://scenes/objects/ammo.tscn" id="7_6n6g1"]
 [ext_resource type="Texture2D" uid="uid://uqxnqvc5ghf0" path="res://assets/background/walls_tileset.png" id="7_kauwh"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cxm7caqjvvyu5" path="res://scenes/enemy/Stationary_enemy/enemy.tscn" id="8_xe3hx"]
 [ext_resource type="Texture2D" uid="uid://b0hoeiplnp4ka" path="res://assets/background/walls3_tileset.png" id="9_cxt27"]
 [ext_resource type="PackedScene" uid="uid://2jpu8jkgrmga" path="res://scenes/enemy/Flying_enemy/Flying_enemy.tscn" id="9_qwveq"]
+[ext_resource type="PackedScene" uid="uid://6hi36kq1jffv" path="res://scenes/objects/rune.tscn" id="9_xe3hx"]
 [ext_resource type="Texture2D" uid="uid://clfyedk8db5o6" path="res://assets/background/walls4_tileset.png" id="10_8p68r"]
 [ext_resource type="PackedScene" uid="uid://hbspw0hu400f" path="res://scenes/enemy/Pathing_enemy/Pathing_enemy.tscn" id="10_htd1m"]
 [ext_resource type="PackedScene" uid="uid://b8e2qcdmlxsvi" path="res://scenes/enemy/IA_enemy/enemy.tscn" id="11_opqfu"]
@@ -1598,6 +1599,7 @@ resource_name = "Level Interactables"
 scenes/1/scene = ExtResource("6_icoyr")
 scenes/2/scene = ExtResource("7_6n6g1")
 scenes/3/scene = ExtResource("8_6n6g1")
+scenes/4/scene = ExtResource("9_xe3hx")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_m3kbm"]
 resource_name = "Enemies"

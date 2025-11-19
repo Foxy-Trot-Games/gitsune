@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://cirptdnn2gcg6" path="res://assets/background/Gradients.PNG" id="9_bspnc"]
 [ext_resource type="Texture2D" uid="uid://b0hoeiplnp4ka" path="res://assets/background/walls3_tileset.png" id="9_hbkr3"]
 [ext_resource type="Texture2D" uid="uid://clfyedk8db5o6" path="res://assets/background/walls4_tileset.png" id="10_stai2"]
-[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="11_rd7l0"]
+[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/Objects.PNG" id="11_rd7l0"]
 [ext_resource type="Texture2D" uid="uid://0s6i5onprh44" path="res://assets/background/background.png" id="12_mvbge"]
-[ext_resource type="Texture2D" uid="uid://cptmkw4ai58fx" path="res://assets/background/Floor Merged.png" id="12_uxekd"]
+[ext_resource type="Texture2D" uid="uid://cptmkw4ai58fx" path="res://assets/background/Floor Merged.PNG" id="12_uxekd"]
 [ext_resource type="Texture2D" uid="uid://bpohorpiprt3i" path="res://assets/background/Wall overlay.PNG" id="13_1yjvj"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_vk6bf"]

@@ -27,7 +27,6 @@ enum PlayerStates {
 const PLAYER_FOOTSTEP_IND_1 = preload("uid://xgvd557bddwe")
 
 func _ready() -> void:
-	add_to_group("player")
 	Events.player_movement_input_signal.connect(_on_player_movement_input_signal)
 	Events.pulse_knockback_signal.connect(_on_pulse_knockback)
 	Events.player_died.connect(_player_died)
@@ -75,7 +74,7 @@ func _physics_process(delta: float) -> void:
 		velocity += lerp(Vector2.ZERO, _move_direction * speed / 10, .15)
 	elif is_on_floor():
 		velocity.x = _move_direction.x * speed
-	elif _move_direction != Vector2.ZERO && Globals.air_movement:
+	elif _move_direction != Vector2.ZERO:
 		# apply horizontal velocity to the player in the air if they are actively trying to move
 		# air resistence is taken into account to slowly move the player
 		velocity.x = lerpf(velocity.x, _move_direction.x * speed, PLAYER_AIR_RESISTENCE)

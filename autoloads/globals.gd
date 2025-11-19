@@ -1,7 +1,7 @@
 ## Planning on using this to store Global Variables. 
 extends Node
 
-var air_movement := true
+@onready var player_state : PlayerState = GameState.get_player_state()
 
 func get_level() -> Level:
 	return get_tree().get_first_node_in_group("Level")

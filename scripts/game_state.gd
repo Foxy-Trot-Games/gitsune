@@ -4,6 +4,7 @@ extends Resource
 const STATE_NAME : String = "GameState"
 const FILE_PATH = "res://scripts/game_state.gd"
 
+@export var player_state : PlayerState
 @export var level_states : Dictionary = {}
 @export var current_level_path : String
 @export var continue_level_path : String
@@ -11,9 +12,20 @@ const FILE_PATH = "res://scripts/game_state.gd"
 @export var play_time : int
 @export var total_time : int
 
+static func get_player_state() -> PlayerState:
+	if not has_game_state(): 
+		return
+	var game_state := get_or_create_state()
+	if game_state.player_state:
+		return game_state.player_state
+	else:
+		var new_player_state := PlayerState.new()
+		game_state.player_state = new_player_state
+		GlobalState.save()
+		return new_player_state
+
 static func get_level_state(level_state_key : String) -> LevelState:
 	if not has_game_state(): 
-		
 		return
 	var game_state := get_or_create_state()
 	if level_state_key.is_empty() : return
