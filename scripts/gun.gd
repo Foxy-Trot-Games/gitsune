@@ -59,11 +59,9 @@ func _check_if_using_keyboard() -> void:
 func _keyboard_used(dir: Vector2) -> void:
 	# rotate gun to dir
 	rotation = dir.angle()
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	
 func _mouse_used(pos: Vector2) -> void:
 	look_at(get_global_mouse_position())
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _ammo_picked_up(ammo_amount: int = -1) -> void:
 	_update_gun_stats(max_ammo if ammo_amount == -1 else ammo_amount)

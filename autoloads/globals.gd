@@ -25,3 +25,13 @@ func get_keyboard_pulse_fired_dir() -> Vector2:
 		return pulse_dir
 	else:
 		return Vector2.ZERO
+
+func _input(event: InputEvent) -> void:
+	# enable mouse if it was hidden
+	if event is InputEventMouseButton || event is InputEventMouseMotion:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		
+	# hide mouse if using keyboard
+	if event.is_action_pressed(&"pulse_right") || event.is_action_pressed(&"pulse_left") || \
+		event.is_action_pressed(&"pulse_up") || event.is_action_pressed(&"pulse_down"):
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
