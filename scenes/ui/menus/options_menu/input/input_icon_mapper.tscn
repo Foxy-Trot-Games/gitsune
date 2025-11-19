@@ -1,5 +1,493 @@
-[gd_scene load_steps=2 format=3 uid="uid://f3u04drd8oc0"]
+[gd_scene load_steps=157 format=3 uid="uid://f3u04drd8oc0"]
 
 [ext_resource type="PackedScene" uid="uid://qoexj4ptqt8a" path="res://addons/maaacks_game_template/base/nodes/menus/options_menu/input/input_icon_mapper.tscn" id="1_7vieq"]
+[ext_resource type="Texture2D" uid="uid://btnqwtj2rt1q6" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_0.png" id="2_25n8e"]
+[ext_resource type="Texture2D" uid="uid://crx4h4hx33lyv" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_1.png" id="3_w7gfd"]
+[ext_resource type="Texture2D" uid="uid://6ovomjocxslk" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_2.png" id="4_qlkm6"]
+[ext_resource type="Texture2D" uid="uid://dvtn5jg76g1p5" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_3.png" id="5_8sn47"]
+[ext_resource type="Texture2D" uid="uid://cov7bls2t3lk1" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_4.png" id="6_br5b3"]
+[ext_resource type="Texture2D" uid="uid://co3afsv06o1ru" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_5.png" id="7_v3u10"]
+[ext_resource type="Texture2D" uid="uid://d2rg4yiqinhd0" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_6.png" id="8_u7ank"]
+[ext_resource type="Texture2D" uid="uid://bvwsvyaye6lnd" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_7.png" id="9_8ej11"]
+[ext_resource type="Texture2D" uid="uid://vonfdnxn4g8s" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_8.png" id="10_irh8u"]
+[ext_resource type="Texture2D" uid="uid://dmsobq7anhs3l" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_9.png" id="11_8ep7j"]
+[ext_resource type="Texture2D" uid="uid://bqeqqc7abfh46" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_a.png" id="12_vkhlm"]
+[ext_resource type="Texture2D" uid="uid://cgxjpll8a88tp" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_alt.png" id="13_xm0nv"]
+[ext_resource type="Texture2D" uid="uid://bb2los2x1jv7n" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_any.png" id="14_bve0r"]
+[ext_resource type="Texture2D" uid="uid://eqni0mtduqa5" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_apostrophe.png" id="15_0cgry"]
+[ext_resource type="Texture2D" uid="uid://c7t1bjaihaea6" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrow_down.png" id="16_od8c8"]
+[ext_resource type="Texture2D" uid="uid://p5usf64n4fhg" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrow_left.png" id="17_7udru"]
+[ext_resource type="Texture2D" uid="uid://kj4aq02s6wjx" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrow_right.png" id="18_oj1kd"]
+[ext_resource type="Texture2D" uid="uid://djcf7p1vdmx0m" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrow_up.png" id="19_tk0ej"]
+[ext_resource type="Texture2D" uid="uid://bpv8xp6ebx8ot" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrows.png" id="20_dnwxo"]
+[ext_resource type="Texture2D" uid="uid://4qtjsrbikl4d" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrows_all.png" id="21_qgmas"]
+[ext_resource type="Texture2D" uid="uid://cojadltu822f1" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrows_down.png" id="22_2kdmw"]
+[ext_resource type="Texture2D" uid="uid://b4v3yvwompy4f" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrows_horizontal.png" id="23_2yqrk"]
+[ext_resource type="Texture2D" uid="uid://cu4gwt8xhclf6" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrows_left.png" id="24_iwv1t"]
+[ext_resource type="Texture2D" uid="uid://cxmrnljw0j4y1" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrows_none.png" id="25_5lwav"]
+[ext_resource type="Texture2D" uid="uid://bwxvi17w6wrvv" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrows_right.png" id="26_4r45o"]
+[ext_resource type="Texture2D" uid="uid://rxkd4nuqyo23" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrows_up.png" id="27_xlrew"]
+[ext_resource type="Texture2D" uid="uid://duk6da67n42kq" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrows_vertical.png" id="28_6peba"]
+[ext_resource type="Texture2D" uid="uid://0ggh72b8jibv" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_asterisk.png" id="29_kqad0"]
+[ext_resource type="Texture2D" uid="uid://bacikltr4hxy7" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_b.png" id="30_pd08t"]
+[ext_resource type="Texture2D" uid="uid://ck508lh3u06k3" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_backspace.png" id="31_5fpbp"]
+[ext_resource type="Texture2D" uid="uid://c6j21a03ndguf" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_backspace_icon.png" id="32_1uhbx"]
+[ext_resource type="Texture2D" uid="uid://bcttap4w7mf7p" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_backspace_icon_alternative.png" id="33_ytuh1"]
+[ext_resource type="Texture2D" uid="uid://c6c6uom7ho75r" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_bracket_close.png" id="34_5fbai"]
+[ext_resource type="Texture2D" uid="uid://d2hyokn1r3axu" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_bracket_greater.png" id="35_j0pif"]
+[ext_resource type="Texture2D" uid="uid://cekwlx0nnftbc" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_bracket_less.png" id="36_3feca"]
+[ext_resource type="Texture2D" uid="uid://bxu2x1r7aj1uk" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_bracket_open.png" id="37_4b8ss"]
+[ext_resource type="Texture2D" uid="uid://fmt5o1r13vw5" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_c.png" id="38_l37u6"]
+[ext_resource type="Texture2D" uid="uid://3kfgj45u05wr" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_capslock.png" id="39_h5rau"]
+[ext_resource type="Texture2D" uid="uid://cstf57v8egvmu" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_capslock_icon.png" id="40_bh12s"]
+[ext_resource type="Texture2D" uid="uid://ipqxxltmkcx6" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_caret.png" id="41_y86vw"]
+[ext_resource type="Texture2D" uid="uid://ec4pb0ismra6" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_colon.png" id="42_6o8l1"]
+[ext_resource type="Texture2D" uid="uid://ba23txmjmmuh" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_comma.png" id="43_3cc06"]
+[ext_resource type="Texture2D" uid="uid://7m6ubjpuiun5" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_command.png" id="44_1ywu4"]
+[ext_resource type="Texture2D" uid="uid://bf40kxoxm6s0s" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_ctrl.png" id="45_iqt76"]
+[ext_resource type="Texture2D" uid="uid://bv2stwm4kxj7v" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_d.png" id="46_m3hy0"]
+[ext_resource type="Texture2D" uid="uid://cl6eqmbmdg311" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_delete.png" id="47_i28jq"]
+[ext_resource type="Texture2D" uid="uid://bkjabqg70qwcu" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_e.png" id="48_eexxm"]
+[ext_resource type="Texture2D" uid="uid://dhkh8kulrd3or" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_end.png" id="49_cao1s"]
+[ext_resource type="Texture2D" uid="uid://crhwx7o1wbd2v" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_enter.png" id="50_3rdgf"]
+[ext_resource type="Texture2D" uid="uid://diq4mmqd2r08c" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_equals.png" id="51_qmskg"]
+[ext_resource type="Texture2D" uid="uid://dirsqs42pinsu" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_escape.png" id="52_luxjg"]
+[ext_resource type="Texture2D" uid="uid://bahwjrcs1mdkw" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_exclamation.png" id="53_1mvgx"]
+[ext_resource type="Texture2D" uid="uid://b2uc81xyufyhf" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f.png" id="54_llpnl"]
+[ext_resource type="Texture2D" uid="uid://cqm0peqjucjyo" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f1.png" id="55_2gsrb"]
+[ext_resource type="Texture2D" uid="uid://clvkpg0l5jo2" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f10.png" id="56_vhn0u"]
+[ext_resource type="Texture2D" uid="uid://wvsh0igtgn5x" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f11.png" id="57_whxif"]
+[ext_resource type="Texture2D" uid="uid://ck6g27fnhok5" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f12.png" id="58_kcmbe"]
+[ext_resource type="Texture2D" uid="uid://bemab73a8ulhk" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f2.png" id="59_arfo4"]
+[ext_resource type="Texture2D" uid="uid://cf8vmemubeb84" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f3.png" id="60_0i1aq"]
+[ext_resource type="Texture2D" uid="uid://bdctst5uoru" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f4.png" id="61_qtgb5"]
+[ext_resource type="Texture2D" uid="uid://cobwesbkbkpdq" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f5.png" id="62_lr17t"]
+[ext_resource type="Texture2D" uid="uid://btujkwu8flrq5" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f6.png" id="63_uju2s"]
+[ext_resource type="Texture2D" uid="uid://b8hlefinlum08" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f7.png" id="64_q5468"]
+[ext_resource type="Texture2D" uid="uid://c7l80d54lu8a7" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f8.png" id="65_vv3b7"]
+[ext_resource type="Texture2D" uid="uid://d2prky0j1ndp8" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f9.png" id="66_khtdy"]
+[ext_resource type="Texture2D" uid="uid://cah2jphtnr433" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_function.png" id="67_ibct0"]
+[ext_resource type="Texture2D" uid="uid://hqb0r1w4ltgy" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_g.png" id="68_yg1eg"]
+[ext_resource type="Texture2D" uid="uid://emlovtn2iq2n" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_h.png" id="69_ybgdn"]
+[ext_resource type="Texture2D" uid="uid://cddf5m2pxtuj3" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_home.png" id="70_v3rct"]
+[ext_resource type="Texture2D" uid="uid://qq0ilhw28q08" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_i.png" id="71_v1y4m"]
+[ext_resource type="Texture2D" uid="uid://bkbjo68rtg5lk" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_insert.png" id="72_e5or1"]
+[ext_resource type="Texture2D" uid="uid://cnle14rfifl0f" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_j.png" id="73_24btt"]
+[ext_resource type="Texture2D" uid="uid://ii77218ynytu" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_k.png" id="74_qwmen"]
+[ext_resource type="Texture2D" uid="uid://cyq3t11rxsnhr" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_l.png" id="75_o4pi0"]
+[ext_resource type="Texture2D" uid="uid://dv7j7mqa61ed1" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_m.png" id="76_yentr"]
+[ext_resource type="Texture2D" uid="uid://couh3oyh3uuhj" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_minus.png" id="77_te1xg"]
+[ext_resource type="Texture2D" uid="uid://yblhlpmjbodc" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_n.png" id="78_mj56h"]
+[ext_resource type="Texture2D" uid="uid://pypl2k8femjo" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_numlock.png" id="79_32sai"]
+[ext_resource type="Texture2D" uid="uid://07fjmob7a4gm" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_numpad_enter.png" id="80_mstba"]
+[ext_resource type="Texture2D" uid="uid://co0svc1wpyu8x" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_numpad_plus.png" id="81_6vxo4"]
+[ext_resource type="Texture2D" uid="uid://iabxca3lu2hj" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_o.png" id="82_uqk4x"]
+[ext_resource type="Texture2D" uid="uid://bnu7iyeoi5n7s" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_option.png" id="83_3quqs"]
+[ext_resource type="Texture2D" uid="uid://d3g6faqooqi0n" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_p.png" id="84_q3bb0"]
+[ext_resource type="Texture2D" uid="uid://cog6u03lb2uba" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_page_down.png" id="85_b5xim"]
+[ext_resource type="Texture2D" uid="uid://dvxn7ro2aw7km" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_page_up.png" id="86_0pi7o"]
+[ext_resource type="Texture2D" uid="uid://d1ucfa6wy44s4" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_period.png" id="87_yu0a5"]
+[ext_resource type="Texture2D" uid="uid://81iwdvvbpgy0" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_plus.png" id="88_6amav"]
+[ext_resource type="Texture2D" uid="uid://ebcqhmbxrk8p" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_printscreen.png" id="89_khg4s"]
+[ext_resource type="Texture2D" uid="uid://didxbpkoolbm0" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_q.png" id="90_c0cej"]
+[ext_resource type="Texture2D" uid="uid://c11aitmnje2kh" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_question.png" id="91_mt723"]
+[ext_resource type="Texture2D" uid="uid://bcxsk42p2i5uj" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_quote.png" id="92_4mxna"]
+[ext_resource type="Texture2D" uid="uid://bmv6s58trmk3p" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_r.png" id="93_htr5s"]
+[ext_resource type="Texture2D" uid="uid://dpkxur17k7vtj" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_return.png" id="94_vufmb"]
+[ext_resource type="Texture2D" uid="uid://bfyebvicjr6jq" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_s.png" id="95_rxqkj"]
+[ext_resource type="Texture2D" uid="uid://c02v8onpjdee6" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_semicolon.png" id="96_lcx65"]
+[ext_resource type="Texture2D" uid="uid://b7ddep3e7buoe" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_shift.png" id="97_31nrn"]
+[ext_resource type="Texture2D" uid="uid://c1n7wv3twwv2m" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_shift_icon.png" id="98_fho43"]
+[ext_resource type="Texture2D" uid="uid://cen1i8bol3nm4" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_slash_back.png" id="99_fehvl"]
+[ext_resource type="Texture2D" uid="uid://cgp0hanqc7rv6" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_slash_forward.png" id="100_rhaw4"]
+[ext_resource type="Texture2D" uid="uid://dux8gg66vhp3e" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_space.png" id="101_px500"]
+[ext_resource type="Texture2D" uid="uid://byr2ytoax13xd" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_space_icon.png" id="102_ntflx"]
+[ext_resource type="Texture2D" uid="uid://riv1jac0h56p" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_t.png" id="103_doxcx"]
+[ext_resource type="Texture2D" uid="uid://bv43h3yaij5hw" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_tab.png" id="104_35wsd"]
+[ext_resource type="Texture2D" uid="uid://d3ybcn8wihs5k" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_tab_icon.png" id="105_wtw2b"]
+[ext_resource type="Texture2D" uid="uid://drrsp372x4xhj" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_tab_icon_alternative.png" id="106_s4pfv"]
+[ext_resource type="Texture2D" uid="uid://ge2fpyniperf" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_tilde.png" id="107_5ecdo"]
+[ext_resource type="Texture2D" uid="uid://brakgbx38m62j" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_u.png" id="108_8qxpo"]
+[ext_resource type="Texture2D" uid="uid://ck00xrqh3nkcp" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_v.png" id="109_6n46j"]
+[ext_resource type="Texture2D" uid="uid://c44erxtka5iab" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_w.png" id="110_la01d"]
+[ext_resource type="Texture2D" uid="uid://cp7dpt0jrxrvi" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_win.png" id="111_t0ihc"]
+[ext_resource type="Texture2D" uid="uid://wo2vi8bmyi1d" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_x.png" id="112_tsj2h"]
+[ext_resource type="Texture2D" uid="uid://cb2414b2mpq5t" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_y.png" id="113_iiv2s"]
+[ext_resource type="Texture2D" uid="uid://cd7fce56pln65" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_z.png" id="114_sqsmp"]
+[ext_resource type="Texture2D" uid="uid://7k4ayh6ljrx1" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse.png" id="115_bs0j2"]
+[ext_resource type="Texture2D" uid="uid://cbi2g3afh618s" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_horizontal.png" id="116_4jd5b"]
+[ext_resource type="Texture2D" uid="uid://ceh5r47vyytrr" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_left.png" id="117_vbudr"]
+[ext_resource type="Texture2D" uid="uid://b210x70pmky4w" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_move.png" id="118_pip22"]
+[ext_resource type="Texture2D" uid="uid://bpoekqqdvxv6b" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_right.png" id="119_fkteu"]
+[ext_resource type="Texture2D" uid="uid://bl4pvqyk2nx1y" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_scroll.png" id="120_krn38"]
+[ext_resource type="Texture2D" uid="uid://duowx3d0jfiav" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_scroll_down.png" id="121_u6vjn"]
+[ext_resource type="Texture2D" uid="uid://dfwja6j7kdhvr" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_scroll_up.png" id="122_gx88w"]
+[ext_resource type="Texture2D" uid="uid://h0f3323t1i1k" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_scroll_vertical.png" id="123_oe7gn"]
+[ext_resource type="Texture2D" uid="uid://b4awoy14vmao6" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_small.png" id="124_haxpp"]
+[ext_resource type="Texture2D" uid="uid://dwuv24u5aw8fd" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_vertical.png" id="125_lo1o1"]
+[ext_resource type="Texture2D" uid="uid://cg42jlceklswl" path="res://assets/kenney_input-prompts/Generic/Default/generic_button.png" id="126_g3mc3"]
+[ext_resource type="Texture2D" uid="uid://b400ywe2an3wn" path="res://assets/kenney_input-prompts/Generic/Default/generic_button_circle.png" id="127_1a46i"]
+[ext_resource type="Texture2D" uid="uid://bkmepw3qkmy0b" path="res://assets/kenney_input-prompts/Generic/Default/generic_button_circle_fill.png" id="128_u2fc1"]
+[ext_resource type="Texture2D" uid="uid://rkwrvvdm0jyl" path="res://assets/kenney_input-prompts/Generic/Default/generic_button_finger.png" id="129_rs3q7"]
+[ext_resource type="Texture2D" uid="uid://5x2oivq4xbhq" path="res://assets/kenney_input-prompts/Generic/Default/generic_button_finger_pressed.png" id="130_7hqqh"]
+[ext_resource type="Texture2D" uid="uid://cj1hgn6xx1o3t" path="res://assets/kenney_input-prompts/Generic/Default/generic_button_pressed.png" id="131_12ckv"]
+[ext_resource type="Texture2D" uid="uid://ddsqdvuhrv1oa" path="res://assets/kenney_input-prompts/Generic/Default/generic_button_square.png" id="132_f6jdx"]
+[ext_resource type="Texture2D" uid="uid://vun5fhq8vk8r" path="res://assets/kenney_input-prompts/Generic/Default/generic_button_square_fill.png" id="133_64ef2"]
+[ext_resource type="Texture2D" uid="uid://dtw2kbvsv00h7" path="res://assets/kenney_input-prompts/Generic/Default/generic_button_trigger_a.png" id="134_j5kgi"]
+[ext_resource type="Texture2D" uid="uid://bay6kvchaxdox" path="res://assets/kenney_input-prompts/Generic/Default/generic_button_trigger_a_fill.png" id="135_ta70n"]
+[ext_resource type="Texture2D" uid="uid://d3jcp8m42o7p4" path="res://assets/kenney_input-prompts/Generic/Default/generic_button_trigger_b.png" id="136_vtj02"]
+[ext_resource type="Texture2D" uid="uid://b12e7pjpmvpg" path="res://assets/kenney_input-prompts/Generic/Default/generic_button_trigger_b_fill.png" id="137_hnkb8"]
+[ext_resource type="Texture2D" uid="uid://07fpmsyexwdn" path="res://assets/kenney_input-prompts/Generic/Default/generic_button_trigger_c.png" id="138_jd35t"]
+[ext_resource type="Texture2D" uid="uid://0hc0087hgbdp" path="res://assets/kenney_input-prompts/Generic/Default/generic_button_trigger_c_fill.png" id="139_ym708"]
+[ext_resource type="Texture2D" uid="uid://bjmsh6lutjkf" path="res://assets/kenney_input-prompts/Generic/Default/generic_joystick.png" id="140_lo8jf"]
+[ext_resource type="Texture2D" uid="uid://jd8qkv8gdqf" path="res://assets/kenney_input-prompts/Generic/Default/generic_joystick_horizontal.png" id="141_wgyjj"]
+[ext_resource type="Texture2D" uid="uid://be6ivem6dqjad" path="res://assets/kenney_input-prompts/Generic/Default/generic_joystick_left.png" id="142_28mlm"]
+[ext_resource type="Texture2D" uid="uid://1koj1v13tkr4" path="res://assets/kenney_input-prompts/Generic/Default/generic_joystick_red.png" id="143_h6bnt"]
+[ext_resource type="Texture2D" uid="uid://fxp4uuimmtvi" path="res://assets/kenney_input-prompts/Generic/Default/generic_joystick_red_horizontal.png" id="144_sugh3"]
+[ext_resource type="Texture2D" uid="uid://2ihgmuevfwi8" path="res://assets/kenney_input-prompts/Generic/Default/generic_joystick_red_left.png" id="145_fr3co"]
+[ext_resource type="Texture2D" uid="uid://b1huc3v83qy0q" path="res://assets/kenney_input-prompts/Generic/Default/generic_joystick_red_right.png" id="146_xrfg4"]
+[ext_resource type="Texture2D" uid="uid://dix80v1q3mxsb" path="res://assets/kenney_input-prompts/Generic/Default/generic_joystick_right.png" id="147_4lrv4"]
+[ext_resource type="Texture2D" uid="uid://deaffl4tbiw1n" path="res://assets/kenney_input-prompts/Generic/Default/generic_stick.png" id="148_fo05b"]
+[ext_resource type="Texture2D" uid="uid://c8ioy4x5tovxc" path="res://assets/kenney_input-prompts/Generic/Default/generic_stick_down.png" id="149_woikl"]
+[ext_resource type="Texture2D" uid="uid://hg1457yb1yxi" path="res://assets/kenney_input-prompts/Generic/Default/generic_stick_horizontal.png" id="150_5wgtm"]
+[ext_resource type="Texture2D" uid="uid://dok10q2ayyx3y" path="res://assets/kenney_input-prompts/Generic/Default/generic_stick_left.png" id="151_lp5q1"]
+[ext_resource type="Texture2D" uid="uid://cxwr36jeaneia" path="res://assets/kenney_input-prompts/Generic/Default/generic_stick_press.png" id="152_1t6wl"]
+[ext_resource type="Texture2D" uid="uid://b5m65glv4a5yk" path="res://assets/kenney_input-prompts/Generic/Default/generic_stick_right.png" id="153_1ltjs"]
+[ext_resource type="Texture2D" uid="uid://c0hh35btyvucp" path="res://assets/kenney_input-prompts/Generic/Default/generic_stick_side.png" id="154_5qsdh"]
+[ext_resource type="Texture2D" uid="uid://dnvleu2majkh0" path="res://assets/kenney_input-prompts/Generic/Default/generic_stick_up.png" id="155_7nke2"]
+[ext_resource type="Texture2D" uid="uid://52aku4p5bjk7" path="res://assets/kenney_input-prompts/Generic/Default/generic_stick_vertical.png" id="156_hvx3c"]
 
 [node name="InputIconMapper" instance=ExtResource("1_7vieq")]
+replace_strings = {
+"Capslock": "Caps Lock",
+"Generic Stick": "Generic Left Stick",
+"Guide": "Home",
+"Slash Back": "Back Slash",
+"Slash Forward": "Slash",
+"Stick L": "Left Stick",
+"Stick R": "Right Stick",
+"Trigger L 1": "Left Shoulder",
+"Trigger L 2": "Left Trigger",
+"Trigger R 1": "Right Shoulder",
+"Trigger R 2": "Right Trigger"
+}
+filtered_strings = Array[String](["keyboard", "color", "button", "arrow"])
+matching_icons = {
+"0": ExtResource("2_25n8e"),
+"1": ExtResource("3_w7gfd"),
+"2": ExtResource("4_qlkm6"),
+"3": ExtResource("5_8sn47"),
+"4": ExtResource("6_br5b3"),
+"5": ExtResource("7_v3u10"),
+"6": ExtResource("8_u7ank"),
+"7": ExtResource("9_8ej11"),
+"8": ExtResource("10_irh8u"),
+"9": ExtResource("11_8ep7j"),
+"A": ExtResource("12_vkhlm"),
+"Alt": ExtResource("13_xm0nv"),
+"Any": ExtResource("14_bve0r"),
+"Apostrophe": ExtResource("15_0cgry"),
+"Arrows": ExtResource("20_dnwxo"),
+"Arrows All": ExtResource("21_qgmas"),
+"Arrows Down": ExtResource("22_2kdmw"),
+"Arrows Horizontal": ExtResource("23_2yqrk"),
+"Arrows Left": ExtResource("24_iwv1t"),
+"Arrows None": ExtResource("25_5lwav"),
+"Arrows Right": ExtResource("26_4r45o"),
+"Arrows Up": ExtResource("27_xlrew"),
+"Arrows Vertical": ExtResource("28_6peba"),
+"Asterisk": ExtResource("29_kqad0"),
+"B": ExtResource("30_pd08t"),
+"Back Slash": ExtResource("99_fehvl"),
+"Backspace": ExtResource("31_5fpbp"),
+"Backspace Icon": ExtResource("32_1uhbx"),
+"Backspace Icon Alternative": ExtResource("33_ytuh1"),
+"Bracket Close": ExtResource("34_5fbai"),
+"Bracket Greater": ExtResource("35_j0pif"),
+"Bracket Less": ExtResource("36_3feca"),
+"Bracket Open": ExtResource("37_4b8ss"),
+"C": ExtResource("38_l37u6"),
+"Caps Lock": ExtResource("39_h5rau"),
+"Caps Lock Icon": ExtResource("40_bh12s"),
+"Caret": ExtResource("41_y86vw"),
+"Colon": ExtResource("42_6o8l1"),
+"Comma": ExtResource("43_3cc06"),
+"Command": ExtResource("44_1ywu4"),
+"Ctrl": ExtResource("45_iqt76"),
+"D": ExtResource("46_m3hy0"),
+"Delete": ExtResource("47_i28jq"),
+"Down": ExtResource("16_od8c8"),
+"E": ExtResource("48_eexxm"),
+"End": ExtResource("49_cao1s"),
+"Enter": ExtResource("50_3rdgf"),
+"Equals": ExtResource("51_qmskg"),
+"Escape": ExtResource("52_luxjg"),
+"Exclamation": ExtResource("53_1mvgx"),
+"F": ExtResource("54_llpnl"),
+"F 1": ExtResource("55_2gsrb"),
+"F 10": ExtResource("56_vhn0u"),
+"F 11": ExtResource("57_whxif"),
+"F 12": ExtResource("58_kcmbe"),
+"F 2": ExtResource("59_arfo4"),
+"F 3": ExtResource("60_0i1aq"),
+"F 4": ExtResource("61_qtgb5"),
+"F 5": ExtResource("62_lr17t"),
+"F 6": ExtResource("63_uju2s"),
+"F 7": ExtResource("64_q5468"),
+"F 8": ExtResource("65_vv3b7"),
+"F 9": ExtResource("66_khtdy"),
+"Function": ExtResource("67_ibct0"),
+"G": ExtResource("68_yg1eg"),
+"Generic": ExtResource("126_g3mc3"),
+"Generic Circle": ExtResource("127_1a46i"),
+"Generic Circle Fill": ExtResource("128_u2fc1"),
+"Generic Finger": ExtResource("129_rs3q7"),
+"Generic Finger Pressed": ExtResource("130_7hqqh"),
+"Generic Joystick": ExtResource("140_lo8jf"),
+"Generic Joystick Horizontal": ExtResource("141_wgyjj"),
+"Generic Joystick Left": ExtResource("142_28mlm"),
+"Generic Joystick Red": ExtResource("143_h6bnt"),
+"Generic Joystick Red Horizontal": ExtResource("144_sugh3"),
+"Generic Joystick Red Left": ExtResource("145_fr3co"),
+"Generic Joystick Red Right": ExtResource("146_xrfg4"),
+"Generic Joystick Right": ExtResource("147_4lrv4"),
+"Generic Left Stick": ExtResource("148_fo05b"),
+"Generic Left Stick Down": ExtResource("149_woikl"),
+"Generic Left Stick Horizontal": ExtResource("150_5wgtm"),
+"Generic Left Stick Left": ExtResource("151_lp5q1"),
+"Generic Left Stick Press": ExtResource("152_1t6wl"),
+"Generic Left Stick Right": ExtResource("153_1ltjs"),
+"Generic Left Stick Side": ExtResource("154_5qsdh"),
+"Generic Left Stick Up": ExtResource("155_7nke2"),
+"Generic Left Stick Vertical": ExtResource("156_hvx3c"),
+"Generic Pressed": ExtResource("131_12ckv"),
+"Generic Square": ExtResource("132_f6jdx"),
+"Generic Square Fill": ExtResource("133_64ef2"),
+"Generic Trigger A": ExtResource("134_j5kgi"),
+"Generic Trigger A Fill": ExtResource("135_ta70n"),
+"Generic Trigger B": ExtResource("136_vtj02"),
+"Generic Trigger B Fill": ExtResource("137_hnkb8"),
+"Generic Trigger C": ExtResource("138_jd35t"),
+"Generic Trigger C Fill": ExtResource("139_ym708"),
+"H": ExtResource("69_ybgdn"),
+"Home": ExtResource("70_v3rct"),
+"I": ExtResource("71_v1y4m"),
+"Insert": ExtResource("72_e5or1"),
+"J": ExtResource("73_24btt"),
+"K": ExtResource("74_qwmen"),
+"L": ExtResource("75_o4pi0"),
+"Left": ExtResource("17_7udru"),
+"M": ExtResource("76_yentr"),
+"Minus": ExtResource("77_te1xg"),
+"Mouse": ExtResource("115_bs0j2"),
+"Mouse Horizontal": ExtResource("116_4jd5b"),
+"Mouse Left": ExtResource("117_vbudr"),
+"Mouse Move": ExtResource("118_pip22"),
+"Mouse Right": ExtResource("119_fkteu"),
+"Mouse Scroll": ExtResource("120_krn38"),
+"Mouse Scroll Down": ExtResource("121_u6vjn"),
+"Mouse Scroll Up": ExtResource("122_gx88w"),
+"Mouse Scroll Vertical": ExtResource("123_oe7gn"),
+"Mouse Small": ExtResource("124_haxpp"),
+"Mouse Vertical": ExtResource("125_lo1o1"),
+"N": ExtResource("78_mj56h"),
+"Numlock": ExtResource("79_32sai"),
+"Numpad Enter": ExtResource("80_mstba"),
+"Numpad Plus": ExtResource("81_6vxo4"),
+"O": ExtResource("82_uqk4x"),
+"Option": ExtResource("83_3quqs"),
+"P": ExtResource("84_q3bb0"),
+"Page Down": ExtResource("85_b5xim"),
+"Page Up": ExtResource("86_0pi7o"),
+"Period": ExtResource("87_yu0a5"),
+"Plus": ExtResource("88_6amav"),
+"Printscreen": ExtResource("89_khg4s"),
+"Q": ExtResource("90_c0cej"),
+"Question": ExtResource("91_mt723"),
+"Quote": ExtResource("92_4mxna"),
+"R": ExtResource("93_htr5s"),
+"Return": ExtResource("94_vufmb"),
+"Right": ExtResource("18_oj1kd"),
+"S": ExtResource("95_rxqkj"),
+"Semicolon": ExtResource("96_lcx65"),
+"Shift": ExtResource("97_31nrn"),
+"Shift Icon": ExtResource("98_fho43"),
+"Slash": ExtResource("100_rhaw4"),
+"Space": ExtResource("101_px500"),
+"Space Icon": ExtResource("102_ntflx"),
+"T": ExtResource("103_doxcx"),
+"Tab": ExtResource("104_35wsd"),
+"Tab Icon": ExtResource("105_wtw2b"),
+"Tab Icon Alternative": ExtResource("106_s4pfv"),
+"Tilde": ExtResource("107_5ecdo"),
+"U": ExtResource("108_8qxpo"),
+"Up": ExtResource("19_tk0ej"),
+"V": ExtResource("109_6n46j"),
+"W": ExtResource("110_la01d"),
+"Win": ExtResource("111_t0ihc"),
+"X": ExtResource("112_tsj2h"),
+"Y": ExtResource("113_iiv2s"),
+"Z": ExtResource("114_sqsmp")
+}
+all_icons = {
+"generic_button": ExtResource("126_g3mc3"),
+"generic_button_circle": ExtResource("127_1a46i"),
+"generic_button_circle_fill": ExtResource("128_u2fc1"),
+"generic_button_finger": ExtResource("129_rs3q7"),
+"generic_button_finger_pressed": ExtResource("130_7hqqh"),
+"generic_button_pressed": ExtResource("131_12ckv"),
+"generic_button_square": ExtResource("132_f6jdx"),
+"generic_button_square_fill": ExtResource("133_64ef2"),
+"generic_button_trigger_a": ExtResource("134_j5kgi"),
+"generic_button_trigger_a_fill": ExtResource("135_ta70n"),
+"generic_button_trigger_b": ExtResource("136_vtj02"),
+"generic_button_trigger_b_fill": ExtResource("137_hnkb8"),
+"generic_button_trigger_c": ExtResource("138_jd35t"),
+"generic_button_trigger_c_fill": ExtResource("139_ym708"),
+"generic_joystick": ExtResource("140_lo8jf"),
+"generic_joystick_horizontal": ExtResource("141_wgyjj"),
+"generic_joystick_left": ExtResource("142_28mlm"),
+"generic_joystick_red": ExtResource("143_h6bnt"),
+"generic_joystick_red_horizontal": ExtResource("144_sugh3"),
+"generic_joystick_red_left": ExtResource("145_fr3co"),
+"generic_joystick_red_right": ExtResource("146_xrfg4"),
+"generic_joystick_right": ExtResource("147_4lrv4"),
+"generic_stick": ExtResource("148_fo05b"),
+"generic_stick_down": ExtResource("149_woikl"),
+"generic_stick_horizontal": ExtResource("150_5wgtm"),
+"generic_stick_left": ExtResource("151_lp5q1"),
+"generic_stick_press": ExtResource("152_1t6wl"),
+"generic_stick_right": ExtResource("153_1ltjs"),
+"generic_stick_side": ExtResource("154_5qsdh"),
+"generic_stick_up": ExtResource("155_7nke2"),
+"generic_stick_vertical": ExtResource("156_hvx3c"),
+"keyboard_0": ExtResource("2_25n8e"),
+"keyboard_1": ExtResource("3_w7gfd"),
+"keyboard_2": ExtResource("4_qlkm6"),
+"keyboard_3": ExtResource("5_8sn47"),
+"keyboard_4": ExtResource("6_br5b3"),
+"keyboard_5": ExtResource("7_v3u10"),
+"keyboard_6": ExtResource("8_u7ank"),
+"keyboard_7": ExtResource("9_8ej11"),
+"keyboard_8": ExtResource("10_irh8u"),
+"keyboard_9": ExtResource("11_8ep7j"),
+"keyboard_a": ExtResource("12_vkhlm"),
+"keyboard_alt": ExtResource("13_xm0nv"),
+"keyboard_any": ExtResource("14_bve0r"),
+"keyboard_apostrophe": ExtResource("15_0cgry"),
+"keyboard_arrow_down": ExtResource("16_od8c8"),
+"keyboard_arrow_left": ExtResource("17_7udru"),
+"keyboard_arrow_right": ExtResource("18_oj1kd"),
+"keyboard_arrow_up": ExtResource("19_tk0ej"),
+"keyboard_arrows": ExtResource("20_dnwxo"),
+"keyboard_arrows_all": ExtResource("21_qgmas"),
+"keyboard_arrows_down": ExtResource("22_2kdmw"),
+"keyboard_arrows_horizontal": ExtResource("23_2yqrk"),
+"keyboard_arrows_left": ExtResource("24_iwv1t"),
+"keyboard_arrows_none": ExtResource("25_5lwav"),
+"keyboard_arrows_right": ExtResource("26_4r45o"),
+"keyboard_arrows_up": ExtResource("27_xlrew"),
+"keyboard_arrows_vertical": ExtResource("28_6peba"),
+"keyboard_asterisk": ExtResource("29_kqad0"),
+"keyboard_b": ExtResource("30_pd08t"),
+"keyboard_backspace": ExtResource("31_5fpbp"),
+"keyboard_backspace_icon": ExtResource("32_1uhbx"),
+"keyboard_backspace_icon_alternative": ExtResource("33_ytuh1"),
+"keyboard_bracket_close": ExtResource("34_5fbai"),
+"keyboard_bracket_greater": ExtResource("35_j0pif"),
+"keyboard_bracket_less": ExtResource("36_3feca"),
+"keyboard_bracket_open": ExtResource("37_4b8ss"),
+"keyboard_c": ExtResource("38_l37u6"),
+"keyboard_capslock": ExtResource("39_h5rau"),
+"keyboard_capslock_icon": ExtResource("40_bh12s"),
+"keyboard_caret": ExtResource("41_y86vw"),
+"keyboard_colon": ExtResource("42_6o8l1"),
+"keyboard_comma": ExtResource("43_3cc06"),
+"keyboard_command": ExtResource("44_1ywu4"),
+"keyboard_ctrl": ExtResource("45_iqt76"),
+"keyboard_d": ExtResource("46_m3hy0"),
+"keyboard_delete": ExtResource("47_i28jq"),
+"keyboard_e": ExtResource("48_eexxm"),
+"keyboard_end": ExtResource("49_cao1s"),
+"keyboard_enter": ExtResource("50_3rdgf"),
+"keyboard_equals": ExtResource("51_qmskg"),
+"keyboard_escape": ExtResource("52_luxjg"),
+"keyboard_exclamation": ExtResource("53_1mvgx"),
+"keyboard_f": ExtResource("54_llpnl"),
+"keyboard_f1": ExtResource("55_2gsrb"),
+"keyboard_f10": ExtResource("56_vhn0u"),
+"keyboard_f11": ExtResource("57_whxif"),
+"keyboard_f12": ExtResource("58_kcmbe"),
+"keyboard_f2": ExtResource("59_arfo4"),
+"keyboard_f3": ExtResource("60_0i1aq"),
+"keyboard_f4": ExtResource("61_qtgb5"),
+"keyboard_f5": ExtResource("62_lr17t"),
+"keyboard_f6": ExtResource("63_uju2s"),
+"keyboard_f7": ExtResource("64_q5468"),
+"keyboard_f8": ExtResource("65_vv3b7"),
+"keyboard_f9": ExtResource("66_khtdy"),
+"keyboard_function": ExtResource("67_ibct0"),
+"keyboard_g": ExtResource("68_yg1eg"),
+"keyboard_h": ExtResource("69_ybgdn"),
+"keyboard_home": ExtResource("70_v3rct"),
+"keyboard_i": ExtResource("71_v1y4m"),
+"keyboard_insert": ExtResource("72_e5or1"),
+"keyboard_j": ExtResource("73_24btt"),
+"keyboard_k": ExtResource("74_qwmen"),
+"keyboard_l": ExtResource("75_o4pi0"),
+"keyboard_m": ExtResource("76_yentr"),
+"keyboard_minus": ExtResource("77_te1xg"),
+"keyboard_n": ExtResource("78_mj56h"),
+"keyboard_numlock": ExtResource("79_32sai"),
+"keyboard_numpad_enter": ExtResource("80_mstba"),
+"keyboard_numpad_plus": ExtResource("81_6vxo4"),
+"keyboard_o": ExtResource("82_uqk4x"),
+"keyboard_option": ExtResource("83_3quqs"),
+"keyboard_p": ExtResource("84_q3bb0"),
+"keyboard_page_down": ExtResource("85_b5xim"),
+"keyboard_page_up": ExtResource("86_0pi7o"),
+"keyboard_period": ExtResource("87_yu0a5"),
+"keyboard_plus": ExtResource("88_6amav"),
+"keyboard_printscreen": ExtResource("89_khg4s"),
+"keyboard_q": ExtResource("90_c0cej"),
+"keyboard_question": ExtResource("91_mt723"),
+"keyboard_quote": ExtResource("92_4mxna"),
+"keyboard_r": ExtResource("93_htr5s"),
+"keyboard_return": ExtResource("94_vufmb"),
+"keyboard_s": ExtResource("95_rxqkj"),
+"keyboard_semicolon": ExtResource("96_lcx65"),
+"keyboard_shift": ExtResource("97_31nrn"),
+"keyboard_shift_icon": ExtResource("98_fho43"),
+"keyboard_slash_back": ExtResource("99_fehvl"),
+"keyboard_slash_forward": ExtResource("100_rhaw4"),
+"keyboard_space": ExtResource("101_px500"),
+"keyboard_space_icon": ExtResource("102_ntflx"),
+"keyboard_t": ExtResource("103_doxcx"),
+"keyboard_tab": ExtResource("104_35wsd"),
+"keyboard_tab_icon": ExtResource("105_wtw2b"),
+"keyboard_tab_icon_alternative": ExtResource("106_s4pfv"),
+"keyboard_tilde": ExtResource("107_5ecdo"),
+"keyboard_u": ExtResource("108_8qxpo"),
+"keyboard_v": ExtResource("109_6n46j"),
+"keyboard_w": ExtResource("110_la01d"),
+"keyboard_win": ExtResource("111_t0ihc"),
+"keyboard_x": ExtResource("112_tsj2h"),
+"keyboard_y": ExtResource("113_iiv2s"),
+"keyboard_z": ExtResource("114_sqsmp"),
+"mouse": ExtResource("115_bs0j2"),
+"mouse_horizontal": ExtResource("116_4jd5b"),
+"mouse_left": ExtResource("117_vbudr"),
+"mouse_move": ExtResource("118_pip22"),
+"mouse_right": ExtResource("119_fkteu"),
+"mouse_scroll": ExtResource("120_krn38"),
+"mouse_scroll_down": ExtResource("121_u6vjn"),
+"mouse_scroll_up": ExtResource("122_gx88w"),
+"mouse_scroll_vertical": ExtResource("123_oe7gn"),
+"mouse_small": ExtResource("124_haxpp"),
+"mouse_vertical": ExtResource("125_lo1o1")
+}
+files = Array[String](["res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_0.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_1.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_2.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_3.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_4.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_5.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_6.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_7.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_8.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_9.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_a.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_alt.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_any.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_apostrophe.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrow_down.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrow_left.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrow_right.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrow_up.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrows.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrows_all.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrows_down.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrows_horizontal.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrows_left.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrows_none.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrows_right.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrows_up.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrows_vertical.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_asterisk.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_b.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_backspace.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_backspace_icon.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_backspace_icon_alternative.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_bracket_close.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_bracket_greater.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_bracket_less.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_bracket_open.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_c.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_capslock.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_capslock_icon.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_caret.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_colon.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_comma.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_command.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_ctrl.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_d.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_delete.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_e.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_end.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_enter.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_equals.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_escape.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_exclamation.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f1.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f10.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f11.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f12.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f2.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f3.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f4.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f5.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f6.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f7.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f8.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_f9.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_function.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_g.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_h.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_home.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_i.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_insert.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_j.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_k.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_l.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_m.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_minus.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_n.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_numlock.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_numpad_enter.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_numpad_plus.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_o.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_option.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_p.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_page_down.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_page_up.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_period.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_plus.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_printscreen.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_q.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_question.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_quote.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_r.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_return.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_s.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_semicolon.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_shift.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_shift_icon.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_slash_back.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_slash_forward.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_space.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_space_icon.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_t.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_tab.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_tab_icon.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_tab_icon_alternative.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_tilde.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_u.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_v.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_w.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_win.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_x.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_y.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_z.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_horizontal.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_left.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_move.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_right.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_scroll.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_scroll_down.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_scroll_up.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_scroll_vertical.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_small.png", "res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_vertical.png", "res://assets/kenney_input-prompts/Generic/Default/generic_button.png", "res://assets/kenney_input-prompts/Generic/Default/generic_button_circle.png", "res://assets/kenney_input-prompts/Generic/Default/generic_button_circle_fill.png", "res://assets/kenney_input-prompts/Generic/Default/generic_button_finger.png", "res://assets/kenney_input-prompts/Generic/Default/generic_button_finger_pressed.png", "res://assets/kenney_input-prompts/Generic/Default/generic_button_pressed.png", "res://assets/kenney_input-prompts/Generic/Default/generic_button_square.png", "res://assets/kenney_input-prompts/Generic/Default/generic_button_square_fill.png", "res://assets/kenney_input-prompts/Generic/Default/generic_button_trigger_a.png", "res://assets/kenney_input-prompts/Generic/Default/generic_button_trigger_a_fill.png", "res://assets/kenney_input-prompts/Generic/Default/generic_button_trigger_b.png", "res://assets/kenney_input-prompts/Generic/Default/generic_button_trigger_b_fill.png", "res://assets/kenney_input-prompts/Generic/Default/generic_button_trigger_c.png", "res://assets/kenney_input-prompts/Generic/Default/generic_button_trigger_c_fill.png", "res://assets/kenney_input-prompts/Generic/Default/generic_joystick.png", "res://assets/kenney_input-prompts/Generic/Default/generic_joystick_horizontal.png", "res://assets/kenney_input-prompts/Generic/Default/generic_joystick_left.png", "res://assets/kenney_input-prompts/Generic/Default/generic_joystick_red.png", "res://assets/kenney_input-prompts/Generic/Default/generic_joystick_red_horizontal.png", "res://assets/kenney_input-prompts/Generic/Default/generic_joystick_red_left.png", "res://assets/kenney_input-prompts/Generic/Default/generic_joystick_red_right.png", "res://assets/kenney_input-prompts/Generic/Default/generic_joystick_right.png", "res://assets/kenney_input-prompts/Generic/Default/generic_stick.png", "res://assets/kenney_input-prompts/Generic/Default/generic_stick_down.png", "res://assets/kenney_input-prompts/Generic/Default/generic_stick_horizontal.png", "res://assets/kenney_input-prompts/Generic/Default/generic_stick_left.png", "res://assets/kenney_input-prompts/Generic/Default/generic_stick_press.png", "res://assets/kenney_input-prompts/Generic/Default/generic_stick_right.png", "res://assets/kenney_input-prompts/Generic/Default/generic_stick_side.png", "res://assets/kenney_input-prompts/Generic/Default/generic_stick_up.png", "res://assets/kenney_input-prompts/Generic/Default/generic_stick_vertical.png"])
+directories = Array[String](["res://assets/kenney_input-prompts/Keyboard & Mouse/Default", "res://assets/kenney_input-prompts/Generic/Default", "res://assets/kenney_input-prompts/Xbox Series/Default", "res://assets/kenney_input-prompts/PlayStation Series/Default", "res://assets/kenney_input-prompts/Nintendo Switch/Default", "res://assets/kenney_input-prompts/Steam Deck/Default"])
+filter = "color"
+ends_with = ".png"
+not_ends_with = "outline.png"

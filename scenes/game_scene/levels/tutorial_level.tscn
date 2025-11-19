@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=4 uid="uid://5sva8qxnwd1n"]
+[gd_scene load_steps=12 format=4 uid="uid://5sva8qxnwd1n"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_fnadv"]
+[ext_resource type="Texture2D" uid="uid://c44erxtka5iab" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_w.png" id="2_n4lor"]
+[ext_resource type="Texture2D" uid="uid://bqeqqc7abfh46" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_a.png" id="3_kifd8"]
+[ext_resource type="Texture2D" uid="uid://bfyebvicjr6jq" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_s.png" id="4_lierk"]
+[ext_resource type="Texture2D" uid="uid://bv2stwm4kxj7v" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_d.png" id="5_8w8gq"]
+[ext_resource type="Texture2D" uid="uid://djcf7p1vdmx0m" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrow_up.png" id="6_td6ua"]
+[ext_resource type="Texture2D" uid="uid://c7t1bjaihaea6" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrow_down.png" id="7_vnr1l"]
+[ext_resource type="Texture2D" uid="uid://p5usf64n4fhg" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrow_left.png" id="8_10kyj"]
+[ext_resource type="Texture2D" uid="uid://kj4aq02s6wjx" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrow_right.png" id="9_7euxc"]
+[ext_resource type="Texture2D" uid="uid://ceh5r47vyytrr" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_left.png" id="10_vnr1l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n4lor"]
+font_size = 46
 
 [node name="TutorialLevel" instance=ExtResource("1_fnadv")]
 
@@ -38,11 +50,96 @@ position = Vector2(3968, -712)
 [node name="Player" parent="LevelObjects" index="2"]
 position = Vector2(0, 8)
 
-[node name="Label" type="Label" parent="." index="4"]
-offset_left = -132.0
-offset_top = -77.0
-offset_right = 268.0
-offset_bottom = -54.0
-text = "Use CTRL/CMD + 1,2,3,4,etc to quickly change levels!"
+[node name="DebugLevelChangeTutorial" type="Label" parent="." index="4"]
+offset_left = -72.0
+offset_top = -128.0
+offset_right = 387.0
+offset_bottom = -105.0
+text = "Debug: Use CTRL/CMD + 1,2,3,4,etc to quickly change levels!"
+
+[node name="MoveTutorial" type="HBoxContainer" parent="." index="5"]
+offset_left = 8.0
+offset_top = -72.0
+offset_right = 506.0
+offset_bottom = -8.0
+scale = Vector2(0.335, 0.335)
+metadata/_edit_group_ = true
+
+[node name="Label2" type="Label" parent="MoveTutorial" index="0"]
+layout_mode = 2
+text = "Use"
+label_settings = SubResource("LabelSettings_n4lor")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MoveTutorial" index="1"]
+layout_mode = 2
+theme_override_constants/separation = -10
+
+[node name="TextureRect" type="TextureRect" parent="MoveTutorial/HBoxContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("2_n4lor")
+
+[node name="TextureRect2" type="TextureRect" parent="MoveTutorial/HBoxContainer" index="1"]
+layout_mode = 2
+texture = ExtResource("3_kifd8")
+
+[node name="TextureRect3" type="TextureRect" parent="MoveTutorial/HBoxContainer" index="2"]
+layout_mode = 2
+texture = ExtResource("4_lierk")
+
+[node name="TextureRect4" type="TextureRect" parent="MoveTutorial/HBoxContainer" index="3"]
+layout_mode = 2
+texture = ExtResource("5_8w8gq")
+
+[node name="Label3" type="Label" parent="MoveTutorial" index="2"]
+layout_mode = 2
+text = "to move"
+label_settings = SubResource("LabelSettings_n4lor")
+
+[node name="PUlseTutorial" type="HBoxContainer" parent="." index="6"]
+offset_left = 424.0
+offset_top = -88.0
+offset_right = 1100.0
+offset_bottom = -24.0
+scale = Vector2(0.335, 0.335)
+metadata/_edit_group_ = true
+
+[node name="Label2" type="Label" parent="PUlseTutorial" index="0"]
+layout_mode = 2
+text = "Use"
+label_settings = SubResource("LabelSettings_n4lor")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PUlseTutorial" index="1"]
+layout_mode = 2
+theme_override_constants/separation = -10
+
+[node name="TextureRect" type="TextureRect" parent="PUlseTutorial/HBoxContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("6_td6ua")
+
+[node name="TextureRect2" type="TextureRect" parent="PUlseTutorial/HBoxContainer" index="1"]
+layout_mode = 2
+texture = ExtResource("7_vnr1l")
+
+[node name="TextureRect3" type="TextureRect" parent="PUlseTutorial/HBoxContainer" index="2"]
+layout_mode = 2
+texture = ExtResource("8_10kyj")
+
+[node name="TextureRect4" type="TextureRect" parent="PUlseTutorial/HBoxContainer" index="3"]
+layout_mode = 2
+texture = ExtResource("9_7euxc")
+
+[node name="Label3" type="Label" parent="PUlseTutorial" index="2"]
+layout_mode = 2
+text = "or "
+label_settings = SubResource("LabelSettings_n4lor")
+
+[node name="TextureRect5" type="TextureRect" parent="PUlseTutorial" index="3"]
+layout_mode = 2
+texture = ExtResource("10_vnr1l")
+
+[node name="Label4" type="Label" parent="PUlseTutorial" index="4"]
+layout_mode = 2
+text = "to use wave gun"
+label_settings = SubResource("LabelSettings_n4lor")
 
 [editable path="TileMapLayer"]
