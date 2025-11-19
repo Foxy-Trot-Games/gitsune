@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://w2qphny0t0vu"]
+[gd_scene load_steps=29 format=4 uid="uid://w2qphny0t0vu"]
 
 [ext_resource type="Script" uid="uid://bog2ukuxke2rv" path="res://scenes/game_scene/levels/level_utils/level.gd" id="1_vc3dj"]
 [ext_resource type="Script" uid="uid://s3864f4i872k" path="res://scenes/game_scene/tutorial_manager.gd" id="2_2dffu"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://uqxnqvc5ghf0" path="res://assets/background/walls_tileset.png" id="7_ka0t6"]
 [ext_resource type="PackedScene" uid="uid://01f2htb8plmg" path="res://scenes/player/player.tscn" id="8_nhb35"]
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="9_52ipi"]
+[ext_resource type="Shader" uid="uid://ula7reohgr3f" path="res://scenes/objects/gravity_zone.gdshader" id="10_2dffu"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="10_ax45o"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="11_eiumh"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="12_mh80m"]
@@ -425,6 +426,38 @@ color_ramp = SubResource("Gradient_erhvc")
 [sub_resource type="LabelSettings" id="LabelSettings_r1bdh"]
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n1kcu"]
+resource_local_to_scene = true
+shader = ExtResource("10_2dffu")
+shader_parameter/wave_frequency = 10.0
+shader_parameter/wave_speed = 0.05
+shader_parameter/wave_amplitude = 0.005
+shader_parameter/wave_color = Color(0.5568628, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ushw0"]
+resource_local_to_scene = true
+shader = ExtResource("10_2dffu")
+shader_parameter/wave_frequency = 10.0
+shader_parameter/wave_speed = 0.05
+shader_parameter/wave_amplitude = 0.005
+shader_parameter/wave_color = Color(0.5568628, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4oph4"]
+resource_local_to_scene = true
+shader = ExtResource("10_2dffu")
+shader_parameter/wave_frequency = 10.0
+shader_parameter/wave_speed = 0.05
+shader_parameter/wave_amplitude = 0.005
+shader_parameter/wave_color = Color(0.5568628, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_paw1y"]
+resource_local_to_scene = true
+shader = ExtResource("10_2dffu")
+shader_parameter/wave_frequency = 10.0
+shader_parameter/wave_speed = 0.05
+shader_parameter/wave_amplitude = 0.005
+shader_parameter/wave_color = Color(0.5568628, 1, 1, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3hanc"]
 size = Vector2(32, 40)
 
@@ -492,6 +525,7 @@ position = Vector2(464, -32)
 position = Vector2(-203, -367)
 
 [node name="GravityZone" parent="." instance=ExtResource("9_52ipi")]
+material = SubResource("ShaderMaterial_n1kcu")
 offset_left = -304.0
 offset_top = 128.0
 offset_bottom = 176.0
@@ -499,6 +533,7 @@ rotation = -1.5707964
 gravity_value = 4000.0
 
 [node name="GravityZone2" parent="." instance=ExtResource("9_52ipi")]
+material = SubResource("ShaderMaterial_ushw0")
 offset_left = -112.0
 offset_top = -320.0
 offset_right = -80.0
@@ -506,6 +541,7 @@ offset_bottom = 256.0
 rotation = -1.5707964
 
 [node name="GravityZone3" parent="." instance=ExtResource("9_52ipi")]
+material = SubResource("ShaderMaterial_4oph4")
 offset_left = 80.0
 offset_top = 416.0
 offset_right = 256.0
@@ -514,6 +550,7 @@ rotation = -2.3561945
 gravity_value = 1960.0
 
 [node name="GravityZone4" parent="." instance=ExtResource("9_52ipi")]
+material = SubResource("ShaderMaterial_paw1y")
 offset_left = -448.0
 offset_top = -512.0
 offset_right = -128.0

@@ -14,29 +14,9 @@
 
 [sub_resource type="Resource" id="Resource_jtk1d"]
 script = ExtResource("6_prr6u")
-keep_aspect = 1
-cull_mask = 1048575
-h_offset = 0.0
-v_offset = 0.0
-projection = 0
-fov = 75.0
-size = 1.0
-frustum_offset = Vector2(0, 0)
-near = 0.05
-far = 4000.0
 
 [sub_resource type="Resource" id="Resource_o161n"]
 script = ExtResource("6_prr6u")
-keep_aspect = 1
-cull_mask = 1048575
-h_offset = 0.0
-v_offset = 0.0
-projection = 0
-fov = 75.0
-size = 1.0
-frustum_offset = Vector2(0, 0)
-near = 0.05
-far = 4000.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_7tjw4"]
 size = Vector3(2, 0.5, 4)
@@ -58,21 +38,9 @@ albedo_color = Color(0.988235, 0.478431, 0.905882, 1)
 [sub_resource type="Resource" id="Resource_tpvee"]
 script = ExtResource("8_xvqcg")
 duration = 0.0
-transition = 0
-ease = 2
 
 [sub_resource type="Resource" id="Resource_bxbnv"]
 script = ExtResource("6_prr6u")
-keep_aspect = 1
-cull_mask = 1048575
-h_offset = 0.0
-v_offset = 0.0
-projection = 0
-fov = 75.0
-size = 1.0
-frustum_offset = Vector2(0, 0)
-near = 0.05
-far = 4000.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wcrbb"]
 size = Vector3(6.8, 0.1, 5.4)
@@ -80,21 +48,9 @@ size = Vector3(6.8, 0.1, 5.4)
 [sub_resource type="Resource" id="Resource_7ih0k"]
 script = ExtResource("8_xvqcg")
 duration = 0.0
-transition = 0
-ease = 2
 
 [sub_resource type="Resource" id="Resource_4iyps"]
 script = ExtResource("6_prr6u")
-keep_aspect = 1
-cull_mask = 1048575
-h_offset = 0.0
-v_offset = 0.0
-projection = 0
-fov = 75.0
-size = 1.0
-frustum_offset = Vector2(0, 0)
-near = 0.05
-far = 4000.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ctyr8"]
 size = Vector3(7.4, 0.1, 3.6)
@@ -102,21 +58,9 @@ size = Vector3(7.4, 0.1, 3.6)
 [sub_resource type="Resource" id="Resource_x5y0u"]
 script = ExtResource("8_xvqcg")
 duration = 0.0
-transition = 0
-ease = 2
 
 [sub_resource type="Resource" id="Resource_pgiyx"]
 script = ExtResource("6_prr6u")
-keep_aspect = 1
-cull_mask = 1048575
-h_offset = 0.0
-v_offset = 0.0
-projection = 0
-fov = 75.0
-size = 1.0
-frustum_offset = Vector2(0, 0)
-near = 0.05
-far = 4000.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ua072"]
 size = Vector3(6.8, 0.1, 3.6)

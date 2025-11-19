@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dlbp53q02q38q"]
+[gd_scene load_steps=15 format=4 uid="uid://dlbp53q02q38q"]
 
 [ext_resource type="Script" uid="uid://bog2ukuxke2rv" path="res://scenes/game_scene/levels/level_utils/level.gd" id="1_owplr"]
 [ext_resource type="Script" uid="uid://s3864f4i872k" path="res://scenes/game_scene/tutorial_manager.gd" id="2_3e7vu"]
@@ -7,9 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://01f2htb8plmg" path="res://scenes/player/player.tscn" id="5_8562a"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_ieihm"]
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="7_33bcf"]
+[ext_resource type="Shader" uid="uid://ula7reohgr3f" path="res://scenes/objects/gravity_zone.gdshader" id="8_3e7vu"]
 [ext_resource type="Script" uid="uid://c44mmw8o77ec6" path="res://scenes/objects/util/snap_to_grid.gd" id="8_mkft6"]
 [ext_resource type="PackedScene" uid="uid://2jpu8jkgrmga" path="res://scenes/enemy/Flying_enemy/Flying_enemy.tscn" id="9_0lsjs"]
 [ext_resource type="PackedScene" uid="uid://cnuggijmxgf0u" path="res://scenes/objects/reactor_blast_wave.tscn" id="10_iar66"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fc111"]
+resource_local_to_scene = true
+shader = ExtResource("8_3e7vu")
+shader_parameter/wave_frequency = 10.0
+shader_parameter/wave_speed = 0.05
+shader_parameter/wave_amplitude = 0.005
+shader_parameter/wave_color = Color(0.5568628, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjdap"]
 size = Vector2(32, 48)
@@ -75,6 +84,7 @@ script = ExtResource("6_ieihm")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="GravityZone" parent="." instance=ExtResource("7_33bcf")]
+material = SubResource("ShaderMaterial_fc111")
 offset_left = -736.0
 offset_top = 288.0
 offset_right = -704.0
@@ -113,6 +123,7 @@ metadata/_custom_type_script = "uid://c44mmw8o77ec6"
 position = Vector2(-352, 224)
 
 [node name="ReactorBlastWave" parent="." instance=ExtResource("10_iar66")]
+position = Vector2(1272, 0)
 
 [connection signal="body_entered" from="NextLevelArea" to="." method="_next_level_exit_area_entered"]
 

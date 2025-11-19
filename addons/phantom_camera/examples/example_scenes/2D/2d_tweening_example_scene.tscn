@@ -169,7 +169,6 @@ size = Vector2(140, 160)
 script = ExtResource("6_8u8cj")
 duration = 0.6
 transition = 1
-ease = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clm0y"]
 size = Vector2(104, 160)
@@ -178,7 +177,6 @@ size = Vector2(104, 160)
 script = ExtResource("6_8u8cj")
 duration = 0.3
 transition = 8
-ease = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uka0w"]
 size = Vector2(560, 160)
@@ -187,7 +185,6 @@ size = Vector2(560, 160)
 script = ExtResource("6_8u8cj")
 duration = 1.2
 transition = 10
-ease = 2
 
 [node name="ExampleScene2D" type="Node2D"]
 
@@ -230,6 +227,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
 position = Vector2(227, -28)
 process_callback = 0
 position_smoothing_speed = 10.0

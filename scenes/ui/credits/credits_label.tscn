@@ -49,6 +49,10 @@ License: [url=LICENSE.txt]MIT License[/url]
 Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  
 Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  
 License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]
+
+[font_size=24]Kenny Input Prompts[/font_size]
+Source: [url=https://kenney.nl/assets/input-prompts]https://kenney.nl[/url]
+License: (Creative Commons Zero, CC0)
 "
 fit_content = true
 scroll_active = false

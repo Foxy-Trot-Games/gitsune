@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_686pq"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_3tkib"]
 [ext_resource type="Texture2D" uid="uid://d0i67rmduh3jj" path="res://assets/background/Runes.PNG" id="8_686pq"]
-[ext_resource type="Texture2D" uid="uid://dg5x7a1k3mcj4" path="res://assets/objects/objects.png" id="8_wn38r"]
+[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="8_wn38r"]
 [ext_resource type="PackedScene" uid="uid://cnuggijmxgf0u" path="res://scenes/objects/reactor_blast_wave.tscn" id="10_686pq"]
 
 [sub_resource type="Resource" id="Resource_2ya6o"]
@@ -124,7 +124,7 @@ metadata/_custom_type_script = "uid://s3864f4i872k"
 [node name="LevelObjects" type="Node2D" parent="."]
 
 [node name="ReactorBlastWave" parent="LevelObjects" instance=ExtResource("10_686pq")]
-position = Vector2(331.6677, 0)
+position = Vector2(1000, 0)
 
 [node name="NextLevelArea" type="Area2D" parent="LevelObjects"]
 position = Vector2(-40, -24)

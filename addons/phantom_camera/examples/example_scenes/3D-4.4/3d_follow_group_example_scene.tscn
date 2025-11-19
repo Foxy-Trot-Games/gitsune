@@ -10,16 +10,6 @@
 
 [sub_resource type="Resource" id="Resource_1iman"]
 script = ExtResource("5_i3ale")
-keep_aspect = 1
-cull_mask = 1048575
-h_offset = 0.0
-v_offset = 0.0
-projection = 0
-fov = 75.0
-size = 1.0
-frustum_offset = Vector2(0, 0)
-near = 0.05
-far = 4000.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2h36r"]
 
@@ -57,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.083587, 0.5, 2.05493)
 
 [node name="PlayerPhantomCamera3D" type="Node3D" parent="Player" node_paths=PackedStringArray("follow_targets")]
 unique_name_in_owner = true
-transform = Transform3D(0.999954, 0, 0, 0, 0.621285, 0.783464, 0, -0.783416, 0.621322, -7.26116, 10.1812, 8.76176)
+transform = Transform3D(0.999954, 0, 0, 0, 0.621285, 0.783464, 0, -0.783416, 0.621322, -7.2611566, 10.181164, 8.761762)
 top_level = true
 script = ExtResource("3_65wck")
 priority = 5

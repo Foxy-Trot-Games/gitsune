@@ -22,33 +22,14 @@ radius = 0.269454
 
 [sub_resource type="Resource" id="Resource_lhgur"]
 script = ExtResource("5_4webr")
-duration = 1.0
-transition = 0
-ease = 2
 
 [sub_resource type="Resource" id="Resource_ghjuj"]
 script = ExtResource("6_dmm4a")
-keep_aspect = 1
-cull_mask = 1048575
-h_offset = 0.0
-v_offset = 0.0
-projection = 0
-fov = 75.0
-size = 1.0
-frustum_offset = Vector2(0, 0)
-near = 0.05
-far = 4000.0
 
 [sub_resource type="Resource" id="Resource_2l4w0"]
 script = ExtResource("3_t4fhv")
 amplitude = 40.0
-frequency = 0.2
 randomize_noise_seed = 0
-noise_seed = 0
-rotational_noise = true
-positional_noise = false
-rotational_multiplier_x = 1.0
-rotational_multiplier_y = 1.0
 rotational_multiplier_z = 0.0
 positional_multiplier_x = 0.1
 positional_multiplier_y = 0.1
@@ -56,18 +37,10 @@ positional_multiplier_z = 0.1
 
 [sub_resource type="Resource" id="Resource_6tnhy"]
 script = ExtResource("3_t4fhv")
-amplitude = 10.0
 frequency = 20.0
 randomize_noise_seed = 0
 noise_seed = 928
-rotational_noise = true
-positional_noise = false
-rotational_multiplier_x = 1.0
-rotational_multiplier_y = 1.0
 rotational_multiplier_z = 0.1
-positional_multiplier_x = 1.0
-positional_multiplier_y = 1.0
-positional_multiplier_z = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qi01t"]
 albedo_texture = ExtResource("9_jpkpr")

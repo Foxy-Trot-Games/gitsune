@@ -165,7 +165,6 @@ sources/0 = SubResource("TileSetAtlasSource_easgx")
 script = ExtResource("9_wk0p3")
 duration = 0.3
 transition = 4
-ease = 2
 
 [node name="ExampleScene2D" type="Node2D"]
 
@@ -208,8 +207,10 @@ unique_name_in_owner = true
 visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
 position = Vector2(186, -172.5)
 zoom = Vector2(1.5, 1.5)
+process_callback = 0
 position_smoothing_speed = 8.0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]

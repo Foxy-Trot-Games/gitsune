@@ -11,16 +11,6 @@
 
 [sub_resource type="Resource" id="Resource_wg1pr"]
 script = ExtResource("4_4qurp")
-keep_aspect = 1
-cull_mask = 1048575
-h_offset = 0.0
-v_offset = 0.0
-projection = 0
-fov = 75.0
-size = 1.0
-frustum_offset = Vector2(0, 0)
-near = 0.05
-far = 4000.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_auy8m"]
 albedo_texture = ExtResource("7_iyghi")
@@ -32,7 +22,7 @@ uv1_world_triplanar = true
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.793353, 0.608762, 0, -0.608762, 0.793353, 0, 2.93468, 3.17294)
+transform = Transform3D(0.99995, 0, 0, 0, 0.79324, 0.608671, 0, -0.608675, 0.793235, 0, 2.934684, 3.17294)
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
 process_priority = 300
@@ -47,7 +37,7 @@ metadata/_edit_lock_ = true
 
 [node name="PlayerPhantomCamera3D" type="Node3D" parent="Player" node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
-transform = Transform3D(0.99995, 0, 0, 0, 0.79324, 0.608671, 0, -0.608675, 0.793235, 0, 2.93468, 3.17294)
+transform = Transform3D(0.99995, 0, 0, 0, 0.79324, 0.608671, 0, -0.608675, 0.793235, 0, 2.934684, 3.17294)
 top_level = true
 script = ExtResource("2_5cpe8")
 follow_mode = 5

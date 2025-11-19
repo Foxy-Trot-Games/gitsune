@@ -164,7 +164,6 @@ sources/0 = SubResource("TileSetAtlasSource_easgx")
 script = ExtResource("9_twplb")
 duration = 0.9
 transition = 2
-ease = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmxri"]
 size = Vector2(790, 410)
@@ -173,7 +172,6 @@ size = Vector2(790, 410)
 script = ExtResource("9_twplb")
 duration = 0.9
 transition = 2
-ease = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtfjw"]
 size = Vector2(1530, 700)
@@ -306,6 +304,7 @@ follow_damping = true
 draw_limits = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
 position = Vector2(66, -91.205)
 zoom = Vector2(2, 2)
 process_callback = 0

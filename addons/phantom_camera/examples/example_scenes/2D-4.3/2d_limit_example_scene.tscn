@@ -165,7 +165,6 @@ sources/0 = SubResource("TileSetAtlasSource_easgx")
 script = ExtResource("7_ne05h")
 duration = 0.9
 transition = 2
-ease = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmxri"]
 size = Vector2(790, 410)
@@ -174,7 +173,6 @@ size = Vector2(790, 410)
 script = ExtResource("7_ne05h")
 duration = 0.9
 transition = 2
-ease = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtfjw"]
 size = Vector2(1530, 700)
@@ -306,9 +304,9 @@ physics_interpolation_mode = 1
 position = Vector2(141, -91.205)
 zoom = Vector2(2, 2)
 process_callback = 0
-limit_left = -147
+limit_left = -387
 limit_top = -528
-limit_right = 673
+limit_right = 433
 limit_bottom = 288
 position_smoothing_speed = 10.0
 editor_draw_limits = true

@@ -13,35 +13,14 @@
 
 [sub_resource type="Resource" id="Resource_ofv2c"]
 script = ExtResource("4_akuuo")
-keep_aspect = 1
-cull_mask = 1048575
-h_offset = 0.0
-v_offset = 0.0
-projection = 0
-fov = 75.0
-size = 1.0
-frustum_offset = Vector2(0, 0)
-near = 0.05
-far = 4000.0
 
 [sub_resource type="Resource" id="Resource_01tho"]
 script = ExtResource("6_mkxip")
 duration = 1.2
 transition = 3
-ease = 2
 
 [sub_resource type="Resource" id="Resource_syh5m"]
 script = ExtResource("4_akuuo")
-keep_aspect = 1
-cull_mask = 1048575
-h_offset = 0.0
-v_offset = 0.0
-projection = 0
-fov = 75.0
-size = 1.0
-frustum_offset = Vector2(0, 0)
-near = 0.05
-far = 4000.0
 
 [sub_resource type="Curve3D" id="Curve3D_b33df"]
 _data = {
@@ -62,16 +41,6 @@ albedo_color = Color(0.988235, 0.478431, 0.905882, 0.0901961)
 
 [sub_resource type="Resource" id="Resource_xci4c"]
 script = ExtResource("4_akuuo")
-keep_aspect = 1
-cull_mask = 1048575
-h_offset = 0.0
-v_offset = 0.0
-projection = 0
-fov = 75.0
-size = 1.0
-frustum_offset = Vector2(0, 0)
-near = 0.05
-far = 4000.0
 
 [sub_resource type="Curve3D" id="Curve3D_8uw2x"]
 _data = {
