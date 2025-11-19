@@ -23,6 +23,9 @@ func _ready() -> void:
 			open_tutorials()
 			
 		Audio.play_bgm(bgm)
+		
+		print("== Player Data ==")
+		Globals.print_all_properties(GameState.get_player_state())
 
 func open_tutorials() -> void:
 	tutorial_manager.open_tutorials()

@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://6hi36kq1jffv"]
+
+[ext_resource type="PackedScene" uid="uid://buxglxwkslhwh" path="res://scenes/objects/util/collectable.tscn" id="1_ipmkl"]
+[ext_resource type="Script" uid="uid://mhx137o2ghwy" path="res://scenes/objects/collectables/rune.gd" id="2_627ao"]
+[ext_resource type="Texture2D" uid="uid://d0i67rmduh3jj" path="res://assets/background/Runes.PNG" id="2_pjg3v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_627ao"]
+atlas = ExtResource("2_pjg3v")
+region = Rect2(16, 176, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sysvl"]
+atlas = ExtResource("2_pjg3v")
+region = Rect2(32, 176, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pjg3v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_627ao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sysvl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Rune" instance=ExtResource("1_ipmkl")]
+script = ExtResource("2_627ao")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_pjg3v")

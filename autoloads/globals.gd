@@ -1,8 +1,6 @@
 ## Planning on using this to store Global Variables. 
 extends Node
 
-@onready var player_state : PlayerState = GameState.get_player_state()
-
 func get_level() -> Level:
 	return get_tree().get_first_node_in_group("Level")
 	
@@ -25,6 +23,18 @@ func get_keyboard_pulse_fired_dir() -> Vector2:
 		return pulse_dir
 	else:
 		return Vector2.ZERO
+
+func create_timer(seconds: float, process_in_physics: bool = true) -> Signal:
+	return get_tree().create_timer(seconds, true, process_in_physics).timeout
+
+func print_all_properties(obj: Object) -> void:
+	@warning_ignore("unsafe_property_access", "unsafe_cast")
+	print("\nObject Property List for:", obj.name if obj.has_method("name") else (obj.get_script() as Script).get_global_name())
+	var property_list := obj.get_property_list()
+	for prop in property_list:
+		if prop.usage & PROPERTY_USAGE_STORAGE or prop.usage & PROPERTY_USAGE_EDITOR:
+			@warning_ignore("unsafe_call_argument")
+			print(prop.name, ": ", obj.get(prop.name))
 
 func _input(event: InputEvent) -> void:
 	# enable mouse if it was hidden

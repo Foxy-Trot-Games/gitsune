@@ -6,7 +6,6 @@ extends CharacterBody2D
 
 @export var speed: int = 200
 @export var jump_force: int = 200
-@export var max_ammo := 3
 
 var _move_direction := Vector2.ZERO
 var _pending_knockback := Vector2.ZERO

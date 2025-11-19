@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjtwy15x6pvoh"]
+
+[ext_resource type="PackedScene" uid="uid://buxglxwkslhwh" path="res://scenes/objects/util/collectable.tscn" id="1_o1b8n"]
+[ext_resource type="Script" uid="uid://dyd3onm1rrkpj" path="res://scenes/objects/collectables/max_ammo_pickup.gd" id="2_51pcr"]
+[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/Objects.PNG" id="2_ram5w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51pcr"]
+atlas = ExtResource("2_ram5w")
+region = Rect2(192, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n362g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51pcr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ram5w"]
+font_size = 10
+
+[node name="MaxAmmoPickup" instance=ExtResource("1_o1b8n")]
+script = ExtResource("2_51pcr")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_n362g")
+
+[node name="Label" type="Label" parent="." index="3"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 31.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Max Ammo"
+label_settings = SubResource("LabelSettings_ram5w")

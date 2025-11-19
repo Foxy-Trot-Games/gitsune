@@ -80,6 +80,7 @@ static func continue_game() -> void:
 static func reset() -> void:
 	var game_state := get_or_create_state()
 	game_state.level_states = {}
+	game_state.player_state = null
 	game_state.current_level_path = ""
 	game_state.continue_level_path = ""
 	game_state.play_time = 0

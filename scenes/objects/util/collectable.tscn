@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://buxglxwkslhwh"]
+
+[ext_resource type="Script" uid="uid://d3nmh1p5tpvpp" path="res://scenes/objects/util/collectable.gd" id="1_od1im"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7akr"]
+size = Vector2(16, 16)
+
+[node name="Collectable" type="Area2D"]
+script = ExtResource("1_od1im")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n7akr")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-14, 2)
+rect = Rect2(6, -10, 16, 16)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
