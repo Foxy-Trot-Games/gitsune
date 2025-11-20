@@ -59,7 +59,8 @@ func _mouse_used(pos: Vector2) -> void:
 	look_at(get_global_mouse_position())
 
 func _ammo_picked_up(ammo_amount: int = -1) -> void:
-	_update_gun_stats(player.state.gun_max_ammo if ammo_amount == -1 else ammo_amount)
+	if player.state.gun_max_ammo != current_ammo: # some things continuosly add ammo, so we only update if it's not at max ammo
+		_update_gun_stats(player.state.gun_max_ammo if ammo_amount == -1 else ammo_amount)
 
 func _on_pulse_activated_signal() -> void:
 	_update_gun_stats(-1)
