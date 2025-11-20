@@ -89,9 +89,7 @@ func change_direction() -> void:
 	if current_state == States.CHASE:
 		
 		var player: Player = get_tree().get_first_node_in_group("player")
-		print(player)
 		if player:
-			print(1)
 			direction = (player.global_position - global_position).normalized()
 			animated_sprite_2d.flip_h = direction.x < 0
 		return
