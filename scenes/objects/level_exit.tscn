@@ -1,0 +1,107 @@
+[gd_scene load_steps=12 format=3 uid="uid://cmddg5wv0dp8m"]
+
+[ext_resource type="Script" uid="uid://cw6qo4vaghkoi" path="res://scenes/objects/scripts/level_exit.gd" id="1_2wvin"]
+[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/Objects.PNG" id="1_041fo"]
+[ext_resource type="Texture2D" uid="uid://d0i67rmduh3jj" path="res://assets/background/Runes.PNG" id="2_2wvin"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_urmku"]
+size = Vector2(16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_686pq"]
+atlas = ExtResource("1_041fo")
+region = Rect2(160, 96, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tkib"]
+atlas = ExtResource("2_2wvin")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0dxg"]
+atlas = ExtResource("2_2wvin")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8xd4"]
+atlas = ExtResource("2_2wvin")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl7ul"]
+atlas = ExtResource("2_2wvin")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn38r"]
+atlas = ExtResource("2_2wvin")
+region = Rect2(144, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_10mtc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tkib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0dxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8xd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dl7ul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn38r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="LevelExit" type="Area2D" groups=["LevelExit"]]
+z_index = -1
+script = ExtResource("1_2wvin")
+id = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_urmku")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+texture = SubResource("AtlasTexture_686pq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -64)
+sprite_frames = SubResource("SpriteFrames_10mtc")
+autoplay = "default"
+frame_progress = 0.043178387
+
+[node name="Label" type="Label" parent="."]
+z_index = 100
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = -104.0
+offset_right = 26.0
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+text = "Door 1"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+z_index = 100
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.0
+offset_right = 56.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Exit to  door -1"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="door_used" from="." to="." method="_on_door_used"]

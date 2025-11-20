@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://01f2htb8plmg" path="res://scenes/player/player.tscn" id="5_8562a"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_ieihm"]
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="7_33bcf"]
-[ext_resource type="Shader" uid="uid://ula7reohgr3f" path="res://scenes/objects/gravity_zone.gdshader" id="8_3e7vu"]
+[ext_resource type="Shader" uid="uid://ula7reohgr3f" path="res://scenes/objects/scripts/gravity_zone.gdshader" id="8_3e7vu"]
 [ext_resource type="Script" uid="uid://c44mmw8o77ec6" path="res://scenes/objects/util/snap_to_grid.gd" id="8_mkft6"]
 [ext_resource type="PackedScene" uid="uid://2jpu8jkgrmga" path="res://scenes/enemy/Flying_enemy/Flying_enemy.tscn" id="9_0lsjs"]
 [ext_resource type="PackedScene" uid="uid://cnuggijmxgf0u" path="res://scenes/objects/reactor_blast_wave.tscn" id="10_iar66"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnuggijmxgf0u"]
 
-[ext_resource type="Script" uid="uid://yp3tr0jq0jyu" path="res://scenes/objects/reactor_blast_wave.gd" id="1_tc2bw"]
+[ext_resource type="Script" uid="uid://yp3tr0jq0jyu" path="res://scenes/objects/scripts/reactor_blast_wave.gd" id="1_tc2bw"]
 [ext_resource type="AudioStream" uid="uid://b7bu25pcmedvf" path="res://assets/sounds/background_ambience/Foks_Spaceship_Atmosphere_SFX.mp3" id="2_tc2bw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a88x5"]

@@ -124,19 +124,16 @@ limit_bottom = 224
 [node name="ReactorBlastWave" parent="LevelObjects" index="0"]
 position = Vector2(656, 0)
 
-[node name="NextLevelArea" parent="LevelObjects" index="1"]
-position = Vector2(616, 104)
-
-[node name="Player" parent="LevelObjects" index="2"]
+[node name="Player" parent="LevelObjects" index="1"]
 position = Vector2(-344, 120)
 
-[node name="Door" type="AnimatedSprite2D" parent="LevelObjects" index="3"]
+[node name="Door" type="AnimatedSprite2D" parent="LevelObjects" index="2"]
 z_index = -1
-position = Vector2(-344, 104)
+position = Vector2(-352, 104)
 sprite_frames = SubResource("SpriteFrames_db41i")
 frame_progress = 0.13099843
 
-[node name="ReactorZone" type="Area2D" parent="LevelObjects" index="4"]
+[node name="ReactorZone" type="Area2D" parent="LevelObjects" index="3"]
 position = Vector2(144, -64)
 gravity_space_override = 3
 gravity_point = true

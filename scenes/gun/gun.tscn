@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://dfxgljq6hf57a"]
 
 [ext_resource type="Texture2D" uid="uid://6bll0jbk00oh" path="res://assets/gun/gun_placeholder.png" id="1_csbbp"]
-[ext_resource type="Script" uid="uid://c50fxelutb7o2" path="res://scripts/gun.gd" id="1_fjnj2"]
+[ext_resource type="Script" uid="uid://c50fxelutb7o2" path="res://scenes/gun/gun.gd" id="1_fjnj2"]
 [ext_resource type="Texture2D" uid="uid://cxx14od8qf6lf" path="res://icon.svg" id="3_eo2c1"]
-[ext_resource type="Script" uid="uid://ifh43o1gqhb8" path="res://scripts/pulse.gd" id="5_75yrm"]
+[ext_resource type="Script" uid="uid://ifh43o1gqhb8" path="res://scenes/gun/pulse.gd" id="5_75yrm"]
 [ext_resource type="PackedScene" uid="uid://c8su6i6rykckn" path="res://scenes/util/pulsing_glow_vfx.tscn" id="5_oxcm0"]
 [ext_resource type="Script" uid="uid://bnspb86llnaya" path="res://scenes/gun/recharge_gun.gd" id="6_oxcm0"]
 

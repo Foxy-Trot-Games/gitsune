@@ -13,6 +13,7 @@ extends Resource
 # allow aim direction
 # allow gun recharging
 # recharge 1 instantly on floor
+# max velocity multiplier
 
 static var player_state : PlayerState :
 	get():
@@ -25,9 +26,10 @@ static func add_rune() -> void:
 static func add_max_ammo() -> void:
 	player_state.gun_max_ammo += 1
 	Events.upgrade_picked_up.emit(player_state)
+	Events.ammo_picked_up.emit()
 
 static func add_gun_recharge_time() -> void:
-	player_state.gun_recharge_time = clampf(player_state.gun_recharge_time - 0.1, 0, .5)
+	player_state.gun_recharge_time = clampf(player_state.gun_recharge_time - 0.1, 0.0, 0.5)
 	Events.upgrade_picked_up.emit(player_state)
 	
 static func add_air_movement() -> void:

@@ -35,6 +35,7 @@ func print_all_properties(obj: Object) -> void:
 		if prop.usage & PROPERTY_USAGE_STORAGE or prop.usage & PROPERTY_USAGE_EDITOR:
 			@warning_ignore("unsafe_call_argument")
 			print(prop.name, ": ", obj.get(prop.name))
+	print("")
 
 func _input(event: InputEvent) -> void:
 	# enable mouse if it was hidden

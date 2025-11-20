@@ -1,4 +1,4 @@
-class_name Collectable extends Area2D
+class_name Collectable extends AnimatedSprite2D
 
 var _id := 0
 

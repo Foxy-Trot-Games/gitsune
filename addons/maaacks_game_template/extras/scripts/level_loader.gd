@@ -25,7 +25,7 @@ func _attach_level(level_resource : Resource):
 	level_container.call_deferred("add_child", instance)
 	return instance
 
-func load_level(level_path : String):
+func load_level(level_path : String, spawn_at_door_id := -1):
 	if is_loading : return
 	
 	is_loading = true
@@ -48,6 +48,7 @@ func load_level(level_path : String):
 		level_loading_screen.close()
 	level_loaded.emit()
 	await current_level.ready
+	current_level.update_player_pos(spawn_at_door_id)
 	level_ready.emit()
 	await _fade_in()
 

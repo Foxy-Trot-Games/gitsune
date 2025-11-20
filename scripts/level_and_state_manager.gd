@@ -47,3 +47,11 @@ func _advance_level() -> bool:
 	if _advanced:
 		GameState.level_reached(current_level_path)
 	return _advanced
+
+func _connect_level_signals() -> void:
+	super()
+	_try_connecting_signal_to_level(&"level_exited", _on_level_exited_with_door)
+
+func _on_level_exited_with_door(level_path: String, door_id: int) -> void:
+	current_level_path = level_path
+	level_loader.load_level(level_path, door_id)

@@ -26,7 +26,4 @@ limit_top = -48
 limit_right = 1328
 limit_bottom = 64
 
-[node name="NextLevelArea" parent="LevelObjects" index="1"]
-position = Vector2(-176, -80)
-
 [editable path="TileMapLayer"]

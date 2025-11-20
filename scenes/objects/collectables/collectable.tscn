@@ -5,17 +5,18 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7akr"]
 size = Vector2(16, 16)
 
-[node name="Collectable" type="Area2D"]
+[node name="Collectable" type="AnimatedSprite2D"]
+autoplay = "default"
 script = ExtResource("1_od1im")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-autoplay = "default"
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_n7akr")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(-14, 2)
 rect = Rect2(6, -10, 16, 16)
+enable_node_path = NodePath("../Area2D")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

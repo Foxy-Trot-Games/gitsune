@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_um5cc"]
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="2_mjgh3"]
-[ext_resource type="Shader" uid="uid://ula7reohgr3f" path="res://scenes/objects/gravity_zone.gdshader" id="3_xhejv"]
+[ext_resource type="Shader" uid="uid://ula7reohgr3f" path="res://scenes/objects/scripts/gravity_zone.gdshader" id="3_xhejv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjgh3"]
 resource_local_to_scene = true
@@ -35,16 +35,10 @@ limit_top = -848
 limit_right = 880
 limit_bottom = 48
 
-[node name="ReactorBlastWave" parent="LevelObjects" index="0"]
-position = Vector2(1000, 0)
-
-[node name="NextLevelArea" parent="LevelObjects" index="1"]
-position = Vector2(808, 8)
-
-[node name="Player" parent="LevelObjects" index="2"]
+[node name="Player" parent="LevelObjects" index="1"]
 position = Vector2(0, 24)
 
-[node name="GravityZone2" parent="LevelObjects" index="3" instance=ExtResource("2_mjgh3")]
+[node name="GravityZone2" parent="LevelObjects" index="2" instance=ExtResource("2_mjgh3")]
 material = SubResource("ShaderMaterial_mjgh3")
 offset_left = -64.0
 offset_top = 32.0
@@ -52,7 +46,7 @@ offset_right = -16.0
 offset_bottom = 48.0
 rotation = -1.5707964
 
-[node name="GravityZone" parent="LevelObjects" index="4" instance=ExtResource("2_mjgh3")]
+[node name="GravityZone" parent="LevelObjects" index="3" instance=ExtResource("2_mjgh3")]
 material = SubResource("ShaderMaterial_4wcgb")
 offset_left = 64.0
 offset_top = -80.0

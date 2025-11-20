@@ -7,7 +7,7 @@
 atlas = ExtResource("2_ram5w")
 region = Rect2(192, 80, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_n362g"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_4lto1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -22,12 +22,10 @@ animations = [{
 font_size = 10
 
 [node name="MaxAmmoPickup" instance=ExtResource("1_o1b8n")]
+sprite_frames = SubResource("SpriteFrames_4lto1")
 upgrade_type = 1
 
-[node name="AnimatedSprite2D" parent="." index="0"]
-sprite_frames = SubResource("SpriteFrames_n362g")
-
-[node name="Label" type="Label" parent="." index="3"]
+[node name="Label" type="Label" parent="." index="2"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

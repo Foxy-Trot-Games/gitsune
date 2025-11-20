@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://nn5y86qb6rk0"]
 
-[ext_resource type="Script" uid="uid://cwo33na0bv378" path="res://scenes/objects/gravity_zone.gd" id="1_6j3xy"]
-[ext_resource type="Shader" uid="uid://ula7reohgr3f" path="res://scenes/objects/gravity_zone.gdshader" id="1_l6gxy"]
+[ext_resource type="Script" uid="uid://cwo33na0bv378" path="res://scenes/objects/scripts/gravity_zone.gd" id="1_6j3xy"]
+[ext_resource type="Shader" uid="uid://ula7reohgr3f" path="res://scenes/objects/scripts/gravity_zone.gdshader" id="1_l6gxy"]
 [ext_resource type="Script" uid="uid://c44mmw8o77ec6" path="res://scenes/objects/util/snap_to_grid.gd" id="3_l6gxy"]
 [ext_resource type="PackedScene" uid="uid://dtrk3kn5lheu8" path="res://resources/particles_scenes/gravity_particles.tscn" id="3_w7ajn"]
 

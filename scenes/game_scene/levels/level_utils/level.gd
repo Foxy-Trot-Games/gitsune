@@ -1,9 +1,7 @@
 @tool
 class_name Level extends Node2D
 
-signal level_lost
-signal level_won
-signal level_won_and_changed(level_path : String)
+signal level_exited(to_level_path : String, door_id: int)
 
 @export var bgm: AudioStreamMP3
 @export_file("*.tscn") var next_level_path : String
@@ -16,32 +14,21 @@ var level_state : LevelState
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	# don't load data or play music in the editor
 	if !Engine.is_editor_hint():
 		level_state = GameState.get_level_state(scene_file_path)
-		if level_state && !level_state.tutorial_read:
-			open_tutorials()
 			
 		Audio.play_bgm(bgm)
 		
-		print("== Player Data ==")
-		Globals.print_all_properties(GameState.get_player_state())
-
-func open_tutorials() -> void:
-	tutorial_manager.open_tutorials()
-	level_state.tutorial_read = true
-	GlobalState.save()
+		assert(!_get_exits().is_empty(), "Level %s must have an exit!" % GameState.get_current_level_path())
+		
+		#print("== Player Data ==")
+		#Globals.print_all_properties(GameState.get_player_state())
 
 ## if level started from clicking start game from main menu
 func started_from_main_menu() -> bool:
 	return get_tree().current_scene is not Level
-
-func _next_level_exit_area_entered(body: Node2D) -> void:
-	if body is Player:
-		if not next_level_path.is_empty():
-			level_won_and_changed.emit(next_level_path)
-		else:
-			level_won.emit()
 
 func get_level_rect() -> Rect2:
 	var rect := Rect2(
@@ -55,3 +42,20 @@ func get_level_rect() -> Rect2:
 	)
 	
 	return rect
+
+func _get_exits() -> Array[LevelExit]:
+	var exits : Array[LevelExit] = []
+	# needed in order to correctly set array type
+	exits.assign(get_tree().get_nodes_in_group("LevelExit"))
+	return exits
+
+func update_player_pos(spawn_at_door: int) -> void:
+	if spawn_at_door != -1:
+		var exits := _get_exits()
+		var index := spawn_at_door - 1
+		if index <= exits.size():
+			var exit := exits[index]
+			player.global_position = exit.global_position
+			exit.door_used.emit()
+		else:
+			push_error("Door id %s not found!" % index)

@@ -36,4 +36,5 @@ func _on_recharge_timer_timeout() -> void:
 		_queued_ammo_charge = true
 
 func _can_recharge_instantly() -> float:
-	return player.state.gun_recharge_time <= 0
+	# due to floating point comparision need to use this method
+	return is_zero_approx(player.state.gun_recharge_time)
