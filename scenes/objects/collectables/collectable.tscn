@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://buxglxwkslhwh"]
 
-[ext_resource type="Script" uid="uid://d3nmh1p5tpvpp" path="res://scenes/objects/util/collectable.gd" id="1_od1im"]
+[ext_resource type="Script" uid="uid://d3nmh1p5tpvpp" path="res://scenes/objects/collectables/collectable.gd" id="1_od1im"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7akr"]
 size = Vector2(16, 16)

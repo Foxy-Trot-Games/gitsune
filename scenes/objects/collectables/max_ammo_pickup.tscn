@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjtwy15x6pvoh"]
+[gd_scene load_steps=6 format=3 uid="uid://cjtwy15x6pvoh"]
 
-[ext_resource type="PackedScene" uid="uid://buxglxwkslhwh" path="res://scenes/objects/util/collectable.tscn" id="1_o1b8n"]
-[ext_resource type="Script" uid="uid://dyd3onm1rrkpj" path="res://scenes/objects/collectables/max_ammo_pickup.gd" id="2_51pcr"]
+[ext_resource type="PackedScene" uid="uid://buxglxwkslhwh" path="res://scenes/objects/collectables/collectable.tscn" id="1_o1b8n"]
 [ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/Objects.PNG" id="2_ram5w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_51pcr"]
@@ -23,7 +22,7 @@ animations = [{
 font_size = 10
 
 [node name="MaxAmmoPickup" instance=ExtResource("1_o1b8n")]
-script = ExtResource("2_51pcr")
+upgrade_type = 1
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_n362g")

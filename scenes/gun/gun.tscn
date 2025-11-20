@@ -37,7 +37,6 @@ script = ExtResource("6_oxcm0")
 
 [node name="RechargeTimer" type="Timer" parent="RechargeGun"]
 process_callback = 0
-wait_time = 0.5
 autostart = true
 
 [connection signal="timeout" from="RechargeGun/RechargeTimer" to="RechargeGun" method="_on_recharge_timer_timeout"]

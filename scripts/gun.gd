@@ -8,13 +8,11 @@ signal mouse_used(pos: Vector2)
 
 var current_ammo : int
 var player: Player
-var player_state: PlayerState
 
 var _prev_mouse_pos := Vector2.ZERO
 
 func _ready() -> void:
 	player = get_parent()
-	player_state = GameState.get_player_state()
 	
 	keyboard_used.connect(_keyboard_used)
 	mouse_used.connect(_mouse_used)
@@ -58,11 +56,11 @@ func _mouse_used(pos: Vector2) -> void:
 	look_at(get_global_mouse_position())
 
 func _ammo_picked_up(ammo_amount: int = -1) -> void:
-	_update_gun_stats(player_state.gun_max_ammo if ammo_amount == -1 else ammo_amount)
+	_update_gun_stats(player.state.gun_max_ammo if ammo_amount == -1 else ammo_amount)
 
 func _on_pulse_activated_signal() -> void:
 	_update_gun_stats(-1)
 	
 func _update_gun_stats(ammo_amount: int = 0) -> void:
-	current_ammo = clampi(current_ammo + ammo_amount, 0, player_state.gun_max_ammo)
-	Events.gun_stats_updated.emit(current_ammo, player_state.gun_max_ammo)
+	current_ammo = clampi(current_ammo + ammo_amount, 0, player.state.gun_max_ammo)
+	Events.gun_stats_updated.emit(current_ammo, player.state.gun_max_ammo)

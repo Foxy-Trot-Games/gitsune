@@ -6,6 +6,7 @@ signal entered_gravity_zone(allow_movement: bool)
 signal exited_gravity_zone(allow_movement: bool)
 
 signal ammo_picked_up(amount_picked_up: int)
+signal upgrade_picked_up(state: PlayerState)
 signal gun_stats_updated(ammo_count_left: int, max_ammo: int)
 signal player_died
 
