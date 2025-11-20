@@ -1,5 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://d0dpxsf3xk525"]
+[gd_scene load_steps=30 format=3 uid="uid://d0dpxsf3xk525"]
 
+[ext_resource type="Script" uid="uid://g0x85tf71sad" path="res://scenes/objects/keys/key.gd" id="1_hp7ii"]
 [ext_resource type="Texture2D" uid="uid://cevxxwawcy6qe" path="res://scenes/objects/keys/key_32x32_24f.png" id="1_yjyyg"]
 [ext_resource type="Script" uid="uid://d3nmh1p5tpvpp" path="res://scenes/objects/collectables/collectable.gd" id="2_hp7ii"]
 
@@ -183,11 +184,12 @@ animations = [{
 radius = 17.029387
 
 [node name="Key" type="Node2D"]
+script = ExtResource("1_hp7ii")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mvuc8")
 autoplay = "default"
-frame_progress = 0.20763502
+frame_progress = 0.6302432
 script = ExtResource("2_hp7ii")
 metadata/_custom_type_script = "uid://d3nmh1p5tpvpp"
 
