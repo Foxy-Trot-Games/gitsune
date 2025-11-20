@@ -34,6 +34,7 @@ func _ready() -> void:
 	Events.player_died.connect(_player_died)
 	Events.entered_gravity_zone.connect(_set_gravity_zone_var.bind(true))
 	Events.exited_gravity_zone.connect(_set_gravity_zone_var.bind(false))
+	add_to_group("player")
 
 func _on_pulse_knockback(knockback: Vector2) -> void:
 	_pending_knockback += knockback
