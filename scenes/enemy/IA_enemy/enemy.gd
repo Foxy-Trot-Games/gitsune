@@ -25,7 +25,6 @@ var stun_timer: Timer
 
 func _ready() -> void:
 	add_to_group("enemy")
-
 	direction = Vector2.RIGHT
 	animated_sprite_2d.flip_h = false
 	ray_cast_2d.target_position = Vector2(100, 0)
@@ -91,6 +90,7 @@ func handle_movement(delta: float) -> void:
 
 
 func change_direction() -> void:
+	print(current_state)
 	if current_state == States.WANDER:
 		# Moving right
 		if not animated_sprite_2d.flip_h:
@@ -114,13 +114,13 @@ func change_direction() -> void:
 		var player : Player = get_tree().get_first_node_in_group("player")
 		if player:
 			direction = (player.position - position).normalized()
-
+			print("player position" , player )
 			if direction.x > 0:
 				animated_sprite_2d.flip_h = false
-				ray_cast_2d.target_position = Vector2(100, 0)
+				
 			else:
 				animated_sprite_2d.flip_h = true
-				ray_cast_2d.target_position = Vector2(-100, 0)
+				
 
 
 # ======================

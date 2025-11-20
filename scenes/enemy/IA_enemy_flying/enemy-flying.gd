@@ -28,11 +28,16 @@ func _ready() -> void:
 	direction = Vector2.RIGHT
 	animated_sprite_2d.flip_h = false
 
+	left_bounds = position + Vector2(-150, 0)
+	right_bounds = position + Vector2(150, 0)
+
 	stun_timer = Timer.new()
 	stun_timer.one_shot = true
 	stun_timer.connect("timeout", Callable(self, "_on_stun_timeout"))
 	add_child(stun_timer)
 	
+	timer.one_shot = true
+	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
 
 
 # ======================
@@ -40,8 +45,9 @@ func _ready() -> void:
 # ======================
 func _on_pulse_stun(knockback_direction: Vector2, radius: float, duration: float, knockback_force: float) -> void:
 	var normalized_direction := knockback_direction.normalized()
-	velocity.x = normalized_direction.x * knockback_force * 0.15
-	velocity.y = normalized_direction.y * knockback_force * 0.15
+
+	velocity.x = normalized_direction.x * knockback_force
+	velocity.y = normalized_direction.y * knockback_force * 0.3
 	stunned = true
 	stun_timer.start(duration)
 
@@ -55,11 +61,14 @@ func _on_stun_timeout() -> void:
 # ======================
 func _physics_process(delta: float) -> void:
 	if stunned:
-		velocity = velocity.move_toward(Vector2.ZERO, 0.8 * delta)
+		velocity.x = lerp(velocity.x, 0.0, 0.8 * delta)
 	else:
 		handle_movement(delta)
-		change_direction()  # optional for flying wander
+		change_direction()
+
+
 	move_and_slide()
+
 
 # ======================
 #  MOVEMENT LOGIC
@@ -76,60 +85,48 @@ func handle_movement(delta: float) -> void:
 
 
 func change_direction() -> void:
-	if current_state == States.WANDER:
-		# Moving right
-		if not animated_sprite_2d.flip_h:
-			if position.x >= right_bounds.x:
-				animated_sprite_2d.flip_h = true
-				direction = Vector2.LEFT
-			else:
-				direction = Vector2.RIGHT
-
-		# Moving left
-		else:
-			if position.x <= left_bounds.x:
-				animated_sprite_2d.flip_h = false
-				direction = Vector2.RIGHT
-			else:
-				direction = Vector2.LEFT
-
-	else:
-		var player : Player = get_tree().get_first_node_in_group("player")
+	# CHASE state has priority - update direction every frame
+	if current_state == States.CHASE:
+		
+		var player: Player = get_tree().get_first_node_in_group("player")
+		print(player)
 		if player:
-			direction = (player.position - position).normalized()
-
-			if direction.x > 0:
-				animated_sprite_2d.flip_h = false
-			else:
-				animated_sprite_2d.flip_h = true
+			print(1)
+			direction = (player.global_position - global_position).normalized()
+			animated_sprite_2d.flip_h = direction.x < 0
+		return
+	
+	# WANDER state - check bounds
+	if not animated_sprite_2d.flip_h:
+		if position.x >= right_bounds.x:
+			animated_sprite_2d.flip_h = true
+			direction = Vector2(-1, 0)  # Move left
+		else:
+			direction = Vector2(1, 0)  # Move right
+	else:
+		if position.x <= left_bounds.x:
+			animated_sprite_2d.flip_h = false
+			direction = Vector2(1, 0)  # Move right
+		else:
+			direction = Vector2(-1, 0)  # Move left
 
 
 # ======================
 #  CHASE LOGIC
 # ======================
-
-
-
 func chase_player() -> void:
 	timer.stop()
 	current_state = States.CHASE
 	panel.visible = true
-	# Update direction toward player in _physics_process
-	var player: Player = get_tree().get_first_node_in_group("player")
-	if player:
-		direction = (player.position - position).normalized()
-		if direction.x > 0:
-			animated_sprite_2d.flip_h = false
-		else:
-			animated_sprite_2d.flip_h = true
-
 
 
 func stop_chase() -> void:
-	if timer.time_left <= 0:
-		current_state = States.WANDER
-		panel.visible = false
-		timer.start()
+	current_state = States.WANDER
+	panel.visible = false
+
+
+func _on_timer_timeout() -> void:
+	stop_chase()
 
 
 # ======================
@@ -143,16 +140,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_player_range_body_entered(body: Node) -> void:
 	if body is Player:
 		chase_player()
-		# Stop the timer if it was running
-		if timer.is_stopped() == false:
-			timer.stop()
+
 
 func _on_player_range_body_exited(body: Node) -> void:
 	if body is Player:
-		# Start the timer to delay stop chase
-		timer.start()
-
-
-
-func _on_timer_timeout() -> void:
-	stop_chase()
+		if timer.time_left <= 0:
+			timer.start()
