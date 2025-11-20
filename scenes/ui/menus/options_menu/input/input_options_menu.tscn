@@ -6,6 +6,8 @@
 [node name="Controls" instance=ExtResource("1_i27v5")]
 
 [node name="InputActionsList" parent="VBoxContainer/InputMappingContainer" index="1" node_paths=PackedStringArray("input_icon_mapper")]
+custom_minimum_size = Vector2(560, 400)
+action_groups = 2
 input_icon_mapper = NodePath("../../../InputIconMapper")
 
 [node name="InputActionsTree" parent="VBoxContainer/InputMappingContainer" index="2" node_paths=PackedStringArray("input_icon_mapper")]
