@@ -36,8 +36,6 @@ func _ready() -> void:
 	stun_timer.connect("timeout", Callable(self, "_on_stun_timeout"))
 	add_child(stun_timer)
 	
-	timer.one_shot = true
-	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
 
 
 # ======================
