@@ -18,6 +18,9 @@ func _ready() -> void:
 	mouse_used.connect(_mouse_used)
 	pulse.pulse_activated_signal.connect(_on_pulse_activated_signal)
 	Events.ammo_picked_up.connect(_ammo_picked_up)
+	
+	# fill ammo
+	_ammo_picked_up()
 
 func _physics_process(delta: float) -> void:
 	

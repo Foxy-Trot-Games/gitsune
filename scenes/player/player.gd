@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 @onready var player_sprite: AnimatedSprite2D = %AnimatedSprite2D
 @onready var gun: Gun = $Gun
-@onready var state : PlayerState = GameState.get_player_state()
 
 @export var speed: int = 200
 @export var jump_force: int = 200
@@ -15,7 +14,9 @@ var PLAYER_AIR_RESISTENCE := 0.1 # higher is more resistence up to 1.0
 var MAX_PLAYER_SPEED := 500
 var _animation_state := AnimationStates.IDLING
 var _allow_gravity_zone_movement := false
-
+var state : PlayerState :
+	get:
+		return GameState.get_player_state()
 
 enum AnimationStates {
 	IDLING,
@@ -54,9 +55,9 @@ func _on_player_movement_input_signal(direction: Vector2) -> void:
 		
 	if is_on_floor():
 		if direction == Vector2.ZERO:
-			_update_state(AnimationStates.IDLING)
+			_update_anim_state(AnimationStates.IDLING)
 		else:
-			_update_state(AnimationStates.RUNNING)
+			_update_anim_state(AnimationStates.RUNNING)
 
 func _set_gravity_zone_var(allow_movement: bool, entered: bool) -> void:
 	_allow_gravity_zone_movement = allow_movement if entered else false
@@ -101,17 +102,17 @@ func _physics_process(delta: float) -> void:
 	
 	# if falling
 	if _is_falling():
-		_update_state(AnimationStates.FALLING)
+		_update_anim_state(AnimationStates.FALLING)
 	# if rising
 	elif _is_rising():
-		_update_state(AnimationStates.RISING)
+		_update_anim_state(AnimationStates.RISING)
 	
 	move_and_slide()
 	
 	_check_state()
 
-func _update_state(state: AnimationStates) -> void:
-	_animation_state = state
+func _update_anim_state(anim_state: AnimationStates) -> void:
+	_animation_state = anim_state
 
 func _check_state() -> void:
 	match(_animation_state):
