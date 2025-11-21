@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfoe2wmkrjqlc"]
+
+[ext_resource type="PackedScene" uid="uid://buxglxwkslhwh" path="res://scenes/objects/collectables/collectable.tscn" id="1_rnnqj"]
+[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="2_83x5s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j74s"]
+atlas = ExtResource("2_83x5s")
+region = Rect2(192, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j25ls"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j74s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MaxVelocityPickup" instance=ExtResource("1_rnnqj")]
+modulate = Color(0, 1, 1, 1)
+sprite_frames = SubResource("SpriteFrames_j25ls")
+upgrade_type = 8

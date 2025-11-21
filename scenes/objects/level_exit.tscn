@@ -103,6 +103,8 @@ grow_horizontal = 2
 text = "Exit to  door -1"
 horizontal_alignment = 1
 
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="door_used" from="." to="." method="_on_door_used"]

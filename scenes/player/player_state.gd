@@ -9,11 +9,11 @@ extends Resource
 @export var has_hover : bool = false
 @export var has_crouch_lock_down : bool = false
 @export var gun_can_stun_enemies : bool = false
+@export var max_player_velocity := 1.1
 # future upgrades?
 # allow aim direction
 # allow gun recharging
 # recharge 1 instantly on floor
-# max velocity multiplier (up to 3?)
 # reactor wave recharges gun
 
 static var player_state : PlayerState :
@@ -50,4 +50,8 @@ static func add_crouch_lock_down() -> void:
 
 static func add_stun_enemies() -> void:
 	player_state.gun_can_stun_enemies = true
+	Events.upgrade_picked_up.emit(player_state)
+
+static func add_max_player_velocity() -> void:
+	player_state.max_player_velocity = clampf(player_state.max_player_velocity + 0.1, 1.0, 3.0)
 	Events.upgrade_picked_up.emit(player_state)

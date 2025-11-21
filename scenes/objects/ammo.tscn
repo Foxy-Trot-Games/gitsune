@@ -56,3 +56,5 @@ position = Vector2(-7, -11)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 position = Vector2(7, 11)
 shape = SubResource("RectangleShape2D_rqyln")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]

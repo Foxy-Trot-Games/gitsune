@@ -11,7 +11,6 @@ var _move_direction := Vector2.ZERO
 var _pending_knockback := Vector2.ZERO
 var _gun: Node2D
 var PLAYER_AIR_RESISTENCE := 0.1 # higher is more resistence up to 1.0
-var MAX_PLAYER_SPEED := 500
 var _animation_state := AnimationStates.IDLING
 var _allow_gravity_zone_movement := false
 var _dead := false
@@ -104,7 +103,8 @@ func _physics_process(delta: float) -> void:
 	velocity += get_gravity() * delta
 	
 	# prevent moving faster than set amount
-	velocity = velocity.clampf(-MAX_PLAYER_SPEED, MAX_PLAYER_SPEED)
+	var max_player_speed := speed * state.max_player_velocity
+	velocity = velocity.clampf(-max_player_speed, max_player_speed)
 	
 	# if falling
 	if _is_falling():

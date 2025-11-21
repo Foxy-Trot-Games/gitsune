@@ -40,3 +40,5 @@ physics_material_override = SubResource("PhysicsMaterial_fevk0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitboxStaticBody2D"]
 shape = SubResource("CircleShape2D_4jd34")
 debug_color = Color(0.95146316, 0, 0.5659614, 0.41960785)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]

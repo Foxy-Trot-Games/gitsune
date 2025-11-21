@@ -2,16 +2,7 @@ class_name Collectable extends AnimatedSprite2D
 
 var _id := 0
 
-@export_enum(
-	"RUNE",
-	"MAX_AMMO",
-	"RECHARGE_TIME",
-	"AIR_MOVEMENT",
-	"SUPER_JUMP",
-	"HOVER",
-	"CROUCH_LOCK_DOWN",
-	"STUN_ENEMIES",
-) var upgrade_type : int = 0
+@export var upgrade_type : Type
 
 enum Type {
 	RUNE,
@@ -22,6 +13,7 @@ enum Type {
 	HOVER,
 	CROUCH_LOCK_DOWN,
 	STUN_ENEMIES,
+	MAX_VELOCITY,
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -57,6 +49,8 @@ func collected() -> void:
 			PlayerState.add_crouch_lock_down()
 		Type.STUN_ENEMIES:
 			PlayerState.add_stun_enemies()
+		Type.MAX_VELOCITY:
+			PlayerState.add_max_player_velocity()
 		
 	_update_level_state()
 
