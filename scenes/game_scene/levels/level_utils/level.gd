@@ -2,13 +2,16 @@
 class_name Level extends Node2D
 
 signal level_exited(to_level_path : String, door_id: int)
+signal check_point_reached(check_point_pos: int)
 
 @export var bgm: AudioStreamMP3
-@export_file("*.tscn") var next_level_path : String
 
 @onready var tutorial_manager: TutorialManager = %TutorialManager
 @onready var player: Player = %Player
 @onready var camera_2d: Camera2D = $CameraManager/Camera2D
+
+static var current_check_point_pos := Vector2.INF
+static var spawn_at_door_id := -1
 
 var level_state : LevelState
 
@@ -22,6 +25,12 @@ func _ready() -> void:
 		Audio.play_bgm(bgm)
 		
 		assert(!_get_exits().is_empty(), "Level %s must have an exit!" % GameState.get_current_level_path())
+		
+		# move player to checkpoint or door
+		if current_check_point_pos != Vector2.INF:
+			player.global_position = current_check_point_pos
+		elif spawn_at_door_id != -1:
+			move_player_to_door(spawn_at_door_id)
 		
 		#print("== Player Data ==")
 		#Globals.print_all_properties(GameState.get_player_state())
@@ -49,13 +58,20 @@ func _get_exits() -> Array[LevelExit]:
 	exits.assign(get_tree().get_nodes_in_group("LevelExit"))
 	return exits
 
-func update_player_pos(spawn_at_door: int) -> void:
-	if spawn_at_door != -1:
+func move_player_to_door(door_id: int) -> void:
+	if door_id != -1:
 		var exits := _get_exits()
-		var index := spawn_at_door - 1
+		var index := door_id - 1
 		if index <= exits.size():
 			var exit := exits[index]
-			player.global_position = exit.global_position
 			exit.door_used.emit()
+			player.global_position = exit.global_position
 		else:
 			push_error("Door id %s not found!" % index)
+
+func _on_check_point_reached(check_point_pos: Vector2) -> void:
+	current_check_point_pos = check_point_pos
+
+func _on_level_exited(to_level_path: String, door_id: int) -> void:
+	current_check_point_pos = Vector2.INF
+	spawn_at_door_id = door_id

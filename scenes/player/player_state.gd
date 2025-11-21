@@ -13,7 +13,8 @@ extends Resource
 # allow aim direction
 # allow gun recharging
 # recharge 1 instantly on floor
-# max velocity multiplier
+# max velocity multiplier (up to 3?)
+# reactor wave recharges gun
 
 static var player_state : PlayerState :
 	get():

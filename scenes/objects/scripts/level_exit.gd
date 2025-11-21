@@ -52,7 +52,7 @@ func _on_body_exited(body: Node2D) -> void:
 func _on_door_used() -> void:
 	# disable door until player leaves it's area
 	_door_disabled = true
-	
+
 func _validate_property(property: Dictionary) -> void:
 	# disable id in the editor so it's readonly
 	if property.name == "id":

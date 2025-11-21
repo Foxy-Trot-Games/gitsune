@@ -54,4 +54,4 @@ func _connect_level_signals() -> void:
 
 func _on_level_exited_with_door(level_path: String, door_id: int) -> void:
 	current_level_path = level_path
-	level_loader.load_level(level_path, door_id)
+	level_loader.load_level(level_path)

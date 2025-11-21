@@ -77,4 +77,7 @@ position = Vector2(1000, 0)
 [node name="Player" parent="LevelObjects" instance=ExtResource("3_dcgko")]
 unique_name_in_owner = true
 
+[connection signal="check_point_reached" from="." to="." method="_on_check_point_reached"]
+[connection signal="level_exited" from="." to="." method="_on_level_exited"]
+
 [editable path="TileMapLayer"]
