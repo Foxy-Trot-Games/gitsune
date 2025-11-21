@@ -60,15 +60,14 @@ func _get_exits() -> Array[LevelExit]:
 	return exits
 
 func move_player_to_door(door_id: int) -> void:
-	if door_id != -1:
-		var exits := _get_exits()
-		var index := door_id - 1
-		if index <= exits.size():
-			var exit := exits[index]
-			exit.door_used.emit()
-			player.global_position = exit.global_position
-		else:
-			push_error("Door id %s not found!" % index)
+	var exits := _get_exits()
+	var index := door_id - 1
+	if index >= 0 && index < exits.size():
+		var exit := exits[index]
+		exit.door_used.emit()
+		player.global_position = exit.global_position
+	else:
+		push_error("Door ID %s is invalid or not found! Must be between 1 and %s." % [door_id, exits.size()])
 
 func _on_check_point_reached(check_point_pos: Vector2) -> void:
 	current_check_point_pos = check_point_pos

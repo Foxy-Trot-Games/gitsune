@@ -28,7 +28,8 @@ enum AnimationStates {
 	DYING
 }
 
-const PLAYER_FOOTSTEP_IND_1 = preload("uid://xgvd557bddwe")
+const PLAYER_FOOTSTEP = preload("uid://xgvd557bddwe")
+const PLAYER_DAMAGED = preload("uid://bmx8smly4ucvn")
 
 func _ready() -> void:
 	Events.player_movement_input_signal.connect(_on_player_movement_input_signal)
@@ -133,7 +134,7 @@ func _check_state() -> void:
 		AnimationStates.RUNNING:
 			_play_animation("run")
 			if is_on_floor():
-				Audio.play_sfx(PLAYER_FOOTSTEP_IND_1, self, 200, -40)
+				Audio.play_sfx(PLAYER_FOOTSTEP, self, 200, -40)
 
 func _play_animation(animation: String) -> void:
 	# only play the animation once, even the looping ones
@@ -146,6 +147,7 @@ func _player_died() -> void:
 		print("Player died") # for debugging
 		_update_anim_state(AnimationStates.DYING)
 		_dead = true
+		Audio.play_sfx(PLAYER_DAMAGED, self)
 		await player_sprite.animation_finished
 		# Using call_defered() here to avoid potential issues, removing collision bodies during
 		# _physics_process can lead to dumb and anoying issues. 
