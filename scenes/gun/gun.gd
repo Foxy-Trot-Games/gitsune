@@ -18,6 +18,7 @@ func _ready() -> void:
 	mouse_used.connect(_mouse_used)
 	pulse.pulse_activated_signal.connect(_on_pulse_activated_signal)
 	Events.ammo_picked_up.connect(_ammo_picked_up)
+	Events.player_died.connect(_player_died)
 	
 	# fill ammo
 	_ammo_picked_up()
@@ -68,3 +69,6 @@ func _on_pulse_activated_signal() -> void:
 func _update_gun_stats(ammo_amount: int = 0) -> void:
 	current_ammo = clampi(current_ammo + ammo_amount, 0, player.state.gun_max_ammo)
 	Events.gun_stats_updated.emit(current_ammo, player.state.gun_max_ammo)
+
+func _player_died() -> void:
+	queue_free()

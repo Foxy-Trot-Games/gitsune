@@ -14,6 +14,7 @@ var PLAYER_AIR_RESISTENCE := 0.1 # higher is more resistence up to 1.0
 var MAX_PLAYER_SPEED := 500
 var _animation_state := AnimationStates.IDLING
 var _allow_gravity_zone_movement := false
+var _dead := false
 var state : PlayerState :
 	get:
 		return GameState.get_player_state()
@@ -24,6 +25,7 @@ enum AnimationStates {
 	FALLING,
 	RISING,
 	IN_ZERO_GRAVITY,
+	DYING
 }
 
 const PLAYER_FOOTSTEP_IND_1 = preload("uid://xgvd557bddwe")
@@ -41,6 +43,7 @@ func _on_pulse_knockback(knockback: Vector2) -> void:
 	_pending_knockback += knockback
 
 func _on_player_movement_input_signal(direction: Vector2) -> void:
+	
 	_move_direction = direction
 	if !_gun:
 		for child in get_children():
@@ -114,7 +117,8 @@ func _physics_process(delta: float) -> void:
 	_check_state()
 
 func _update_anim_state(anim_state: AnimationStates) -> void:
-	_animation_state = anim_state
+	if !_dead:
+		_animation_state = anim_state
 
 func _check_state() -> void:
 	match(_animation_state):
@@ -124,6 +128,8 @@ func _check_state() -> void:
 			_play_animation("jump")
 		AnimationStates.FALLING:
 			_play_animation("fall")
+		AnimationStates.DYING:
+			_play_animation("dying")
 		AnimationStates.RUNNING:
 			_play_animation("run")
 			if is_on_floor():
@@ -136,6 +142,11 @@ func _play_animation(animation: String) -> void:
 
 #player dying function after emiting a signal from the enemies
 func _player_died() -> void:
-	print("Player died") # for debugging
-	get_tree().call_deferred("reload_current_scene") # Using call_defered() here to avoid potential issues, removing collision bodies during 
-												  # _physics_process can lead to dumb and anoying issues. 
+	if !_dead:
+		print("Player died") # for debugging
+		_update_anim_state(AnimationStates.DYING)
+		_dead = true
+		await player_sprite.animation_finished
+		# Using call_defered() here to avoid potential issues, removing collision bodies during
+		# _physics_process can lead to dumb and anoying issues. 
+		get_tree().call_deferred("reload_current_scene")  
