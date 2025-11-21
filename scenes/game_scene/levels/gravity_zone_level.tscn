@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://4vt7gpq3gv6"]
+[gd_scene load_steps=11 format=4 uid="uid://4vt7gpq3gv6"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_fbxgo"]
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="2_qv8id"]
 [ext_resource type="Shader" uid="uid://ula7reohgr3f" path="res://scenes/objects/scripts/gravity_zone.gdshader" id="3_2lp6h"]
 [ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="4_ag8u2"]
+[ext_resource type="PackedScene" uid="uid://bhvytctn2dvud" path="res://scenes/objects/check_point.tscn" id="4_oarqv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ag8u2"]
 resource_local_to_scene = true
@@ -115,6 +116,12 @@ offset_right = 2752.0
 offset_bottom = 224.0
 rotation = -1.5707964
 recharges_gun = true
+
+[node name="CheckPoint" parent="LevelObjects" index="3" instance=ExtResource("4_oarqv")]
+offset_left = -80.0
+offset_top = -408.0
+offset_right = -64.0
+offset_bottom = 176.0
 
 [node name="LevelExit" parent="." index="4" instance=ExtResource("4_ag8u2")]
 position = Vector2(-296, 176)

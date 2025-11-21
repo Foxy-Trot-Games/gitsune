@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://dflctox4ii57s"]
+[gd_scene load_steps=4 format=4 uid="uid://dflctox4ii57s"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_dsy36"]
 [ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="2_8yjnd"]
+[ext_resource type="PackedScene" uid="uid://bhvytctn2dvud" path="res://scenes/objects/check_point.tscn" id="3_8qa0l"]
 
 [node name="SpikeLevel" instance=ExtResource("1_dsy36")]
 
@@ -16,10 +17,10 @@ position = Vector2(-832, 316)
 
 [node name="Camera2D" parent="CameraManager" index="1"]
 position = Vector2(-832, 316)
-limit_left = -1152
-limit_top = 48
-limit_right = 1904
-limit_bottom = 496
+limit_left = -640
+limit_top = -2720
+limit_right = 640
+limit_bottom = 320
 
 [node name="ReactorBlastWave" parent="LevelObjects" index="0"]
 position = Vector2(-96, 0)
@@ -31,5 +32,11 @@ position = Vector2(-1096, 408)
 position = Vector2(-1128, 416)
 exit_to_level = "uid://5sva8qxnwd1n"
 exit_door_id = 1
+
+[node name="CheckPoint" parent="." index="4" instance=ExtResource("3_8qa0l")]
+offset_left = -928.0
+offset_top = 80.0
+offset_right = -912.0
+offset_bottom = 416.0
 
 [editable path="TileMapLayer"]

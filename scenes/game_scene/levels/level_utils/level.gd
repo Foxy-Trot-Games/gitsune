@@ -11,7 +11,6 @@ signal check_point_reached(check_point_pos: int)
 @onready var camera_2d: Camera2D = $CameraManager/Camera2D
 
 static var current_check_point_pos := Vector2.INF
-static var spawn_at_door_id := -1
 
 var level_state : LevelState
 
@@ -26,11 +25,13 @@ func _ready() -> void:
 		
 		assert(!_get_exits().is_empty(), "Level %s must have an exit!" % GameState.get_current_level_path())
 		
+		var current_door_id_spawn := GameState.get_current_door_id()
+		
 		# move player to checkpoint or door
 		if current_check_point_pos != Vector2.INF:
 			player.global_position = current_check_point_pos
-		elif spawn_at_door_id != -1:
-			move_player_to_door(spawn_at_door_id)
+		elif current_door_id_spawn != -1:
+			move_player_to_door(current_door_id_spawn)
 		
 		#print("== Player Data ==")
 		#Globals.print_all_properties(GameState.get_player_state())
@@ -74,4 +75,6 @@ func _on_check_point_reached(check_point_pos: Vector2) -> void:
 
 func _on_level_exited(to_level_path: String, door_id: int) -> void:
 	current_check_point_pos = Vector2.INF
-	spawn_at_door_id = door_id
+
+static func reset_global_variables() -> void:
+	current_check_point_pos = Vector2.INF

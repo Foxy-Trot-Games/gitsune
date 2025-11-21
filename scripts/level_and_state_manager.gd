@@ -3,6 +3,9 @@ extends LevelManager
 var level_change_shortcut := Shortcut.new()
 const ASSET_LEVEL := "uid://tthbu8e46oms"
 
+var current_door_id : int : 
+	set = _set_current_door_id
+
 func _ready() -> void:
 	super()
 	_setup_debug_level_change()
@@ -31,10 +34,13 @@ func _shortcut_input(event: InputEvent) -> void:
 		
 		load_current_level()
 
+func _set_current_door_id(door_id : int) -> void:
+	current_door_id = door_id
+	GameState.set_current_door_id(door_id)
+
 func set_current_level_path(value : String) -> void:
 	super.set_current_level_path(value)
 	GameState.set_current_level(value)
-	GameState.get_level_state(value)
 
 func get_current_level_path() -> String:
 	var state_level_path := GameState.get_current_level_path()
@@ -42,11 +48,11 @@ func get_current_level_path() -> String:
 		current_level_path = state_level_path
 	return super.get_current_level_path()
 
-func _advance_level() -> bool:
-	var _advanced := super._advance_level()
-	if _advanced:
-		GameState.level_reached(current_level_path)
-	return _advanced
+#func _advance_level() -> bool:
+	#var _advanced := super._advance_level()
+	#if _advanced:
+		#GameState.level_reached(current_level_path)
+	#return _advanced
 
 func _connect_level_signals() -> void:
 	super()
@@ -54,4 +60,5 @@ func _connect_level_signals() -> void:
 
 func _on_level_exited_with_door(level_path: String, door_id: int) -> void:
 	current_level_path = level_path
+	current_door_id = door_id
 	level_loader.load_level(level_path)
