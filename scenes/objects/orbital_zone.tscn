@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnf23nyxdykpd"]
+
+[ext_resource type="Script" uid="uid://17ed8l8egmug" path="res://scripts/reactor_zone.gd" id="1_xp8yc"]
+[ext_resource type="Texture2D" uid="uid://clm8sud0boggs" path="res://assets/background/Reactor.PNG" id="2_ujfpa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tv48y"]
+radius = 160.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_866b4"]
+atlas = ExtResource("2_ujfpa")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fevk0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4jd34"]
+radius = 32.0
+
+[node name="ReactorZone" type="Area2D"]
+gravity_space_override = 3
+gravity_point = true
+gravity_point_unit_distance = 32.0
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 1960.0
+script = ExtResource("1_xp8yc")
+metadata/_edit_group_ = true
+
+[node name="GravityCollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_tv48y")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_866b4")
+metadata/_edit_lock_ = true
+
+[node name="HitboxStaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+physics_material_override = SubResource("PhysicsMaterial_fevk0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitboxStaticBody2D"]
+shape = SubResource("CircleShape2D_4jd34")
+debug_color = Color(0.95146316, 0, 0.5659614, 0.41960785)
