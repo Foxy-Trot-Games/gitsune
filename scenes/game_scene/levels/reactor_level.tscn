@@ -1,39 +1,11 @@
-[gd_scene load_steps=21 format=4 uid="uid://3an4c0jv4wcj"]
+[gd_scene load_steps=19 format=4 uid="uid://3an4c0jv4wcj"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_tv48y"]
 [ext_resource type="Texture2D" uid="uid://clm8sud0boggs" path="res://assets/background/Reactor.PNG" id="2_866b4"]
-[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/Objects.PNG" id="4_4jd34"]
+[ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="4_866b4"]
+[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="5_4jd34"]
 [ext_resource type="Script" uid="uid://17ed8l8egmug" path="res://scripts/reactor_zone.gd" id="5_866b4"]
 [ext_resource type="PackedScene" uid="uid://dmeyxqrmciogn" path="res://scenes/enemy/IA_enemy_flying/enemy-flying.tscn" id="5_fevk0"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1aj08"]
-atlas = ExtResource("4_4jd34")
-region = Rect2(80, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fiey3"]
-atlas = ExtResource("4_4jd34")
-region = Rect2(112, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_airjs"]
-atlas = ExtResource("4_4jd34")
-region = Rect2(144, 0, 32, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_db41i"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1aj08")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fiey3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_airjs")
-}],
-"loop": true,
-"name": &"default",
-"speed": 1.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tv48y"]
 radius = 160.0
@@ -97,6 +69,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0fbp"]
+atlas = ExtResource("5_4jd34")
+region = Rect2(80, 0, 32, 48)
+
 [node name="ReactorLevel" instance=ExtResource("1_tv48y")]
 
 [node name="TileMapLayerBackdrop" parent="TileMapLayer" index="0"]
@@ -122,18 +98,12 @@ limit_right = 672
 limit_bottom = 224
 
 [node name="ReactorBlastWave" parent="LevelObjects" index="0"]
-position = Vector2(656, 0)
+position = Vector2(680, 0)
 
 [node name="Player" parent="LevelObjects" index="1"]
-position = Vector2(-344, 120)
+position = Vector2(-320, 120)
 
-[node name="Door" type="AnimatedSprite2D" parent="LevelObjects" index="2"]
-z_index = -1
-position = Vector2(-352, 104)
-sprite_frames = SubResource("SpriteFrames_db41i")
-frame_progress = 0.13099843
-
-[node name="ReactorZone" type="Area2D" parent="LevelObjects" index="3"]
+[node name="ReactorZone" type="Area2D" parent="LevelObjects" index="2"]
 position = Vector2(144, -64)
 gravity_space_override = 3
 gravity_point = true
@@ -173,7 +143,23 @@ sprite_frames = SubResource("SpriteFrames_1aj08")
 autoplay = "default"
 frame = 3
 
+[node name="LevelExit" parent="LevelObjects" index="3" instance=ExtResource("4_866b4")]
+position = Vector2(-352, 128)
+exit_to_level = "uid://5sva8qxnwd1n"
+exit_door_id = 5
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="LevelObjects/LevelExit" index="1"]
+texture = SubResource("AtlasTexture_o0fbp")
+
+[node name="AnimatedSprite2D" parent="LevelObjects/LevelExit" index="2"]
+visible = false
+
+[node name="Label2" parent="LevelObjects/LevelExit" index="4"]
+text = "Exit to tutorial_level door 5"
+
 [node name="Enemy-flying" parent="." index="4" instance=ExtResource("5_fevk0")]
 position = Vector2(448, -9)
 
 [editable path="TileMapLayer"]
+[editable path="LevelObjects/LevelExit"]

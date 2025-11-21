@@ -1,13 +1,14 @@
 [gd_scene load_steps=12 format=3 uid="uid://cmddg5wv0dp8m"]
 
 [ext_resource type="Script" uid="uid://cw6qo4vaghkoi" path="res://scenes/objects/scripts/level_exit.gd" id="1_2wvin"]
-[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/Objects.PNG" id="1_041fo"]
+[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="1_041fo"]
 [ext_resource type="Texture2D" uid="uid://d0i67rmduh3jj" path="res://assets/background/Runes.PNG" id="2_2wvin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_urmku"]
 size = Vector2(16, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_686pq"]
+resource_local_to_scene = true
 atlas = ExtResource("1_041fo")
 region = Rect2(160, 96, 16, 48)
 

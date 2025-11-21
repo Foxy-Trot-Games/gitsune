@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=4 uid="uid://tthbu8e46oms"]
+[gd_scene load_steps=3 format=4 uid="uid://tthbu8e46oms"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_dar8t"]
+[ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="2_v054b"]
 
 [node name="LevelTemplate" instance=ExtResource("1_dar8t")]
 
@@ -25,5 +26,10 @@ limit_left = -848
 limit_top = -48
 limit_right = 1328
 limit_bottom = 64
+
+[node name="LevelExit" parent="." index="4" instance=ExtResource("2_v054b")]
+position = Vector2(-184, -64)
+exit_to_level = "uid://5sva8qxnwd1n"
+exit_door_id = 1
 
 [editable path="TileMapLayer"]
