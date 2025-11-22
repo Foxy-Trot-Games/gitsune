@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjtwy15x6pvoh"]
+[gd_scene load_steps=8 format=3 uid="uid://cjtwy15x6pvoh"]
 
 [ext_resource type="PackedScene" uid="uid://buxglxwkslhwh" path="res://scenes/objects/collectables/collectable.tscn" id="1_o1b8n"]
 [ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="2_ram5w"]
+[ext_resource type="Script" uid="uid://cdao18a3u65km" path="res://scenes/game_scene/tutorials/tutorial_resource.gd" id="3_ram5w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_51pcr"]
 atlas = ExtResource("2_ram5w")
@@ -18,12 +19,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Resource" id="Resource_51pcr"]
+script = ExtResource("3_ram5w")
+title = "New Upgrade!"
+description_template = "You got a max ammo upgrade!"
+metadata/_custom_type_script = "uid://cdao18a3u65km"
+
 [sub_resource type="LabelSettings" id="LabelSettings_ram5w"]
 font_size = 10
 
 [node name="MaxAmmoPickup" instance=ExtResource("1_o1b8n")]
 sprite_frames = SubResource("SpriteFrames_4lto1")
 upgrade_type = 1
+tutorial_resource = SubResource("Resource_51pcr")
 
 [node name="Label" type="Label" parent="." index="2"]
 anchors_preset = 15

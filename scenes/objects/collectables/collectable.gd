@@ -3,6 +3,7 @@ class_name Collectable extends AnimatedSprite2D
 var _id := 0
 
 @export var upgrade_type : Type
+@export var tutorial_resource : TutorialResource
 
 enum Type {
 	RUNE,
@@ -15,6 +16,8 @@ enum Type {
 	STUN_ENEMIES,
 	MAX_VELOCITY,
 }
+
+const TUTORIAL_OVERLAY = preload("uid://m4lsx3aqr7pp")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -53,6 +56,22 @@ func collected() -> void:
 			PlayerState.add_max_player_velocity()
 		
 	_update_level_state()
+	show_tutorial()
 
 func _update_level_state() -> void:
 	Globals.get_level().level_state.collectable_ids[_id] = true
+
+func show_tutorial() -> void:
+	if tutorial_resource:
+		var tutorial_menu : TutorialOverlay = TUTORIAL_OVERLAY.instantiate()
+		if tutorial_menu == null:
+			push_warning("tutorial failed to open %s" % tutorial_resource)
+			return
+		
+		tutorial_menu.tutorial_resource = tutorial_resource
+			
+		get_tree().current_scene.call_deferred("add_child", tutorial_menu)
+		await tutorial_menu.tree_exited
+		var _initial_focus_control : Control = get_viewport().gui_get_focus_owner()
+		if is_inside_tree() and _initial_focus_control:
+			_initial_focus_control.grab_focus()

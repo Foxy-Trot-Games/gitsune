@@ -86,7 +86,6 @@ static func start_game() -> void:
 	GlobalState.save()
 
 static func continue_game() -> void:
-	var game_state := get_or_create_state()
 	Level.reset_global_variables()
 	GlobalState.save()
 

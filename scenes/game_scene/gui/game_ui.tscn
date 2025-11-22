@@ -7,8 +7,8 @@
 [ext_resource type="Script" uid="uid://cky55keub2m40" path="res://scripts/level_and_state_manager.gd" id="5_d8vx4"]
 [ext_resource type="PackedScene" uid="uid://bih50i74jlrdt" path="res://scenes/ui/overlaid_menus/game_won_menu.tscn" id="6_qa7j3"]
 [ext_resource type="Script" uid="uid://wjq7li836lwj" path="res://addons/maaacks_game_template/extras/scripts/scene_lister.gd" id="9_hubgp"]
-[ext_resource type="Script" uid="uid://crf22ob1ac5nj" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="11_s1qmy"]
-[ext_resource type="Script" uid="uid://bhhkpl5qbkqrm" path="res://scenes/game_scene/game_timer.gd" id="12_82h2j"]
+[ext_resource type="Script" uid="uid://crf22ob1ac5nj" path="res://scenes/game_scene/gui/configurable_sub_viewport.gd" id="11_s1qmy"]
+[ext_resource type="Script" uid="uid://bhhkpl5qbkqrm" path="res://scenes/game_scene/gui/game_timer.gd" id="12_82h2j"]
 [ext_resource type="Script" uid="uid://bexiob1ubclxm" path="res://scenes/game_scene/gui/scene_cache_manager.gd" id="13_d657n"]
 
 [sub_resource type="Animation" id="Animation_hmdyy"]

@@ -12,15 +12,15 @@ signal check_point_reached(check_point_pos: int)
 
 static var current_check_point_pos := Vector2.INF
 
-var level_state : LevelState
+var level_state : LevelState :
+	get():
+		return GameState.get_level_state(scene_file_path)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
 	# don't load data or play music in the editor
 	if !Engine.is_editor_hint():
-		level_state = GameState.get_level_state(scene_file_path)
-			
 		Audio.play_bgm(bgm)
 		
 		assert(!_get_exits().is_empty(), "Level %s must have an exit!" % GameState.get_current_level_path())

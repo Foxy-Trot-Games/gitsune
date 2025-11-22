@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://m4lsx3aqr7pp"]
+[gd_scene load_steps=3 format=3 uid="uid://m4lsx3aqr7pp"]
 
-[ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/nodes/overlaid_menu/overlaid_menu.tscn" id="1_b2dkv"]
+[ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/nodes/overlaid_menu/overlaid_menu.tscn" id="1_7meis"]
+[ext_resource type="Script" uid="uid://b28lrcw7l48i0" path="res://scenes/game_scene/tutorials/tutorial_overlay.gd" id="2_tta0h"]
 
-[node name="Tutorial1" instance=ExtResource("1_b2dkv")]
+[node name="TutorialOverlay" instance=ExtResource("1_7meis")]
 process_mode = 3
+script = ExtResource("2_tta0h")
 pauses_game = true
+makes_mouse_visible = null
 
 [node name="MenuPanelContainer" parent="." index="1"]
 offset_left = -206.0
@@ -16,14 +19,14 @@ offset_bottom = 76.0
 theme_override_constants/separation = 16
 
 [node name="TitleLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/TitleMargin" index="0"]
+unique_name_in_owner = true
 text = "Tutorial"
 
 [node name="DescriptionMargin" parent="MenuPanelContainer/MarginContainer/BoxContainer" index="1"]
 visible = true
 
 [node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
-text = "WD to move on ground
-WASD in air to use pulse gun to move around
-Space to stop in the air"
+unique_name_in_owner = true
+text = "Tutorial Description"
 fit_content = true
 horizontal_alignment = 1
