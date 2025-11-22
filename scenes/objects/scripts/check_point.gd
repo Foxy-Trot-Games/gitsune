@@ -17,6 +17,9 @@ extends ColorRect
 func _enter_tree() -> void:
 	var check_points := get_tree().get_nodes_in_group("CheckPoint")
 	id = check_points.size()
+	
+	if !Engine.is_editor_hint():
+		Globals.get_level().check_point_reached.connect(_check_point_reached)
 
 func _physics_process(_delta: float) -> void:
 	# if we are in the editor we want to redraw every frame so it updates correctly when editing
@@ -47,6 +50,11 @@ func _update_label_text() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		Globals.get_level().check_point_reached.emit(spawn_position.global_position)
+		modulate = Color.BLUE
+
+func _check_point_reached(pos: Vector2) -> void:
+	# set to normal color if another checkpoint has been reached
+	modulate = Color.WHITE
 
 func _validate_property(property: Dictionary) -> void:
 	# disable id in the editor so it's readonly

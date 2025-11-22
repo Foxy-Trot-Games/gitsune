@@ -30,10 +30,3 @@ self_modulate = Color(1, 0.29000002, 0.29000002, 1)
 sprite_frames = SubResource("SpriteFrames_jw0oh")
 upgrade_type = 2
 tutorial_resource = SubResource("Resource_l1tlv")
-
-[node name="Label" type="Label" parent="." index="2"]
-offset_left = -48.0
-offset_top = -32.0
-offset_right = 67.0
-offset_bottom = -9.0
-text = "Recharge Time"

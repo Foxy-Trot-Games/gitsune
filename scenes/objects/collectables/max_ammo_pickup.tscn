@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjtwy15x6pvoh"]
+[gd_scene load_steps=7 format=3 uid="uid://cjtwy15x6pvoh"]
 
 [ext_resource type="PackedScene" uid="uid://buxglxwkslhwh" path="res://scenes/objects/collectables/collectable.tscn" id="1_o1b8n"]
 [ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="2_ram5w"]
@@ -25,23 +25,7 @@ title = "New Upgrade!"
 description_template = "You got a max ammo upgrade!"
 metadata/_custom_type_script = "uid://cdao18a3u65km"
 
-[sub_resource type="LabelSettings" id="LabelSettings_ram5w"]
-font_size = 10
-
 [node name="MaxAmmoPickup" instance=ExtResource("1_o1b8n")]
 sprite_frames = SubResource("SpriteFrames_4lto1")
 upgrade_type = 1
 tutorial_resource = SubResource("Resource_51pcr")
-
-[node name="Label" type="Label" parent="." index="2"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -24.0
-offset_top = -24.0
-offset_right = 31.0
-offset_bottom = -10.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Max Ammo"
-label_settings = SubResource("LabelSettings_ram5w")
