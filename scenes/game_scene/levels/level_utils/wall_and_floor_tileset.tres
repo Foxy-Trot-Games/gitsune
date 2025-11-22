@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=30 format=3 uid="uid://y4ydrkwovoh6"]
+[gd_resource type="TileSet" load_steps=35 format=3 uid="uid://y4ydrkwovoh6"]
 
 [ext_resource type="Texture2D" uid="uid://cptmkw4ai58fx" path="res://assets/background/Floor Merged.PNG" id="1_hqnv6"]
 [ext_resource type="PackedScene" uid="uid://wpnqp08cv3bm" path="res://scenes/objects/spikes.tscn" id="6_icoyr"]
@@ -15,6 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://cjtwy15x6pvoh" path="res://scenes/objects/collectables/max_ammo_pickup.tscn" id="10_opqfu"]
 [ext_resource type="PackedScene" uid="uid://taxpycgm8yy5" path="res://scenes/objects/collectables/gun_recharge_time_pick_up.tscn" id="11_htd1m"]
 [ext_resource type="PackedScene" uid="uid://b8e2qcdmlxsvi" path="res://scenes/enemy/IA_enemy/enemy.tscn" id="11_opqfu"]
+[ext_resource type="PackedScene" uid="uid://cfoe2wmkrjqlc" path="res://scenes/objects/collectables/max_velocity_pickup.tscn" id="12_opqfu"]
+[ext_resource type="PackedScene" uid="uid://daktb3wems10m" path="res://scenes/objects/spikes-left.tscn" id="16_vnd77"]
+[ext_resource type="PackedScene" uid="uid://dmeyxqrmciogn" path="res://scenes/enemy/IA_enemy_flying/enemy-flying.tscn" id="17_0mavu"]
+[ext_resource type="PackedScene" uid="uid://dt3tly4le0rd5" path="res://scenes/objects/spikes-right.tscn" id="18_kauwh"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_vk6bf"]
 tile_data = PackedInt32Array(0, 655364, 7, 65536, 655364, 8)
@@ -1598,12 +1602,11 @@ texture = ExtResource("10_8p68r")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0mavu"]
 resource_name = "Level Interactables"
-scenes/1/scene = ExtResource("6_icoyr")
 scenes/2/scene = ExtResource("7_6n6g1")
-scenes/3/scene = ExtResource("8_6n6g1")
 scenes/4/scene = ExtResource("9_htd1m")
 scenes/5/scene = ExtResource("10_opqfu")
 scenes/6/scene = ExtResource("11_htd1m")
+scenes/7/scene = ExtResource("12_opqfu")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_m3kbm"]
 resource_name = "Enemies"
@@ -1611,6 +1614,14 @@ scenes/1/scene = ExtResource("8_xe3hx")
 scenes/2/scene = ExtResource("9_qwveq")
 scenes/3/scene = ExtResource("10_htd1m")
 scenes/4/scene = ExtResource("11_opqfu")
+scenes/5/scene = ExtResource("17_0mavu")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_jwdsv"]
+resource_name = "Hazards"
+scenes/1/scene = ExtResource("16_vnd77")
+scenes/2/scene = ExtResource("6_icoyr")
+scenes/4/scene = ExtResource("18_kauwh")
+scenes/5/scene = ExtResource("8_6n6g1")
 
 [resource]
 physics_layer_0/collision_layer = 1
@@ -1630,6 +1641,7 @@ sources/5 = SubResource("TileSetAtlasSource_biwt1")
 sources/0 = SubResource("TileSetAtlasSource_85mbc")
 sources/6 = SubResource("TileSetScenesCollectionSource_0mavu")
 sources/7 = SubResource("TileSetScenesCollectionSource_m3kbm")
+sources/8 = SubResource("TileSetScenesCollectionSource_jwdsv")
 pattern_0 = SubResource("TileMapPattern_vk6bf")
 pattern_1 = SubResource("TileMapPattern_wie53")
 pattern_2 = SubResource("TileMapPattern_8duue")

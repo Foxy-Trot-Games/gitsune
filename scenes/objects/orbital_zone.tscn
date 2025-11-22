@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://clm8sud0boggs" path="res://assets/background/Reactor.PNG" id="2_ujfpa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tv48y"]
+resource_local_to_scene = true
 radius = 160.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_866b4"]

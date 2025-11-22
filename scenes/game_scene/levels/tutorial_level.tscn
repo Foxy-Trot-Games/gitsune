@@ -144,29 +144,11 @@ text = "to use wave gun"
 label_settings = SubResource("LabelSettings_n4lor")
 
 [node name="LevelExit" parent="." index="7" instance=ExtResource("11_10kyj")]
-position = Vector2(488, -416)
-exit_to_level = "uid://55povc15q3oi"
+position = Vector2(360, 16)
+exit_to_level = "uid://btbewbohacu3h"
 exit_door_id = 1
 
-[node name="LevelExit2" parent="." index="8" instance=ExtResource("11_10kyj")]
-position = Vector2(1040, -416)
-id = 2
-exit_to_level = "uid://cya258o1v5myq"
-exit_door_id = 1
-
-[node name="LevelExit3" parent="." index="9" instance=ExtResource("11_10kyj")]
-position = Vector2(728, -688)
-id = 3
-exit_to_level = "uid://bbs5nnw0ywg3v"
-exit_door_id = 1
-
-[node name="LevelExit4" parent="." index="10" instance=ExtResource("11_10kyj")]
-position = Vector2(1368, -688)
-id = 4
-exit_to_level = "uid://4vt7gpq3gv6"
-exit_door_id = 1
-
-[node name="LevelExit5" parent="." index="11" instance=ExtResource("11_10kyj")]
+[node name="LevelExit5" parent="." index="8" instance=ExtResource("11_10kyj")]
 position = Vector2(3968, -688)
 id = 5
 exit_to_level = "uid://3an4c0jv4wcj"

@@ -9,7 +9,7 @@ extends Resource
 @export var has_hover : bool = false
 @export var has_crouch_lock_down : bool = false
 @export var gun_can_stun_enemies : bool = false
-@export var max_player_velocity := 1.1
+@export var max_player_velocity := 1.2
 # future upgrades?
 # allow aim direction
 # allow gun recharging

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://daktb3wems10m"]
+
+[ext_resource type="PackedScene" uid="uid://wpnqp08cv3bm" path="res://scenes/objects/spikes.tscn" id="1_b30ij"]
+
+[node name="Spikes" instance=ExtResource("1_b30ij")]
+rotation = -1.5707964

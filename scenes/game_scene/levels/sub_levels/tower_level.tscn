@@ -151,9 +151,9 @@ exit_to_level = "uid://5sva8qxnwd1n"
 exit_door_id = 3
 
 [node name="CheckPoint" parent="LevelObjects" index="5" instance=ExtResource("7_v6c7n")]
-offset_left = -96.0
-offset_top = -1824.0
-offset_right = -80.0
-offset_bottom = -1520.0
+offset_left = 72.0
+offset_top = -2688.0
+offset_right = 88.0
+offset_bottom = -2592.0
 
 [editable path="TileMapLayer"]
