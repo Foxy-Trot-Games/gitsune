@@ -9,6 +9,7 @@ signal ammo_picked_up(amount_picked_up: int)
 signal upgrade_picked_up(state: PlayerState)
 signal gun_stats_updated(ammo_count_left: int, max_ammo: int)
 signal player_died
+signal reactor_wave_moved(pos: Vector2, limits: Vector2)
 
 func player_movement_input(direction:Vector2) -> void:
 	emit_signal("player_movement_input_signal", direction)

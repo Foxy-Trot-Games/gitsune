@@ -1,5 +1,5 @@
 @tool
-extends Node2D
+class_name ReactorBlastWave extends Node2D
 
 @export_enum("left","right") var start_position : int = Position.RIGHT
 @export var wave_speed := 100 # pixels
@@ -43,12 +43,15 @@ func _physics_process(delta: float) -> void:
 	global_position.x +=  _actual_wave_speed * delta
 	
 	# wrap the wave if too far from player
-	var wrapped_wave_x := wrapf(global_position.x, _player.global_position.x - _x_offset, _player.global_position.x + _x_offset)
+	var limits := Vector2(_player.global_position.x - _x_offset, _player.global_position.x + _x_offset)
+	var wrapped_wave_x := wrapf(global_position.x, limits.x, limits.y)
 	
 	# wrapped should occured
 	if wrapped_wave_x != global_position.x:
 		global_position.x = wrapped_wave_x
 		reset_physics_interpolation()
+		
+	Events.reactor_wave_moved.emit(global_position, limits)
 
 func get_player() -> Player:
 	# get_tree() is needed so this works in the editor

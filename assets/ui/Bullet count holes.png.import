@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwqa3y70gnlxm"
-path="res://.godot/imported/ammo.png-a1cf5e0b66fe8759585d03e606a861f5.ctex"
+uid="uid://dgqrqkdmf6a1j"
+path="res://.godot/imported/Bullet count holes.png-8bccb9afa434ec28f2239710f58cd7a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/ammo.png"
-dest_files=["res://.godot/imported/ammo.png-a1cf5e0b66fe8759585d03e606a861f5.ctex"]
+source_file="res://assets/ui/Bullet count holes.png"
+dest_files=["res://.godot/imported/Bullet count holes.png-8bccb9afa434ec28f2239710f58cd7a9.ctex"]
 
 [params]
 
