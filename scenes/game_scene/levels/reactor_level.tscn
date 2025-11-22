@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://3an4c0jv4wcj"]
+[gd_scene load_steps=17 format=4 uid="uid://3an4c0jv4wcj"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_tv48y"]
 [ext_resource type="Texture2D" uid="uid://clm8sud0boggs" path="res://assets/background/Reactor.PNG" id="2_866b4"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="4_866b4"]
 [ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="5_4jd34"]
 [ext_resource type="PackedScene" uid="uid://dmeyxqrmciogn" path="res://scenes/enemy/IA_enemy_flying/enemy-flying.tscn" id="5_fevk0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fevk0"]
+resource_local_to_scene = true
+radius = 160.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4jd34"]
 atlas = ExtResource("2_866b4")
@@ -98,6 +102,9 @@ position = Vector2(-320, 120)
 [node name="ReactorOrbitalZone" parent="LevelObjects" index="2" instance=ExtResource("2_fevk0")]
 position = Vector2(144, -64)
 
+[node name="GravityCollisionShape2D" parent="LevelObjects/ReactorOrbitalZone" index="0"]
+shape = SubResource("CircleShape2D_fevk0")
+
 [node name="Sprite2D" parent="LevelObjects/ReactorOrbitalZone" index="1"]
 texture = SubResource("AtlasTexture_4jd34")
 
@@ -115,7 +122,7 @@ autoplay = "default"
 [node name="LevelExit" parent="LevelObjects" index="3" instance=ExtResource("4_866b4")]
 position = Vector2(-352, 128)
 exit_to_level = "uid://5sva8qxnwd1n"
-exit_door_id = 5
+exit_door_id = 2
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" parent="LevelObjects/LevelExit" index="1"]
@@ -125,7 +132,7 @@ texture = SubResource("AtlasTexture_o0fbp")
 visible = false
 
 [node name="Label2" parent="LevelObjects/LevelExit" index="4"]
-text = "Exit to tutorial_level door 5"
+text = "Exit to tutorial_level door 2"
 
 [node name="Enemy-flying" parent="." index="4" instance=ExtResource("5_fevk0")]
 position = Vector2(448, -9)

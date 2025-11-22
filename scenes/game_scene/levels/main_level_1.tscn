@@ -222,38 +222,29 @@ recharges_gun = true
 
 [node name="BigReactorZone" parent="LevelObjects/OrbitalZones" index="0" instance=ExtResource("3_lxo8s")]
 position = Vector2(2480, -1608)
-zone_radius = 160
 
 [node name="BigReactorZone2" parent="LevelObjects/OrbitalZones" index="1" instance=ExtResource("3_lxo8s")]
 position = Vector2(2720, -1904)
-zone_radius = 160
 
 [node name="BigReactorZone3" parent="LevelObjects/OrbitalZones" index="2" instance=ExtResource("3_lxo8s")]
 position = Vector2(2952, -1616)
-zone_radius = 160
 
 [node name="BigReactorZone4" parent="LevelObjects/OrbitalZones" index="3" instance=ExtResource("3_lxo8s")]
 position = Vector2(2664, -2248)
-zone_radius = 160
 
 [node name="ReactorZone2" parent="LevelObjects/OrbitalZones" index="4" instance=ExtResource("3_lxo8s")]
 position = Vector2(3960, -1536)
-zone_radius = 160
 
 [node name="ReactorZone3" parent="LevelObjects/OrbitalZones" index="5" instance=ExtResource("3_lxo8s")]
 position = Vector2(4320, -1896)
-zone_radius = 160
 
 [node name="ReactorZone4" parent="LevelObjects/OrbitalZones" index="6" instance=ExtResource("3_lxo8s")]
 position = Vector2(3896, -2424)
-zone_radius = 160
 
 [node name="ReactorZone5" parent="LevelObjects/OrbitalZones" index="7" instance=ExtResource("3_lxo8s")]
 position = Vector2(4320, -2768)
-zone_radius = 160
 
 [node name="ReactorZone6" parent="LevelObjects/OrbitalZones" index="8" instance=ExtResource("3_lxo8s")]
 position = Vector2(3920, -3088)
-zone_radius = 160
 
 [editable path="TileMapLayer"]

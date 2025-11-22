@@ -150,7 +150,7 @@ exit_door_id = 1
 
 [node name="LevelExit5" parent="." index="8" instance=ExtResource("11_10kyj")]
 position = Vector2(3968, -688)
-id = 5
+id = 2
 exit_to_level = "uid://3an4c0jv4wcj"
 exit_door_id = 1
 
