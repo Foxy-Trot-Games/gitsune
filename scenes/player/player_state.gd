@@ -10,7 +10,8 @@ extends Resource
 @export var has_crouch_lock_down : bool = false
 @export var gun_can_stun_enemies : bool = false
 @export var max_player_velocity := 1.2
-@export var have_key : bool = false
+@export var keys : Dictionary = {}
+
 
 # future upgrades?
 # allow aim direction
@@ -58,6 +59,6 @@ static func add_max_player_velocity() -> void:
 	player_state.max_player_velocity = clampf(player_state.max_player_velocity + 0.1, 1.0, 3.0)
 	Events.upgrade_picked_up.emit(player_state)
 
-static func have_Key() -> void:
-	player_state.have_key=true
+static func add_key(key_id: int) -> void:
+	player_state.keys[key_id] = true
 	Events.have_key.emit(player_state)

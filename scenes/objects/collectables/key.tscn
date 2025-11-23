@@ -185,7 +185,7 @@ radius = 17.117243
 [node name="key" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_bjo4i")
 autoplay = "default"
-frame_progress = 0.71628046
+frame_progress = 0.6494499
 script = ExtResource("1_byec5")
 upgrade_type = 9
 metadata/_custom_type_script = "uid://d3nmh1p5tpvpp"
