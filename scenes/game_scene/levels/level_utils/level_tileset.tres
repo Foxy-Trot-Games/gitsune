@@ -1,18 +1,18 @@
 [gd_resource type="TileSet" load_steps=36 format=3 uid="uid://28o3066vdu43"]
 
-[ext_resource type="Texture2D" uid="uid://clm8sud0boggs" path="res://assets/background/Reactor.PNG" id="1_2qxyp"]
-[ext_resource type="Texture2D" uid="uid://bxeswykili35j" path="res://assets/background/Lab.PNG" id="2_vdce3"]
-[ext_resource type="Texture2D" uid="uid://d0i67rmduh3jj" path="res://assets/background/Runes.PNG" id="7_caxap"]
+[ext_resource type="Texture2D" uid="uid://d3vntilj6j31r" path="res://assets/background/Reactor.PNG" id="1_2qxyp"]
+[ext_resource type="Texture2D" uid="uid://duc12xc6nyatb" path="res://assets/background/Lab.PNG" id="2_vdce3"]
+[ext_resource type="Texture2D" uid="uid://c04gduq36mevi" path="res://assets/background/Runes.PNG" id="7_caxap"]
 [ext_resource type="Texture2D" uid="uid://uqxnqvc5ghf0" path="res://assets/background/walls_tileset.png" id="7_wj4xs"]
 [ext_resource type="Texture2D" uid="uid://cik7u4ts61k5g" path="res://assets/background/walls2_tileset.png" id="8_b0pys"]
-[ext_resource type="Texture2D" uid="uid://dnm732j6r7fso" path="res://assets/background/Environment.PNG" id="8_bspnc"]
-[ext_resource type="Texture2D" uid="uid://cirptdnn2gcg6" path="res://assets/background/Gradients.PNG" id="9_bspnc"]
+[ext_resource type="Texture2D" uid="uid://c73d1u3kwjxu8" path="res://assets/background/Environment.PNG" id="8_bspnc"]
+[ext_resource type="Texture2D" uid="uid://b28g5gcxsnkk0" path="res://assets/background/Gradients.PNG" id="9_bspnc"]
 [ext_resource type="Texture2D" uid="uid://b0hoeiplnp4ka" path="res://assets/background/walls3_tileset.png" id="9_hbkr3"]
 [ext_resource type="Texture2D" uid="uid://clfyedk8db5o6" path="res://assets/background/walls4_tileset.png" id="10_stai2"]
-[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="11_rd7l0"]
-[ext_resource type="Texture2D" uid="uid://0s6i5onprh44" path="res://assets/background/background.png" id="12_mvbge"]
-[ext_resource type="Texture2D" uid="uid://cptmkw4ai58fx" path="res://assets/background/Floor Merged.PNG" id="12_uxekd"]
-[ext_resource type="Texture2D" uid="uid://bpohorpiprt3i" path="res://assets/background/Wall overlay.PNG" id="13_1yjvj"]
+[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/Objects.png" id="10_vdce3"]
+[ext_resource type="Texture2D" uid="uid://0s6i5onprh44" path="res://assets/background/Background.png" id="11_uxekd"]
+[ext_resource type="Texture2D" uid="uid://pkmokv2xd2q4" path="res://assets/background/Floor Merged.PNG" id="12_uxekd"]
+[ext_resource type="Texture2D" uid="uid://cey2uudy27aw4" path="res://assets/background/Wall overlay.PNG" id="13_1yjvj"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_vk6bf"]
 tile_data = PackedInt32Array(0, 655364, 7, 65536, 655364, 8)
@@ -1844,7 +1844,7 @@ texture = ExtResource("10_stai2")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wie53"]
 resource_name = "Objects"
-texture = ExtResource("11_rd7l0")
+texture = ExtResource("10_vdce3")
 13:3/size_in_atlas = Vector2i(2, 1)
 13:3/0 = 0
 2:4/next_alternative_id = 2
@@ -2141,7 +2141,7 @@ texture = ExtResource("11_rd7l0")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_khmux"]
 resource_name = "Background"
-texture = ExtResource("12_mvbge")
+texture = ExtResource("11_uxekd")
 0:0/0 = 0
 1:0/0 = 0
 4:0/0 = 0
@@ -2218,6 +2218,90 @@ texture = ExtResource("12_mvbge")
 4:12/0 = 0
 5:12/0 = 0
 0:4/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+7:9/0 = 0
+7:10/0 = 0
+6:9/0 = 0
+6:8/0 = 0
+6:10/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+7:12/0 = 0
+7:13/0 = 0
+6:13/0 = 0
+6:14/0 = 0
+5:14/0 = 0
+4:14/0 = 0
+3:14/0 = 0
+2:14/0 = 0
+1:14/0 = 0
+1:13/0 = 0
+0:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+4:15/0 = 0
+3:15/0 = 0
+2:15/0 = 0
+1:15/0 = 0
+0:15/0 = 0
+0:14/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+7:14/0 = 0
+8:13/0 = 0
+8:14/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+14:15/0 = 0
+13:15/0 = 0
+14:13/0 = 0
+13:13/0 = 0
+12:13/0 = 0
+11:13/0 = 0
+10:13/0 = 0
+10:14/0 = 0
+9:14/0 = 0
+9:13/0 = 0
+9:12/0 = 0
+8:12/0 = 0
+8:11/0 = 0
+8:10/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+9:10/0 = 0
+9:11/0 = 0
+10:12/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+11:12/0 = 0
+11:10/0 = 0
+11:9/0 = 0
+11:8/0 = 0
+10:8/0 = 0
+10:7/0 = 0
+9:7/0 = 0
+8:7/0 = 0
+9:8/0 = 0
+10:9/0 = 0
+10:10/0 = 0
+6:12/0 = 0
+11:7/0 = 0
+11:14/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g46di"]
 resource_name = "Floor"

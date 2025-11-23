@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhvytctn2dvud"]
+[gd_scene load_steps=15 format=3 uid="uid://bhvytctn2dvud"]
 
 [ext_resource type="Script" uid="uid://bn6f8vsgi5oru" path="res://scenes/objects/scripts/check_point.gd" id="1_r0psj"]
-[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="2_f65a1"]
+[ext_resource type="Texture2D" uid="uid://duc12xc6nyatb" path="res://assets/background/Lab.png" id="2_f65a1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0psj"]
 resource_local_to_scene = true
@@ -9,7 +9,91 @@ size = Vector2(16, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vrjdh"]
 atlas = ExtResource("2_f65a1")
-region = Rect2(96, 160, 16, 32)
+region = Rect2(144, 208, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jy5w"]
+atlas = ExtResource("2_f65a1")
+region = Rect2(160, 208, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ity4p"]
+atlas = ExtResource("2_f65a1")
+region = Rect2(176, 208, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c6vl"]
+atlas = ExtResource("2_f65a1")
+region = Rect2(128, 160, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i56cs"]
+atlas = ExtResource("2_f65a1")
+region = Rect2(144, 160, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_paiqw"]
+atlas = ExtResource("2_f65a1")
+region = Rect2(96, 208, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o228"]
+atlas = ExtResource("2_f65a1")
+region = Rect2(112, 208, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aguhf"]
+atlas = ExtResource("2_f65a1")
+region = Rect2(128, 208, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6c63"]
+atlas = ExtResource("2_f65a1")
+region = Rect2(96, 160, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drqok"]
+atlas = ExtResource("2_f65a1")
+region = Rect2(112, 160, 16, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f65a1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrjdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jy5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ity4p")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6c6vl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i56cs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_paiqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o228")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aguhf")
+}],
+"loop": false,
+"name": &"charging",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6c63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drqok")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 1.0
+}]
 
 [node name="CheckPoint" type="ColorRect" groups=["CheckPoint"]]
 custom_minimum_size = Vector2(16, 16)
@@ -31,21 +115,6 @@ debug_color = Color(0.38633335, 0.61, 0, 0.41960785)
 rect = Rect2(0, 0, 16, 56)
 show_rect = false
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -50.5
-offset_right = 50.5
-offset_bottom = 23.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Checkpoint 1"
-horizontal_alignment = 1
-
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -59,8 +128,10 @@ grow_vertical = 0
 [node name="SpawnPosition" type="Marker2D" parent="Control"]
 unique_name_in_owner = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Control"]
-position = Vector2(0, -16)
-texture = SubResource("AtlasTexture_vrjdh")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_f65a1")
+animation = &"inactive"
+autoplay = "inactive"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

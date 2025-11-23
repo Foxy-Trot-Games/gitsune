@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://clm8sud0boggs" path="res://assets/background/Reactor.PNG" id="2_866b4"]
 [ext_resource type="PackedScene" uid="uid://cnf23nyxdykpd" path="res://scenes/objects/orbital_zone.tscn" id="2_fevk0"]
 [ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="4_866b4"]
-[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="5_4jd34"]
+[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/Objects.png" id="5_4jd34"]
 [ext_resource type="PackedScene" uid="uid://dmeyxqrmciogn" path="res://scenes/enemy/IA_enemy_flying/enemy-flying.tscn" id="5_fevk0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fevk0"]
@@ -88,10 +88,10 @@ position = Vector2(-64, 44)
 
 [node name="Camera2D" parent="CameraManager" index="1"]
 position = Vector2(-64, 44)
-limit_left = -384
-limit_top = -272
-limit_right = 672
-limit_bottom = 224
+limit_left = -224
+limit_top = -3536
+limit_right = 4576
+limit_bottom = 496
 
 [node name="ReactorBlastWave" parent="LevelObjects" index="0"]
 position = Vector2(680, 0)

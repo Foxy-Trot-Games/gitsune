@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dj26b32jiqwfe"]
 
 [ext_resource type="Script" uid="uid://cuf1bj5lvgp7o" path="res://scenes/objects/scripts/ammo.gd" id="1_fj73r"]
-[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="2_rqyln"]
+[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/Objects.png" id="2_rqyln"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5yyah"]
 atlas = ExtResource("2_rqyln")
