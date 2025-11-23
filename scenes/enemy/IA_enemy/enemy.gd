@@ -72,7 +72,8 @@ func _physics_process(delta: float) -> void:
 
 func handle_gravity(delta: float) -> void:
 	if not is_on_floor():
-		velocity.y += ProjectSettings.get_setting("physics/2d/default_gravity") * delta
+		velocity += get_gravity() * delta
+
 
 
 # ======================
