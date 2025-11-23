@@ -38,8 +38,8 @@ func _on_body_entered(body: Node2D) -> void:
 func collected() -> void:
 	match upgrade_type:
 		Type.KEY:
-			print("1");
-			PlayerState.have_Key()
+			print("key collected: ")
+			PlayerState.add_key(_id)
 		Type.RUNE:
 			PlayerState.add_rune()
 		Type.MAX_AMMO:
