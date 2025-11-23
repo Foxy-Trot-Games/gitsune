@@ -15,6 +15,7 @@ enum Type {
 	CROUCH_LOCK_DOWN,
 	STUN_ENEMIES,
 	MAX_VELOCITY,
+	KEY,
 }
 
 const TUTORIAL_OVERLAY = preload("uid://m4lsx3aqr7pp")
@@ -36,6 +37,9 @@ func _on_body_entered(body: Node2D) -> void:
 
 func collected() -> void:
 	match upgrade_type:
+		Type.KEY:
+			print("1");
+			PlayerState.have_Key()
 		Type.RUNE:
 			PlayerState.add_rune()
 		Type.MAX_AMMO:
@@ -54,6 +58,7 @@ func collected() -> void:
 			PlayerState.add_stun_enemies()
 		Type.MAX_VELOCITY:
 			PlayerState.add_max_player_velocity()
+		
 		
 	_update_level_state()
 	show_tutorial()

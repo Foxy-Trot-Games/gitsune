@@ -10,6 +10,8 @@ extends Resource
 @export var has_crouch_lock_down : bool = false
 @export var gun_can_stun_enemies : bool = false
 @export var max_player_velocity := 1.2
+@export var have_key : bool = false
+
 # future upgrades?
 # allow aim direction
 # allow gun recharging
@@ -55,3 +57,7 @@ static func add_stun_enemies() -> void:
 static func add_max_player_velocity() -> void:
 	player_state.max_player_velocity = clampf(player_state.max_player_velocity + 0.1, 1.0, 3.0)
 	Events.upgrade_picked_up.emit(player_state)
+
+static func have_Key() -> void:
+	player_state.have_key=true
+	Events.have_key.emit(player_state)

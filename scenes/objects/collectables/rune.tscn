@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://6hi36kq1jffv"]
+[gd_scene load_steps=9 format=3 uid="uid://dtx2dwejqj456"]
 
 [ext_resource type="PackedScene" uid="uid://buxglxwkslhwh" path="res://scenes/objects/collectables/collectable.tscn" id="1_ipmkl"]
-[ext_resource type="Texture2D" uid="uid://c04gduq36mevi" path="res://assets/background/Runes.png" id="2_pjg3v"]
+[ext_resource type="Texture2D" uid="uid://c04gduq36mevi" path="res://assets/background/Runes.PNG" id="2_pjg3v"]
+[ext_resource type="Script" uid="uid://d3nmh1p5tpvpp" path="res://scenes/objects/collectables/collectable.gd" id="3_yeiic"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ct4fg"]
 atlas = ExtResource("2_pjg3v")
@@ -41,4 +42,6 @@ animations = [{
 
 [node name="Rune" instance=ExtResource("1_ipmkl")]
 sprite_frames = SubResource("SpriteFrames_da8kg")
-frame_progress = 0.9487127
+frame_progress = 0.58764863
+script = ExtResource("3_yeiic")
+upgrade_type = 0
