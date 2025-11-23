@@ -7,7 +7,7 @@ class_name ReactorBlastWave extends Node2D
 @export var wave_period := 20.0 # seconds
 
 @onready var area_2d: Area2D = %Area2D
-@onready var _player : Player = get_player()
+@onready var _player: Node2D = %Player
 @onready var _x_offset := wave_speed * wave_period / 2
 
 var _actual_wave_speed : int
