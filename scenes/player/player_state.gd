@@ -62,3 +62,4 @@ static func add_max_player_velocity() -> void:
 static func add_key(key_id: int) -> void:
 	player_state.keys[key_id] = true
 	Events.have_key.emit(player_state)
+	print("have key")

@@ -1,6 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://651u78jfo4el"]
+[gd_scene load_steps=28 format=3 uid="uid://651u78jfo4el"]
 
-[ext_resource type="Texture2D" uid="uid://cevxxwawcy6qe" path="res://scenes/objects/keys/key_32x32_24f.png" id="1_bjo4i"]
+[ext_resource type="Texture2D" uid="uid://dpske0enmsf6d" path="res://assets/objects/key_32x32_24f.png" id="1_bjo4i"]
 [ext_resource type="Script" uid="uid://d3nmh1p5tpvpp" path="res://scenes/objects/collectables/collectable.gd" id="1_byec5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eeiyl"]
@@ -25,77 +25,73 @@ region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3fo7j"]
 atlas = ExtResource("1_bjo4i")
-region = Rect2(160, 0, 32, 32)
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cbnl1"]
 atlas = ExtResource("1_bjo4i")
-region = Rect2(192, 0, 32, 32)
+region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y0wc5"]
 atlas = ExtResource("1_bjo4i")
-region = Rect2(224, 0, 32, 32)
+region = Rect2(256, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8d2o1"]
 atlas = ExtResource("1_bjo4i")
-region = Rect2(256, 0, 32, 32)
+region = Rect2(288, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ebph"]
 atlas = ExtResource("1_bjo4i")
-region = Rect2(288, 0, 32, 32)
+region = Rect2(320, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7u0ct"]
 atlas = ExtResource("1_bjo4i")
-region = Rect2(320, 0, 32, 32)
+region = Rect2(352, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cwujw"]
 atlas = ExtResource("1_bjo4i")
-region = Rect2(352, 0, 32, 32)
+region = Rect2(384, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_25ar2"]
 atlas = ExtResource("1_bjo4i")
-region = Rect2(384, 0, 32, 32)
+region = Rect2(416, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ng3rt"]
 atlas = ExtResource("1_bjo4i")
-region = Rect2(416, 0, 32, 32)
+region = Rect2(448, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ipap"]
 atlas = ExtResource("1_bjo4i")
-region = Rect2(448, 0, 32, 32)
+region = Rect2(480, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mdg3r"]
 atlas = ExtResource("1_bjo4i")
-region = Rect2(480, 0, 32, 32)
+region = Rect2(512, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6rob4"]
 atlas = ExtResource("1_bjo4i")
-region = Rect2(512, 0, 32, 32)
+region = Rect2(544, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wp7vq"]
 atlas = ExtResource("1_bjo4i")
-region = Rect2(544, 0, 32, 32)
+region = Rect2(576, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ynku"]
 atlas = ExtResource("1_bjo4i")
-region = Rect2(576, 0, 32, 32)
+region = Rect2(608, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jk4vn"]
 atlas = ExtResource("1_bjo4i")
-region = Rect2(608, 0, 32, 32)
+region = Rect2(640, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vfrsy"]
 atlas = ExtResource("1_bjo4i")
-region = Rect2(640, 0, 32, 32)
+region = Rect2(672, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yxog8"]
 atlas = ExtResource("1_bjo4i")
-region = Rect2(672, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_53qkn"]
-atlas = ExtResource("1_bjo4i")
 region = Rect2(704, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_evpii"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_53qkn"]
 atlas = ExtResource("1_bjo4i")
 region = Rect2(736, 0, 32, 32)
 
@@ -170,13 +166,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_53qkn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_evpii")
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 11.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x0ill"]
@@ -185,7 +178,7 @@ radius = 17.117243
 [node name="key" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_bjo4i")
 autoplay = "default"
-frame_progress = 0.6494499
+frame_progress = 0.50224096
 script = ExtResource("1_byec5")
 upgrade_type = 9
 metadata/_custom_type_script = "uid://d3nmh1p5tpvpp"
@@ -195,3 +188,5 @@ metadata/_custom_type_script = "uid://d3nmh1p5tpvpp"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_x0ill")
 debug_color = Color(0.64602995, 0.5222759, 1.92523e-07, 0.41960785)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
