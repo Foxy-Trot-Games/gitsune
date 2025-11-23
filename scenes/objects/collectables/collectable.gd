@@ -24,7 +24,6 @@ const TUTORIAL_OVERLAY = preload("uid://m4lsx3aqr7pp")
 func _ready() -> void:
 	# generate a unique hash based on the level name and the global position
 	_id = hash("%s-%s-%s" % [GameState.get_current_level_path(), global_position.x, global_position.y])
-	
 	var level_collectables : Dictionary[int, bool] = Globals.get_level().level_state.collectable_ids
 	# delete the collectable if it was collected in the level state
 	if level_collectables.has(_id):
@@ -38,7 +37,6 @@ func _on_body_entered(body: Node2D) -> void:
 func collected() -> void:
 	match upgrade_type:
 		Type.KEY:
-			print("key collected: ")
 			PlayerState.add_key(_id)
 		Type.RUNE:
 			PlayerState.add_rune()

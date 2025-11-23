@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://5sva8qxnwd1n"]
+[gd_scene load_steps=14 format=4 uid="uid://5sva8qxnwd1n"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_fnadv"]
 [ext_resource type="Texture2D" uid="uid://c44erxtka5iab" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_w.png" id="2_n4lor"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://kj4aq02s6wjx" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrow_right.png" id="9_7euxc"]
 [ext_resource type="Texture2D" uid="uid://ceh5r47vyytrr" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_left.png" id="10_vnr1l"]
 [ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="11_10kyj"]
+[ext_resource type="PackedScene" uid="uid://651u78jfo4el" path="res://scenes/objects/collectables/key.tscn" id="12_7euxc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n4lor"]
 font_size = 46
@@ -153,5 +154,8 @@ position = Vector2(3968, -688)
 id = 2
 exit_to_level = "uid://3an4c0jv4wcj"
 exit_door_id = 1
+
+[node name="key" parent="." index="9" instance=ExtResource("12_7euxc")]
+position = Vector2(77, -6)
 
 [editable path="TileMapLayer"]
