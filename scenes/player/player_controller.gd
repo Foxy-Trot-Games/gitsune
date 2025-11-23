@@ -8,7 +8,6 @@ func _physics_process(_delta: float) -> void:
 		Events.player_movement_input(Vector2.ZERO)
 		return
 	
-	var xdir := Input.get_axis("move_left", "move_right")
-	var ydir := Input.get_axis("move_up", "move_down")
+	var input_vect := Input.get_vector(&"move_left", &"move_right", &"move_up", &"move_down")
 	
-	Events.player_movement_input(Vector2(xdir, ydir))
+	Events.player_movement_input(input_vect)

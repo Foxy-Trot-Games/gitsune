@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfxgljq6hf57a"]
+[gd_scene load_steps=6 format=3 uid="uid://dfxgljq6hf57a"]
 
-[ext_resource type="Texture2D" uid="uid://6bll0jbk00oh" path="res://assets/gun/gun_placeholder.png" id="1_csbbp"]
 [ext_resource type="Script" uid="uid://c50fxelutb7o2" path="res://scenes/gun/gun.gd" id="1_fjnj2"]
-[ext_resource type="Texture2D" uid="uid://cxx14od8qf6lf" path="res://icon.svg" id="3_eo2c1"]
+[ext_resource type="Texture2D" uid="uid://bd2sghdox75n5" path="res://assets/gun/pulse_gun.png" id="2_75yrm"]
 [ext_resource type="Script" uid="uid://ifh43o1gqhb8" path="res://scenes/gun/pulse.gd" id="5_75yrm"]
 [ext_resource type="PackedScene" uid="uid://c8su6i6rykckn" path="res://scenes/util/pulsing_glow_vfx.tscn" id="5_oxcm0"]
 [ext_resource type="Script" uid="uid://bnspb86llnaya" path="res://scenes/gun/recharge_gun.gd" id="6_oxcm0"]
@@ -12,25 +11,15 @@ script = ExtResource("1_fjnj2")
 
 [node name="GunSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-texture = ExtResource("1_csbbp")
-offset = Vector2(2, -2)
-
-[node name="Muzzle" type="Node2D" parent="GunSprite"]
-unique_name_in_owner = true
-position = Vector2(9, -1)
-
-[node name="Icon" type="Sprite2D" parent="GunSprite/Muzzle"]
-modulate = Color(3.8653786, 0.64484644, 3.5156374, 1)
-texture = ExtResource("3_eo2c1")
-region_enabled = true
-region_rect = Rect2(34.056, 12.106, 2, 2)
+texture = ExtResource("2_75yrm")
 
 [node name="Pulse" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("5_75yrm")
 
 [node name="PulsingGlowVfx" parent="." instance=ExtResource("5_oxcm0")]
-scale = Vector2(0.1, 0.1)
+position = Vector2(8, -0.5)
+scale = Vector2(0.02890625, 0.02890625)
 
 [node name="RechargeGun" type="Node2D" parent="."]
 script = ExtResource("6_oxcm0")

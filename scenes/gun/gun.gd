@@ -1,6 +1,5 @@
 class_name Gun extends Node2D
 
-@onready var muzzle: Node2D = %Muzzle
 @onready var pulse: Pulse = %Pulse
 
 signal keyboard_used(dir: Vector2)
@@ -42,8 +41,8 @@ func _physics_process(delta: float) -> void:
 		scale.y = -abs(scale.y)
 
 func _check_if_using_mouse() -> void:
-	var mouse_pos: Vector2 = get_global_mouse_position()
-	if mouse_pos.distance_squared_to(_prev_mouse_pos) > 100 || Input.is_action_just_pressed("pulse"):
+	var mouse_pos: Vector2 = DisplayServer.mouse_get_position()
+	if mouse_pos.distance_squared_to(_prev_mouse_pos) > 10 || Input.is_action_just_pressed("pulse"):
 		mouse_used.emit(mouse_pos)
 	_prev_mouse_pos = mouse_pos
 	
