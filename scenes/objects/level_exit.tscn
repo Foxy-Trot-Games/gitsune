@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://cmddg5wv0dp8m"]
 
 [ext_resource type="Script" uid="uid://cw6qo4vaghkoi" path="res://scenes/objects/scripts/level_exit.gd" id="1_2wvin"]
-[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/Objects.png" id="1_041fo"]
-[ext_resource type="Texture2D" uid="uid://c04gduq36mevi" path="res://assets/background/Runes.png" id="2_2wvin"]
+[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="1_041fo"]
+[ext_resource type="Texture2D" uid="uid://c04gduq36mevi" path="res://assets/background/Runes.PNG" id="2_2wvin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_urmku"]
 size = Vector2(16, 48)
@@ -104,6 +104,21 @@ text = "Exit to  door -1"
 horizontal_alignment = 1
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = 13.0
+offset_top = -81.0
+offset_right = 120.0
+offset_bottom = -52.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 4.0
+offset_right = 78.0
+offset_bottom = 27.0
+text = "Locked"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
