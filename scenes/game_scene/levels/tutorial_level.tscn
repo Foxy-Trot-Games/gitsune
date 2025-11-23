@@ -156,6 +156,7 @@ exit_to_level = "uid://3an4c0jv4wcj"
 exit_door_id = 1
 
 [node name="key" parent="." index="9" instance=ExtResource("12_7euxc")]
-position = Vector2(77, -6)
+position = Vector2(78, -24)
+scale = Vector2(0.28125, 0.28125)
 
 [editable path="TileMapLayer"]

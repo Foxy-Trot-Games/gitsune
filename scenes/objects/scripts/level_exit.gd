@@ -3,6 +3,7 @@ class_name LevelExit extends Area2D
 
 @onready var label: Label = $Label
 @onready var label_2: Label = $Label2
+@onready var panel: Panel = $Panel
 
 @export var id := -1 :
 	set(value):
@@ -44,9 +45,16 @@ func _update_label_text() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player && !_door_disabled:
-		Globals.get_level().level_exited.emit(exit_to_level, exit_door_id)
+		if PlayerState.has_main_key():
+			print("Door unlocked!")
+			Globals.get_level().level_exited.emit(exit_to_level, exit_door_id)
+		else:
+			panel.visible=true
+			print("Door is locked! Find the key first.")
+
 
 func _on_body_exited(body: Node2D) -> void:
+	panel.visible=false
 	_door_disabled = false
 
 func _on_door_used() -> void:
