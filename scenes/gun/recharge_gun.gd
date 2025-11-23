@@ -25,11 +25,13 @@ func _physics_process(delta: float) -> void:
 			Events.ammo_picked_up.emit(1)
 			# reset timer so it can't immediately fire right after filling up ammo
 			recharge_timer.start()
+			Events.gun_charging.emit()
 			_queued_ammo_charge = false
 
 func _on_recharge_timer_timeout() -> void:
 	if player.is_on_floor():
 		Events.ammo_picked_up.emit(1)
+		Events.gun_charging.emit()
 		_queued_ammo_charge = false
 	else:
 		# queue up a ammo charge if player is in the air so they immediately get ammo on the ground

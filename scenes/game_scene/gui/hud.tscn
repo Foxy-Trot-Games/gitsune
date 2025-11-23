@@ -1,8 +1,9 @@
-[gd_scene load_steps=46 format=3 uid="uid://df4m8l5j2c6dy"]
+[gd_scene load_steps=63 format=3 uid="uid://df4m8l5j2c6dy"]
 
 [ext_resource type="Texture2D" uid="uid://drvumdlvftphj" path="res://assets/ui/Background.png" id="1_crjap"]
 [ext_resource type="Script" uid="uid://cb811ulh73sce" path="res://scenes/game_scene/gui/ammo_container.gd" id="1_jd5ix"]
 [ext_resource type="Texture2D" uid="uid://cbnvhvvy8e0x" path="res://assets/ui/wave_sprite.png" id="3_lnt42"]
+[ext_resource type="Texture2D" uid="uid://cev4aqy35yr8w" path="res://assets/gun/ammo_sprite.png" id="4_lnt42"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v7wis"]
 atlas = ExtResource("3_lnt42")
@@ -300,6 +301,142 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnt42"]
+atlas = ExtResource("4_lnt42")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rupv"]
+atlas = ExtResource("4_lnt42")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_voecj"]
+atlas = ExtResource("4_lnt42")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctoc0"]
+atlas = ExtResource("4_lnt42")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8dd0"]
+atlas = ExtResource("4_lnt42")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0di26"]
+atlas = ExtResource("4_lnt42")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf3rc"]
+atlas = ExtResource("4_lnt42")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x47wg"]
+atlas = ExtResource("4_lnt42")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5gq6"]
+atlas = ExtResource("4_lnt42")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2keya"]
+atlas = ExtResource("4_lnt42")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ll277"]
+atlas = ExtResource("4_lnt42")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2sq5"]
+atlas = ExtResource("4_lnt42")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qq87"]
+atlas = ExtResource("4_lnt42")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f71m"]
+atlas = ExtResource("4_lnt42")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qnab"]
+atlas = ExtResource("4_lnt42")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0rupv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnt42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rupv")
+}],
+"loop": true,
+"name": &"charging",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_voecj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctoc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8dd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0di26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf3rc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x47wg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5gq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2keya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ll277")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2sq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qq87")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_voecj")
+}],
+"loop": true,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f71m")
+}],
+"loop": true,
+"name": &"ready",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qnab")
+}],
+"loop": true,
+"name": &"spent",
+"speed": 5.0
+}]
+
 [node name="Hud" type="CanvasLayer"]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -332,3 +469,60 @@ sprite_frames = SubResource("SpriteFrames_voecj")
 unique_name_in_owner = true
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_crjap")
+
+[node name="Bullets" type="Node2D" parent="MarginContainer/Control"]
+unique_name_in_owner = true
+position = Vector2(-6, -5)
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/Control/Bullets"]
+position = Vector2(-153, -19)
+sprite_frames = SubResource("SpriteFrames_0rupv")
+animation = &"locked"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="MarginContainer/Control/Bullets"]
+position = Vector2(-159, -11)
+sprite_frames = SubResource("SpriteFrames_0rupv")
+animation = &"locked"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="MarginContainer/Control/Bullets"]
+position = Vector2(-161, -1)
+sprite_frames = SubResource("SpriteFrames_0rupv")
+animation = &"locked"
+frame_progress = 0.7550174
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="MarginContainer/Control/Bullets"]
+position = Vector2(-161, 10)
+sprite_frames = SubResource("SpriteFrames_0rupv")
+animation = &"locked"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="MarginContainer/Control/Bullets"]
+position = Vector2(-159, 20)
+sprite_frames = SubResource("SpriteFrames_0rupv")
+animation = &"locked"
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="MarginContainer/Control/Bullets"]
+position = Vector2(-153, 28)
+sprite_frames = SubResource("SpriteFrames_0rupv")
+animation = &"locked"
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="MarginContainer/Control/Bullets"]
+position = Vector2(-147, 20)
+sprite_frames = SubResource("SpriteFrames_0rupv")
+animation = &"locked"
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="MarginContainer/Control/Bullets"]
+position = Vector2(-145, 10)
+sprite_frames = SubResource("SpriteFrames_0rupv")
+animation = &"locked"
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="MarginContainer/Control/Bullets"]
+position = Vector2(-145, -1)
+sprite_frames = SubResource("SpriteFrames_0rupv")
+animation = &"locked"
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="MarginContainer/Control/Bullets"]
+position = Vector2(-147, -11)
+sprite_frames = SubResource("SpriteFrames_0rupv")
+animation = &"locked"
+frame_progress = 0.7550174

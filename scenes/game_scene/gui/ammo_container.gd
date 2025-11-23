@@ -4,11 +4,18 @@ extends Control
 @onready var wave_animated_sprite_2d_2: AnimatedSprite2D = %WaveAnimatedSprite2D2
 @onready var ammo_animated_sprite_2d: AnimatedSprite2D = %AmmoAnimatedSprite2D
 @onready var player := Globals.get_player()
+@onready var bullets_spites: Array = %Bullets.get_children()
 
 func _ready() -> void:
 	# Connect your signals
 	Events.gun_stats_updated.connect(_gun_stats_updated)
 	Events.reactor_wave_moved.connect(_reactor_wave_moved)
+	Events.gun_charging.connect(_gun_charging)
+
+func _gun_charging() -> void:
+	if player.gun.current_ammo != player.state.gun_max_ammo:
+		var sprite : AnimatedSprite2D = bullets_spites[player.gun.current_ammo]
+		sprite.play(&"charging")
 
 func _gun_stats_updated(current_ammo: int, max_ammo: int) -> void:
 
@@ -20,6 +27,17 @@ func _gun_stats_updated(current_ammo: int, max_ammo: int) -> void:
 	# update color
 	var color_lerp : Color = lerp(Color.RED, Color(0.498, 1.0, 0.659), float(current_ammo) / float(max_ammo))
 	ammo_animated_sprite_2d.modulate = color_lerp
+	
+	for i in range(bullets_spites.size()):
+		var sprite : AnimatedSprite2D = bullets_spites[i]
+		var num := i + 1
+		
+		if num > max_ammo:
+			sprite.play(&"locked")
+		elif num > current_ammo:
+			sprite.play(&"spent")
+		elif num <= current_ammo:
+			sprite.play(&"ready")
 
 func _reactor_wave_moved(pos: Vector2, limit: Vector2) -> void:
 	

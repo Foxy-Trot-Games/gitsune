@@ -7,11 +7,11 @@ extends ColorRect
 @onready var spawn_position: Marker2D = %SpawnPosition
 @onready var animated_sprite_2d: AnimatedSprite2D = $Control/AnimatedSprite2D
 
-@export var debug_show_label := true
-
 @export var id := -1 :
 	set(value):
 		id = value
+
+var _activated := false
 
 func _enter_tree() -> void:
 	var check_points := get_tree().get_nodes_in_group("CheckPoint")
@@ -41,14 +41,16 @@ func _draw() -> void:
 	visible_on_screen_enabler_2d.rect = Rect2(Vector2.ZERO, size)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if body is Player && !_activated:
 		Globals.get_level().check_point_reached.emit(spawn_position.global_position)
+		_activated = true
 		animated_sprite_2d.play(&"charging")
 		await animated_sprite_2d.animation_finished
 		animated_sprite_2d.play(&"active")
 
 func _check_point_reached(pos: Vector2) -> void:
 	animated_sprite_2d.play(&"inactive")
+	_activated = false
 
 func _validate_property(property: Dictionary) -> void:
 	# disable id in the editor so it's readonly
