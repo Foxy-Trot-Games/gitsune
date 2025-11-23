@@ -8,6 +8,7 @@ size = Vector2(16, 16)
 [node name="Collectable" type="AnimatedSprite2D"]
 autoplay = "default"
 script = ExtResource("1_od1im")
+upgrade_type = 9
 
 [node name="Area2D" type="Area2D" parent="."]
 

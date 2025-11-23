@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=4 uid="uid://w2qphny0t0vu"]
 
 [ext_resource type="Script" uid="uid://bog2ukuxke2rv" path="res://scenes/game_scene/levels/level_utils/level.gd" id="1_vc3dj"]
-[ext_resource type="Script" uid="uid://s3864f4i872k" path="res://scenes/game_scene/tutorials/tutorial_manager.gd" id="2_2dffu"]
+[ext_resource type="Script" path="res://scenes/game_scene/tutorials/tutorial_manager.gd" id="2_2dffu"]
 [ext_resource type="PackedScene" uid="uid://m4lsx3aqr7pp" path="res://scenes/game_scene/tutorials/tutorial_overlay.tscn" id="3_n1kcu"]
 [ext_resource type="PackedScene" uid="uid://2jpu8jkgrmga" path="res://scenes/enemy/Flying_enemy/Flying_enemy.tscn" id="4_ushw0"]
 [ext_resource type="PackedScene" uid="uid://hbspw0hu400f" path="res://scenes/enemy/Pathing_enemy/Pathing_enemy.tscn" id="5_4oph4"]
@@ -466,7 +466,6 @@ script = ExtResource("12_mh80m")
 
 [node name="TestLevel" type="Node2D" groups=["Level"]]
 script = ExtResource("1_vc3dj")
-next_level_path = "uid://dlbp53q02q38q"
 
 [node name="TutorialManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -582,10 +581,10 @@ physics_interpolation_mode = 1
 position = Vector2(256, 144)
 zoom = Vector2(2, 2)
 process_callback = 0
-limit_left = -544
-limit_top = -528
-limit_right = 640
-limit_bottom = 432
+limit_left = -176
+limit_top = -1056
+limit_right = 4160
+limit_bottom = 96
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -662,6 +661,6 @@ position = Vector2(-96, -512)
 position = Vector2(-432, -64)
 
 [node name="Enemy" parent="." instance=ExtResource("14_qucjj")]
-position = Vector2(354, 425)
+position = Vector2(350, 395)
 
 [connection signal="body_entered" from="NextLevelArea" to="." method="_next_level_exit_area_entered"]
