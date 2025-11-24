@@ -22,7 +22,7 @@ shader = ExtResource("5_kq305")
 shader_parameter/wave_frequency = 10.0
 shader_parameter/wave_speed = 0.05
 shader_parameter/wave_amplitude = 0.005
-shader_parameter/wave_color = Color(0.9843137, 0.5176471, 0.3529412, 1)
+shader_parameter/wave_color = Color(1, 0.6313726, 0.5058824, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rcob3"]
 resource_local_to_scene = true
@@ -30,7 +30,7 @@ shader = ExtResource("5_kq305")
 shader_parameter/wave_frequency = 10.0
 shader_parameter/wave_speed = 0.05
 shader_parameter/wave_amplitude = 0.005
-shader_parameter/wave_color = Color(0.9843137, 0.5176471, 0.3529412, 1)
+shader_parameter/wave_color = Color(1, 0.6313726, 0.5058824, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_olebf"]
 resource_local_to_scene = true
@@ -46,7 +46,7 @@ shader = ExtResource("5_kq305")
 shader_parameter/wave_frequency = 10.0
 shader_parameter/wave_speed = 0.05
 shader_parameter/wave_amplitude = 0.005
-shader_parameter/wave_color = Color(0.9843137, 0.5176471, 0.3529412, 1)
+shader_parameter/wave_color = Color(1, 0.6313726, 0.5058824, 1)
 
 [node name="TowerLevel" instance=ExtResource("1_kq305")]
 

@@ -29,6 +29,7 @@ enum AnimationStates {
 
 const PLAYER_FOOTSTEP = preload("uid://xgvd557bddwe")
 const PLAYER_DAMAGED = preload("uid://bmx8smly4ucvn")
+const FAlLING_GUN = preload("uid://xwie54t8khkk")
 
 func _ready() -> void:
 	Events.player_movement_input_signal.connect(_on_player_movement_input_signal)
@@ -124,17 +125,18 @@ func _update_anim_state(anim_state: AnimationStates) -> void:
 func _check_state() -> void:
 	match(_animation_state):
 		AnimationStates.IDLING:
-			_play_animation("idle")
+			_play_animation(&"idle")
 		AnimationStates.RISING:
-			_play_animation("jump")
+			_play_animation(&"jump")
 		AnimationStates.FALLING:
-			_play_animation("fall")
-		AnimationStates.DYING:
-			_play_animation("dying")
+			_play_animation(&"fall")
 		AnimationStates.RUNNING:
 			_play_animation("run")
 			if is_on_floor():
 				Audio.play_sfx(PLAYER_FOOTSTEP, self, 200, -40)
+		AnimationStates.DYING:
+			if is_on_floor() && player_sprite.animation != &"dying":
+				_play_animation(&"dying_ground")
 
 func _play_animation(animation: String) -> void:
 	# only play the animation once, even the looping ones
@@ -144,11 +146,23 @@ func _play_animation(animation: String) -> void:
 #player dying function after emiting a signal from the enemies
 func _player_died() -> void:
 	if !_dead:
-		print("Player died") # for debugging
 		_update_anim_state(AnimationStates.DYING)
 		_dead = true
+		
 		Audio.play_sfx(PLAYER_DAMAGED, self)
-		await player_sprite.animation_finished
+		
+		# spawn falling gun
+		var falling_gun : RigidBody2D = FAlLING_GUN.instantiate()
+		falling_gun.global_position = global_position
+		falling_gun.apply_impulse(velocity)
+		get_parent().call_deferred("add_child", falling_gun)
+		
+		if is_on_floor():
+			_play_animation(&"dying")
+		else:
+			_play_animation(&"dying_flying")
+		
+		await Globals.create_timer(3)
 		# Using call_defered() here to avoid potential issues, removing collision bodies during
 		# _physics_process can lead to dumb and anoying issues. 
 		get_tree().call_deferred("reload_current_scene")  

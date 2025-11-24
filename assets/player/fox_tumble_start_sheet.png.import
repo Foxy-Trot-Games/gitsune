@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6bll0jbk00oh"
-path="res://.godot/imported/gun_placeholder.png-d384e2d0eb876251ac46227ef643fe0c.ctex"
+uid="uid://cg4awkygtrbt2"
+path="res://.godot/imported/fox_tumble_start_sheet.png-626608d7e72f2c4144327f21740a70a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gun/gun_placeholder.png"
-dest_files=["res://.godot/imported/gun_placeholder.png-d384e2d0eb876251ac46227ef643fe0c.ctex"]
+source_file="res://assets/player/fox_tumble_start_sheet.png"
+dest_files=["res://.godot/imported/fox_tumble_start_sheet.png-626608d7e72f2c4144327f21740a70a0.ctex"]
 
 [params]
 

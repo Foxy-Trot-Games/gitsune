@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var player: Player = $"../.."
+@onready var player: Player = Globals.get_player()
 @onready var recharge_timer: Timer = $RechargeTimer
 
 func _ready() -> void:

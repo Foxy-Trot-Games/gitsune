@@ -163,6 +163,11 @@ pulse_right={
 
 locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/translations/menus_translations.en.translation", "res://addons/maaacks_game_template/base/translations/menus_translations.fr.translation")
 
+[layer_names]
+
+2d_physics/layer_1="GameLayer"
+2d_physics/layer_3="BackgroundLayer"
+
 [maaacks_game_template]
 
 disable_install_audio_busses=true

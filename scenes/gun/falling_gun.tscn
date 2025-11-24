@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://xwie54t8khkk"]
+
+[ext_resource type="Texture2D" uid="uid://bd2sghdox75n5" path="res://assets/gun/pulse_gun.png" id="1_nmmfe"]
+[ext_resource type="PackedScene" uid="uid://c8su6i6rykckn" path="res://scenes/util/pulsing_glow_vfx.tscn" id="2_dftq1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p37hf"]
+size = Vector2(9, 2)
+
+[node name="FallingGun" type="RigidBody2D"]
+scale = Vector2(0.615, 0.615)
+collision_layer = 4
+collision_mask = 4
+mass = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_p37hf")
+
+[node name="Gun" type="Node2D" parent="." groups=["Gun"]]
+scale = Vector2(0.615, 0.615)
+
+[node name="GunSprite" type="Sprite2D" parent="Gun"]
+unique_name_in_owner = true
+texture = ExtResource("1_nmmfe")
+
+[node name="PulsingGlowVfx" parent="Gun" instance=ExtResource("2_dftq1")]
+position = Vector2(8, -0.5)
+scale = Vector2(0.02890625, 0.02890625)
+script = null
