@@ -38,6 +38,14 @@ func _draw() -> void:
 	_update_label_text()
 
 func _update_label_text() -> void:
+	
+	if !Engine.is_editor_hint():
+		if label:
+			label.queue_free()
+		if label_2:
+			label_2.queue_free()
+		return
+		
 	if label && label_2:
 		var path := ResourceUID.ensure_path(exit_to_level)
 		label.text = "Door %s" % [id]

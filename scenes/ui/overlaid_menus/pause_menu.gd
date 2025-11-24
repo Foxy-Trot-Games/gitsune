@@ -75,7 +75,16 @@ func _ready() -> void:
 	if Input.is_action_pressed("ui_cancel"):
 		_ignore_first_cancel = true
 
-func _on_restart_button_pressed() -> void:
+var _restart_area := false
+
+func _on_restart_button_pressed(restart_area := false) -> void:
+	_restart_area = restart_area
+	
+	if _restart_area:
+		confirm_restart.dialog_text = "Restart from the last door?"
+	else:
+		confirm_restart.dialog_text = "Restart from last checkpoint?"
+	
 	confirm_restart.popup_centered()
 	popup_open = confirm_restart
 
@@ -91,6 +100,9 @@ func _on_exit_button_pressed() -> void:
 	popup_open = confirm_exit
 
 func _on_confirm_restart_confirmed() -> void:
+	if _restart_area:
+		Level.reset_global_variables()
+	
 	SceneLoader.reload_current_scene()
 	close()
 
