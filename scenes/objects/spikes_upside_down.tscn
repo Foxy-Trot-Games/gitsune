@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cuwj7gmpv1q6f"]
-
-[ext_resource type="PackedScene" uid="uid://wpnqp08cv3bm" path="res://scenes/objects/spikes.tscn" id="1_toplx"]
-
-[node name="SpikesUpsideDown" instance=ExtResource("1_toplx")]
-
-[node name="AnimatedSprite2D" parent="Area2D" index="1"]
-flip_v = true

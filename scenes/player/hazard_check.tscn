@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ou1le5o1s6k0"]
+
+[ext_resource type="Script" uid="uid://c46lnljo1l51x" path="res://scripts/hazard_check.gd" id="1_wkha1"]
+
+[node name="HazardCheck" type="Node"]
+script = ExtResource("1_wkha1")
