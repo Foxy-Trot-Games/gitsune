@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjtwy15x6pvoh"]
+[gd_scene load_steps=7 format=3 uid="uid://cjtwy15x6pvoh"]
 
 [ext_resource type="PackedScene" uid="uid://buxglxwkslhwh" path="res://scenes/objects/collectables/util/collectable.tscn" id="1_4d6ey"]
 [ext_resource type="Texture2D" uid="uid://duc12xc6nyatb" path="res://assets/background/Lab.PNG" id="2_yicee"]
@@ -24,26 +24,9 @@ resource_local_to_scene = true
 atlas = ExtResource("3_yicee")
 region = Rect2(144, 112, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yicee"]
-atlas = ExtResource("2_yicee")
-region = Rect2(192, 32, 48, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j2mkw"]
-atlas = ExtResource("2_yicee")
-region = Rect2(176, 64, 16, 16)
-
 [node name="MajorUpgradePickup" instance=ExtResource("1_4d6ey")]
-position = Vector2(-24, -32)
 sprite_frames = SubResource("SpriteFrames_4lto1")
 metadata/_edit_group_ = true
 
 [node name="Rune" type="Sprite2D" parent="." index="2"]
 texture = SubResource("AtlasTexture_ppu1p")
-
-[node name="Pedestal" type="Sprite2D" parent="." index="3"]
-position = Vector2(32, 8)
-texture = SubResource("AtlasTexture_yicee")
-
-[node name="Pedestal2" type="Sprite2D" parent="." index="4"]
-position = Vector2(0, 16)
-texture = SubResource("AtlasTexture_j2mkw")

@@ -5,11 +5,7 @@ var _id := 0
 
 @export var upgrade_type : Type
 @export var tutorial_resource : TutorialResource
-@export var flip_sprite := false :
-	set(value):
-		flip_sprite = value
-		queue_redraw()
-		
+
 enum Type {
 	RUNE,
 	MAX_AMMO,
@@ -38,18 +34,6 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		collected()
 		queue_free()
-
-func _draw() -> void:
-	var x_scale := absf(scale.x)
-	var rune : Sprite2D = get_node_or_null("Rune")
-	if flip_sprite:
-		scale.x = -x_scale
-		if rune:
-			rune.scale.x = -x_scale
-	else:
-		scale.x = x_scale
-		if rune:
-			rune.scale.x = x_scale
 
 func collected() -> void:
 	match upgrade_type:
