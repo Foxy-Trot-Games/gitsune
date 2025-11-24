@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://btbewbohacu3h"]
+[gd_scene load_steps=21 format=4 uid="uid://btbewbohacu3h"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_xiynt"]
 [ext_resource type="PackedScene" uid="uid://bhvytctn2dvud" path="res://scenes/objects/check_point.tscn" id="2_05lm2"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="5_7ldjd"]
 [ext_resource type="Shader" uid="uid://ula7reohgr3f" path="res://scenes/objects/scripts/gravity_zone.gdshader" id="6_k36gh"]
 [ext_resource type="PackedScene" uid="uid://cefaxg5dom30c" path="res://scenes/objects/collectables/max_ammo_upgrade_pickup.tscn" id="8_lxo8s"]
+[ext_resource type="PackedScene" uid="uid://cjxfyhsbbcr26" path="res://scenes/objects/platform.tscn" id="9_7ibmf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lbtov"]
 resource_local_to_scene = true
@@ -307,5 +308,8 @@ position = Vector2(8, 0)
 
 [node name="MaxAmmoUpgradePickup" parent="LevelObjects/TestUpgrades" index="2" instance=ExtResource("8_lxo8s")]
 position = Vector2(-16.000004, -3.179125e-06)
+
+[node name="StaticBody2D" parent="LevelObjects/TestUpgrades" index="3" instance=ExtResource("9_7ibmf")]
+position = Vector2(-168, 24)
 
 [editable path="TileMapLayer"]

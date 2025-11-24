@@ -3,11 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://pkmokv2xd2q4" path="res://assets/background/Floor Merged.PNG" id="1_dotdq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dp8w"]
-size = Vector2(49, 17)
+size = Vector2(49, 4)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jb4ro"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dotdq"]
 atlas = ExtResource("1_dotdq")
-region = Rect2(32, 96, 48, 32)
+region = Rect2(32, 96, 48, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lacew"]
 atlas = ExtResource("1_dotdq")
@@ -41,16 +41,26 @@ animations = [{
 [node name="StaticBody2D" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_8dp8w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_jb4ro")
+position = Vector2(0, -8)
+texture = SubResource("AtlasTexture_dotdq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-16, 16)
+position = Vector2(-16, 8)
 sprite_frames = SubResource("SpriteFrames_wni3i")
+autoplay = "default"
+frame_progress = 0.8974102
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(8, 16)
+position = Vector2(0, 8)
 sprite_frames = SubResource("SpriteFrames_wni3i")
+autoplay = "default"
+frame_progress = 0.70560366
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 8)
+sprite_frames = SubResource("SpriteFrames_wni3i")
+autoplay = "default"
+frame_progress = 0.53699255
