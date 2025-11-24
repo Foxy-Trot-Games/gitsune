@@ -59,7 +59,7 @@ gravity_value = 1960.0
 position = Vector2(-352, 224)
 
 [node name="Enemy" parent="." index="4" instance=ExtResource("5_sqnu7")]
-position = Vector2(-182, 174)
+position = Vector2(-1, 171)
 
 [node name="LevelExit" parent="." index="5" instance=ExtResource("6_sqnu7")]
 position = Vector2(584, 272)
@@ -70,7 +70,7 @@ exit_door_id = 2
 position = Vector2(-589, 257)
 
 [node name="Spikes" parent="." index="7" instance=ExtResource("8_hvy7t")]
-position = Vector2(-324, 342)
+position = Vector2(158, 166)
 
 [node name="Spikes2" parent="." index="8" instance=ExtResource("8_hvy7t")]
 position = Vector2(-836, 284)

@@ -3,7 +3,7 @@ extends IAEnemy
 @export var SPEED: int = 50
 @export var CHASE_SPEED: int = 150
 @export var ACCELERATION: int = 300
-
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var panel: Panel = $Panel
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
@@ -11,7 +11,7 @@ extends IAEnemy
 var direction: Vector2
 var right_bounds: Vector2
 var left_bounds: Vector2
-
+var is_dead:= false
 enum States {
 	WANDER,
 	CHASE
@@ -134,7 +134,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_player_range_body_entered(body: Node) -> void:
-	if body is Player:
+	if body is Player and !is_dead:
 		chase_player()
 
 
@@ -142,3 +142,34 @@ func _on_player_range_body_exited(body: Node) -> void:
 	if body is Player:
 		if timer.time_left <= 0:
 			timer.start()
+
+func die() -> void:
+	if is_dead:
+		return
+	is_dead = true
+	stop_chase()
+
+
+
+	# Create a Tween for the shock effect
+	var tween := get_tree().create_tween()
+
+	# Jump up quickly
+	tween.tween_property(self, "position:y", position.y - 20, 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+	# Fall back down
+	tween.tween_property(self, "position:y", position.y + 5, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+
+	# Small horizontal shake (simulate electricity)
+	tween.tween_property(self, "position:x", position.x - 5, 0.05)
+	tween.tween_property(self, "position:x", position.x + 5, 0.05)
+	tween.tween_property(self, "position:x", position.x, 0.05)
+
+
+
+	# Wait for the tween to finish
+	await tween.finished
+
+
+	# Remove enemy
+	queue_free()
