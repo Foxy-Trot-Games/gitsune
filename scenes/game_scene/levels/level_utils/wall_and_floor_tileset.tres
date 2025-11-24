@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=35 format=3 uid="uid://y4ydrkwovoh6"]
+[gd_resource type="TileSet" load_steps=32 format=3 uid="uid://y4ydrkwovoh6"]
 
 [ext_resource type="Texture2D" uid="uid://pkmokv2xd2q4" path="res://assets/background/Floor Merged.PNG" id="1_hqnv6"]
 [ext_resource type="PackedScene" uid="uid://wpnqp08cv3bm" path="res://scenes/objects/spikes.tscn" id="6_icoyr"]
@@ -12,10 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://2jpu8jkgrmga" path="res://scenes/enemy/Flying_enemy/Flying_enemy.tscn" id="9_qwveq"]
 [ext_resource type="Texture2D" uid="uid://clfyedk8db5o6" path="res://assets/background/walls4_tileset.png" id="10_8p68r"]
 [ext_resource type="PackedScene" uid="uid://hbspw0hu400f" path="res://scenes/enemy/Pathing_enemy/Pathing_enemy.tscn" id="10_htd1m"]
-[ext_resource type="PackedScene" uid="uid://cjtwy15x6pvoh" path="res://scenes/objects/collectables/max_ammo_pickup.tscn" id="10_opqfu"]
-[ext_resource type="PackedScene" uid="uid://taxpycgm8yy5" path="res://scenes/objects/collectables/gun_recharge_time_pick_up.tscn" id="11_htd1m"]
 [ext_resource type="PackedScene" uid="uid://b8e2qcdmlxsvi" path="res://scenes/enemy/IA_enemy/enemy.tscn" id="11_opqfu"]
-[ext_resource type="PackedScene" uid="uid://cfoe2wmkrjqlc" path="res://scenes/objects/collectables/max_velocity_pickup.tscn" id="12_opqfu"]
 [ext_resource type="PackedScene" uid="uid://daktb3wems10m" path="res://scenes/objects/spikes-left.tscn" id="16_vnd77"]
 [ext_resource type="PackedScene" uid="uid://dmeyxqrmciogn" path="res://scenes/enemy/IA_enemy_flying/enemy-flying.tscn" id="17_0mavu"]
 [ext_resource type="PackedScene" uid="uid://dt3tly4le0rd5" path="res://scenes/objects/spikes-right.tscn" id="18_kauwh"]
@@ -1601,12 +1598,9 @@ texture = ExtResource("10_8p68r")
 11:3/0/terrains_peering_bit/top_side = 3
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0mavu"]
-resource_name = "Level Interactables"
+resource_name = "Collectables"
 scenes/2/scene = ExtResource("7_6n6g1")
 scenes/4/scene = ExtResource("9_htd1m")
-scenes/5/scene = ExtResource("10_opqfu")
-scenes/6/scene = ExtResource("11_htd1m")
-scenes/7/scene = ExtResource("12_opqfu")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_m3kbm"]
 resource_name = "Enemies"

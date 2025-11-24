@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0livjte84ol8"]
+[gd_scene load_steps=12 format=3 uid="uid://d0livjte84ol8"]
 
 [ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="1_x67pn"]
-[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/Objects.png" id="2_21unf"]
-[ext_resource type="Texture2D" uid="uid://c04gduq36mevi" path="res://assets/background/Runes.png" id="3_s7bpc"]
+[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="2_21unf"]
+[ext_resource type="Texture2D" uid="uid://c04gduq36mevi" path="res://assets/background/Runes.PNG" id="3_s7bpc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55hfg"]
 atlas = ExtResource("2_21unf")
@@ -13,25 +13,33 @@ resource_local_to_scene = true
 atlas = ExtResource("2_21unf")
 region = Rect2(160, 96, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_21unf"]
+resource_local_to_scene = true
+atlas = ExtResource("2_21unf")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7bpc"]
+atlas = ExtResource("3_s7bpc")
+region = Rect2(0, 112, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jr5oj"]
 atlas = ExtResource("3_s7bpc")
-region = Rect2(0, 80, 16, 16)
+region = Rect2(16, 112, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wjtc4"]
 atlas = ExtResource("3_s7bpc")
-region = Rect2(16, 80, 16, 16)
+region = Rect2(32, 112, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eipln"]
 atlas = ExtResource("3_s7bpc")
-region = Rect2(32, 80, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bwiuf"]
-atlas = ExtResource("3_s7bpc")
-region = Rect2(48, 80, 16, 16)
+region = Rect2(48, 112, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sba5b"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7bpc")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jr5oj")
 }, {
@@ -40,9 +48,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eipln")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bwiuf")
 }],
 "loop": true,
 "name": &"default",
@@ -62,6 +67,9 @@ texture = SubResource("AtlasTexture_55hfg")
 visible = false
 texture = SubResource("AtlasTexture_x67pn")
 
-[node name="AnimatedSprite2D" parent="." index="3"]
+[node name="Sprite2D3" parent="." index="3"]
+texture = SubResource("AtlasTexture_21unf")
+
+[node name="AnimatedSprite2D" parent="." index="4"]
 sprite_frames = SubResource("SpriteFrames_sba5b")
 frame_progress = 0.5416343

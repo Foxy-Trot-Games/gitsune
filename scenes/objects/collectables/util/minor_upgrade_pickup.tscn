@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://d307ufum6njxw"]
+
+[ext_resource type="PackedScene" uid="uid://buxglxwkslhwh" path="res://scenes/objects/collectables/util/collectable.tscn" id="1_3qxlk"]
+[ext_resource type="Texture2D" uid="uid://duc12xc6nyatb" path="res://assets/background/Lab.PNG" id="2_387rt"]
+[ext_resource type="Texture2D" uid="uid://c04gduq36mevi" path="res://assets/background/Runes.PNG" id="3_5byp7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgkdk"]
+atlas = ExtResource("2_387rt")
+region = Rect2(176, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4lto1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgkdk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppu1p"]
+resource_local_to_scene = true
+atlas = ExtResource("3_5byp7")
+region = Rect2(144, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yicee"]
+atlas = ExtResource("2_387rt")
+region = Rect2(176, 80, 16, 16)
+
+[node name="MinerUpgradePickup" instance=ExtResource("1_3qxlk")]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_4lto1")
+metadata/_edit_group_ = true
+
+[node name="Rune" type="Sprite2D" parent="." index="2"]
+texture = SubResource("AtlasTexture_ppu1p")
+
+[node name="Pedestal" type="Sprite2D" parent="." index="3"]
+position = Vector2(0, 16)
+texture = SubResource("AtlasTexture_yicee")
