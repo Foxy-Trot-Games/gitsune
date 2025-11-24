@@ -1,9 +1,16 @@
+@tool
 class_name Collectable extends AnimatedSprite2D
 
 var _id := 0
 
 @export var upgrade_type : Type
 @export var tutorial_resource : TutorialResource
+@export var flip_sprite := false :
+	set(value):
+		flip_sprite = value
+		queue_redraw()
+		
+@onready var rune: Sprite2D = $Rune
 
 enum Type {
 	RUNE,
@@ -33,6 +40,15 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		collected()
 		queue_free()
+
+func _draw() -> void:
+	var x_scale := absf(scale.x)
+	if flip_sprite:
+		scale.x = -x_scale
+		rune.scale.x = -x_scale
+	else:
+		scale.x = x_scale
+		rune.scale.x = x_scale
 
 func collected() -> void:
 	match upgrade_type:
