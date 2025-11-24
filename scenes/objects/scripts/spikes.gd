@@ -9,5 +9,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		Events.player_died.emit()
 	if body is IAEnemy:
-		body.queue_free()
-		print("yes enemy there")
+		
+		var enemy := body as IAEnemy
+		enemy.die() 
+		#body.queue_free()
+		#print("yes enemy there")
