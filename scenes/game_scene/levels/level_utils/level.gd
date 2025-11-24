@@ -27,11 +27,12 @@ func _ready() -> void:
 		
 		var current_door_id_spawn := GameState.get_current_door_id()
 		
-		# move player to checkpoint or door
-		if current_check_point_pos != Vector2.INF:
-			player.global_position = current_check_point_pos
-		elif current_door_id_spawn != -1:
-			move_player_to_door(current_door_id_spawn)
+		if started_from_main_menu():
+			# move player to checkpoint or door
+			if current_check_point_pos != Vector2.INF:
+				player.global_position = current_check_point_pos
+			elif current_door_id_spawn != -1:
+				move_player_to_door(current_door_id_spawn)
 		
 		#print("== Player Data ==")
 		#Globals.print_all_properties(GameState.get_player_state())

@@ -10,8 +10,6 @@ var _id := 0
 		flip_sprite = value
 		queue_redraw()
 		
-@onready var rune: Sprite2D = $Rune
-
 enum Type {
 	RUNE,
 	MAX_AMMO,
@@ -43,12 +41,15 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _draw() -> void:
 	var x_scale := absf(scale.x)
+	var rune : Sprite2D = get_node_or_null("Rune")
 	if flip_sprite:
 		scale.x = -x_scale
-		rune.scale.x = -x_scale
+		if rune:
+			rune.scale.x = -x_scale
 	else:
 		scale.x = x_scale
-		rune.scale.x = x_scale
+		if rune:
+			rune.scale.x = x_scale
 
 func collected() -> void:
 	match upgrade_type:
