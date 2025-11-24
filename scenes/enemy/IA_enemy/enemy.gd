@@ -8,10 +8,12 @@ extends IAEnemy
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var direction: Vector2
 var right_bounds: Vector2
 var left_bounds: Vector2
+var is_dead := false 
 
 enum States {
 	WANDER,
@@ -155,3 +157,16 @@ func stop_chase() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		Events.player_died.emit()
+
+func die() -> void:
+	print("here")
+	if is_dead:   # optional safety
+		return
+	is_dead = true
+
+	animation_player.play("die")  # play death animation
+	collision_layer = 0
+	collision_mask = 0
+
+	await animation_player.animation_finished
+	queue_free()
