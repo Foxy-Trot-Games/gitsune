@@ -154,7 +154,8 @@ func _player_died() -> void:
 		# spawn falling gun
 		var falling_gun : RigidBody2D = FAlLING_GUN.instantiate()
 		falling_gun.global_position = global_position
-		falling_gun.apply_impulse(velocity)
+		falling_gun.linear_velocity = velocity
+		falling_gun.angular_velocity = TAU if velocity.x > 0 else -TAU
 		get_parent().call_deferred("add_child", falling_gun)
 		
 		if is_on_floor():

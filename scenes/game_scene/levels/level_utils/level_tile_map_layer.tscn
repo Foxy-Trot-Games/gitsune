@@ -44,7 +44,7 @@ tile_set = ExtResource("1_xkp31")
 z_index = -1
 tile_set = ExtResource("1_xkp31")
 
-[node name="TileMapLayerWallsAndFloors" type="TileMapLayer" parent="."]
+[node name="TileMapLayerWallsAndFloors" type="TileMapLayer" parent="." groups=["InteractableTileMapLayer"]]
 tile_set = ExtResource("2_i64iq")
 
 [node name="TileMapLayerForeground" type="TileMapLayer" parent="."]

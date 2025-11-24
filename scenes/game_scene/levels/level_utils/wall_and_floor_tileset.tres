@@ -1,10 +1,9 @@
-[gd_resource type="TileSet" load_steps=32 format=3 uid="uid://y4ydrkwovoh6"]
+[gd_resource type="TileSet" load_steps=29 format=3 uid="uid://y4ydrkwovoh6"]
 
 [ext_resource type="Texture2D" uid="uid://pkmokv2xd2q4" path="res://assets/background/Floor Merged.PNG" id="1_hqnv6"]
-[ext_resource type="PackedScene" uid="uid://wpnqp08cv3bm" path="res://scenes/objects/spikes.tscn" id="6_icoyr"]
+[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="2_0mavu"]
 [ext_resource type="PackedScene" uid="uid://dj26b32jiqwfe" path="res://scenes/objects/ammo.tscn" id="7_6n6g1"]
 [ext_resource type="Texture2D" uid="uid://uqxnqvc5ghf0" path="res://assets/background/walls_tileset.png" id="7_kauwh"]
-[ext_resource type="PackedScene" uid="uid://cuwj7gmpv1q6f" path="res://scenes/objects/spikes_upside_down.tscn" id="8_6n6g1"]
 [ext_resource type="Texture2D" uid="uid://cik7u4ts61k5g" path="res://assets/background/walls2_tileset.png" id="8_jwdsv"]
 [ext_resource type="PackedScene" uid="uid://cxm7caqjvvyu5" path="res://scenes/enemy/Stationary_enemy/enemy.tscn" id="8_xe3hx"]
 [ext_resource type="Texture2D" uid="uid://b0hoeiplnp4ka" path="res://assets/background/walls3_tileset.png" id="9_cxt27"]
@@ -13,9 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://clfyedk8db5o6" path="res://assets/background/walls4_tileset.png" id="10_8p68r"]
 [ext_resource type="PackedScene" uid="uid://hbspw0hu400f" path="res://scenes/enemy/Pathing_enemy/Pathing_enemy.tscn" id="10_htd1m"]
 [ext_resource type="PackedScene" uid="uid://b8e2qcdmlxsvi" path="res://scenes/enemy/IA_enemy/enemy.tscn" id="11_opqfu"]
-[ext_resource type="PackedScene" uid="uid://daktb3wems10m" path="res://scenes/objects/spikes-left.tscn" id="16_vnd77"]
 [ext_resource type="PackedScene" uid="uid://dmeyxqrmciogn" path="res://scenes/enemy/IA_enemy_flying/enemy-flying.tscn" id="17_0mavu"]
-[ext_resource type="PackedScene" uid="uid://dt3tly4le0rd5" path="res://scenes/objects/spikes-right.tscn" id="18_kauwh"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_vk6bf"]
 tile_data = PackedInt32Array(0, 655364, 7, 65536, 655364, 8)
@@ -74,6 +71,80 @@ texture = ExtResource("1_hqnv6")
 1:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -2.6666665, -8, -2.6666665)
 2:11/0 = 0
 2:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.6666665, -8, -8, -8, -8, -2.6666665, 2.6666665, -2.6666665)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m3kbm"]
+texture = ExtResource("2_0mavu")
+7:14/next_alternative_id = 5
+7:14/animation_speed = 5.0
+7:14/animation_mode = 1
+7:14/animation_frame_0/duration = 1.0
+7:14/animation_frame_1/duration = 1.0
+7:14/animation_frame_2/duration = 1.0
+7:14/0 = 0
+7:14/0/terrain_set = 0
+7:14/0/custom_data_0 = true
+7:14/1 = 1
+7:14/1/flip_v = true
+7:14/1/terrain_set = 0
+7:14/1/terrains_peering_bit/right_side = 5
+7:14/1/terrains_peering_bit/bottom_right_corner = 5
+7:14/1/terrains_peering_bit/bottom_side = 5
+7:14/1/terrains_peering_bit/bottom_left_corner = 5
+7:14/1/terrains_peering_bit/left_side = 5
+7:14/1/custom_data_0 = true
+7:14/2 = 2
+7:14/2/transpose = true
+7:14/2/terrain_set = 0
+7:14/2/terrains_peering_bit/bottom_side = 5
+7:14/2/terrains_peering_bit/bottom_left_corner = 5
+7:14/2/terrains_peering_bit/left_side = 5
+7:14/2/terrains_peering_bit/top_left_corner = 5
+7:14/2/terrains_peering_bit/top_side = 5
+7:14/2/custom_data_0 = true
+7:14/3 = 3
+7:14/3/flip_h = true
+7:14/3/transpose = true
+7:14/3/terrain_set = 0
+7:14/3/terrains_peering_bit/right_side = 5
+7:14/3/terrains_peering_bit/bottom_right_corner = 5
+7:14/3/terrains_peering_bit/bottom_side = 5
+7:14/3/terrains_peering_bit/top_side = 5
+7:14/3/terrains_peering_bit/top_right_corner = 5
+7:14/3/custom_data_0 = true
+7:14/4 = 4
+7:14/4/terrain_set = 0
+7:14/4/terrains_peering_bit/right_side = 5
+7:14/4/terrains_peering_bit/left_side = 5
+7:14/4/terrains_peering_bit/top_left_corner = 5
+7:14/4/terrains_peering_bit/top_side = 5
+7:14/4/terrains_peering_bit/top_right_corner = 5
+7:14/4/custom_data_0 = true
+7:15/next_alternative_id = 5
+7:15/animation_speed = 5.0
+7:15/animation_mode = 1
+7:15/animation_frame_0/duration = 1.0
+7:15/animation_frame_1/duration = 1.0
+7:15/animation_frame_2/duration = 1.0
+7:15/0 = 0
+7:15/0/terrain_set = 0
+7:15/0/custom_data_0 = true
+7:15/1 = 1
+7:15/1/flip_v = true
+7:15/1/terrain_set = 0
+7:15/1/custom_data_0 = true
+7:15/2 = 2
+7:15/2/transpose = true
+7:15/2/terrain_set = 0
+7:15/2/custom_data_0 = true
+7:15/3 = 3
+7:15/3/flip_h = true
+7:15/3/terrain_set = 0
+7:15/3/custom_data_0 = true
+7:15/4 = 4
+7:15/4/terrain_set = 0
+7:15/4/custom_data_0 = true
+15:0/0 = 0
+15:0/0/terrain_set = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tglvs"]
 resource_name = "Metal Panel Walls"
@@ -1610,13 +1681,6 @@ scenes/3/scene = ExtResource("10_htd1m")
 scenes/4/scene = ExtResource("11_opqfu")
 scenes/5/scene = ExtResource("17_0mavu")
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_jwdsv"]
-resource_name = "Hazards"
-scenes/1/scene = ExtResource("16_vnd77")
-scenes/2/scene = ExtResource("6_icoyr")
-scenes/4/scene = ExtResource("18_kauwh")
-scenes/5/scene = ExtResource("8_6n6g1")
-
 [resource]
 physics_layer_0/collision_layer = 5
 physics_layer_0/collision_mask = 5
@@ -1629,6 +1693,12 @@ terrain_set_0/terrain_2/name = "Metal Walls"
 terrain_set_0/terrain_2/color = Color(0.56611127, 0.50381565, 0.4647792, 1)
 terrain_set_0/terrain_3/name = "Stone Walls"
 terrain_set_0/terrain_3/color = Color(0.4246607, 0.3696376, 0.33634683, 1)
+terrain_set_0/terrain_4/name = "Walls"
+terrain_set_0/terrain_4/color = Color(0.25, 0.5, 0.3125, 1)
+terrain_set_0/terrain_5/name = "Spikes"
+terrain_set_0/terrain_5/color = Color(1, 0.52633333, 0.01999998, 1)
+custom_data_layer_0/name = "is_hazard"
+custom_data_layer_0/type = 1
 sources/2 = SubResource("TileSetAtlasSource_tglvs")
 sources/3 = SubResource("TileSetAtlasSource_vk6bf")
 sources/4 = SubResource("TileSetAtlasSource_8duue")
@@ -1636,7 +1706,7 @@ sources/5 = SubResource("TileSetAtlasSource_biwt1")
 sources/0 = SubResource("TileSetAtlasSource_85mbc")
 sources/6 = SubResource("TileSetScenesCollectionSource_0mavu")
 sources/7 = SubResource("TileSetScenesCollectionSource_m3kbm")
-sources/8 = SubResource("TileSetScenesCollectionSource_jwdsv")
+sources/1 = SubResource("TileSetAtlasSource_m3kbm")
 pattern_0 = SubResource("TileMapPattern_vk6bf")
 pattern_1 = SubResource("TileMapPattern_wie53")
 pattern_2 = SubResource("TileMapPattern_8duue")

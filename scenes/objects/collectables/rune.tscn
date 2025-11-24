@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtx2dwejqj456"]
+[gd_scene load_steps=9 format=3 uid="uid://dtx2dwejqj456"]
 
 [ext_resource type="PackedScene" uid="uid://buxglxwkslhwh" path="res://scenes/objects/collectables/util/collectable.tscn" id="1_ipmkl"]
 [ext_resource type="Texture2D" uid="uid://c04gduq36mevi" path="res://assets/background/Runes.PNG" id="2_pjg3v"]
@@ -39,6 +39,12 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ct4fg"]
+size = Vector2(8, 8)
+
 [node name="Rune" instance=ExtResource("1_ipmkl")]
 sprite_frames = SubResource("SpriteFrames_da8kg")
 frame_progress = 0.58327466
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_ct4fg")
