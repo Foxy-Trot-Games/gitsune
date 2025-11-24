@@ -148,28 +148,19 @@ func die() -> void:
 		return
 	is_dead = true
 	stop_chase()
-
-
-
+	# Play your existing die animation
+	animation_player.play("die")
 	# Create a Tween for the shock effect
 	var tween := get_tree().create_tween()
-
 	# Jump up quickly
 	tween.tween_property(self, "position:y", position.y - 20, 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-
 	# Fall back down
 	tween.tween_property(self, "position:y", position.y + 5, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-
 	# Small horizontal shake (simulate electricity)
 	tween.tween_property(self, "position:x", position.x - 5, 0.05)
 	tween.tween_property(self, "position:x", position.x + 5, 0.05)
 	tween.tween_property(self, "position:x", position.x, 0.05)
-
-
-
 	# Wait for the tween to finish
 	await tween.finished
-
-
 	# Remove enemy
 	queue_free()
