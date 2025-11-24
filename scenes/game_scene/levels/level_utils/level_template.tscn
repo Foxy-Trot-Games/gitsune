@@ -27,7 +27,7 @@ metadata/_edit_lock_ = true
 [node name="PhantomCamera2D" type="Node2D" parent="CameraManager" node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
 top_level = true
-position = Vector2(336, 196)
+position = Vector2(320, 180)
 script = ExtResource("5_686pq")
 priority = 1
 follow_mode = 1
@@ -38,19 +38,18 @@ tween_resource = SubResource("Resource_2ya6o")
 tween_on_load = false
 draw_limits = true
 limit_target = NodePath("../../TileMapLayer/TileMapLayerWallsAndFloors")
-limit_margin = Vector4i(16, 16, 16, 16)
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Camera2D" type="Camera2D" parent="CameraManager"]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-position = Vector2(336, 196)
+position = Vector2(320, 180)
 zoom = Vector2(2, 2)
 process_callback = 0
-limit_left = 16
-limit_top = 16
-limit_right = -16
-limit_bottom = -16
+limit_left = 0
+limit_top = 0
+limit_right = 0
+limit_bottom = 0
 editor_draw_limits = true
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true

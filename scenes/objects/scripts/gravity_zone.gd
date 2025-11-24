@@ -56,9 +56,13 @@ func _draw() -> void:
 	
 	# update gravity zone color based on export params
 	if slows_down_player:
-		(material as ShaderMaterial).set_shader_parameter("wave_color", Color.WEB_GREEN)
+		(material as ShaderMaterial).set_shader_parameter("wave_color", Color("3E7A68"))
+	elif allow_movement:
+		(material as ShaderMaterial).set_shader_parameter("wave_color", Color("53686e"))
 	elif recharges_gun:
-		(material as ShaderMaterial).set_shader_parameter("wave_color", Color.GOLDENROD)
+		(material as ShaderMaterial).set_shader_parameter("wave_color", Color("ffa181"))
+	else:
+		(material as ShaderMaterial).set_shader_parameter("wave_color", Color("7fffa8"))
 	
 	_update_debug_label()
 

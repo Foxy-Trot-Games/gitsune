@@ -18,6 +18,8 @@ extends Resource
 # allow gun recharging
 # recharge 1 instantly on floor
 # reactor wave recharges gun
+# gun recharges in teh air
+# pulse amount
 
 static var player_state : PlayerState :
 	get():

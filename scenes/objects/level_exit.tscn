@@ -1,16 +1,21 @@
-[gd_scene load_steps=12 format=3 uid="uid://cmddg5wv0dp8m"]
+[gd_scene load_steps=13 format=3 uid="uid://cmddg5wv0dp8m"]
 
 [ext_resource type="Script" uid="uid://cw6qo4vaghkoi" path="res://scenes/objects/scripts/level_exit.gd" id="1_2wvin"]
 [ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="1_041fo"]
 [ext_resource type="Texture2D" uid="uid://c04gduq36mevi" path="res://assets/background/Runes.PNG" id="2_2wvin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_urmku"]
-size = Vector2(16, 48)
+size = Vector2(16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wvin"]
+resource_local_to_scene = true
+atlas = ExtResource("1_041fo")
+region = Rect2(160, 128, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_686pq"]
 resource_local_to_scene = true
 atlas = ExtResource("1_041fo")
-region = Rect2(160, 96, 16, 48)
+region = Rect2(160, 96, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3tkib"]
 atlas = ExtResource("2_2wvin")
@@ -61,18 +66,22 @@ script = ExtResource("1_2wvin")
 id = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -24)
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_urmku")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = SubResource("AtlasTexture_2wvin")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(0, -24)
 texture = SubResource("AtlasTexture_686pq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -64)
+position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_10mtc")
 autoplay = "default"
-frame_progress = 0.043178387
+frame_progress = 0.7434334
 
 [node name="Label" type="Label" parent="."]
 z_index = 100
@@ -81,10 +90,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -26.0
-offset_top = -104.0
-offset_right = 26.0
-offset_bottom = -81.0
+offset_left = -24.0
+offset_top = -72.0
+offset_right = 28.0
+offset_bottom = -49.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4

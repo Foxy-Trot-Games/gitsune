@@ -29,7 +29,6 @@ unique_name_in_owner = true
 gravity_space_override = 3
 gravity_point_center = Vector2(-1, 0)
 gravity_direction = Vector2(-1, 0)
-gravity = 1960.0
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

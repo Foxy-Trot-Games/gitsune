@@ -18,7 +18,7 @@ initial_velocity_max = 100.0
 gravity = Vector3(0, 0, 0)
 scale_min = 3.0
 scale_max = 3.0
-color = Color(1, 0, 0.8833332, 1)
+color = Color(0.26666668, 0.61960787, 0.5137255, 1)
 color_ramp = SubResource("GradientTexture1D_4miey")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7vo7j"]

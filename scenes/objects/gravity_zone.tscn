@@ -11,7 +11,7 @@ shader = ExtResource("1_l6gxy")
 shader_parameter/wave_frequency = 10.0
 shader_parameter/wave_speed = 0.05
 shader_parameter/wave_amplitude = 0.005
-shader_parameter/wave_color = Color(0.5568628, 1, 1, 1)
+shader_parameter/wave_color = Color(0.49803922, 1, 0.65882355, 1)
 
 [sub_resource type="Gradient" id="Gradient_4fuhv"]
 offsets = PackedFloat32Array(0.41107872, 0.7521866, 1)
