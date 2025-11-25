@@ -86,7 +86,7 @@ func change_direction() -> void:
 	# CHASE state has priority - update direction every frame
 	if current_state == States.CHASE:
 		
-		var player: Player = get_tree().get_first_node_in_group("player")
+		var player: Player = Globals.get_player()
 		if player:
 			direction = (player.global_position - global_position).normalized()
 			animated_sprite_2d.flip_h = direction.x < 0

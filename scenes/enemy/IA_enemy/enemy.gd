@@ -113,7 +113,7 @@ func change_direction() -> void:
 				direction = Vector2.LEFT
 
 	else:
-		var player : Player = get_tree().get_first_node_in_group("player")
+		var player : Player = Globals.get_player()
 		if player:
 			direction = (player.position - position).normalized()
 			if direction.x > 0:

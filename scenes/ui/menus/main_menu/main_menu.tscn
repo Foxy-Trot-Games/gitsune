@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://btt7i2y5c6sme" path="res://scenes/game_scene/levels/level_utils/level_tile_map_layer.tscn" id="6_4pf8t"]
 [ext_resource type="PackedScene" uid="uid://cnuggijmxgf0u" path="res://scenes/objects/reactor_blast_wave.tscn" id="7_aofvg"]
 [ext_resource type="PackedScene" uid="uid://cnf23nyxdykpd" path="res://scenes/objects/orbital_zone.tscn" id="9_5gt47"]
-[ext_resource type="Texture2D" uid="uid://d3vntilj6j31r" path="res://assets/background/Reactor.png" id="10_erocf"]
+[ext_resource type="Texture2D" uid="uid://d3vntilj6j31r" path="res://assets/background/Reactor.PNG" id="10_erocf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_puet1"]
 resource_local_to_scene = true
@@ -114,7 +114,7 @@ tile_map_data = PackedByteArray("AADn/wcACwAAAAAAAAD3/wcACwACAAAAAAABAAcACwADAAQ
 [node name="ReactorBlastWave" parent="SubViewportContainer/SubViewport/ReactorLevel/LevelObjects" index="0" instance=ExtResource("7_aofvg")]
 position = Vector2(1000, 0)
 
-[node name="Player" type="CharacterBody2D" parent="SubViewportContainer/SubViewport/ReactorLevel/LevelObjects" index="1"]
+[node name="Player" type="CharacterBody2D" parent="SubViewportContainer/SubViewport/ReactorLevel/LevelObjects" index="1" groups=["Player"]]
 unique_name_in_owner = true
 
 [node name="ReactorOrbitalZone" parent="SubViewportContainer/SubViewport/ReactorLevel/LevelObjects" index="2" instance=ExtResource("9_5gt47")]
@@ -142,7 +142,7 @@ zoom = Vector2(2, 2)
 process_callback = 0
 
 [node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0"]
-text = "v0.0.49"
+text = "v0.0.63"
 
 [node name="SubTitleLabel" parent="MenuContainer/SubTitleMargin/SubTitleContainer" index="0"]
 text = ""

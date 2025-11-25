@@ -7,7 +7,7 @@ class_name ReactorBlastWave extends Node2D
 @export var wave_period := 20.0 # seconds
 
 @onready var area_2d: Area2D = %Area2D
-@onready var _player: Node2D = %Player
+@onready var _player: Node2D = Globals.get_player()
 @onready var _x_offset := wave_speed * wave_period / 2
 
 var _actual_wave_speed : int
@@ -19,9 +19,6 @@ enum Position {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if !_player:
-		return
-	
 	if start_position == Position.RIGHT:
 		area_2d.gravity_direction = Vector2.LEFT
 		global_position.x = _player.global_position.x + _x_offset
@@ -52,7 +49,3 @@ func _physics_process(delta: float) -> void:
 		reset_physics_interpolation()
 		
 	Events.reactor_wave_moved.emit(global_position, limits)
-
-func get_player() -> Player:
-	# get_tree() is needed so this works in the editor
-	return get_tree().get_first_node_in_group("Player")
