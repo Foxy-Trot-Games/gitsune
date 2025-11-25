@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=40 format=3 uid="uid://28o3066vdu43"]
+[gd_resource type="TileSet" load_steps=39 format=3 uid="uid://28o3066vdu43"]
 
 [ext_resource type="Texture2D" uid="uid://d3vntilj6j31r" path="res://assets/background/Reactor.PNG" id="1_2qxyp"]
 [ext_resource type="Texture2D" uid="uid://duc12xc6nyatb" path="res://assets/background/Lab.PNG" id="2_vdce3"]
@@ -20,8 +20,6 @@ tile_data = PackedInt32Array(0, 589835, 9, 65536, 589835, 10, 131072, 589835, 11
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_bspnc"]
 tile_data = PackedInt32Array(0, 589835, 10, 65536, 589835, 11, 131072, 589835, 11, 196608, 589835, 10, 262144, 589835, 11, 327680, 589835, 10, 393216, 589835, 11, 458752, 589835, 10, 524288, 589835, 11, 589824, 589835, 10, 655360, 589835, 11, 720896, 589835, 10, 786432, 589835, 11, 851968, 589835, 10, 917504, 589835, 11, 1, 655371, 10, 65537, 655371, 11, 131073, 655371, 11, 196609, 655371, 10, 262145, 655371, 11, 327681, 655371, 10, 393217, 655371, 11, 458753, 655371, 10, 524289, 655371, 11, 589825, 655371, 10, 655361, 655371, 11, 720897, 655371, 10, 786433, 655371, 11, 851969, 655371, 10, 917505, 655371, 11)
-
-[sub_resource type="TileMapPattern" id="TileMapPattern_b0pys"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_vdce3"]
 tile_data = PackedInt32Array(65536, 11, 12, 393216, 589830, 6, 1, 65547, 11, 65537, 65547, 12, 131073, 65547, 13, 196609, 65547, 14, 262145, 65547, 14, 327681, 65547, 14, 393217, 65547, 15, 2, 131083, 11, 65538, 131083, 12, 131074, 589830, 7, 3, 196619, 11, 65539, 196619, 12, 131075, 65547, 13, 196611, 65547, 14, 262147, 65547, 14, 327683, 65547, 14, 393219, 65547, 15, 65540, 262155, 12, 393220, 589830, 6)
@@ -2762,4 +2760,3 @@ pattern_6 = SubResource("TileMapPattern_pt010")
 pattern_7 = SubResource("TileMapPattern_wj4xs")
 pattern_8 = SubResource("TileMapPattern_hbkr3")
 pattern_9 = SubResource("TileMapPattern_stai2")
-pattern_10 = SubResource("TileMapPattern_b0pys")
