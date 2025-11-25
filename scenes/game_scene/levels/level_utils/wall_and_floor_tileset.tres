@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=28 format=3 uid="uid://y4ydrkwovoh6"]
+[gd_resource type="TileSet" load_steps=29 format=3 uid="uid://y4ydrkwovoh6"]
 
 [ext_resource type="Texture2D" uid="uid://pkmokv2xd2q4" path="res://assets/background/Floor Merged.PNG" id="1_hqnv6"]
 [ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="2_0mavu"]
@@ -16,6 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://c73d1u3kwjxu8" path="res://assets/background/Environment.PNG" id="14_qwveq"]
 [ext_resource type="Texture2D" uid="uid://coqp7ok0wxsv6" path="res://assets/background/circuit_wall_tileset.png" id="16_0mavu"]
 [ext_resource type="PackedScene" uid="uid://dmeyxqrmciogn" path="res://scenes/enemy/IA_enemy_flying/enemy-flying.tscn" id="17_0mavu"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_opqfu"]
+tile_data = PackedInt32Array(65536, 458753, 131086, 131072, 458753, 131086, 196608, 458753, 131086, 262144, 458753, 131086, 327680, 458753, 131086, 1, 458753, 262158, 65537, 65540, 0, 131073, 4, 1, 196609, 4, 1, 262145, 4, 1, 327681, 65540, 2, 393217, 458753, 65550, 2, 458753, 262158, 65538, 131076, 3, 131074, 524291, 0, 196610, 524291, 1, 262146, 524291, 3, 327682, 131076, 3, 393218, 458753, 65550, 3, 458753, 262158, 65539, 131076, 3, 131075, 655363, 0, 196611, 589827, 2, 262147, 589827, 3, 327683, 131076, 3, 393219, 458753, 65550, 4, 458753, 262158, 65540, 131076, 3, 131076, 720899, 0, 196612, 720899, 2, 262148, 720899, 3, 327684, 131076, 3, 393220, 458753, 65550, 5, 458753, 262158, 65541, 196612, 0, 131077, 4, 1, 196613, 4, 1, 262149, 4, 1, 327685, 196612, 2, 393221, 458753, 65550, 65542, 458753, 196622, 131078, 458753, 196622, 196614, 458753, 196622, 262150, 458753, 196622, 327686, 458753, 196622)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85mbc"]
 texture = ExtResource("1_hqnv6")
@@ -2603,3 +2606,4 @@ sources/1 = SubResource("TileSetAtlasSource_m3kbm")
 sources/8 = SubResource("TileSetAtlasSource_htd1m")
 sources/9 = SubResource("TileSetAtlasSource_kauwh")
 sources/10 = SubResource("TileSetAtlasSource_vnd77")
+pattern_0 = SubResource("TileMapPattern_opqfu")
