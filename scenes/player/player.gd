@@ -137,6 +137,8 @@ func _check_state() -> void:
 		AnimationStates.DYING:
 			if is_on_floor() && player_sprite.animation != &"dying":
 				_play_animation(&"dying_ground")
+			else:
+				_play_animation(&"dying_flying")
 
 func _play_animation(animation: String) -> void:
 	# only play the animation once, even the looping ones

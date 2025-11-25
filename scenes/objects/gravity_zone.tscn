@@ -40,6 +40,7 @@ emission_box_extents = Vector3(8, 8, 1)
 gravity = Vector3(98, 0, 0)
 
 [node name="GravityZone" type="TextureRect"]
+z_index = -1
 material = SubResource("ShaderMaterial_l6gxy")
 custom_minimum_size = Vector2(16, 16)
 offset_right = 16.0

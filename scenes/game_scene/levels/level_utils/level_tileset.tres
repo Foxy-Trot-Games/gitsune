@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=35 format=3 uid="uid://28o3066vdu43"]
+[gd_resource type="TileSet" load_steps=40 format=3 uid="uid://28o3066vdu43"]
 
 [ext_resource type="Texture2D" uid="uid://d3vntilj6j31r" path="res://assets/background/Reactor.PNG" id="1_2qxyp"]
 [ext_resource type="Texture2D" uid="uid://duc12xc6nyatb" path="res://assets/background/Lab.PNG" id="2_vdce3"]
+[ext_resource type="Texture2D" uid="uid://coqp7ok0wxsv6" path="res://assets/background/circuit_wall_tileset.png" id="6_uxekd"]
 [ext_resource type="Texture2D" uid="uid://c04gduq36mevi" path="res://assets/background/Runes.PNG" id="7_caxap"]
 [ext_resource type="Texture2D" uid="uid://uqxnqvc5ghf0" path="res://assets/background/walls_tileset.png" id="7_wj4xs"]
 [ext_resource type="Texture2D" uid="uid://cik7u4ts61k5g" path="res://assets/background/walls2_tileset.png" id="8_b0pys"]
@@ -20,6 +21,8 @@ tile_data = PackedInt32Array(0, 589835, 9, 65536, 589835, 10, 131072, 589835, 11
 [sub_resource type="TileMapPattern" id="TileMapPattern_bspnc"]
 tile_data = PackedInt32Array(0, 589835, 10, 65536, 589835, 11, 131072, 589835, 11, 196608, 589835, 10, 262144, 589835, 11, 327680, 589835, 10, 393216, 589835, 11, 458752, 589835, 10, 524288, 589835, 11, 589824, 589835, 10, 655360, 589835, 11, 720896, 589835, 10, 786432, 589835, 11, 851968, 589835, 10, 917504, 589835, 11, 1, 655371, 10, 65537, 655371, 11, 131073, 655371, 11, 196609, 655371, 10, 262145, 655371, 11, 327681, 655371, 10, 393217, 655371, 11, 458753, 655371, 10, 524289, 655371, 11, 589825, 655371, 10, 655361, 655371, 11, 720897, 655371, 10, 786433, 655371, 11, 851969, 655371, 10, 917505, 655371, 11)
 
+[sub_resource type="TileMapPattern" id="TileMapPattern_b0pys"]
+
 [sub_resource type="TileMapPattern" id="TileMapPattern_vdce3"]
 tile_data = PackedInt32Array(65536, 11, 12, 393216, 589830, 6, 1, 65547, 11, 65537, 65547, 12, 131073, 65547, 13, 196609, 65547, 14, 262145, 65547, 14, 327681, 65547, 14, 393217, 65547, 15, 2, 131083, 11, 65538, 131083, 12, 131074, 589830, 7, 3, 196619, 11, 65539, 196619, 12, 131075, 65547, 13, 196611, 65547, 14, 262147, 65547, 14, 327683, 65547, 14, 393219, 65547, 15, 65540, 262155, 12, 393220, 589830, 6)
 
@@ -37,6 +40,12 @@ tile_data = PackedInt32Array(65536, 9, 1342177289, 131072, 9, 1342177289, 196608
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_wj4xs"]
 tile_data = PackedInt32Array(0, 655369, 0, 65536, 655369, 1, 131072, 655369, 1, 196608, 655369, 1, 262144, 655369, 2, 1, 720905, 0, 65537, 196615, 2, 131073, 196615, 2, 196609, 196615, 2, 262145, 720905, 2, 2, 720905, 0, 65538, 196615, 2, 131074, 196615, 2, 196610, 196615, 2, 262146, 720905, 2, 3, 720905, 0, 65539, 196615, 2, 131075, 196615, 2, 196611, 196615, 2, 262147, 720905, 2, 4, 720905, 0, 65540, 196615, 2, 131076, 196615, 2, 196612, 196615, 2, 262148, 720905, 2, 5, 720905, 0, 65541, 196615, 2, 131077, 196615, 2, 196613, 196615, 2, 262149, 720905, 2, 6, 720905, 0, 65542, 196615, 2, 131078, 196615, 2, 196614, 196615, 2, 262150, 720905, 2, 7, 786441, 0, 65543, 786441, 1, 131079, 786441, 1, 196615, 786441, 1, 262151, 786441, 2)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_hbkr3"]
+tile_data = PackedInt32Array(0, 720897, 5)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_stai2"]
+tile_data = PackedInt32Array(196608, 917505, 268435461, 1, 851969, 268435458, 65537, 851969, 268435459, 131073, 851969, 268435460, 196609, 851969, 268435461, 2, 786433, 268435458, 65538, 786433, 268435459, 131074, 786433, 268435460, 196610, 786433, 268435461, 131075, 720897, 268435460)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vdce3"]
 texture = ExtResource("1_2qxyp")
@@ -521,6 +530,56 @@ texture = ExtResource("9_bspnc")
 4:13/0 = 0
 5:13/0 = 0
 7:13/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1yjvj"]
+texture = ExtResource("6_uxekd")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+11:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tglvs"]
 resource_name = "Metal Panel Walls"
@@ -2692,6 +2751,7 @@ sources/11 = SubResource("TileSetAtlasSource_wj4xs")
 sources/12 = SubResource("TileSetAtlasSource_6seo5")
 sources/0 = SubResource("TileSetAtlasSource_vdce3")
 sources/1 = SubResource("TileSetAtlasSource_caxap")
+sources/13 = SubResource("TileSetAtlasSource_1yjvj")
 pattern_0 = SubResource("TileMapPattern_caxap")
 pattern_1 = SubResource("TileMapPattern_bspnc")
 pattern_2 = SubResource("TileMapPattern_vdce3")
@@ -2700,3 +2760,6 @@ pattern_4 = SubResource("TileMapPattern_1yjvj")
 pattern_5 = SubResource("TileMapPattern_6seo5")
 pattern_6 = SubResource("TileMapPattern_pt010")
 pattern_7 = SubResource("TileMapPattern_wj4xs")
+pattern_8 = SubResource("TileMapPattern_hbkr3")
+pattern_9 = SubResource("TileMapPattern_stai2")
+pattern_10 = SubResource("TileMapPattern_b0pys")

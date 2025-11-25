@@ -1,12 +1,13 @@
-[gd_resource type="TileSet" load_steps=29 format=3 uid="uid://y4ydrkwovoh6"]
+[gd_resource type="TileSet" load_steps=32 format=3 uid="uid://y4ydrkwovoh6"]
 
 [ext_resource type="Texture2D" uid="uid://pkmokv2xd2q4" path="res://assets/background/Floor Merged.PNG" id="1_hqnv6"]
 [ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="2_0mavu"]
 [ext_resource type="Texture2D" uid="uid://ckovqgvljpmyp" path="res://assets/background/dirt_wall_tileset.png" id="3_opqfu"]
+[ext_resource type="Texture2D" uid="uid://0s6i5onprh44" path="res://assets/background/background.png" id="4_0mavu"]
+[ext_resource type="Texture2D" uid="uid://cey2uudy27aw4" path="res://assets/background/Wall overlay.PNG" id="5_m3kbm"]
 [ext_resource type="PackedScene" uid="uid://dj26b32jiqwfe" path="res://scenes/objects/ammo.tscn" id="7_6n6g1"]
 [ext_resource type="Texture2D" uid="uid://uqxnqvc5ghf0" path="res://assets/background/walls_tileset.png" id="7_kauwh"]
 [ext_resource type="Texture2D" uid="uid://cik7u4ts61k5g" path="res://assets/background/walls2_tileset.png" id="8_jwdsv"]
-[ext_resource type="PackedScene" uid="uid://cxm7caqjvvyu5" path="res://scenes/enemy/Stationary_enemy/enemy.tscn" id="8_xe3hx"]
 [ext_resource type="Texture2D" uid="uid://b0hoeiplnp4ka" path="res://assets/background/walls3_tileset.png" id="9_cxt27"]
 [ext_resource type="PackedScene" uid="uid://dtx2dwejqj456" path="res://scenes/objects/collectables/rune.tscn" id="9_htd1m"]
 [ext_resource type="PackedScene" uid="uid://2jpu8jkgrmga" path="res://scenes/enemy/Flying_enemy/Flying_enemy.tscn" id="9_qwveq"]
@@ -534,6 +535,24 @@ texture = ExtResource("3_opqfu")
 11:3/0/terrains_peering_bit/top_left_corner = 7
 11:3/0/terrains_peering_bit/top_side = 7
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwdsv"]
+texture = ExtResource("4_0mavu")
+6:6/0 = 0
+6:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:6/0 = 0
+7:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:6/0 = 0
+8:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cxt27"]
+texture = ExtResource("5_m3kbm")
+11:9/0 = 0
+11:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2.6666665, 8, -2.6666665, 8, 0, -8, 0)
+12:9/0 = 0
+12:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2.6666665, 8, -2.6666665, 8, 0, -8, 0)
+13:9/0 = 0
+13:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2.6666665, 8, -2.6666665, 8, 0, -8, 0)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tglvs"]
 resource_name = "Metal Panel Walls"
 texture = ExtResource("7_kauwh")
@@ -928,6 +947,7 @@ texture = ExtResource("8_jwdsv")
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0/terrains_peering_bit/right_side = 1
 1:0/0/terrains_peering_bit/bottom_side = 1
+2:0/next_alternative_id = 2
 2:0/0 = 0
 2:0/0/terrain_set = 0
 2:0/0/terrain = 1
@@ -1038,7 +1058,7 @@ texture = ExtResource("8_jwdsv")
 10:0/0/terrains_peering_bit/bottom_side = 1
 10:0/0/terrains_peering_bit/bottom_left_corner = 1
 10:0/0/terrains_peering_bit/left_side = 1
-11:0/next_alternative_id = 3
+11:0/next_alternative_id = 4
 11:0/0 = 0
 11:0/0/terrain_set = 0
 11:0/0/terrain = 1
@@ -2063,7 +2083,6 @@ scenes/4/scene = ExtResource("9_htd1m")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_m3kbm"]
 resource_name = "Enemies"
-scenes/1/scene = ExtResource("8_xe3hx")
 scenes/2/scene = ExtResource("9_qwveq")
 scenes/3/scene = ExtResource("10_htd1m")
 scenes/4/scene = ExtResource("11_opqfu")
@@ -2606,4 +2625,6 @@ sources/1 = SubResource("TileSetAtlasSource_m3kbm")
 sources/8 = SubResource("TileSetAtlasSource_htd1m")
 sources/9 = SubResource("TileSetAtlasSource_kauwh")
 sources/10 = SubResource("TileSetAtlasSource_vnd77")
+sources/11 = SubResource("TileSetAtlasSource_jwdsv")
+sources/12 = SubResource("TileSetAtlasSource_cxt27")
 pattern_0 = SubResource("TileMapPattern_opqfu")
