@@ -12,7 +12,6 @@ extends Resource
 @export var max_player_velocity := 1.2
 @export var has_key := false 
 
-
 # future upgrades?
 # allow aim direction
 # allow gun recharging
@@ -20,6 +19,9 @@ extends Resource
 # reactor wave recharges gun
 # gun recharges in teh air
 # pulse amount
+# air manuevalbitliy
+# walk speed
+# impulse amount
 
 static var player_state : PlayerState :
 	get():

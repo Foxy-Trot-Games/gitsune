@@ -14,8 +14,11 @@ var pulse_throttle := Throttle.new(pulse_cooldown)
 var _prev_pulse_dir : Vector2
 
 func apply_knockback_impulse(direction: Vector2) -> void:
+	var tmp := direction * KNOCKBACK_IMPULSE
+	# double verticle impulse, makes it feel nicer
+	tmp.y *= 2
 	# Emit a knockback signal instead of changing velocity
-	Events.pulse_knockback(direction * KNOCKBACK_IMPULSE)
+	Events.pulse_knockback(tmp)
 	_create_sound_wave(direction)
 
 func _create_sound_wave(direction: Vector2) -> void:
