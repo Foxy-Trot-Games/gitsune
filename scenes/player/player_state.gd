@@ -2,6 +2,9 @@ class_name PlayerState
 extends Resource
 
 @export var rune_number : int = 0
+@export var keys : Dictionary[String, bool] = {} 
+
+# Upgrades
 @export var gun_max_ammo : int = 1
 @export var gun_recharge_time : float = .5
 @export var has_air_movement : bool = false
@@ -10,7 +13,7 @@ extends Resource
 @export var has_crouch_lock_down : bool = false
 @export var gun_can_stun_enemies : bool = false
 @export var max_player_velocity := 1.2
-@export var has_key := false 
+
 
 # future upgrades?
 # allow aim direction
@@ -63,10 +66,8 @@ static func add_max_player_velocity() -> void:
 	player_state.max_player_velocity = clampf(player_state.max_player_velocity + 0.1, 1.0, 3.0)
 	Events.upgrade_picked_up.emit(player_state)
 
-static func add_key() -> void:
-	player_state.has_key = true
-	Events.have_key.emit(player_state)
-	print("Player has the key!")
+static func add_key(level_path: String) -> void:
+	player_state.keys[level_path] = true
 
-static func has_main_key() -> bool:
-	return player_state.has_key
+static func has_key(level_path: String) -> bool:
+	return player_state.keys.has(level_path)

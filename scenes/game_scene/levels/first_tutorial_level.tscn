@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://5sva8qxnwd1n"]
+[gd_scene load_steps=13 format=4 uid="uid://5sva8qxnwd1n"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_fnadv"]
 [ext_resource type="Texture2D" uid="uid://c44erxtka5iab" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_w.png" id="2_n4lor"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://kj4aq02s6wjx" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_arrow_right.png" id="9_7euxc"]
 [ext_resource type="Texture2D" uid="uid://ceh5r47vyytrr" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/mouse_left.png" id="10_vnr1l"]
 [ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="11_10kyj"]
-[ext_resource type="PackedScene" uid="uid://651u78jfo4el" path="res://scenes/objects/collectables/key.tscn" id="12_7euxc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n4lor"]
 font_size = 46
@@ -43,15 +42,7 @@ position = Vector2(920, 8)
 [node name="Player" parent="LevelObjects" index="1"]
 position = Vector2(-80, 8)
 
-[node name="DebugLevelChangeTutorial" type="Label" parent="." index="4"]
-z_index = -1
-offset_left = -72.0
-offset_top = -128.0
-offset_right = 387.0
-offset_bottom = -105.0
-text = "Debug: Use CTRL/CMD + 1,2,3,4,etc to quickly change levels!"
-
-[node name="MoveTutorial" type="HBoxContainer" parent="." index="5"]
+[node name="MoveTutorial" type="HBoxContainer" parent="." index="4"]
 z_index = -1
 offset_left = 8.0
 offset_top = -72.0
@@ -90,7 +81,7 @@ layout_mode = 2
 text = "to move"
 label_settings = SubResource("LabelSettings_n4lor")
 
-[node name="PUlseTutorial" type="HBoxContainer" parent="." index="6"]
+[node name="PulseTutorial" type="HBoxContainer" parent="." index="5"]
 z_index = -1
 offset_left = 424.0
 offset_top = -88.0
@@ -99,64 +90,48 @@ offset_bottom = -24.0
 scale = Vector2(0.335, 0.335)
 metadata/_edit_group_ = true
 
-[node name="Label2" type="Label" parent="PUlseTutorial" index="0"]
+[node name="Label2" type="Label" parent="PulseTutorial" index="0"]
 layout_mode = 2
 text = "Use"
 label_settings = SubResource("LabelSettings_n4lor")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PUlseTutorial" index="1"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PulseTutorial" index="1"]
 layout_mode = 2
 theme_override_constants/separation = -10
 
-[node name="TextureRect" type="TextureRect" parent="PUlseTutorial/HBoxContainer" index="0"]
+[node name="TextureRect" type="TextureRect" parent="PulseTutorial/HBoxContainer" index="0"]
 layout_mode = 2
 texture = ExtResource("6_td6ua")
 
-[node name="TextureRect2" type="TextureRect" parent="PUlseTutorial/HBoxContainer" index="1"]
+[node name="TextureRect2" type="TextureRect" parent="PulseTutorial/HBoxContainer" index="1"]
 layout_mode = 2
 texture = ExtResource("7_vnr1l")
 
-[node name="TextureRect3" type="TextureRect" parent="PUlseTutorial/HBoxContainer" index="2"]
+[node name="TextureRect3" type="TextureRect" parent="PulseTutorial/HBoxContainer" index="2"]
 layout_mode = 2
 texture = ExtResource("8_10kyj")
 
-[node name="TextureRect4" type="TextureRect" parent="PUlseTutorial/HBoxContainer" index="3"]
+[node name="TextureRect4" type="TextureRect" parent="PulseTutorial/HBoxContainer" index="3"]
 layout_mode = 2
 texture = ExtResource("9_7euxc")
 
-[node name="Label3" type="Label" parent="PUlseTutorial" index="2"]
+[node name="Label3" type="Label" parent="PulseTutorial" index="2"]
 layout_mode = 2
 text = "or "
 label_settings = SubResource("LabelSettings_n4lor")
 
-[node name="TextureRect5" type="TextureRect" parent="PUlseTutorial" index="3"]
+[node name="TextureRect5" type="TextureRect" parent="PulseTutorial" index="3"]
 layout_mode = 2
 texture = ExtResource("10_vnr1l")
 
-[node name="Label4" type="Label" parent="PUlseTutorial" index="4"]
+[node name="Label4" type="Label" parent="PulseTutorial" index="4"]
 layout_mode = 2
 text = "to use wave gun"
 label_settings = SubResource("LabelSettings_n4lor")
 
-[node name="LevelExit" parent="." index="7" instance=ExtResource("11_10kyj")]
-position = Vector2(360, 16)
-exit_to_level = "uid://btbewbohacu3h"
-exit_door_id = 1
-
-[node name="LevelExit2" parent="." index="8" instance=ExtResource("11_10kyj")]
-position = Vector2(416, 16)
-id = 2
-exit_to_level = "uid://dqlylgfnga4v4"
-exit_door_id = 2
-
-[node name="LevelExit5" parent="." index="9" instance=ExtResource("11_10kyj")]
+[node name="LevelExit" parent="." index="6" instance=ExtResource("11_10kyj")]
 position = Vector2(3960, -688)
-id = 3
 exit_to_level = "uid://btbewbohacu3h"
 exit_door_id = 1
-
-[node name="key" parent="." index="10" instance=ExtResource("12_7euxc")]
-position = Vector2(78, -24)
-scale = Vector2(0.28125, 0.28125)
 
 [editable path="TileMapLayer"]

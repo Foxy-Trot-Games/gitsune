@@ -131,12 +131,13 @@ libraries = {
 [node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("level_loader", "scene_lister")]
 script = ExtResource("5_d8vx4")
 level_loader = NodePath("../LevelLoader")
+starting_level_path = "uid://5sva8qxnwd1n"
 scene_lister = NodePath("LevelSceneLister")
 game_won_scene = ExtResource("6_qa7j3")
 
 [node name="LevelSceneLister" type="Node" parent="LevelManager"]
 script = ExtResource("9_hubgp")
-files = Array[String](["res://scenes/game_scene/levels/main_level_1.tscn", "res://scenes/game_scene/levels/main_level_2.tscn", "res://scenes/game_scene/levels/main_level_3.tscn", "res://scenes/game_scene/levels/reactor_level.tscn", "res://scenes/game_scene/levels/tutorial_level.tscn"])
+files = Array[String](["res://scenes/game_scene/levels/first_tutorial_level.tscn", "res://scenes/game_scene/levels/main_level_1.tscn", "res://scenes/game_scene/levels/main_level_2.tscn", "res://scenes/game_scene/levels/main_level_3.tscn", "res://scenes/game_scene/levels/reactor_level.tscn"])
 directory = "res://scenes/game_scene/levels"
 
 [node name="SceneCacheManager" type="Node" parent="."]

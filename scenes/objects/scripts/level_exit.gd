@@ -1,9 +1,12 @@
 @tool
 class_name LevelExit extends Area2D
 
-@onready var label: Label = $Label
-@onready var label_2: Label = $Label2
-@onready var panel: Panel = $Panel
+@onready var debug_label: Label = $DebugLabel
+@onready var debug_label_2: Label = $DebugLabel2
+@onready var locked_panel: Panel = $LockedPanel
+@onready var door_1_animated_sprite_2d: AnimatedSprite2D = $Door1AnimatedSprite2D
+@onready var door_2_animated_sprite_2d: AnimatedSprite2D = $Door2AnimatedSprite2D
+@onready var level_state : LevelState = Globals.get_level().level_state
 
 @export var id := -1 :
 	set(value):
@@ -17,6 +20,7 @@ class_name LevelExit extends Area2D
 	set(value):
 		exit_door_id = value
 		_update_label_text()
+@export var lockable := false
 
 const default_level_dir := "res://scenes/game_scene/levels/"
 var _door_disabled := false
@@ -34,35 +38,45 @@ func _ready() -> void:
 		assert(exit_to_level != default_level_dir, "Door should have exit level set! %s" % owner)
 		assert(exit_door_id != -1, "No door id set! %s" % owner)
 		
+		if lockable && !level_state.exit_unlocked():
+			door_1_animated_sprite_2d.play(&"locked")
+			door_2_animated_sprite_2d.play(&"locked")
+		
 func _draw() -> void:
 	_update_label_text()
 
 func _update_label_text() -> void:
 	
 	if !Engine.is_editor_hint():
-		if label:
-			label.queue_free()
-		if label_2:
-			label_2.queue_free()
+		if debug_label:
+			debug_label.queue_free()
+		if debug_label_2:
+			debug_label_2.queue_free()
 		return
 		
-	if label && label_2:
+	if debug_label && debug_label_2:
 		var path := ResourceUID.ensure_path(exit_to_level)
-		label.text = "Door %s" % [id]
-		label_2.text = "Exit to %s door %s" % [path.get_file().replace(".tscn",""), exit_door_id]
+		debug_label.text = "Door %s" % [id]
+		debug_label_2.text = "Exit to %s door %s" % [path.get_file().replace(".tscn",""), exit_door_id]
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player && !_door_disabled:
-		if PlayerState.has_main_key():
-			print("Door unlocked!")
-			Globals.get_level().level_exited.emit(exit_to_level, exit_door_id)
+		
+		if lockable && !level_state.exit_unlocked():
+			if PlayerState.has_key(GameState.get_current_level_path()):
+				level_state.unlock_exit()
+				door_1_animated_sprite_2d.play(&"opening")
+				door_2_animated_sprite_2d.play(&"opening")
+				await door_2_animated_sprite_2d.animation_finished
+				Globals.get_level().level_exited.emit(exit_to_level, exit_door_id)
+			else:
+				locked_panel.visible=true
 		else:
-			panel.visible=true
-			print("Door is locked! Find the key first.")
+			Globals.get_level().level_exited.emit(exit_to_level, exit_door_id)
 
 
 func _on_body_exited(body: Node2D) -> void:
-	panel.visible=false
+	locked_panel.visible=false
 	_door_disabled = false
 
 func _on_door_used() -> void:

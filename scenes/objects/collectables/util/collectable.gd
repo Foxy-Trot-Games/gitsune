@@ -40,7 +40,7 @@ func _on_body_entered(body: Node2D) -> void:
 func collected() -> void:
 	match upgrade_type:
 		Type.KEY:
-			PlayerState.add_key()
+			PlayerState.add_key(GameState.get_current_level_path())
 		Type.RUNE:
 			PlayerState.add_rune()
 		Type.MAX_AMMO:

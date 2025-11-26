@@ -115,7 +115,7 @@ func _on_level_lost() -> void:
 func get_current_level_path() -> String:
 	if current_level_path.is_empty():
 		current_level_path = starting_level_path
-		if scene_lister:
+		if scene_lister && current_level_path.is_empty():
 			current_level_path = scene_lister.files.front()
 	return current_level_path if force_level_path.is_empty() else force_level_path
 

@@ -1,21 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://cmddg5wv0dp8m"]
+[gd_scene load_steps=26 format=3 uid="uid://cmddg5wv0dp8m"]
 
 [ext_resource type="Script" uid="uid://cw6qo4vaghkoi" path="res://scenes/objects/scripts/level_exit.gd" id="1_2wvin"]
 [ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="1_041fo"]
 [ext_resource type="Texture2D" uid="uid://c04gduq36mevi" path="res://assets/background/Runes.PNG" id="2_2wvin"]
+[ext_resource type="Shader" uid="uid://q71u7eat2b4j" path="res://scenes/util/pulsing_glow_vfx.gdshader" id="4_gynqr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_urmku"]
 size = Vector2(16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2wvin"]
-resource_local_to_scene = true
-atlas = ExtResource("1_041fo")
-region = Rect2(160, 128, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_686pq"]
-resource_local_to_scene = true
-atlas = ExtResource("1_041fo")
-region = Rect2(160, 96, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gynqr"]
 resource_local_to_scene = true
@@ -65,6 +56,122 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xurnv"]
+atlas = ExtResource("1_041fo")
+region = Rect2(160, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1i4d"]
+atlas = ExtResource("1_041fo")
+region = Rect2(160, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erx5y"]
+atlas = ExtResource("1_041fo")
+region = Rect2(160, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwrvv"]
+atlas = ExtResource("1_041fo")
+region = Rect2(176, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pax4o"]
+atlas = ExtResource("1_041fo")
+region = Rect2(160, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_erx5y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xurnv")
+}],
+"loop": false,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1i4d")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_erx5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwrvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pax4o")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttd4k"]
+atlas = ExtResource("1_041fo")
+region = Rect2(160, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xujbg"]
+atlas = ExtResource("1_041fo")
+region = Rect2(160, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qd50"]
+atlas = ExtResource("1_041fo")
+region = Rect2(160, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlabf"]
+atlas = ExtResource("1_041fo")
+region = Rect2(176, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64362"]
+atlas = ExtResource("1_041fo")
+region = Rect2(160, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oini1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttd4k")
+}],
+"loop": false,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xujbg")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qd50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlabf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64362")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 10.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_35mhq"]
+shader = ExtResource("4_gynqr")
+shader_parameter/glow_color = Color(0.49803922, 1, 0.65882355, 1)
+shader_parameter/pulse_speed = 0.999999977648
+shader_parameter/pulse_strength = 0.65
+shader_parameter/edge_softness = 1.6
+shader_parameter/base_alpha = 0.41999999061216
+shader_parameter/noise_amount = 0.06
+shader_parameter/noise_speed = 4.07999990880384
+
 [node name="LevelExit" type="Area2D" groups=["LevelExit"]]
 z_index = -1
 script = ExtResource("1_2wvin")
@@ -74,25 +181,29 @@ id = 1
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_urmku")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -8)
-texture = SubResource("AtlasTexture_2wvin")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(0, -24)
-texture = SubResource("AtlasTexture_686pq")
-
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
 texture = SubResource("AtlasTexture_gynqr")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="RuneAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_10mtc")
 autoplay = "default"
 frame_progress = 0.7434334
 
-[node name="Label" type="Label" parent="."]
+[node name="Door1AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_erx5y")
+animation = &"open"
+autoplay = "open"
+
+[node name="Door2AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_oini1")
+animation = &"open"
+autoplay = "open"
+
+[node name="DebugLabel" type="Label" parent="."]
 z_index = 100
 anchors_preset = 7
 anchor_left = 0.5
@@ -109,7 +220,7 @@ size_flags_horizontal = 4
 text = "Door 1"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
+[node name="DebugLabel2" type="Label" parent="."]
 z_index = 100
 anchors_preset = 5
 anchor_left = 0.5
@@ -123,20 +234,30 @@ horizontal_alignment = 1
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 
-[node name="Panel" type="Panel" parent="."]
+[node name="LockedPanel" type="Panel" parent="."]
 visible = false
-offset_left = 13.0
-offset_top = -81.0
-offset_right = 120.0
-offset_bottom = -52.0
+z_index = 1
+offset_left = -49.0
+offset_top = -79.0
+offset_right = 58.0
+offset_bottom = -50.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="LockedPanel"]
 layout_mode = 0
 offset_left = 23.0
 offset_top = 4.0
 offset_right = 78.0
 offset_bottom = 27.0
 text = "Locked"
+
+[node name="Pulse" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_35mhq")
+offset_left = -9.0
+offset_top = -36.0
+offset_right = 7.0
+offset_bottom = -20.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

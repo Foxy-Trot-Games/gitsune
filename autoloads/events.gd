@@ -12,10 +12,6 @@ signal gun_stats_updated(ammo_count_left: int, max_ammo: int)
 signal player_died
 signal reactor_wave_moved(pos: Vector2, limits: Vector2)
 
-#for the key
-signal have_key(state: PlayerState)
-
-
 func player_movement_input(direction:Vector2) -> void:
 	emit_signal("player_movement_input_signal", direction)
 	
