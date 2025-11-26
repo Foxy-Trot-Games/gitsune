@@ -1,7 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjxfyhsbbcr26"]
+[gd_scene load_steps=13 format=3 uid="uid://cjxfyhsbbcr26"]
 
 [ext_resource type="Script" uid="uid://chrnoy4mj4ug" path="res://scenes/objects/scripts/platform.gd" id="1_8dp8w"]
 [ext_resource type="Texture2D" uid="uid://pkmokv2xd2q4" path="res://assets/background/Floor Merged.PNG" id="1_dotdq"]
+
+[sub_resource type="Curve2D" id="Curve2D_8dp8w"]
+resource_local_to_scene = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dotdq"]
 atlas = ExtResource("1_dotdq")
@@ -73,11 +76,22 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dp8w"]
 size = Vector2(80, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jb4ro"]
+size = Vector2(80, 18)
+
 [node name="Platform" type="Path2D"]
+curve = SubResource("Curve2D_8dp8w")
 script = ExtResource("1_8dp8w")
 
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -1
+width = 1.0
+default_color = Color(0.10980392, 0.2509804, 0.2901961, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-progress = 233.46625
 rotates = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
@@ -92,15 +106,31 @@ texture = SubResource("AtlasTexture_dotdq")
 position = Vector2(-24, 0)
 sprite_frames = SubResource("SpriteFrames_8dp8w")
 autoplay = "default"
+frame = 1
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="AnimatableBody2D/Sprite2D"]
 sprite_frames = SubResource("SpriteFrames_jb4ro")
 autoplay = "default"
+frame = 2
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="AnimatableBody2D/Sprite2D"]
 position = Vector2(24, 0)
 sprite_frames = SubResource("SpriteFrames_lacew")
 autoplay = "default"
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 shape = SubResource("RectangleShape2D_8dp8w")
+
+[node name="Area2D" type="Area2D" parent="AnimatableBody2D"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_jb4ro")
+debug_color = Color(0.97180074, 0, 0.44872785, 0.41960785)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="AnimatableBody2D"]
+enable_node_path = NodePath("../..")
+
+[connection signal="body_entered" from="AnimatableBody2D/Area2D" to="." method="_on_area_2d_body_entered"]

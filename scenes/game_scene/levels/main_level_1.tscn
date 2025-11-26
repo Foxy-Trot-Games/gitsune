@@ -144,7 +144,7 @@ limit_right = 4576
 limit_bottom = 512
 
 [node name="ReactorBlastWave" parent="LevelObjects" index="0"]
-position = Vector2(3152, 0)
+position = Vector2(3510, 0)
 
 [node name="Player" parent="LevelObjects" index="1"]
 position = Vector2(2510, -2678)
@@ -169,24 +169,27 @@ offset_right = 1744.0
 offset_bottom = 208.0
 id = 3
 
-[node name="LevelExit" parent="LevelObjects" index="5" instance=ExtResource("4_7ibmf")]
+[node name="Doors" type="Node2D" parent="LevelObjects" index="5"]
+
+[node name="LevelExit" parent="LevelObjects/Doors" index="0" instance=ExtResource("4_7ibmf")]
 position = Vector2(1928, 208)
+id = 3
 exit_to_level = "uid://5sva8qxnwd1n"
 exit_door_id = 1
 
-[node name="LevelExit2" parent="LevelObjects" index="6" instance=ExtResource("4_7ibmf")]
-position = Vector2(3048, -3328)
-id = 2
-exit_to_level = "uid://dqlylgfnga4v4"
-exit_door_id = 2
-
-[node name="ChallengeDoor" parent="LevelObjects" index="7" instance=ExtResource("4_05lm2")]
+[node name="ChallengeDoor" parent="LevelObjects/Doors" index="1" instance=ExtResource("4_05lm2")]
 position = Vector2(2344, -2672)
 id = 3
 exit_to_level = "uid://dflctox4ii57s"
 exit_door_id = 1
 
-[node name="GravityZones" type="Node2D" parent="LevelObjects" index="8"]
+[node name="LevelExit2" parent="LevelObjects/Doors" index="2" instance=ExtResource("4_7ibmf")]
+position = Vector2(3048, -3328)
+id = 3
+exit_to_level = "uid://dqlylgfnga4v4"
+exit_door_id = 2
+
+[node name="GravityZones" type="Node2D" parent="LevelObjects" index="6"]
 
 [node name="GravityZone" parent="LevelObjects/GravityZones" index="0" instance=ExtResource("5_7ldjd")]
 material = SubResource("ShaderMaterial_lbtov")
@@ -276,7 +279,7 @@ offset_right = 3536.0
 offset_bottom = -1792.0
 recharges_gun = true
 
-[node name="OrbitalZones" type="Node2D" parent="LevelObjects" index="9"]
+[node name="OrbitalZones" type="Node2D" parent="LevelObjects" index="7"]
 
 [node name="BigReactorZone" parent="LevelObjects/OrbitalZones" index="0" instance=ExtResource("3_lxo8s")]
 position = Vector2(2480, -1608)
@@ -314,22 +317,22 @@ position = Vector2(4320, -2768)
 [node name="ReactorZone6" parent="LevelObjects/OrbitalZones" index="9" instance=ExtResource("3_lxo8s")]
 position = Vector2(3920, -3088)
 
-[node name="MaxAmmoUpgradePickup" parent="LevelObjects" index="10" instance=ExtResource("8_lxo8s")]
-position = Vector2(3336, -3368)
-
-[node name="TestUpgrades" type="Node2D" parent="LevelObjects" index="11"]
+[node name="Upgrades" type="Node2D" parent="LevelObjects" index="8"]
 position = Vector2(1824, 168)
 
-[node name="MaxAmmoUpgradePickup3" parent="LevelObjects/TestUpgrades" index="0" instance=ExtResource("8_lxo8s")]
+[node name="MaxAmmoUpgradePickup3" parent="LevelObjects/Upgrades" index="0" instance=ExtResource("8_lxo8s")]
 position = Vector2(32, 0)
 
-[node name="MaxAmmoUpgradePickup2" parent="LevelObjects/TestUpgrades" index="1" instance=ExtResource("8_lxo8s")]
+[node name="MaxAmmoUpgradePickup2" parent="LevelObjects/Upgrades" index="1" instance=ExtResource("8_lxo8s")]
 position = Vector2(8, 0)
 
-[node name="MaxAmmoUpgradePickup" parent="LevelObjects/TestUpgrades" index="2" instance=ExtResource("8_lxo8s")]
+[node name="MaxAmmoUpgradePickup" parent="LevelObjects/Upgrades" index="2" instance=ExtResource("8_lxo8s")]
 position = Vector2(-16.000004, -3.179125e-06)
 
-[node name="GunRechargeUpgradePickup" parent="LevelObjects" index="12" instance=ExtResource("9_7ibmf")]
-position = Vector2(4520, -1560)
+[node name="MaxAmmoUpgradePickup4" parent="LevelObjects/Upgrades" index="3" instance=ExtResource("8_lxo8s")]
+position = Vector2(1512, -3536)
+
+[node name="GunRechargeUpgradePickup" parent="LevelObjects/Upgrades" index="4" instance=ExtResource("9_7ibmf")]
+position = Vector2(2696, -1728)
 
 [editable path="TileMapLayer"]

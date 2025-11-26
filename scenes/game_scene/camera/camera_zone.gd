@@ -1,7 +1,7 @@
 @tool
 extends Area2D
 
-@onready var player: Player = %Player
+@onready var player: Player = Globals.get_player()
 
 @onready var phantom_camera_2d: PhantomCamera2D = $PhantomCamera2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D

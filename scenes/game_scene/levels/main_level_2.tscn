@@ -188,55 +188,59 @@ slows_down_player = true
 recharges_gun = true
 allow_movement = true
 
-[node name="MaxAmmoUpgradePickup" parent="LevelObjects" index="3" instance=ExtResource("4_q0ogw")]
+[node name="Upgrades" type="Node2D" parent="LevelObjects" index="3"]
+
+[node name="MaxAmmoUpgradePickup" parent="LevelObjects/Upgrades" index="0" instance=ExtResource("4_q0ogw")]
 position = Vector2(-320, 184)
 
-[node name="MaxAmmoUpgradePickup2" parent="LevelObjects" index="4" instance=ExtResource("4_q0ogw")]
+[node name="MaxAmmoUpgradePickup2" parent="LevelObjects/Upgrades" index="1" instance=ExtResource("4_q0ogw")]
 position = Vector2(-280, 184)
 
-[node name="MaxAmmoUpgradePickup3" parent="LevelObjects" index="5" instance=ExtResource("4_q0ogw")]
+[node name="MaxAmmoUpgradePickup3" parent="LevelObjects/Upgrades" index="2" instance=ExtResource("4_q0ogw")]
 position = Vector2(-232, 184)
 
-[node name="MaxAmmoUpgradePickup4" parent="LevelObjects" index="6" instance=ExtResource("4_q0ogw")]
+[node name="MaxAmmoUpgradePickup4" parent="LevelObjects/Upgrades" index="3" instance=ExtResource("4_q0ogw")]
 position = Vector2(-184, 184)
 
-[node name="MaxVelocityPickup" parent="LevelObjects" index="7" instance=ExtResource("5_3llht")]
+[node name="MaxVelocityPickup" parent="LevelObjects/Upgrades" index="4" instance=ExtResource("5_3llht")]
 position = Vector2(1032, 440)
 
-[node name="ChallengeDoor" parent="LevelObjects" index="8" instance=ExtResource("4_xi8cs")]
+[node name="Doors" type="Node2D" parent="LevelObjects" index="4"]
+
+[node name="LevelExit" parent="LevelObjects/Doors" index="0" instance=ExtResource("4_80pbp")]
+position = Vector2(-488, 224)
+exit_to_level = "uid://btbewbohacu3h"
+exit_door_id = 3
+
+[node name="ChallengeDoor" parent="LevelObjects/Doors" index="1" instance=ExtResource("4_xi8cs")]
 position = Vector2(16, -544)
+id = 2
 exit_to_level = "uid://cya258o1v5myq"
 exit_door_id = 1
 
-[node name="LevelExit" parent="LevelObjects" index="9" instance=ExtResource("4_80pbp")]
-position = Vector2(-488, 224)
-id = 2
-exit_to_level = "uid://btbewbohacu3h"
-exit_door_id = 2
-
-[node name="LevelExit2" parent="LevelObjects" index="10" instance=ExtResource("4_80pbp")]
+[node name="LevelExit2" parent="LevelObjects/Doors" index="2" instance=ExtResource("4_80pbp")]
 position = Vector2(-456, 1312)
 id = 3
-exit_to_level = "uid://5sva8qxnwd1n"
+exit_to_level = "uid://da6wddr3vj6f0"
 exit_door_id = 1
 
-[node name="MaxAmmoUpgradePickup5" parent="LevelObjects" index="11" instance=ExtResource("4_q0ogw")]
+[node name="MaxAmmoUpgradePickup5" parent="LevelObjects" index="5" instance=ExtResource("4_q0ogw")]
 position = Vector2(-360, 1272)
 
-[node name="CheckPoint" parent="LevelObjects" index="12" instance=ExtResource("7_s0fqg")]
+[node name="CheckPoint" parent="LevelObjects" index="6" instance=ExtResource("7_s0fqg")]
 offset_left = 1552.0
 offset_top = 520.0
 offset_right = 1568.0
 offset_bottom = 784.0
 
-[node name="CheckPoint2" parent="LevelObjects" index="13" instance=ExtResource("7_s0fqg")]
+[node name="CheckPoint2" parent="LevelObjects" index="7" instance=ExtResource("7_s0fqg")]
 offset_left = 1104.0
 offset_top = -184.0
 offset_right = 1120.0
 offset_bottom = -96.0
 id = 2
 
-[node name="GunRechargeUpgradePickup" parent="LevelObjects" index="14" instance=ExtResource("8_42vk3")]
+[node name="GunRechargeUpgradePickup" parent="LevelObjects" index="8" instance=ExtResource("8_42vk3")]
 position = Vector2(728, 200)
 
 [node name="CheckPoint" parent="." index="4" instance=ExtResource("7_s0fqg")]

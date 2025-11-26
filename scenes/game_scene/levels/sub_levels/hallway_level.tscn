@@ -85,6 +85,6 @@ position = Vector2(-182, 174)
 [node name="LevelExit" parent="." index="5" instance=ExtResource("6_sqnu7")]
 position = Vector2(600, 272)
 exit_to_level = "uid://dqlylgfnga4v4"
-exit_door_id = 1
+exit_door_id = 2
 
 [editable path="TileMapLayer"]
