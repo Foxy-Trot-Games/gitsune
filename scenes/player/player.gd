@@ -31,12 +31,17 @@ const PLAYER_FOOTSTEP = preload("uid://xgvd557bddwe")
 const PLAYER_DAMAGED = preload("uid://bmx8smly4ucvn")
 const FAlLING_GUN = preload("uid://xwie54t8khkk")
 
+signal rune_picked_up
+
 func _ready() -> void:
 	Events.player_movement_input_signal.connect(_on_player_movement_input_signal)
 	Events.pulse_knockback_signal.connect(_on_pulse_knockback)
 	Events.player_died.connect(_player_died)
 	Events.entered_gravity_zone.connect(_set_gravity_zone_var.bind(true))
 	Events.exited_gravity_zone.connect(_set_gravity_zone_var.bind(false))
+	
+	rune_picked_up.connect(_rune_picked_up)
+	
 	#I use this to the enemy to detect the player 
 	add_to_group("player")
 
@@ -168,4 +173,39 @@ func _player_died() -> void:
 		await Globals.create_timer(3)
 		# Using call_defered() here to avoid potential issues, removing collision bodies during
 		# _physics_process can lead to dumb and anoying issues. 
-		get_tree().call_deferred("reload_current_scene")  
+		get_tree().call_deferred("reload_current_scene") 
+		
+func _rune_picked_up() -> void:
+	var label := Label.new()
+	
+	label.global_position = global_position - Vector2(16, 32)
+	
+	var level_runes_num := Globals.get_level().level_state.total_level_runes
+	var runes_left := get_tree().get_nodes_in_group("Rune").size() - 1
+	
+	label.text = "%s/%s" % [level_runes_num - runes_left, level_runes_num]
+	Globals.add_child_to_level(label)
+	
+	var tween := get_tree().create_tween().set_parallel(true)
+	
+	var x_offset := randf_range(-16, 16)
+	var end_pos := label.global_position + Vector2(x_offset, -20)
+	
+	var color : Color = Color.WHITE
+	var fade_time := 2.0
+	var number_size := .5
+	var scale_in_duration := .2
+	
+	# Movement tween (up and slight random horizontal)
+	tween.tween_property(label, "global_position", end_pos, fade_time)\
+		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+		
+	# Fade tween
+	tween.tween_property(label, "modulate", Color(color.r, color.g, color.b, 0), fade_time)
+	
+	# Scale effect (pop in/out)
+	label.scale = Vector2(number_size, number_size)
+	tween.tween_property(label, "scale", Vector2(1, 1), scale_in_duration)\
+		.set_ease(Tween.EASE_OUT)
+	tween.chain().tween_property(label, "scale", Vector2(0.8, 0.8), 0.6)\
+		.set_ease(Tween.EASE_IN)

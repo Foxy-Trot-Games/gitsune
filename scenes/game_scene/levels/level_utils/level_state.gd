@@ -8,6 +8,11 @@ enum ExitType {
 
 @export var collectable_ids : Dictionary[int, bool] = {}
 @export var exit := ExitType.OPEN
+@export var total_level_runes := 0 :
+	get:
+		if total_level_runes == 0:
+			total_level_runes = Globals.get_nodes_in_group("Rune").size()
+		return total_level_runes
 
 func unlock_exit() -> void:
 	exit = ExitType.UNLOCKED
