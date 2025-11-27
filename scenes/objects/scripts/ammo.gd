@@ -2,7 +2,7 @@ class_name Ammo extends Node2D
 
 @onready var player_detection: Area2D = %PlayerDetection
 
-@export var respawn_time := 5.0
+@export var respawn_time := 4.0
 
 func _ready() -> void:
 	player_detection.body_entered.connect(_on_body_entered)

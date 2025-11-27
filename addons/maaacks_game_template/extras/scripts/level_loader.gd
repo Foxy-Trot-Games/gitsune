@@ -52,12 +52,14 @@ func load_level(level_path : String):
 	await _fade_in()
 
 func _fade_out() -> Signal:
-	get_tree().paused = true
+	if get_tree():
+		get_tree().paused = true
 	animation_player.play(&"fade_out")
 	return animation_player.animation_finished
 
 func _fade_in() -> Signal:
-	get_tree().paused = false
+	if get_tree():
+		get_tree().paused = false
 	animation_player.play(&"fade_in")
 	var finished := animation_player.animation_finished
 	return finished
