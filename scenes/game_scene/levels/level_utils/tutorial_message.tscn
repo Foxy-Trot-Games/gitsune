@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtsu578yrf2sq"]
+
+[ext_resource type="Script" uid="uid://dd2w03lcpf61q" path="res://scenes/game_scene/levels/level_utils/tutorial_message.gd" id="1_x8ruq"]
+
+[node name="TutorialMessage" type="Label"]
+custom_minimum_size = Vector2(200, 0)
+offset_right = 156.0
+offset_bottom = 23.0
+size_flags_horizontal = 4
+text = "You are doing great!"
+horizontal_alignment = 1
+autowrap_mode = 3
+script = ExtResource("1_x8ruq")
