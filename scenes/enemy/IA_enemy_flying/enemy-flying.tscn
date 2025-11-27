@@ -95,15 +95,17 @@ frame_progress = 0.36162105
 wait_time = 5.0
 one_shot = true
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Alert" type="Control" parent="."]
 visible = false
+layout_mode = 3
+anchors_preset = 0
 offset_left = -13.0
-offset_top = -42.0
+offset_top = -36.0
 offset_right = 13.0
-offset_bottom = -16.0
+offset_bottom = -10.0
 metadata/_edit_group_ = true
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="Alert"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 11.0

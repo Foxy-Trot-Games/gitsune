@@ -4,7 +4,7 @@ extends IAEnemy
 @export var CHASE_SPEED: int = 150
 @export var ACCELERATION: int = 300
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var panel: Panel = $Panel
+@onready var alert_control: Control = $Alert
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
 
@@ -76,7 +76,7 @@ func handle_movement(delta: float) -> void:
 		return
 
 	if current_state == States.WANDER:
-		panel.visible = false
+		alert_control.visible = false
 		velocity = velocity.move_toward(direction * SPEED, ACCELERATION * delta)
 	else:
 		velocity = velocity.move_toward(direction * CHASE_SPEED, ACCELERATION * delta)
@@ -113,12 +113,12 @@ func change_direction() -> void:
 func chase_player() -> void:
 	timer.stop()
 	current_state = States.CHASE
-	panel.visible = true
+	alert_control.visible = true
 
 
 func stop_chase() -> void:
 	current_state = States.WANDER
-	panel.visible = false
+	alert_control.visible = false
 
 
 func _on_timer_timeout() -> void:

@@ -4,7 +4,7 @@ extends IAEnemy
 @export var CHASE_SPEED: int = 150
 @export var ACCELERATION: int = 300
 
-@onready var panel: Panel = $Panel
+@onready var alert_control: Control = $Alert
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
@@ -86,7 +86,7 @@ func handle_movement(delta: float) -> void:
 		return
 
 	if current_state == States.WANDER:
-		panel.visible = false
+		alert_control.visible = false
 		velocity = velocity.move_toward(direction * SPEED, ACCELERATION * delta)
 	else:
 		velocity = velocity.move_toward(direction * CHASE_SPEED, ACCELERATION * delta)
@@ -141,13 +141,13 @@ func look_for_player() -> void:
 func chase_player() -> void:
 	timer.stop()
 	current_state = States.CHASE
-	panel.visible = true
+	alert_control.visible = true
 
 
 func stop_chase() -> void:
 	if timer.time_left <= 0:
 		current_state = States.WANDER
-		panel.visible = false
+		alert_control.visible = false
 		timer.start()
 
 
@@ -159,14 +159,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		Events.player_died.emit()
 
 func die() -> void:
-	print("here")
 	if is_dead:   # optional safety
 		return
 	is_dead = true
 
+	set_physics_process(false)
 	animation_player.play("die")  # play death animation
-	collision_layer = 0
-	collision_mask = 0
 
 	await animation_player.animation_finished
+	
 	queue_free()

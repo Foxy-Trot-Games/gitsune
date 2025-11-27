@@ -197,9 +197,9 @@ offset_bottom = -757.0
 text = "Instant ammo refill"
 
 [node name="TutorialMessage7" parent="LevelObjects/Tutorials" index="4" instance=ExtResource("2_rf5g1")]
-offset_left = 128.0
+offset_left = 88.0
 offset_top = -600.0
-offset_right = 328.0
+offset_right = 288.0
 offset_bottom = -577.0
 text = "Instant ammo refill"
 

@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_dsy36"]
 [ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="2_8yjnd"]
-[ext_resource type="PackedScene" uid="uid://cfoe2wmkrjqlc" path="res://scenes/objects/collectables/max_velocity_pickup.tscn" id="2_eixee"]
 [ext_resource type="PackedScene" uid="uid://bhvytctn2dvud" path="res://scenes/objects/check_point.tscn" id="3_8qa0l"]
+[ext_resource type="PackedScene" uid="uid://bkhp0tgramnqk" path="res://scenes/objects/collectables/gun_recharge_upgrade_pickup.tscn" id="3_eixee"]
 
 [node name="SpikeLevel" instance=ExtResource("1_dsy36")]
 
@@ -37,7 +37,7 @@ position = Vector2(-1128, 416)
 exit_to_level = "uid://btbewbohacu3h"
 exit_door_id = 2
 
-[node name="MaxVelocityUpgradePickup" parent="LevelObjects" index="3" instance=ExtResource("2_eixee")]
+[node name="GunRechargeUpgradePickup" parent="LevelObjects" index="3" instance=ExtResource("3_eixee")]
 position = Vector2(1800, 392)
 
 [node name="CheckPoint" parent="." index="4" instance=ExtResource("3_8qa0l")]

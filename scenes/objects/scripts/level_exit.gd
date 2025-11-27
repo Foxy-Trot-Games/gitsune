@@ -3,7 +3,7 @@ class_name LevelExit extends Area2D
 
 @onready var debug_label: Label = $DebugLabel
 @onready var debug_label_2: Label = $DebugLabel2
-@onready var locked_panel: Panel = $LockedPanel
+@onready var locked_panel: Control = $LockedPanel
 @onready var door_1_animated_sprite_2d: AnimatedSprite2D = $Door1AnimatedSprite2D
 @onready var door_2_animated_sprite_2d: AnimatedSprite2D = $Door2AnimatedSprite2D
 @onready var level_state : LevelState = Globals.get_level().level_state

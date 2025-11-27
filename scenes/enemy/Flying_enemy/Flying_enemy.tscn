@@ -54,8 +54,8 @@ animations = [{
 "speed": 11.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_k75kq"]
-radius = 18.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ja24j"]
+size = Vector2(16, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jgl1o"]
 size = Vector2(143, 147)
@@ -72,7 +72,7 @@ autoplay = "default"
 frame_progress = 0.57514614
 
 [node name="hitbox_collision" type="CollisionShape2D" parent="hitbox_area"]
-shape = SubResource("CircleShape2D_k75kq")
+shape = SubResource("RectangleShape2D_ja24j")
 debug_color = Color(0.99860746, 0, 0.14937201, 0.41960785)
 
 [node name="vision" type="Area2D" parent="."]

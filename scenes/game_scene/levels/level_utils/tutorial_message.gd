@@ -6,7 +6,7 @@ class_name TutorialMessage extends Label
 @onready var player := Globals.get_player()
 
 var _player_in_range := false
-var _detection_range_squared := 180.0 ** 2
+var _detection_range_squared := 200.0 ** 2
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
