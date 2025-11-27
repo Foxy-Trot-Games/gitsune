@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dd2w03lcpf61q" path="res://scenes/game_scene/levels/level_utils/tutorial_message.gd" id="1_x8ruq"]
 
 [node name="TutorialMessage" type="Label"]
+z_index = -1
 custom_minimum_size = Vector2(200, 0)
 offset_right = 156.0
 offset_bottom = 23.0

@@ -1,5 +1,5 @@
 @tool
-extends Label
+class_name TutorialMessage extends Label
 
 @export var fade_in_time := 1.0
 
