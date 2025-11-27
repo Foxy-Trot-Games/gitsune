@@ -22,10 +22,10 @@ func _process(delta: float) -> void:
 func change_direction() -> void:
 	if player.position.x < position.x:
 		# Player is left of enemy
-		animated_sprite_2d.flip_h = false
+		animated_sprite_2d.flip_h = true
 	else:
 		# Player is right of enemy
-		animated_sprite_2d.flip_h = true
+		animated_sprite_2d.flip_h = false
 
 func _on_vision_body_entered(body: Node2D) -> void:
 	if body is Player:

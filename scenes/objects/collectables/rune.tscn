@@ -43,6 +43,7 @@ animations = [{
 size = Vector2(8, 8)
 
 [node name="Rune" groups=["Rune"] instance=ExtResource("1_ipmkl")]
+z_index = -1
 sprite_frames = SubResource("SpriteFrames_da8kg")
 frame_progress = 0.58327466
 
