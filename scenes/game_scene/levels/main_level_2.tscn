@@ -107,13 +107,13 @@ position = Vector2(-192, 1228)
 
 [node name="Camera2D" parent="CameraManager" index="1"]
 position = Vector2(-192, 1228)
-limit_left = -512
-limit_top = -608
-limit_right = 1904
-limit_bottom = 1408
+limit_left = -336
+limit_top = -3136
+limit_right = 3120
+limit_bottom = 2528
 
 [node name="ReactorBlastWave" parent="LevelObjects" index="0"]
-position = Vector2(598, 0)
+position = Vector2(528, 0)
 
 [node name="Player" parent="LevelObjects" index="1"]
 position = Vector2(-472, 1272)

@@ -5,7 +5,8 @@
 [node name="TutorialMessage" type="Label"]
 z_index = -1
 custom_minimum_size = Vector2(200, 0)
-offset_right = 156.0
+offset_left = -100.0
+offset_right = 100.0
 offset_bottom = 23.0
 size_flags_horizontal = 4
 text = "You are doing great!"

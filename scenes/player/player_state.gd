@@ -14,7 +14,6 @@ extends Resource
 @export var gun_can_stun_enemies : bool = false
 @export var max_player_velocity := 1.2
 
-
 # future upgrades?
 # allow aim direction
 # allow gun recharging
@@ -36,6 +35,7 @@ static func add_rune() -> void:
 
 static func add_max_ammo() -> void:
 	player_state.gun_max_ammo = clampi(player_state.gun_max_ammo + 1, 0, 10)
+	player_state.max_player_velocity = clampf(player_state.max_player_velocity + 0.2, 1.0, 3.0)
 	Events.upgrade_picked_up.emit(player_state)
 	Events.ammo_picked_up.emit()
 
