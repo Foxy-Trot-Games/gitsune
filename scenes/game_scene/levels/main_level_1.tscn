@@ -172,8 +172,8 @@ id = 4
 
 [node name="LevelExit" parent="LevelObjects/Doors" index="0" instance=ExtResource("4_7ibmf")]
 position = Vector2(1928, 208)
-exit_to_level = "uid://5sva8qxnwd1n"
-exit_door_id = 1
+exit_to_level = "uid://bfg6o1umvt8om"
+exit_door_id = 2
 
 [node name="ChallengeDoor" parent="LevelObjects/Doors" index="1" instance=ExtResource("4_05lm2")]
 position = Vector2(2344, -2672)
@@ -185,7 +185,7 @@ exit_door_id = 1
 position = Vector2(3048, -3328)
 id = 3
 exit_to_level = "uid://dqlylgfnga4v4"
-exit_door_id = 2
+exit_door_id = 1
 
 [node name="GravityZones" type="Node2D" parent="LevelObjects" index="7"]
 

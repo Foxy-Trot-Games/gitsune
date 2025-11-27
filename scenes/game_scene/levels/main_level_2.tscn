@@ -107,10 +107,10 @@ position = Vector2(-192, 1228)
 
 [node name="Camera2D" parent="CameraManager" index="1"]
 position = Vector2(-192, 1228)
-limit_left = -336
-limit_top = -3136
-limit_right = 3120
-limit_bottom = 2528
+limit_left = -512
+limit_top = -608
+limit_right = 1904
+limit_bottom = 1408
 
 [node name="ReactorBlastWave" parent="LevelObjects" index="0"]
 position = Vector2(528, 0)
@@ -208,7 +208,7 @@ position = Vector2(1032, 424)
 
 [node name="LevelExit" parent="LevelObjects/Doors" index="0" instance=ExtResource("4_80pbp")]
 position = Vector2(-488, 224)
-exit_to_level = "uid://dqlylgfnga4v4"
+exit_to_level = "uid://btbewbohacu3h"
 exit_door_id = 3
 
 [node name="ChallengeDoor" parent="LevelObjects/Doors" index="1" instance=ExtResource("4_xi8cs")]
