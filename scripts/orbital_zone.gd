@@ -17,4 +17,4 @@ func _draw() -> void:
 	
 	(collision_shape_2d.shape as CircleShape2D).radius = zone_radius
 	
-	draw_circle(Vector2(0,0), zone_radius, Color(0,0,0,.2), true)
+	draw_circle(Vector2(0,0), zone_radius, Color(1.0, 1.0, 1.0, 0.2), true)
