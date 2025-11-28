@@ -7,7 +7,6 @@
 process_mode = 3
 script = ExtResource("2_tta0h")
 pauses_game = true
-makes_mouse_visible = null
 
 [node name="MenuPanelContainer" parent="." index="1"]
 offset_left = -206.0

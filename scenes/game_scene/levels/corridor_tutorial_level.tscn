@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bfg6o1umvt8om"]
+[gd_scene load_steps=19 format=4 uid="uid://bfg6o1umvt8om"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_wpedn"]
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="2_ths2o"]
@@ -7,7 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://cefaxg5dom30c" path="res://scenes/objects/collectables/max_ammo_upgrade_pickup.tscn" id="5_aqgtd"]
 [ext_resource type="PackedScene" uid="uid://bhvytctn2dvud" path="res://scenes/objects/check_point.tscn" id="6_t31vv"]
 [ext_resource type="PackedScene" uid="uid://dtsu578yrf2sq" path="res://scenes/game_scene/levels/level_utils/tutorial_message.tscn" id="8_2lrsq"]
+[ext_resource type="Texture2D" uid="uid://c44erxtka5iab" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_w.png" id="9_2gn64"]
+[ext_resource type="Texture2D" uid="uid://bqeqqc7abfh46" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_a.png" id="10_p16kh"]
+[ext_resource type="Texture2D" uid="uid://bfyebvicjr6jq" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_s.png" id="11_7javr"]
 [ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="11_8daxi"]
+[ext_resource type="Texture2D" uid="uid://bv2stwm4kxj7v" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_d.png" id="12_ws0co"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t31vv"]
 resource_local_to_scene = true
@@ -48,6 +52,9 @@ shader_parameter/wave_frequency = 10.0
 shader_parameter/wave_speed = 0.05
 shader_parameter/wave_amplitude = 0.005
 shader_parameter/wave_color = Color(0.3254902, 0.40784314, 0.43137255, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ktvp8"]
+font_size = 46
 
 [node name="Tutorial2" instance=ExtResource("1_wpedn")]
 
@@ -249,5 +256,51 @@ fade_in_time = 2.0
 
 [node name="MaxAmmoUpgradePickup" parent="." index="4" instance=ExtResource("5_aqgtd")]
 position = Vector2(6216, 88)
+
+[node name="TutorialMessage" parent="." index="5" instance=ExtResource("8_2lrsq")]
+offset_left = 376.0
+offset_top = 40.0
+offset_right = 576.0
+offset_bottom = 63.0
+text = ""
+metadata/_edit_group_ = true
+
+[node name="MoveTutorial" type="HBoxContainer" parent="TutorialMessage" index="0"]
+z_index = -1
+layout_mode = 0
+offset_right = 498.0
+offset_bottom = 64.0
+scale = Vector2(0.335, 0.335)
+metadata/_edit_group_ = true
+
+[node name="Label2" type="Label" parent="TutorialMessage/MoveTutorial" index="0"]
+layout_mode = 2
+text = "Use"
+label_settings = SubResource("LabelSettings_ktvp8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TutorialMessage/MoveTutorial" index="1"]
+layout_mode = 2
+theme_override_constants/separation = -10
+
+[node name="TextureRect" type="TextureRect" parent="TutorialMessage/MoveTutorial/HBoxContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("9_2gn64")
+
+[node name="TextureRect2" type="TextureRect" parent="TutorialMessage/MoveTutorial/HBoxContainer" index="1"]
+layout_mode = 2
+texture = ExtResource("10_p16kh")
+
+[node name="TextureRect3" type="TextureRect" parent="TutorialMessage/MoveTutorial/HBoxContainer" index="2"]
+layout_mode = 2
+texture = ExtResource("11_7javr")
+
+[node name="TextureRect4" type="TextureRect" parent="TutorialMessage/MoveTutorial/HBoxContainer" index="3"]
+layout_mode = 2
+texture = ExtResource("12_ws0co")
+
+[node name="Label3" type="Label" parent="TutorialMessage/MoveTutorial" index="2"]
+layout_mode = 2
+text = "to move"
+label_settings = SubResource("LabelSettings_ktvp8")
 
 [editable path="TileMapLayer"]

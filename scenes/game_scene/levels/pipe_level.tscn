@@ -145,7 +145,7 @@ shader = ExtResource("7_imq0u")
 shader_parameter/wave_frequency = 10.0
 shader_parameter/wave_speed = 0.05
 shader_parameter/wave_amplitude = 0.005
-shader_parameter/wave_color = Color(0.49803922, 1, 0.65882355, 1)
+shader_parameter/wave_color = Color(0.24313726, 0.47843137, 0.40784314, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_8qmyf"]
 _data = {
@@ -200,7 +200,7 @@ limit_right = 3120
 limit_bottom = 2528
 
 [node name="ReactorBlastWave" parent="LevelObjects" index="0"]
-position = Vector2(776, 0)
+position = Vector2(1008, 0)
 
 [node name="Player" parent="LevelObjects" index="1"]
 position = Vector2(8, 160)
@@ -382,13 +382,23 @@ offset_right = 2256.0
 offset_bottom = -1040.0
 rotation = 4.712389
 
-[node name="OrbitalZone2" parent="LevelObjects/Zones" index="18" instance=ExtResource("5_p212j")]
+[node name="GravityZone18" parent="LevelObjects/Zones" index="18" instance=ExtResource("6_fc740")]
+material = SubResource("ShaderMaterial_26n88")
+offset_left = 1024.0
+offset_top = -1744.0
+offset_right = 1600.0
+offset_bottom = -1088.0
+rotation = 4.712389
+gravity_value = 0.0
+slows_down_player = true
+
+[node name="OrbitalZone2" parent="LevelObjects/Zones" index="19" instance=ExtResource("5_p212j")]
 position = Vector2(2288, -1352)
 
-[node name="OrbitalZone3" parent="LevelObjects/Zones" index="19" instance=ExtResource("5_p212j")]
+[node name="OrbitalZone3" parent="LevelObjects/Zones" index="20" instance=ExtResource("5_p212j")]
 position = Vector2(1952, -1360)
 
-[node name="OrbitalZone4" parent="LevelObjects/Zones" index="20" instance=ExtResource("5_p212j")]
+[node name="OrbitalZone4" parent="LevelObjects/Zones" index="21" instance=ExtResource("5_p212j")]
 position = Vector2(2112, -1632)
 
 [node name="Platforms" type="Node2D" parent="LevelObjects" index="5"]
