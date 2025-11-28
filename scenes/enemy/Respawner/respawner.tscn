@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bn52yhf2vy1qc"]
+
+[ext_resource type="Script" uid="uid://c08y3yfhc44nh" path="res://respawner.gd" id="1_4nngo"]
+[ext_resource type="PackedScene" uid="uid://dmeyxqrmciogn" path="res://scenes/enemy/IA_enemy_flying/enemy-flying.tscn" id="2_xmb86"]
+[ext_resource type="Texture2D" uid="uid://n3l4p64tvqhp" path="res://assets/enemy/Characters.PNG" id="3_xmb86"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p414"]
+atlas = ExtResource("3_xmb86")
+region = Rect2(36, 32, 36, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kx67r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7p414")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Respawner" type="Node2D"]
+script = ExtResource("1_4nngo")
+enemy_scene = ExtResource("2_xmb86")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.5, 0)
+scale = Vector2(0.9722222, 1)
+sprite_frames = SubResource("SpriteFrames_kx67r")
