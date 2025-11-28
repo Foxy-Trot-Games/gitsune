@@ -15,7 +15,7 @@ func _ready() -> void:
 	]
 	randomize()
 
-func _process(delta) -> void:
+func _process(delta: float) -> void:
 	timer += delta
 	if timer >= spawn_interval :
 		_spawn_enemy()
