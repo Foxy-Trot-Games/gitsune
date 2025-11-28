@@ -2,9 +2,11 @@
 ## Collaborators
 
 ### Role
-Person 1  
-Person 2  
-[Person w/ Link]()  
+Crisp_Lad - team lead, programmer
+koallary - level design and artist
+ClownManGuy - animator and artist
+Screen - enemy programmer
+foks - music designer
 
 ## Sourced
 ### Asset Type
