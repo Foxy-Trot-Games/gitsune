@@ -2,7 +2,7 @@
 extends Node2D
 
 var enemy_scenes: Array[PackedScene]       # <--- multiple enemy types     
-@export var spawn_interval: float = 1.0
+@export var spawn_interval: float = 3.0
 
 
 var timer := 0.0
