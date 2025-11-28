@@ -85,16 +85,32 @@ offset_top = 16.0
 offset_right = -1808.0
 offset_bottom = 96.0
 
-[node name="Enemy" parent="." index="4" instance=ExtResource("5_sqnu7")]
-position = Vector2(-182, 174)
-
-[node name="LevelExit" parent="." index="5" instance=ExtResource("6_sqnu7")]
+[node name="LevelExit" parent="." index="4" instance=ExtResource("6_sqnu7")]
 position = Vector2(600, 272)
 exit_to_level = "uid://dqlylgfnga4v4"
 exit_door_id = 2
 
-[node name="Respawner" parent="." index="6" instance=ExtResource("9_8urr3")]
+[node name="Respawner" parent="." index="5" instance=ExtResource("9_8urr3")]
 position = Vector2(147, 176)
-enemy_scenes = Array[PackedScene]([null, null])
+
+[node name="Respawner2" parent="." index="6" instance=ExtResource("9_8urr3")]
+position = Vector2(-1300, 256)
+
+[node name="enemies" type="Node2D" parent="." index="7"]
+
+[node name="Enemy" parent="enemies" index="0" instance=ExtResource("5_sqnu7")]
+position = Vector2(-194, 195)
+
+[node name="Enemy3" parent="enemies" index="1" instance=ExtResource("5_sqnu7")]
+position = Vector2(-1002, 207)
+
+[node name="Enemy4" parent="enemies" index="2" instance=ExtResource("5_sqnu7")]
+position = Vector2(-1514, 171)
+
+[node name="Enemy5" parent="enemies" index="3" instance=ExtResource("5_sqnu7")]
+position = Vector2(-833, 204)
+
+[node name="Enemy2" parent="enemies" index="4" instance=ExtResource("5_sqnu7")]
+position = Vector2(-521, 238)
 
 [editable path="TileMapLayer"]
