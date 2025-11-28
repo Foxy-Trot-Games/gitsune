@@ -93,8 +93,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerpf(velocity.x, _move_direction.x * speed, PLAYER_AIR_RESISTENCE)
 	
 	# Apply Jump
-	if Input.is_action_just_pressed("jump") and is_on_floor() && !_dead:
-		velocity.y = -jump_force
+	#if Input.is_action_just_pressed("jump") and is_on_floor() && !_dead:
+		#velocity.y = -jump_force
 
 	# Apply pending knockback from pulse
 	if _pending_knockback != Vector2.ZERO:
