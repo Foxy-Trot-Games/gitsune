@@ -1,28 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnuggijmxgf0u"]
+[gd_scene load_steps=8 format=3 uid="uid://cnuggijmxgf0u"]
 
 [ext_resource type="Script" uid="uid://yp3tr0jq0jyu" path="res://scenes/objects/scripts/reactor_blast_wave.gd" id="1_tc2bw"]
 [ext_resource type="AudioStream" uid="uid://b7bu25pcmedvf" path="res://assets/sounds/background_ambience/Foks_Spaceship_Atmosphere_SFX.mp3" id="2_tc2bw"]
+[ext_resource type="PackedScene" uid="uid://dtrk3kn5lheu8" path="res://resources/particles_scenes/gravity_particles.tscn" id="3_b1h0h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a88x5"]
 resource_local_to_scene = true
 size = Vector2(32, 720)
 
+[sub_resource type="Gradient" id="Gradient_b1h0h"]
+offsets = PackedFloat32Array(0.03125, 1)
+colors = PackedColorArray(0.368734, 0.22658296, 0.27395758, 0.75000006, 0.368734, 0.22658296, 0.27395758, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 32
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vo5yg"]
+gradient = SubResource("Gradient_b1h0h")
+width = 32
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b1h0h"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(16, 360, 1)
+gravity = Vector3(98, 0, 0)
+color = Color(0.9843137, 0.5176471, 0.34509805, 1)
+
 [node name="ReactorBlastWave" type="Node2D"]
 z_index = 1
 script = ExtResource("1_tc2bw")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(32, 360)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -360.0
-offset_right = 16.0
-offset_bottom = 360.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0.16629922, 0.16629922, 0.3372549)
 
 [node name="Area2D" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -44,3 +50,15 @@ max_distance = 1000.0
 attenuation = 2.0000002
 panning_strength = 3.0
 bus = &"SFX"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -16.0
+offset_top = -352.0
+offset_right = 16.0
+offset_bottom = 368.0
+texture = SubResource("GradientTexture1D_vo5yg")
+
+[node name="GravityParticles" parent="." instance=ExtResource("3_b1h0h")]
+amount = 16
+local_coords = false
+process_material = SubResource("ParticleProcessMaterial_b1h0h")

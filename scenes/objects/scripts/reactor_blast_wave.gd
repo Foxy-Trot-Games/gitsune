@@ -8,6 +8,7 @@ class_name ReactorBlastWave extends Node2D
 
 @onready var area_2d: Area2D = %Area2D
 @onready var _player: Node2D = Globals.get_player()
+@onready var _camera : PhantomCamera2D = PhantomCameraManager.get_phantom_camera_2ds().front()
 @onready var _x_offset := wave_speed * wave_period / 2
 
 var _actual_wave_speed : int
@@ -33,8 +34,11 @@ func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	
-	# update the wave y so it's always on the player y
-	global_position.y = _player.global_position.y
+	# update the wave y so it's always on the camera or player y
+	if _camera:
+		global_position.y = _camera.global_position.y
+	else:
+		global_position.y = _player.global_position.y
 	
 	# move the wave
 	global_position.x +=  _actual_wave_speed * delta
