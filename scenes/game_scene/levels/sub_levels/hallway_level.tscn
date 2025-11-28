@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cya258o1v5myq"]
+[gd_scene load_steps=12 format=4 uid="uid://cya258o1v5myq"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_0nr2a"]
 [ext_resource type="PackedScene" uid="uid://bkhp0tgramnqk" path="res://scenes/objects/collectables/gun_recharge_upgrade_pickup.tscn" id="2_a3ejg"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dmeyxqrmciogn" path="res://scenes/enemy/IA_enemy_flying/enemy-flying.tscn" id="5_sqnu7"]
 [ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="6_sqnu7"]
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="8_5hj03"]
+[ext_resource type="PackedScene" uid="uid://bn52yhf2vy1qc" path="res://scenes/enemy/Respawner/respawner.tscn" id="9_8urr3"]
 [ext_resource type="PackedScene" uid="uid://2jpu8jkgrmga" path="res://scenes/enemy/Flying_enemy/Flying_enemy.tscn" id="10_h6ldy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pdxx2"]
@@ -91,5 +92,9 @@ position = Vector2(-182, 174)
 position = Vector2(600, 272)
 exit_to_level = "uid://dqlylgfnga4v4"
 exit_door_id = 2
+
+[node name="Respawner" parent="." index="6" instance=ExtResource("9_8urr3")]
+position = Vector2(147, 176)
+enemy_scenes = Array[PackedScene]([null, null])
 
 [editable path="TileMapLayer"]
