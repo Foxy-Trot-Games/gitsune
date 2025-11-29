@@ -1,18 +1,16 @@
 # Spawner2D.gd
 extends Node2D
 
-var enemy_scenes: Array[PackedScene]       # <--- multiple enemy types     
+@export var enemy_scenes: Array[PackedScene] = [
+	preload("res://scenes/enemy/IA_enemy_flying/enemy-flying.tscn"),
+	preload("res://scenes/enemy/IA_enemy/enemy.tscn")
+]
 @export var spawn_interval: float = 3.0
-
 
 var timer := 0.0
 var active_enemies := 0
 
 func _ready() -> void:
-	enemy_scenes = [
-		load("res://scenes/enemy/IA_enemy_flying/enemy-flying.tscn"),
-		load("res://scenes/enemy/IA_enemy/enemy.tscn")
-	]
 	randomize()
 
 func _process(delta: float) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://3an4c0jv4wcj"]
+[gd_scene load_steps=18 format=4 uid="uid://3an4c0jv4wcj"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_tv48y"]
 [ext_resource type="Texture2D" uid="uid://d3vntilj6j31r" path="res://assets/background/Reactor.PNG" id="2_866b4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="4_866b4"]
 [ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="5_4jd34"]
 [ext_resource type="PackedScene" uid="uid://dmeyxqrmciogn" path="res://scenes/enemy/IA_enemy_flying/enemy-flying.tscn" id="5_fevk0"]
+[ext_resource type="PackedScene" uid="uid://bn52yhf2vy1qc" path="res://scenes/enemy/Respawner/respawner.tscn" id="7_o0fbp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fevk0"]
 resource_local_to_scene = true
@@ -95,7 +96,7 @@ limit_right = 688
 limit_bottom = 416
 
 [node name="ReactorBlastWave" parent="LevelObjects" index="0"]
-position = Vector2(680, 0)
+position = Vector2(668, 0)
 
 [node name="Player" parent="LevelObjects" index="1"]
 position = Vector2(-332, -42)
@@ -122,7 +123,7 @@ autoplay = "default"
 
 [node name="LevelExit" parent="LevelObjects" index="3" instance=ExtResource("4_866b4")]
 position = Vector2(-360, -32)
-exit_to_level = "uid://5sva8qxnwd1n"
+exit_to_level = "uid://da6wddr3vj6f0"
 exit_door_id = 2
 metadata/_edit_group_ = true
 
@@ -130,10 +131,14 @@ metadata/_edit_group_ = true
 texture = SubResource("AtlasTexture_fevk0")
 
 [node name="DebugLabel2" parent="LevelObjects/LevelExit" index="6"]
-text = "Exit to garden_tutorial_level door 2"
+text = "Exit to pipe_level door 2"
 
 [node name="Enemy-flying" parent="." index="4" instance=ExtResource("5_fevk0")]
 position = Vector2(57, 199)
+
+[node name="Respawner" parent="." index="5" instance=ExtResource("7_o0fbp")]
+position = Vector2(-160, -104)
+enemy_scenes = Array[PackedScene]([ExtResource("5_fevk0")])
 
 [editable path="TileMapLayer"]
 [editable path="LevelObjects/ReactorOrbitalZone"]

@@ -1,18 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://bn52yhf2vy1qc"]
+[gd_scene load_steps=8 format=3 uid="uid://bn52yhf2vy1qc"]
 
 [ext_resource type="Script" uid="uid://c08y3yfhc44nh" path="res://respawner.gd" id="1_4nngo"]
-[ext_resource type="PackedScene" uid="uid://dmeyxqrmciogn" path="res://scenes/enemy/IA_enemy_flying/enemy-flying.tscn" id="2_xmb86"]
-[ext_resource type="Texture2D" uid="uid://n3l4p64tvqhp" path="res://assets/enemy/Characters.PNG" id="3_xmb86"]
+[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="2_4nngo"]
+[ext_resource type="PackedScene" uid="uid://c8su6i6rykckn" path="res://scenes/util/pulsing_glow_vfx.tscn" id="2_xmb86"]
+[ext_resource type="Shader" uid="uid://q71u7eat2b4j" path="res://scenes/util/pulsing_glow_vfx.gdshader" id="3_7p414"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7p414"]
-atlas = ExtResource("3_xmb86")
-region = Rect2(36, 32, 36, 32)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kx67r"]
+shader = ExtResource("3_7p414")
+shader_parameter/glow_color = Color(0.49803922, 1, 0.65882355, 1)
+shader_parameter/pulse_speed = 0.1999999955296
+shader_parameter/pulse_strength = 0.65
+shader_parameter/edge_softness = 1.6
+shader_parameter/base_alpha = 1.05999997630688
+shader_parameter/noise_amount = 0.06
+shader_parameter/noise_speed = 4.07999990880384
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmb86"]
+atlas = ExtResource("2_4nngo")
+region = Rect2(32, 160, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kx67r"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7p414")
+"texture": SubResource("AtlasTexture_xmb86")
 }],
 "loop": true,
 "name": &"default",
@@ -21,7 +32,10 @@ animations = [{
 
 [node name="Respawner" type="Node2D"]
 script = ExtResource("1_4nngo")
-enemy_scene = ExtResource("2_xmb86")
+
+[node name="PulsingGlowVfx" parent="." instance=ExtResource("2_xmb86")]
+material = SubResource("ShaderMaterial_kx67r")
+scale = Vector2(0.23, 0.23)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.5, 0)
