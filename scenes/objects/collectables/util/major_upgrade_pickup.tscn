@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjtwy15x6pvoh"]
+[gd_scene load_steps=13 format=3 uid="uid://cjtwy15x6pvoh"]
 
 [ext_resource type="PackedScene" uid="uid://buxglxwkslhwh" path="res://scenes/objects/collectables/util/collectable.tscn" id="1_4d6ey"]
+[ext_resource type="Shader" uid="uid://csj4x6nvfp3pe" path="res://scenes/objects/collectables/util/shiny.gdshader" id="2_qgkdk"]
 [ext_resource type="Texture2D" uid="uid://duc12xc6nyatb" path="res://assets/background/Lab.PNG" id="2_yicee"]
 [ext_resource type="Texture2D" uid="uid://c04gduq36mevi" path="res://assets/background/Runes.PNG" id="3_yicee"]
 
@@ -24,9 +25,90 @@ resource_local_to_scene = true
 atlas = ExtResource("3_yicee")
 region = Rect2(144, 112, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yicee"]
+atlas = ExtResource("3_yicee")
+region = Rect2(160, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2mkw"]
+atlas = ExtResource("3_yicee")
+region = Rect2(160, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lo126"]
+atlas = ExtResource("3_yicee")
+region = Rect2(160, 160, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j8vnb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yicee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2mkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lo126")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qgkdk"]
+shader = ExtResource("2_qgkdk")
+shader_parameter/Line_Smoothness = 0.045
+shader_parameter/Line_Width = 0.09
+shader_parameter/Brightness = 3.0
+shader_parameter/Rotation_deg = 30.0
+shader_parameter/Distortion = 1.8
+shader_parameter/Speed = 0.7
+shader_parameter/Position = 0.0
+shader_parameter/Position_Min = 0.25
+shader_parameter/Position_Max = 0.5
+shader_parameter/Alpha = 1.0
+
 [node name="MajorUpgradePickup" instance=ExtResource("1_4d6ey")]
+clip_children = 2
 sprite_frames = SubResource("SpriteFrames_4lto1")
 metadata/_edit_group_ = true
 
 [node name="Rune" type="Sprite2D" parent="." index="2"]
 texture = SubResource("AtlasTexture_ppu1p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3"]
+z_index = 1
+position = Vector2(-16, 0)
+sprite_frames = SubResource("SpriteFrames_j8vnb")
+autoplay = "default"
+frame_progress = 0.8998018
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." index="4"]
+z_index = 1
+position = Vector2(0, -16)
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_j8vnb")
+autoplay = "default"
+frame_progress = 0.8559228
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." index="5"]
+z_index = 1
+position = Vector2(16, 0)
+rotation = -3.1415927
+sprite_frames = SubResource("SpriteFrames_j8vnb")
+autoplay = "default"
+frame_progress = 0.8559228
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="." index="6"]
+z_index = 1
+position = Vector2(0, 16)
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_j8vnb")
+autoplay = "default"
+frame_progress = 0.8559228
+
+[node name="ShinyColorRect" type="ColorRect" parent="." index="7"]
+material = SubResource("ShaderMaterial_qgkdk")
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0

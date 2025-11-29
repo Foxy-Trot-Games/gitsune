@@ -1,71 +1,40 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxm7caqjvvyu5"]
+[gd_scene load_steps=7 format=3 uid="uid://cxm7caqjvvyu5"]
 
 [ext_resource type="Script" uid="uid://baak4jrk8jixi" path="res://scenes/enemy/Stationary_enemy/Sationary_enemy.gd" id="1_a3pup"]
-[ext_resource type="Texture2D" uid="uid://bk83tjkmpp7e2" path="res://assets/enemy/goatman.png" id="1_hx8jw"]
+[ext_resource type="Texture2D" uid="uid://n3l4p64tvqhp" path="res://assets/enemy/Characters.PNG" id="2_b20br"]
 [ext_resource type="Script" uid="uid://c44mmw8o77ec6" path="res://scenes/objects/util/snap_to_grid.gd" id="3_b20br"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5uyx3"]
-atlas = ExtResource("1_hx8jw")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l246v"]
-atlas = ExtResource("1_hx8jw")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sw7ht"]
-atlas = ExtResource("1_hx8jw")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_twkqn"]
-atlas = ExtResource("1_hx8jw")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m02g4"]
-atlas = ExtResource("1_hx8jw")
-region = Rect2(256, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_31yvw"]
+atlas = ExtResource("2_b20br")
+region = Rect2(32, 0, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k30va"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5uyx3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l246v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sw7ht")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_twkqn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m02g4")
+"texture": SubResource("AtlasTexture_31yvw")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4a83h"]
-radius = 11.0
-height = 48.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgvqm"]
+size = Vector2(16, 32)
 
 [node name="Stationary_enemy" type="Node2D"]
 script = ExtResource("1_a3pup")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-1, -10)
 sprite_frames = SubResource("SpriteFrames_k30va")
 autoplay = "default"
-frame = 4
 frame_progress = 1.0
 
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource("CapsuleShape2D_4a83h")
+shape = SubResource("RectangleShape2D_dgvqm")
 
 [node name="SnapToGrid" type="Node" parent="."]
 script = ExtResource("3_b20br")

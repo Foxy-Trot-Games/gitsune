@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://da6wddr3vj6f0"]
+[gd_scene load_steps=34 format=4 uid="uid://da6wddr3vj6f0"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_0cd7r"]
 [ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="2_s4cgb"]
@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cnf23nyxdykpd" path="res://scenes/objects/orbital_zone.tscn" id="5_p212j"]
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="6_fc740"]
 [ext_resource type="Shader" uid="uid://ula7reohgr3f" path="res://scenes/objects/scripts/gravity_zone.gdshader" id="7_imq0u"]
-[ext_resource type="PackedScene" uid="uid://cfoe2wmkrjqlc" path="res://scenes/objects/collectables/max_velocity_pickup.tscn" id="8_imq0u"]
 [ext_resource type="PackedScene" uid="uid://cjxfyhsbbcr26" path="res://scenes/objects/platform.tscn" id="9_y1xr7"]
 [ext_resource type="PackedScene" uid="uid://bhvytctn2dvud" path="res://scenes/objects/check_point.tscn" id="10_8qmyf"]
+[ext_resource type="PackedScene" uid="uid://bkhp0tgramnqk" path="res://scenes/objects/collectables/gun_recharge_upgrade_pickup.tscn" id="10_b3m3y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y1xr7"]
 resource_local_to_scene = true
@@ -145,6 +145,14 @@ shader = ExtResource("7_imq0u")
 shader_parameter/wave_frequency = 10.0
 shader_parameter/wave_speed = 0.05
 shader_parameter/wave_amplitude = 0.005
+shader_parameter/wave_color = Color(0.49803922, 1, 0.65882355, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p23kf"]
+resource_local_to_scene = true
+shader = ExtResource("7_imq0u")
+shader_parameter/wave_frequency = 10.0
+shader_parameter/wave_speed = 0.05
+shader_parameter/wave_amplitude = 0.005
 shader_parameter/wave_color = Color(0.24313726, 0.47843137, 0.40784314, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_8qmyf"]
@@ -218,9 +226,6 @@ position = Vector2(-112, 136)
 
 [node name="MaxAmmoUpgradePickup4" parent="LevelObjects/Upgrades" index="3" instance=ExtResource("3_o1rn4")]
 position = Vector2(-80, 136)
-
-[node name="MaxVelocityPickup" parent="LevelObjects/Upgrades" index="4" instance=ExtResource("8_imq0u")]
-position = Vector2(1528, -776)
 
 [node name="Doors" type="Node2D" parent="LevelObjects" index="3"]
 
@@ -383,7 +388,7 @@ offset_bottom = -1040.0
 rotation = 4.712389
 
 [node name="GravityZone18" parent="LevelObjects/Zones" index="18" instance=ExtResource("6_fc740")]
-material = SubResource("ShaderMaterial_26n88")
+material = SubResource("ShaderMaterial_p23kf")
 offset_left = 1024.0
 offset_top = -1744.0
 offset_right = 1600.0
@@ -449,5 +454,8 @@ offset_top = -1696.0
 offset_right = 1456.0
 offset_bottom = -1568.0
 id = 4
+
+[node name="GunRechargeUpgradePickup" parent="." index="4" instance=ExtResource("10_b3m3y")]
+position = Vector2(1528, -776)
 
 [editable path="TileMapLayer"]
