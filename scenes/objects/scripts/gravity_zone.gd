@@ -43,7 +43,8 @@ func _draw() -> void:
 	shape.size = size
 	
 	# set the visible_on_screen_enabler_2d rect, since it doesn't have size we have to build one to assign to rect
-	visible_on_screen_enabler_2d.rect = Rect2(Vector2.ZERO, size * 2)
+	# it needs to be big enough to account for particles that can move outside the zone
+	visible_on_screen_enabler_2d.rect = Rect2(Vector2.ZERO, Vector2(size.x + 120, size.y))
 	
 	# set particle positions/size
 	gpu_particles_2d.position = center

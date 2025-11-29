@@ -71,7 +71,7 @@ process_material = SubResource("ParticleProcessMaterial_tiknf")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 unique_name_in_owner = true
-rect = Rect2(0, 0, 32, 32)
+rect = Rect2(0, 0, 136, 16)
 
 [node name="SnapToGrid" type="Node" parent="."]
 script = ExtResource("3_l6gxy")
