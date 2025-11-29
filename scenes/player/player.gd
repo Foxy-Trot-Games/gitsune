@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @onready var player_sprite: AnimatedSprite2D = %AnimatedSprite2D
 @onready var gun: Gun = $Gun
+@onready var hud: CanvasLayer = $Hud
 
 @export var speed: int = 200
 @export var jump_force: int = 200
@@ -223,3 +224,9 @@ func _rune_picked_up() -> void:
 		.set_ease(Tween.EASE_OUT)
 	tween.chain().tween_property(label, "scale", Vector2(0.8, 0.8), 0.6)\
 		.set_ease(Tween.EASE_IN)
+
+func freeze_for_animation() -> void:
+	set_physics_process(false)
+	gun.set_physics_process(false)
+	gun.pulse.set_physics_process(false)
+	hud.visible = false
