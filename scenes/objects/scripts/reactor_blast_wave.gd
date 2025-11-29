@@ -8,7 +8,7 @@ class_name ReactorBlastWave extends Node2D
 
 @onready var area_2d: Area2D = %Area2D
 @onready var _player: Node2D = Globals.get_player()
-@onready var _camera : PhantomCamera2D = PhantomCameraManager.get_phantom_camera_2ds().front()
+@onready var _camera : PhantomCamera2D = PhantomCameraManager.get_phantom_camera_2ds().front() if PhantomCameraManager.get_phantom_camera_2ds() else null
 @onready var _x_offset := wave_speed * wave_period / 2
 
 var _actual_wave_speed : int

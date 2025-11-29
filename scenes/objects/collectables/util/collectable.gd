@@ -77,7 +77,9 @@ func show_tutorial() -> void:
 		tutorial_menu.tutorial_resource = tutorial_resource
 			
 		get_tree().current_scene.call_deferred("add_child", tutorial_menu)
-		await tutorial_menu.tree_exited
-		var _initial_focus_control : Control = get_viewport().gui_get_focus_owner()
-		if is_inside_tree() and _initial_focus_control:
-			_initial_focus_control.grab_focus()
+		
+		#await tutorial_menu.tree_exited
+		#var _initial_focus_control : Control = get_viewport().gui_get_focus_owner()
+		#print(_initial_focus_control)
+		#if is_inside_tree() and _initial_focus_control:
+			#_initial_focus_control.grab_focus()

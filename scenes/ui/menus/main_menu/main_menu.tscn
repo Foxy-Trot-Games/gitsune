@@ -142,7 +142,7 @@ zoom = Vector2(2, 2)
 process_callback = 0
 
 [node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0"]
-text = "v0.0.63"
+text = "v0.1.2"
 
 [node name="SubTitleLabel" parent="MenuContainer/SubTitleMargin/SubTitleContainer" index="0"]
 text = ""
