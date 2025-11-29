@@ -7,18 +7,18 @@ extends Resource
 # Upgrades
 @export var gun_max_ammo : int = 1
 @export var gun_recharge_time : float = .5
-@export var has_air_movement : bool = false
-@export var has_super_jump : bool = false
-@export var has_hover : bool = false
-@export var has_crouch_lock_down : bool = false
-@export var gun_can_stun_enemies : bool = false
+#@export var has_air_movement : bool = false
+#@export var has_super_jump : bool = false
+#@export var has_hover : bool = false
+#@export var has_crouch_lock_down : bool = false
+#@export var gun_can_stun_enemies : bool = false
 @export var max_player_velocity := 1.2
+@export var reactor_wave_recharges := false
 
 # future upgrades?
 # allow aim direction
 # allow gun recharging
 # recharge 1 instantly on floor
-# reactor wave recharges gun
 # gun recharges in teh air
 # pulse amount
 # air manuevalbitliy
@@ -41,29 +41,34 @@ static func add_max_ammo() -> void:
 static func add_gun_recharge_time() -> void:
 	player_state.gun_recharge_time = clampf(player_state.gun_recharge_time - 0.1, 0.0, 0.5)
 	Events.upgrade_picked_up.emit(player_state)
-	
-static func add_air_movement() -> void:
+
+static func add_reactor_wave_recharges() -> void:
+	player_state.reactor_wave_recharges = true
 	Events.upgrade_picked_up.emit(player_state)
 
-static func add_super_jump() -> void:
-	player_state.has_super_jump = true
-	Events.upgrade_picked_up.emit(player_state)
-	
-static func add_hover() -> void:
-	player_state.has_hover = true
-	Events.upgrade_picked_up.emit(player_state)
+#static func add_super_jump() -> void:
+	#player_state.has_super_jump = true
+	#Events.upgrade_picked_up.emit(player_state)
 
-static func add_crouch_lock_down() -> void:
-	player_state.has_crouch_lock_down = true
-	Events.upgrade_picked_up.emit(player_state)
+#static func add_super_jump() -> void:
+	#player_state.has_super_jump = true
+	#Events.upgrade_picked_up.emit(player_state)
+	#
+#static func add_hover() -> void:
+	#player_state.has_hover = true
+	#Events.upgrade_picked_up.emit(player_state)
+#
+#static func add_crouch_lock_down() -> void:
+	#player_state.has_crouch_lock_down = true
+	#Events.upgrade_picked_up.emit(player_state)
+#
+#static func add_stun_enemies() -> void:
+	#player_state.gun_can_stun_enemies = true
+	#Events.upgrade_picked_up.emit(player_state)
 
-static func add_stun_enemies() -> void:
-	player_state.gun_can_stun_enemies = true
-	Events.upgrade_picked_up.emit(player_state)
-
-static func add_max_player_velocity() -> void:
-	player_state.max_player_velocity = clampf(player_state.max_player_velocity + 0.1, 1.0, 3.0)
-	Events.upgrade_picked_up.emit(player_state)
+#static func add_max_player_velocity() -> void:
+	#player_state.max_player_velocity = clampf(player_state.max_player_velocity + 0.1, 1.0, 3.0)
+	#Events.upgrade_picked_up.emit(player_state)
 
 static func add_key(level_path: String) -> void:
 	player_state.keys[level_path] = true

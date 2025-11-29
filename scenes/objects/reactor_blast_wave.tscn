@@ -62,3 +62,5 @@ texture = SubResource("GradientTexture1D_vo5yg")
 amount = 16
 local_coords = false
 process_material = SubResource("ParticleProcessMaterial_b1h0h")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

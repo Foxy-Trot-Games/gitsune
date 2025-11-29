@@ -7,5 +7,5 @@ class_name TutorialOverlay extends OverlaidMenu
 var tutorial_resource : TutorialResource
 
 func _ready() -> void:
-	title_label.text = tutorial_resource.title
+	title_label.text = "New Upgrade"
 	description_label.text = tutorial_resource.description_template

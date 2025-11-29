@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://dicnv7n7isqjp"]
+
+[ext_resource type="PackedScene" uid="uid://cjtwy15x6pvoh" path="res://scenes/objects/collectables/util/major_upgrade_pickup.tscn" id="1_j4hvb"]
+[ext_resource type="Texture2D" uid="uid://c04gduq36mevi" path="res://assets/background/Runes.PNG" id="2_mx6b2"]
+[ext_resource type="Script" uid="uid://cdao18a3u65km" path="res://scenes/game_scene/tutorials/tutorial_resource.gd" id="2_rjcqm"]
+
+[sub_resource type="Resource" id="Resource_3y5fj"]
+script = ExtResource("2_rjcqm")
+description_template = "Ammo recharges to max in the Gravity Wave"
+metadata/_custom_type_script = "uid://cdao18a3u65km"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjcqm"]
+resource_local_to_scene = true
+atlas = ExtResource("2_mx6b2")
+region = Rect2(80, 160, 16, 16)
+
+[node name="ReactorWaveRechargePickup" instance=ExtResource("1_j4hvb")]
+upgrade_type = 3
+tutorial_resource = SubResource("Resource_3y5fj")
+
+[node name="Rune" parent="." index="2"]
+texture = SubResource("AtlasTexture_rjcqm")

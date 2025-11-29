@@ -60,7 +60,7 @@ region = Rect2(144, 48, 16, 16)
 sprite_frames = SubResource("SpriteFrames_bjo4i")
 frame_progress = 0.50224096
 script = ExtResource("1_byec5")
-upgrade_type = 9
+upgrade_type = 4
 metadata/_custom_type_script = "uid://d3nmh1p5tpvpp"
 metadata/_edit_group_ = true
 

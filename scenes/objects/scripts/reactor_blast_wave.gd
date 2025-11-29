@@ -53,3 +53,7 @@ func _physics_process(delta: float) -> void:
 		reset_physics_interpolation()
 		
 	Events.reactor_wave_moved.emit(global_position, limits)
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Player && (_player as Player).state.reactor_wave_recharges:
+		Events.ammo_picked_up.emit()

@@ -10,12 +10,13 @@ enum Type {
 	RUNE,
 	MAX_AMMO,
 	RECHARGE_TIME,
-	AIR_MOVEMENT,
-	SUPER_JUMP,
-	HOVER,
-	CROUCH_LOCK_DOWN,
-	STUN_ENEMIES,
-	MAX_VELOCITY,
+	REACTOR_WAVE_RECHARGES,
+	#AIR_MOVEMENT,
+	#SUPER_JUMP,
+	#HOVER,
+	#CROUCH_LOCK_DOWN,
+	#STUN_ENEMIES,
+	#MAX_VELOCITY,
 	KEY,
 }
 
@@ -47,18 +48,18 @@ func collected() -> void:
 			PlayerState.add_max_ammo()
 		Type.RECHARGE_TIME:
 			PlayerState.add_gun_recharge_time()
-		Type.AIR_MOVEMENT:
-			PlayerState.add_air_movement()
-		Type.SUPER_JUMP:
-			PlayerState.add_super_jump()
-		Type.HOVER:
-			PlayerState.add_hover()
-		Type.CROUCH_LOCK_DOWN:
-			PlayerState.add_crouch_lock_down()
-		Type.STUN_ENEMIES:
-			PlayerState.add_stun_enemies()
-		Type.MAX_VELOCITY:
-			PlayerState.add_max_player_velocity()
+		#Type.AIR_MOVEMENT:
+			#PlayerState.add_air_movement()
+		#Type.SUPER_JUMP:
+			#PlayerState.add_super_jump()
+		#Type.HOVER:
+			#PlayerState.add_hover()
+		#Type.CROUCH_LOCK_DOWN:
+			#PlayerState.add_crouch_lock_down()
+		#Type.STUN_ENEMIES:
+			#PlayerState.add_stun_enemies()
+		#Type.MAX_VELOCITY:
+			#PlayerState.add_max_player_velocity()
 		
 		
 	_update_level_state()
