@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://2v05act0u21s"]
+
+[ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="1_sftxg"]
+[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="2_cr1wt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyjtp"]
+atlas = ExtResource("2_cr1wt")
+region = Rect2(80, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0jjg"]
+atlas = ExtResource("2_cr1wt")
+region = Rect2(144, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7ne4"]
+atlas = ExtResource("2_cr1wt")
+region = Rect2(80, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugu4t"]
+atlas = ExtResource("2_cr1wt")
+region = Rect2(112, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2e2f"]
+atlas = ExtResource("2_cr1wt")
+region = Rect2(144, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1y8yh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyjtp")
+}],
+"loop": false,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0jjg")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7ne4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugu4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2e2f")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 10.0
+}]
+
+[node name="ReactorExit" instance=ExtResource("1_sftxg")]
+
+[node name="Sprite2D3" parent="." index="1"]
+visible = false
+
+[node name="RuneAnimatedSprite2D" parent="." index="2"]
+visible = false
+frame_progress = 0.0
+
+[node name="Door1AnimatedSprite2D" parent="." index="3"]
+visible = false
+
+[node name="Door2AnimatedSprite2D" parent="." index="4"]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_1y8yh")
+
+[node name="Pulse" parent="." index="9"]
+offset_top = -50.725
+offset_bottom = -34.725

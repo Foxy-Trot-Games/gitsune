@@ -1,11 +1,10 @@
-[gd_scene load_steps=18 format=4 uid="uid://3an4c0jv4wcj"]
+[gd_scene load_steps=16 format=4 uid="uid://3an4c0jv4wcj"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_tv48y"]
 [ext_resource type="Texture2D" uid="uid://d3vntilj6j31r" path="res://assets/background/Reactor.PNG" id="2_866b4"]
 [ext_resource type="PackedScene" uid="uid://cnf23nyxdykpd" path="res://scenes/objects/orbital_zone.tscn" id="2_fevk0"]
-[ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="4_866b4"]
-[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="5_4jd34"]
 [ext_resource type="PackedScene" uid="uid://dmeyxqrmciogn" path="res://scenes/enemy/IA_enemy_flying/enemy-flying.tscn" id="5_fevk0"]
+[ext_resource type="PackedScene" uid="uid://2v05act0u21s" path="res://scenes/objects/reactor_exit.tscn" id="6_fevk0"]
 [ext_resource type="PackedScene" uid="uid://bn52yhf2vy1qc" path="res://scenes/enemy/Respawner/respawner.tscn" id="7_o0fbp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fevk0"]
@@ -66,11 +65,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fevk0"]
-resource_local_to_scene = true
-atlas = ExtResource("5_4jd34")
-region = Rect2(176, 80, 16, 16)
-
 [node name="ReactorLevel" instance=ExtResource("1_tv48y")]
 
 [node name="TileMapLayerFar" parent="TileMapLayer/Parallax/Parallax2LayerFar" index="0"]
@@ -121,25 +115,18 @@ rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_o0fbp")
 autoplay = "default"
 
-[node name="LevelExit" parent="LevelObjects" index="3" instance=ExtResource("4_866b4")]
-position = Vector2(-360, -32)
-exit_to_level = "uid://da6wddr3vj6f0"
-exit_door_id = 2
-metadata/_edit_group_ = true
-
-[node name="Sprite2D3" parent="LevelObjects/LevelExit" index="1"]
-texture = SubResource("AtlasTexture_fevk0")
-
-[node name="DebugLabel2" parent="LevelObjects/LevelExit" index="6"]
-text = "Exit to pipe_level door 2"
-
 [node name="Enemy-flying" parent="." index="4" instance=ExtResource("5_fevk0")]
 position = Vector2(57, 199)
 
 [node name="Respawner" parent="." index="5" instance=ExtResource("7_o0fbp")]
-position = Vector2(-160, -104)
+position = Vector2(-176, 144)
 enemy_scenes = Array[PackedScene]([ExtResource("5_fevk0")])
+
+[node name="ReactorExit" parent="." index="6" instance=ExtResource("6_fevk0")]
+position = Vector2(-352, -32)
+exit_to_level = "uid://da6wddr3vj6f0"
+exit_door_id = 2
+lockable = true
 
 [editable path="TileMapLayer"]
 [editable path="LevelObjects/ReactorOrbitalZone"]
-[editable path="LevelObjects/LevelExit"]

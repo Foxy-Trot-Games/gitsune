@@ -151,6 +151,7 @@ position = Vector2(3712, 40)
 position = Vector2(-648, 128)
 exit_to_level = "uid://5sva8qxnwd1n"
 exit_door_id = 1
+flip_sprite = true
 
 [node name="LevelExit2" parent="LevelObjects" index="4" instance=ExtResource("11_8daxi")]
 position = Vector2(6520, 128)

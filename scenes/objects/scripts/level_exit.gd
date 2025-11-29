@@ -21,6 +21,7 @@ class_name LevelExit extends Area2D
 		exit_door_id = value
 		_update_label_text()
 @export var lockable := false
+@export var flip_sprite := false
 
 const default_level_dir := "res://scenes/game_scene/levels/"
 var _door_disabled := false
@@ -43,6 +44,11 @@ func _ready() -> void:
 			door_2_animated_sprite_2d.play(&"locked")
 		
 func _draw() -> void:
+	
+	if flip_sprite:
+		door_1_animated_sprite_2d.flip_h = true
+		door_2_animated_sprite_2d.flip_h = true
+	
 	_update_label_text()
 
 func _update_label_text() -> void:

@@ -256,9 +256,9 @@ text = "Locked"
 
 [node name="Pulse" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_35mhq")
-offset_left = -9.0
+offset_left = -8.0
 offset_top = -36.0
-offset_right = 7.0
+offset_right = 8.0
 offset_bottom = -20.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=45 format=4 uid="uid://da6wddr3vj6f0"]
+[gd_scene load_steps=46 format=4 uid="uid://da6wddr3vj6f0"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_0cd7r"]
 [ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="2_s4cgb"]
 [ext_resource type="PackedScene" uid="uid://cefaxg5dom30c" path="res://scenes/objects/collectables/max_ammo_upgrade_pickup.tscn" id="3_o1rn4"]
 [ext_resource type="PackedScene" uid="uid://d0livjte84ol8" path="res://scenes/objects/challenge_door.tscn" id="3_p212j"]
+[ext_resource type="PackedScene" uid="uid://2v05act0u21s" path="res://scenes/objects/reactor_exit.tscn" id="5_3xm6o"]
 [ext_resource type="PackedScene" uid="uid://651u78jfo4el" path="res://scenes/objects/collectables/key.tscn" id="5_f6tdq"]
 [ext_resource type="PackedScene" uid="uid://cnf23nyxdykpd" path="res://scenes/objects/orbital_zone.tscn" id="5_p212j"]
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="6_fc740"]
@@ -296,9 +297,10 @@ position = Vector2(1528, -776)
 position = Vector2(-312, 176)
 exit_to_level = "uid://btbewbohacu3h"
 exit_door_id = 3
+flip_sprite = true
 
-[node name="LevelExit2" parent="LevelObjects/Doors" index="1" instance=ExtResource("2_s4cgb")]
-position = Vector2(2440, -2544)
+[node name="ReactorExit" parent="LevelObjects/Doors" index="1" instance=ExtResource("5_3xm6o")]
+position = Vector2(2432, -2544)
 id = 2
 exit_to_level = "uid://3an4c0jv4wcj"
 exit_door_id = 1

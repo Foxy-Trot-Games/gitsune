@@ -204,6 +204,7 @@ allow_movement = true
 position = Vector2(-488, 224)
 exit_to_level = "uid://bfg6o1umvt8om"
 exit_door_id = 2
+flip_sprite = true
 
 [node name="ChallengeDoor" parent="LevelObjects/Doors" index="1" instance=ExtResource("5_dp4g8")]
 position = Vector2(8, -544)
@@ -216,6 +217,7 @@ position = Vector2(-472, 1312)
 id = 3
 exit_to_level = "uid://btbewbohacu3h"
 exit_door_id = 1
+flip_sprite = true
 
 [node name="MaxAmmoUpgradePickup5" parent="LevelObjects" index="5" instance=ExtResource("6_gk04h")]
 position = Vector2(-360, 1272)
