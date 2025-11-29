@@ -162,6 +162,11 @@ func _play_animation(animation: String) -> void:
 #player dying function after emiting a signal from the enemies
 func _player_died() -> void:
 	if !_dead:
+		
+		# set to background layer so player can't collect anything while dead
+		collision_layer = 1 << 2
+		collision_mask = 1 << 2
+		
 		_update_anim_state(AnimationStates.DYING)
 		_dead = true
 		
