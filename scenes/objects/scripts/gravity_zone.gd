@@ -43,7 +43,7 @@ func _draw() -> void:
 	shape.size = size
 	
 	# set the visible_on_screen_enabler_2d rect, since it doesn't have size we have to build one to assign to rect
-	visible_on_screen_enabler_2d.rect = Rect2(Vector2.ZERO, size)
+	visible_on_screen_enabler_2d.rect = Rect2(Vector2.ZERO, size * 2)
 	
 	# set particle positions/size
 	gpu_particles_2d.position = center
@@ -62,7 +62,7 @@ func _draw() -> void:
 	elif recharges_gun:
 		(material as ShaderMaterial).set_shader_parameter("wave_color", Color("ffa181"))
 	else:
-		(material as ShaderMaterial).set_shader_parameter("wave_color", Color("7fffa8"))
+		(material as ShaderMaterial).set_shader_parameter("wave_color", Color("ffffffff"))
 	
 	_update_debug_label()
 
@@ -87,10 +87,10 @@ func _update_debug_label() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
-		Events.entered_gravity_zone.emit(allow_movement)
+		Events.entered_gravity_zone.emit(allow_movement, gravity_value > 980)
 		if recharges_gun:
 			Events.ammo_picked_up.emit()
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is Player:
-		Events.exited_gravity_zone.emit(allow_movement)
+		Events.exited_gravity_zone.emit(allow_movement, gravity_value > 980)

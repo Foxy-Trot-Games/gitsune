@@ -148,11 +148,11 @@ recharges_gun = true
 
 [node name="GravityZone6" parent="LevelObjects/GravityZones" index="3" instance=ExtResource("2_dph10")]
 material = SubResource("ShaderMaterial_6qvn7")
-offset_left = 1456.0
-offset_top = 288.0
-offset_right = 1568.0
-offset_bottom = 336.0
-rotation = -1.5707964
+offset_left = 1424.0
+offset_top = 304.0
+offset_right = 1536.0
+offset_bottom = 352.0
+rotation = -1.3089969
 recharges_gun = true
 
 [node name="GravityZone3" parent="LevelObjects/GravityZones" index="4" instance=ExtResource("2_dph10")]
@@ -208,7 +208,7 @@ exit_door_id = 2
 [node name="ChallengeDoor" parent="LevelObjects/Doors" index="1" instance=ExtResource("5_dp4g8")]
 position = Vector2(8, -544)
 id = 2
-exit_to_level = "uid://cya258o1v5myq"
+exit_to_level = "uid://bbs5nnw0ywg3v"
 exit_door_id = 1
 
 [node name="LevelExit2" parent="LevelObjects/Doors" index="2" instance=ExtResource("4_e17n5")]

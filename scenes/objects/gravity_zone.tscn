@@ -11,7 +11,7 @@ shader = ExtResource("1_l6gxy")
 shader_parameter/wave_frequency = 10.0
 shader_parameter/wave_speed = 0.05
 shader_parameter/wave_amplitude = 0.005
-shader_parameter/wave_color = Color(0.49803922, 1, 0.65882355, 1)
+shader_parameter/wave_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Gradient" id="Gradient_4fuhv"]
 offsets = PackedFloat32Array(0.41107872, 0.7521866, 1)
@@ -71,10 +71,11 @@ process_material = SubResource("ParticleProcessMaterial_tiknf")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 unique_name_in_owner = true
-rect = Rect2(0, 0, 16, 16)
+rect = Rect2(0, 0, 32, 32)
 
 [node name="SnapToGrid" type="Node" parent="."]
 script = ExtResource("3_l6gxy")
+rotation_degree_amount = 15
 metadata/_custom_type_script = "uid://c44mmw8o77ec6"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -73,10 +73,10 @@ position = Vector2(336, 156)
 
 [node name="Camera2D" parent="CameraManager" index="1"]
 position = Vector2(336, 156)
-limit_left = -768
-limit_top = -864
-limit_right = 896
-limit_bottom = 64
+limit_left = -656
+limit_top = -2736
+limit_right = 656
+limit_bottom = 336
 
 [node name="ReactorBlastWave" parent="LevelObjects" index="0"]
 position = Vector2(1560, 40)
@@ -147,8 +147,8 @@ recharges_gun = true
 
 [node name="LevelExit" parent="LevelObjects" index="4" instance=ExtResource("6_bsl2r")]
 position = Vector2(592, 240)
-exit_to_level = "uid://5sva8qxnwd1n"
-exit_door_id = 3
+exit_to_level = "uid://dqlylgfnga4v4"
+exit_door_id = 2
 
 [node name="CheckPoint" parent="LevelObjects" index="5" instance=ExtResource("7_v6c7n")]
 offset_left = 72.0

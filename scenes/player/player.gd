@@ -17,6 +17,7 @@ var _dead := false
 var state : PlayerState :
 	get:
 		return GameState.get_player_state()
+var _uncap_speed := false
 
 enum AnimationStates {
 	IDLING,
@@ -70,8 +71,11 @@ func _on_player_movement_input_signal(direction: Vector2) -> void:
 		else:
 			_update_anim_state(AnimationStates.RUNNING)
 
-func _set_gravity_zone_var(allow_movement: bool, entered: bool) -> void:
+func _set_gravity_zone_var(allow_movement: bool, uncap_speed: bool, entered: bool) -> void:
 	_allow_gravity_zone_movement = allow_movement if entered else false
+	
+	if entered:
+		_uncap_speed = uncap_speed
 
 # rising by arbitrary amount
 func _is_rising() -> bool:
@@ -98,6 +102,7 @@ func _physics_process(delta: float) -> void:
 
 	# Apply pending knockback from pulse
 	if _pending_knockback != Vector2.ZERO:
+		_uncap_speed = false
 		# if player is falling we want to apply the full impulse so they 'pogo' back up
 		# instead of just reducing the velocity
 		if _is_falling():
@@ -108,17 +113,21 @@ func _physics_process(delta: float) -> void:
 	# apply gravity and any gravity zones
 	velocity += get_gravity() * delta
 	
-	# prevent moving faster than set amount
-	var max_player_speed := speed * state.max_player_velocity
-	velocity = velocity.clampf(-max_player_speed, max_player_speed)
-	
 	# if falling
 	if _is_falling():
 		_update_anim_state(AnimationStates.FALLING)
+		_uncap_speed = false
 	# if rising
 	elif _is_rising():
 		_update_anim_state(AnimationStates.RISING)
 	
+	# prevent moving faster than set amount
+	if _uncap_speed:
+		velocity = velocity.clampf(-750, 750)
+	else:
+		var max_player_speed := speed * state.max_player_velocity
+		velocity = velocity.clampf(-max_player_speed, max_player_speed)
+		
 	move_and_slide()
 	
 	_check_state()
