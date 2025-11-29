@@ -11,11 +11,14 @@ func _cache_particle_scenes() -> void:
 	# instantiate scenes so they are cached on game start
 	for file : String in particle_scene_lister.files:
 		var scene : Node2D = (load(file) as PackedScene).instantiate()
+		add_child(scene)
+		
 		# disable scene
 		scene.set_process(false)
 		scene.set_physics_process(false)
-		scene.hide()
+		# hiding doesn't work, we want to draw it to the screen still to cache it
+		scene.modulate = Color.TRANSPARENT
+		#scene.hide()
 		
-		add_child(scene)
 		# free after adding it to the world, this will cache it internally after adding it
-		#scene.ready.connect(scene.queue_free)
+		scene.ready.connect(scene.queue_free)
