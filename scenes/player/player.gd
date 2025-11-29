@@ -14,7 +14,7 @@ var _gun: Node2D
 var PLAYER_AIR_RESISTENCE := 0.1 # higher is more resistence up to 1.0
 var _animation_state := AnimationStates.IDLING
 var _allow_gravity_zone_movement := false
-var _dead := false
+var dead := false
 var state : PlayerState :
 	get:
 		return GameState.get_player_state()
@@ -134,7 +134,7 @@ func _physics_process(delta: float) -> void:
 	_check_state()
 
 func _update_anim_state(anim_state: AnimationStates) -> void:
-	if !_dead:
+	if !dead:
 		_animation_state = anim_state
 
 func _check_state() -> void:
@@ -162,14 +162,14 @@ func _play_animation(animation: String) -> void:
 
 #player dying function after emiting a signal from the enemies
 func _player_died() -> void:
-	if !_dead:
+	if !dead:
 		
 		# set to background layer so player can't collect anything while dead
-		collision_layer = 1 << 2
-		collision_mask = 1 << 2
+		#collision_layer = 1 << 2
+		#collision_mask = 1 << 2
 		
 		_update_anim_state(AnimationStates.DYING)
-		_dead = true
+		dead = true
 		
 		Audio.play_sfx(PLAYER_DAMAGED, self)
 		
