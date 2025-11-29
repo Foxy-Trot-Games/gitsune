@@ -20,7 +20,7 @@ enum States {
 var current_state: States = States.WANDER
 var stunned: bool = false
 var stun_timer: Timer
-
+var _time : float = 0.0
 
 func _ready() -> void:
 	add_to_group("enemy")
@@ -67,19 +67,22 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-
 # ======================
 #  MOVEMENT LOGIC
 # ======================
 func handle_movement(delta: float) -> void:
 	if stunned:
 		return
+	
+	_time += delta
+	
+	var move_jitter := Vector2(randf_range(-5,5), sin(_time * 5) * 100)
 
 	if current_state == States.WANDER:
 		alert_control.visible = false
-		velocity = velocity.move_toward(direction * SPEED, ACCELERATION * delta)
+		velocity = velocity.move_toward(direction * SPEED + move_jitter, ACCELERATION * delta)
 	else:
-		velocity = velocity.move_toward(direction * CHASE_SPEED, ACCELERATION * delta)
+		velocity = velocity.move_toward(direction * CHASE_SPEED + move_jitter, ACCELERATION * delta)
 
 
 func change_direction() -> void:
