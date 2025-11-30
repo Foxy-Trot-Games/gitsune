@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://bhdralurx05es"]
+[gd_scene load_steps=5 format=4 uid="uid://bhdralurx05es"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_xw1qs"]
-[ext_resource type="PackedScene" uid="uid://cefaxg5dom30c" path="res://scenes/objects/collectables/max_ammo_upgrade_pickup.tscn" id="2_37cbi"]
 [ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="3_7k5uy"]
 [ext_resource type="PackedScene" uid="uid://bhvytctn2dvud" path="res://scenes/objects/check_point.tscn" id="4_6wc8y"]
 [ext_resource type="PackedScene" uid="uid://bkhp0tgramnqk" path="res://scenes/objects/collectables/gun_recharge_upgrade_pickup.tscn" id="5_oo0qx"]
@@ -24,38 +23,26 @@ limit_top = -240
 limit_right = 3024
 limit_bottom = 128
 
-[node name="MaxAmmoUpgradePickup" parent="." index="4" instance=ExtResource("2_37cbi")]
-position = Vector2(48, -16)
-
-[node name="MaxAmmoUpgradePickup2" parent="." index="5" instance=ExtResource("2_37cbi")]
-position = Vector2(88, -16)
-
-[node name="MaxAmmoUpgradePickup3" parent="." index="6" instance=ExtResource("2_37cbi")]
-position = Vector2(128, -16)
-
-[node name="MaxAmmoUpgradePickup4" parent="." index="7" instance=ExtResource("2_37cbi")]
-position = Vector2(168, -16)
-
-[node name="LevelExit" parent="." index="8" instance=ExtResource("3_7k5uy")]
+[node name="LevelExit" parent="." index="4" instance=ExtResource("3_7k5uy")]
 position = Vector2(-72, 32)
 exit_to_level = "uid://da6wddr3vj6f0"
 exit_door_id = 4
 flip_sprite = true
 
-[node name="CheckPoint" parent="." index="9" instance=ExtResource("4_6wc8y")]
+[node name="CheckPoint" parent="." index="5" instance=ExtResource("4_6wc8y")]
 offset_left = 232.0
 offset_top = -224.0
 offset_right = 248.0
 offset_bottom = 32.0
 
-[node name="CheckPoint2" parent="." index="10" instance=ExtResource("4_6wc8y")]
+[node name="CheckPoint2" parent="." index="6" instance=ExtResource("4_6wc8y")]
 offset_left = 2848.0
 offset_top = -224.0
 offset_right = 2864.0
 offset_bottom = 32.0
 id = 2
 
-[node name="GunRechargeUpgradePickup" parent="." index="11" instance=ExtResource("5_oo0qx")]
+[node name="GunRechargeUpgradePickup" parent="." index="7" instance=ExtResource("5_oo0qx")]
 position = Vector2(2936, 8)
 
 [editable path="TileMapLayer"]
