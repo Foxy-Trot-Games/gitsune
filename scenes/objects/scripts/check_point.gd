@@ -44,7 +44,7 @@ func _draw() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player && !_activated:
-		Audio.play_sfx(CHECKPOINT_TRIGGER_SOUND, self, 100, -20, 0)
+		Audio.play_sfx(CHECKPOINT_TRIGGER_SOUND, self, 100, -20)
 		Globals.get_level().check_point_reached.emit(spawn_position.global_position)
 		_activated = true
 		animated_sprite_2d.play(&"charging")

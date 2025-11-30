@@ -11,7 +11,7 @@ static func get_player() -> Player:
 	return scene_tree.get_first_node_in_group("Player")
 
 static func add_child_to_level(node: Node) -> void:
-	get_level().add_child(node)
+	get_level().add_child.call_deferred(node)
 
 static func get_nodes_in_group(group: String) -> Array[Node]:
 	return scene_tree.get_nodes_in_group(group)
