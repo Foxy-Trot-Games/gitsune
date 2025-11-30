@@ -3,6 +3,8 @@ extends Level
 
 @onready var ending_animation_player: AnimationPlayer = $LevelObjects/EndingAnimationPlayer
 
+const REACTOR_SWEEP_SHORT = preload("uid://o8hmhmftbt27")
+
 var _respawners_left := 0
 
 func _ready() -> void:
@@ -16,6 +18,8 @@ func _ready() -> void:
 		respawner.respawner_destroyed.connect(_respawner_destroyed)
 
 func _respawner_destroyed() -> void:
+	
+	Audio.play_sfx(REACTOR_SWEEP_SHORT, self, 100, 0)
 	
 	_respawners_left -= 1
 	
