@@ -196,6 +196,7 @@ func _rune_picked_up() -> void:
 	var label := Label.new()
 	
 	label.global_position = global_position - Vector2(16, 32)
+	label.z_index = 100
 	
 	var level_runes_num := Globals.get_level().level_state.total_level_runes
 	var runes_left := get_tree().get_nodes_in_group("Rune").size() - 1
