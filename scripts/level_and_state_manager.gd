@@ -32,6 +32,11 @@ func _shortcut_input(event: InputEvent) -> void:
 		else:
 			current_level_path = ASSET_LEVEL
 		
+		PlayerState.add_max_ammo()
+		PlayerState.add_max_ammo()
+		PlayerState.add_max_ammo()
+		PlayerState.add_max_ammo()
+		
 		load_current_level()
 
 func _set_current_door_id(door_id : int) -> void:
