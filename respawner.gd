@@ -10,6 +10,8 @@ class_name Respawner extends Node2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var gravity_particles: GPUParticles2D = $GravityParticles
+@onready var tutorial_message: TutorialMessage = $TutorialMessage
+@onready var text_timer: Timer = $Timer
 
 signal respawner_destroyed
 
@@ -18,8 +20,45 @@ var active_enemies := []
 var hp := 4
 var _dead := false
 
+var message := [
+	"...help us...",
+	"...release us...",
+	"...free us...",
+	"...can't...see...",
+	"...run...",
+	"...must...obey...",
+	"...they are inside...",
+	"...dark...near...",
+	"...compels...",
+	"...forced...us...",
+	"...mind...trapped...",
+	"...shadows run...",
+	"...ripping...",
+	"...seams ripped...",
+	"...darkness sends them...",
+	"...wave...here...",
+]
+
+var dead_message := [
+	"...free...finally...",
+	"...beginning...end...",
+	"...rest...now...",
+	"...finally...",
+	"...empty...always...",
+	"...wave...gone...",
+	"...chains...gone..",
+	"...void...here...",
+	"...pain...gone...",
+	"...silence...",
+	"...whispers...gone...",
+	"...prison...gone...",
+	"...curse...lifted...",
+	"...escape...",
+	"...thank...you..."
+]
+
 func _ready() -> void:
-	randomize()
+	_set_random_message()
 
 func _physics_process(delta: float) -> void:
 	timer += delta
@@ -48,8 +87,17 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		
 		if hp <= 0:
 			_dead = true
+			text_timer.stop()
+			tutorial_message.text = dead_message.pick_random()
 			animation_player.play(&"dead")
 			set_physics_process(false)
 			respawner_destroyed.emit()
 		else:
 			animation_player.play(&"hit")
+
+func _set_random_message() -> void:
+	text_timer.start(randf_range(8,12))
+	tutorial_message.text = message.pick_random()
+
+func _on_timer_timeout() -> void:
+	_set_random_message()

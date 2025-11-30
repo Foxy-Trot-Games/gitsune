@@ -1,12 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://bn52yhf2vy1qc"]
+[gd_scene load_steps=18 format=3 uid="uid://bn52yhf2vy1qc"]
 
 [ext_resource type="Script" uid="uid://c08y3yfhc44nh" path="res://respawner.gd" id="1_4nngo"]
 [ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="2_4nngo"]
 [ext_resource type="PackedScene" uid="uid://c8su6i6rykckn" path="res://scenes/util/pulsing_glow_vfx.tscn" id="2_xmb86"]
 [ext_resource type="Shader" uid="uid://q71u7eat2b4j" path="res://scenes/util/pulsing_glow_vfx.gdshader" id="3_7p414"]
 [ext_resource type="PackedScene" uid="uid://dtrk3kn5lheu8" path="res://resources/particles_scenes/gravity_particles.tscn" id="5_kx67r"]
+[ext_resource type="PackedScene" uid="uid://dtsu578yrf2sq" path="res://scenes/game_scene/levels/level_utils/tutorial_message.tscn" id="6_pl5qa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kx67r"]
+resource_local_to_scene = true
 shader = ExtResource("3_7p414")
 shader_parameter/glow_color = Color(0.49803922, 1, 0.65882355, 1)
 shader_parameter/pulse_speed = 0.1999999955296
@@ -51,33 +53,6 @@ gravity = Vector3(98, 0, 0)
 alpha_curve = SubResource("CurveTexture_pl5qa")
 hue_variation_min = 0.009999977
 hue_variation_max = 0.35999995
-
-[sub_resource type="Animation" id="Animation_7p414"]
-resource_name = "hit"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.23333333, 0.56666666),
-"transitions": PackedFloat32Array(0.5, 0.5, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GravityParticles:emitting")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_kx67r"]
 length = 0.001
@@ -148,6 +123,18 @@ tracks/5/path = NodePath("PulsingGlowVfx:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TutorialMessage:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -243,6 +230,45 @@ tracks/6/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TutorialMessage:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7p414"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.56666666),
+"transitions": PackedFloat32Array(0.5, 0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GravityParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pl5qa"]
 _data = {
@@ -281,4 +307,17 @@ libraries = {
 &"": SubResource("AnimationLibrary_pl5qa")
 }
 
+[node name="TutorialMessage" parent="." instance=ExtResource("6_pl5qa")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 17.45
+offset_right = 100.0
+offset_bottom = 40.45001
+grow_horizontal = 2
+
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
