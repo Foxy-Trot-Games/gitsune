@@ -262,6 +262,9 @@ limit_top = -3136
 limit_right = 3120
 limit_bottom = 2528
 
+[node name="ReactorWaveRechargePickup" parent="." index="4" instance=ExtResource("14_3xm6o")]
+position = Vector2(2344, -2584)
+
 [node name="ReactorBlastWave" parent="LevelObjects" index="0"]
 position = Vector2(3808, 0)
 
@@ -465,9 +468,9 @@ allow_movement = true
 [node name="GravityZone22" parent="LevelObjects/Zones" index="17" instance=ExtResource("6_fc740")]
 material = SubResource("ShaderMaterial_tx3ph")
 offset_left = 1600.0
-offset_top = -2112.0
-offset_right = 2272.0
-offset_bottom = -1408.0
+offset_top = -2240.0
+offset_right = 2144.0
+offset_bottom = -1536.0
 rotation = 4.712389
 gravity_value = 0.0
 slows_down_player = true
@@ -546,8 +549,5 @@ offset_top = -2240.0
 offset_right = 1688.0
 offset_bottom = -2112.0
 id = 5
-
-[node name="ReactorWaveRechargePickup" parent="." index="4" instance=ExtResource("14_3xm6o")]
-position = Vector2(2344, -2584)
 
 [editable path="TileMapLayer"]

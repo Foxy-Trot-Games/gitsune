@@ -1,4 +1,4 @@
-# Attribution
+# Credits
 ## Collaborators
 
 ### Role
@@ -7,18 +7,6 @@ koallary - level design and artist
 ClownManGuy - animator and artist
 Screen - enemy programmer
 foks - music designer
-
-## Sourced
-### Asset Type
-#### Use Case
-Author: [Name]()  
-Source: [Domain : webpage.html]()  
-License: [License]()
-
-#### Godot Engine Logo
-Author: Andrea Calabró  
-Source: [godotengine.org : press](https://godotengine.org/press/)  
-License: [CC BY 4.0 International](https://github.com/godotengine/godot/blob/master/LOGO_LICENSE.txt) 
 
 ## Tools
 #### Godot
