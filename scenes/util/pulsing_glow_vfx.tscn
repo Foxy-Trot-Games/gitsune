@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://b8uly7x6fgpk3" path="res://scenes/util/pulsing_glow_vfx.tres" id="1_pn2np"]
 [ext_resource type="Script" uid="uid://cjshlvvn8gaqq" path="res://scenes/util/pulsing_glow_vfx.gd" id="3_pn2np"]
 
-[node name="PulsingGlowVfx" type="Sprite2D"]
+[node name="PulsingGlowVfx" type="Sprite2D" groups=["PulsingGlow"]]
 material = ExtResource("1_pn2np")
 texture = ExtResource("1_jn1pa")
 script = ExtResource("3_pn2np")

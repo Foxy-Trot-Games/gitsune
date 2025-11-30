@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://oc3nknueoo5d"]
+[gd_scene load_steps=7 format=3 uid="uid://oc3nknueoo5d"]
 
 [ext_resource type="Script" uid="uid://dxbrfm31cceus" path="res://resources/particles_scenes/gun_sound_particles.gd" id="1_436i5"]
+[ext_resource type="Script" uid="uid://dv1nxfdk8hd24" path="res://resources/particles_scenes/pulse_area.gd" id="2_k5a3e"]
 
 [sub_resource type="Gradient" id="Gradient_rflmw"]
 offsets = PackedFloat32Array(0.7225, 1)
@@ -35,6 +36,7 @@ process_material = SubResource("ParticleProcessMaterial_rflmw")
 script = ExtResource("1_436i5")
 
 [node name="PulseArea" type="Area2D" parent="."]
+script = ExtResource("2_k5a3e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PulseArea"]
 shape = SubResource("CircleShape2D_7vo7j")

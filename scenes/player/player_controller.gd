@@ -4,7 +4,7 @@ class_name PlayerController extends Node2D
 
 func _physics_process(_delta: float) -> void:
 	
-	if player._dead:
+	if player.dead:
 		Events.player_movement_input(Vector2.ZERO)
 		return
 	

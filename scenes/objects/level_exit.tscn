@@ -254,7 +254,7 @@ offset_right = 78.0
 offset_bottom = 27.0
 text = "Locked"
 
-[node name="Pulse" type="ColorRect" parent="."]
+[node name="Pulse" type="ColorRect" parent="." groups=["PulsingGlow"]]
 material = SubResource("ShaderMaterial_35mhq")
 offset_left = -8.0
 offset_top = -36.0

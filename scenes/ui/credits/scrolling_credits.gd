@@ -30,7 +30,7 @@ func _end_reached() -> void:
 	end_reached.emit()
 
 func is_end_reached() -> bool:
-	var _end_of_credits_vertical = credits_label.size.y + header_space.size.y
+	var _end_of_credits_vertical := credits_label.size.y + header_space.size.y
 	return scroll_container.scroll_vertical > _end_of_credits_vertical
 
 func _check_end_reached() -> void:
@@ -81,7 +81,7 @@ func _ready() -> void:
 
 
 func _process(delta : float) -> void:
-	var input_axis = Input.get_axis("ui_up", "ui_down")
+	var input_axis := Input.get_axis("ui_up", "ui_down")
 	if input_axis != 0:
 		_scroll_container(input_axis * input_scroll_speed * delta)
 	else:

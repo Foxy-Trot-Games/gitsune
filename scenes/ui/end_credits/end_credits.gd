@@ -8,9 +8,9 @@ extends "res://scenes/ui/credits/scrolling_credits.gd"
 ## Useful for games that capture the mouse, and don't automatically return it.
 @export var force_mouse_mode_visible : bool = false
 
-@onready var end_message_panel = %EndMessagePanel
-@onready var exit_button = %ExitButton
-@onready var menu_button = %MenuButton
+@onready var end_message_panel : Panel = %EndMessagePanel
+@onready var exit_button : Button = %ExitButton
+@onready var menu_button : Button = %MenuButton
 @onready var init_mouse_filter : MouseFilter = mouse_filter
 
 func get_main_menu_scene_path() -> String:
@@ -53,8 +53,8 @@ func _unhandled_input(event : InputEvent) -> void:
 		else:
 			exit_game()
 
-func _on_exit_button_pressed():
+func _on_exit_button_pressed() -> void:
 	exit_game()
 
-func _on_menu_button_pressed():
+func _on_menu_button_pressed() -> void:
 	load_main_menu()

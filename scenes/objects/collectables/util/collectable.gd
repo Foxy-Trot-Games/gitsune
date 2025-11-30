@@ -35,8 +35,9 @@ func _ready() -> void:
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		collected()
-		queue_free()
+		if !(body as Player).dead:
+			collected()
+			queue_free()
 
 func collected() -> void:
 	match upgrade_type:
