@@ -5,12 +5,16 @@ extends Control
 @onready var ammo_animated_sprite_2d: AnimatedSprite2D = %AmmoAnimatedSprite2D
 @onready var player := Globals.get_player()
 @onready var bullets_spites: Array = %Bullets.get_children()
+@onready var key: Sprite2D = $Control/Key
 
 func _ready() -> void:
 	# Connect your signals
 	Events.gun_stats_updated.connect(_gun_stats_updated)
 	Events.reactor_wave_moved.connect(_reactor_wave_moved)
 	Events.gun_charging.connect(_gun_charging)
+	Events.upgrade_picked_up.connect(_upgrade_picked_up)
+	
+	_show_key()
 
 func _gun_charging() -> void:
 	if player.gun.current_ammo != player.state.gun_max_ammo:
@@ -38,6 +42,13 @@ func _gun_stats_updated(current_ammo: int, max_ammo: int) -> void:
 			sprite.play(&"spent")
 		elif num <= current_ammo:
 			sprite.play(&"ready")
+
+func _show_key() -> void:
+	var has_key := PlayerState.has_key(GameState.get_current_level_path())
+	key.visible = has_key
+
+func _upgrade_picked_up(_state: PlayerState) -> void:
+	_show_key()
 
 func _reactor_wave_moved(pos: Vector2, limit: Vector2) -> void:
 	

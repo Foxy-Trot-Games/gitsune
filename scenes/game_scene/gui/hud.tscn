@@ -1,9 +1,10 @@
-[gd_scene load_steps=63 format=3 uid="uid://df4m8l5j2c6dy"]
+[gd_scene load_steps=65 format=3 uid="uid://df4m8l5j2c6dy"]
 
 [ext_resource type="Texture2D" uid="uid://drvumdlvftphj" path="res://assets/ui/Background.png" id="1_crjap"]
 [ext_resource type="Script" uid="uid://cb811ulh73sce" path="res://scenes/game_scene/gui/ammo_container.gd" id="1_jd5ix"]
 [ext_resource type="Texture2D" uid="uid://cbnvhvvy8e0x" path="res://assets/ui/wave_sprite.png" id="3_lnt42"]
 [ext_resource type="Texture2D" uid="uid://cev4aqy35yr8w" path="res://assets/gun/ammo_sprite.png" id="4_lnt42"]
+[ext_resource type="Texture2D" uid="uid://b3oicqs67mm1j" path="res://assets/objects/objects.png" id="5_v7wis"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v7wis"]
 atlas = ExtResource("3_lnt42")
@@ -437,6 +438,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yndq4"]
+atlas = ExtResource("5_v7wis")
+region = Rect2(144, 48, 16, 16)
+
 [node name="Hud" type="CanvasLayer"]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -526,3 +531,9 @@ position = Vector2(-147, -11)
 sprite_frames = SubResource("SpriteFrames_0rupv")
 animation = &"locked"
 frame_progress = 0.7550174
+
+[node name="Key" type="Sprite2D" parent="MarginContainer/Control"]
+visible = false
+position = Vector2(-161, -54)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_yndq4")
