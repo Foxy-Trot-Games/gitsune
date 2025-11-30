@@ -10,6 +10,9 @@ var player: Player
 
 var _prev_mouse_pos := Vector2.ZERO
 
+const PLAYER_PICKUP_FULL_AMMO_SOUND = preload("uid://4y2nkedvdudj")
+const PLAYER_PICKUP_PARTIAL_AMMO_SOUND = preload("uid://chgeoqt7y3274")
+
 func _ready() -> void:
 	player = get_parent()
 	
@@ -60,7 +63,13 @@ func _mouse_used(pos: Vector2) -> void:
 
 func _ammo_picked_up(ammo_amount: int = -1) -> void:
 	if player.state.gun_max_ammo != current_ammo: # some things continuosly add ammo, so we only update if it's not at max ammo
-		_update_gun_stats(player.state.gun_max_ammo if ammo_amount == -1 else ammo_amount)
+		
+		if ammo_amount == -1: # fill all ammo
+			Audio.play_sfx(PLAYER_PICKUP_FULL_AMMO_SOUND, self)
+			_update_gun_stats(player.state.gun_max_ammo)
+		else:
+			Audio.play_sfx(PLAYER_PICKUP_PARTIAL_AMMO_SOUND, self)
+			_update_gun_stats(ammo_amount)
 
 func _on_pulse_activated_signal() -> void:
 	_update_gun_stats(-1)
