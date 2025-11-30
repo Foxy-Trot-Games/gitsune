@@ -23,7 +23,7 @@ func _ready() -> void:
 	Events.player_died.connect(_player_died)
 	
 	# fill ammo
-	_ammo_picked_up()
+	_ammo_picked_up(-1, true)
 
 func _physics_process(delta: float) -> void:
 	
@@ -61,14 +61,16 @@ func _keyboard_used(dir: Vector2) -> void:
 func _mouse_used(pos: Vector2) -> void:
 	look_at(get_global_mouse_position())
 
-func _ammo_picked_up(ammo_amount: int = -1) -> void:
+func _ammo_picked_up(ammo_amount: int = -1, skip_sound := false) -> void:
 	if player.state.gun_max_ammo != current_ammo: # some things continuosly add ammo, so we only update if it's not at max ammo
 		
 		if ammo_amount == -1: # fill all ammo
-			Audio.play_sfx(PLAYER_PICKUP_FULL_AMMO_SOUND, self)
+			if !skip_sound:
+				Audio.play_sfx(PLAYER_PICKUP_FULL_AMMO_SOUND, self, 100, -20)
 			_update_gun_stats(player.state.gun_max_ammo)
 		else:
-			Audio.play_sfx(PLAYER_PICKUP_PARTIAL_AMMO_SOUND, self)
+			if !skip_sound:
+				Audio.play_sfx(PLAYER_PICKUP_PARTIAL_AMMO_SOUND, self, 100, -20)
 			_update_gun_stats(ammo_amount)
 
 func _on_pulse_activated_signal() -> void:
