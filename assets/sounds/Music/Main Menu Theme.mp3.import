@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmc2armswkg8k"
+path="res://.godot/imported/Main Menu Theme.mp3-db415291c65ca24f2b9847a952e581ce.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Music/Main Menu Theme.mp3"
+dest_files=["res://.godot/imported/Main Menu Theme.mp3-db415291c65ca24f2b9847a952e581ce.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

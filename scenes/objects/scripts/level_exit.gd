@@ -39,7 +39,7 @@ func _ready() -> void:
 		assert(exit_to_level != default_level_dir, "Door should have exit level set! %s" % owner)
 		assert(exit_door_id != -1, "No door id set! %s" % owner)
 		
-		if lockable && !level_state.exit_unlocked():
+		if lockable && level_state && !level_state.exit_unlocked():
 			door_1_animated_sprite_2d.play(&"locked")
 			door_2_animated_sprite_2d.play(&"locked")
 		

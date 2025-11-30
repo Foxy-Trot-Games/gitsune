@@ -95,6 +95,7 @@ func _build_stream_player(stream : AudioStream, stream_name : String = "") -> Au
 		stream_player.stream = stream
 		stream_player.bus = audio_bus
 		stream_player.name = stream_name + "AudioStreamPlayer"
+		stream_player.volume_db = -10
 		add_child(stream_player)
 	return stream_player
 

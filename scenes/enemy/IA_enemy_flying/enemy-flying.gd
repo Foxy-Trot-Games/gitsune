@@ -114,6 +114,7 @@ func change_direction() -> void:
 #  CHASE LOGIC
 # ======================
 func chase_player() -> void:
+	_play_alerted_sound()
 	timer.stop()
 	current_state = States.CHASE
 	alert_control.visible = true
@@ -151,6 +152,7 @@ func die() -> void:
 		return
 	is_dead = true
 	stop_chase()
+	_play_death_sound()
 	# Play your existing die animation
 	animation_player.play("die")
 	# Create a Tween for the shock effect

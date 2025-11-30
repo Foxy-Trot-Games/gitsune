@@ -21,7 +21,7 @@ func _ready() -> void:
 	
 	# don't load data or play music in the editor
 	if !Engine.is_editor_hint():
-		Audio.play_bgm(bgm)
+		#Audio.play_bgm(bgm)
 		
 		assert(!_get_exits().is_empty(), "Level %s must have an exit!" % GameState.get_current_level_path())
 		

@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://y7o11v2qkpec"]
+[gd_scene load_steps=14 format=3 uid="uid://y7o11v2qkpec"]
 
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="1_uiwav"]
 [ext_resource type="PackedScene" uid="uid://cltlqkq4vm2y7" path="res://scenes/ui/overlaid_menus/pause_menu.tscn" id="2_d657n"]
-[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="3_ipxfc"]
 [ext_resource type="Script" uid="uid://bbymrin0cm704" path="res://addons/maaacks_game_template/extras/scripts/level_loader.gd" id="4_l4eg4"]
 [ext_resource type="Script" uid="uid://cky55keub2m40" path="res://scripts/level_and_state_manager.gd" id="5_d8vx4"]
 [ext_resource type="PackedScene" uid="uid://bih50i74jlrdt" path="res://scenes/ui/overlaid_menus/game_won_menu.tscn" id="6_qa7j3"]
@@ -105,8 +104,6 @@ grow_vertical = 2
 script = ExtResource("1_uiwav")
 pause_menu_packed = ExtResource("2_d657n")
 focused_viewport = NodePath("../ViewportContainer/ConfigurableSubViewport")
-
-[node name="BackgroundMusicPlayer" parent="." instance=ExtResource("3_ipxfc")]
 
 [node name="LevelLoader" type="Node" parent="." node_paths=PackedStringArray("level_container")]
 script = ExtResource("4_l4eg4")
