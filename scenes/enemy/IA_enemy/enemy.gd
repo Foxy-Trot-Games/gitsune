@@ -134,11 +134,13 @@ func look_for_player() -> void:
 			chase_player() 
 		elif current_state == States.CHASE: 
 			stop_chase() 
-		elif current_state == States.CHASE: 
-			stop_chase()
+	elif current_state == States.CHASE: 
+		stop_chase()
 
 
 func chase_player() -> void:
+	if current_state == States.CHASE:
+		_play_alerted_sound()
 	timer.stop()
 	current_state = States.CHASE
 	alert_control.visible = true

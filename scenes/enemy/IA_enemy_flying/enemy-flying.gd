@@ -114,6 +114,7 @@ func change_direction() -> void:
 #  CHASE LOGIC
 # ======================
 func chase_player() -> void:
+	_play_alerted_sound()
 	timer.stop()
 	current_state = States.CHASE
 	alert_control.visible = true
