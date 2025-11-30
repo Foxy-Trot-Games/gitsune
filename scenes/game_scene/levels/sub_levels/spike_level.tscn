@@ -42,6 +42,7 @@ position = Vector2(-1096, 408)
 position = Vector2(-1128, 416)
 exit_to_level = "uid://bfg6o1umvt8om"
 exit_door_id = 3
+flip_sprite = true
 
 [node name="GunRechargeUpgradePickup" parent="LevelObjects" index="3" instance=ExtResource("3_eixee")]
 position = Vector2(1800, 392)

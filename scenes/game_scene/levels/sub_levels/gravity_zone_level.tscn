@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://4vt7gpq3gv6"]
+[gd_scene load_steps=12 format=4 uid="uid://4vt7gpq3gv6"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_fbxgo"]
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="2_qv8id"]
+[ext_resource type="PackedScene" uid="uid://bkhp0tgramnqk" path="res://scenes/objects/collectables/gun_recharge_upgrade_pickup.tscn" id="2_srjv2"]
 [ext_resource type="Shader" uid="uid://ula7reohgr3f" path="res://scenes/objects/scripts/gravity_zone.gdshader" id="3_2lp6h"]
 [ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="4_ag8u2"]
 [ext_resource type="PackedScene" uid="uid://bhvytctn2dvud" path="res://scenes/objects/check_point.tscn" id="4_oarqv"]
@@ -123,10 +124,14 @@ offset_top = -408.0
 offset_right = -64.0
 offset_bottom = 176.0
 
+[node name="GunRechargeUpgradePickup" parent="LevelObjects" index="4" instance=ExtResource("2_srjv2")]
+position = Vector2(3192, 152)
+
 [node name="LevelExit" parent="." index="4" instance=ExtResource("4_ag8u2")]
 position = Vector2(-296, 176)
-exit_to_level = "uid://5sva8qxnwd1n"
-exit_door_id = 4
+exit_to_level = "uid://btbewbohacu3h"
+exit_door_id = 3
+flip_sprite = true
 
 [node name="CheckPoint" parent="." index="5" instance=ExtResource("4_oarqv")]
 offset_left = 3072.0

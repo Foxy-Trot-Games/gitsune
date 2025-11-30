@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://brrcrpfv5fcag"]
+[gd_scene load_steps=8 format=4 uid="uid://brrcrpfv5fcag"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_um5cc"]
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="2_mjgh3"]
 [ext_resource type="Shader" uid="uid://ula7reohgr3f" path="res://scenes/objects/scripts/gravity_zone.gdshader" id="3_xhejv"]
 [ext_resource type="PackedScene" uid="uid://bhvytctn2dvud" path="res://scenes/objects/check_point.tscn" id="4_nfiux"]
 [ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="5_mptjv"]
+[ext_resource type="PackedScene" uid="uid://bkhp0tgramnqk" path="res://scenes/objects/collectables/gun_recharge_upgrade_pickup.tscn" id="6_mptjv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4wcgb"]
 resource_local_to_scene = true
@@ -59,7 +60,10 @@ id = 2
 
 [node name="LevelExit" parent="." index="6" instance=ExtResource("5_mptjv")]
 position = Vector2(104, -48)
-exit_to_level = "uid://5sva8qxnwd1n"
-exit_door_id = 1
+exit_to_level = "uid://da6wddr3vj6f0"
+exit_door_id = 3
+
+[node name="GunRechargeUpgradePickup" parent="." index="7" instance=ExtResource("6_mptjv")]
+position = Vector2(-3048, -72)
 
 [editable path="TileMapLayer"]

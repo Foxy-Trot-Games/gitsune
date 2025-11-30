@@ -258,9 +258,9 @@ position = Vector2(2800, -1936)
 [node name="Camera2D" parent="CameraManager" index="1"]
 position = Vector2(2800, -1936)
 limit_left = -336
-limit_top = -432
-limit_right = 3328
-limit_bottom = 272
+limit_top = -3136
+limit_right = 3120
+limit_bottom = 2528
 
 [node name="ReactorBlastWave" parent="LevelObjects" index="0"]
 position = Vector2(3808, 0)
@@ -275,7 +275,7 @@ position = Vector2(2808, -1936)
 [node name="LevelExit" parent="LevelObjects/Doors" index="0" instance=ExtResource("2_s4cgb")]
 position = Vector2(-312, 176)
 exit_to_level = "uid://btbewbohacu3h"
-exit_door_id = 3
+exit_door_id = 2
 flip_sprite = true
 
 [node name="ReactorExit" parent="LevelObjects/Doors" index="1" instance=ExtResource("5_3xm6o")]
@@ -288,13 +288,13 @@ lockable = true
 [node name="ChallengeDoor" parent="LevelObjects/Doors" index="2" instance=ExtResource("3_p212j")]
 position = Vector2(1272, -1568)
 id = 3
-exit_to_level = "uid://bbs5nnw0ywg3v"
+exit_to_level = "uid://brrcrpfv5fcag"
 exit_door_id = 1
 
 [node name="ChallengeDoor2" parent="LevelObjects/Doors" index="3" instance=ExtResource("3_p212j")]
 position = Vector2(1512, -752)
 id = 4
-exit_to_level = "uid://bbs5nnw0ywg3v"
+exit_to_level = "uid://bhdralurx05es"
 exit_door_id = 1
 
 [node name="key" parent="LevelObjects/Doors" index="4" instance=ExtResource("5_f6tdq")]

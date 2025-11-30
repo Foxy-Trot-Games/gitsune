@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bbs5nnw0ywg3v"]
+[gd_scene load_steps=14 format=4 uid="uid://bbs5nnw0ywg3v"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_kq305"]
 [ext_resource type="PackedScene" uid="uid://hbspw0hu400f" path="res://scenes/enemy/Pathing_enemy/Pathing_enemy.tscn" id="3_v6c7n"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://nn5y86qb6rk0" path="res://scenes/objects/gravity_zone.tscn" id="5_olebf"]
 [ext_resource type="PackedScene" uid="uid://cmddg5wv0dp8m" path="res://scenes/objects/level_exit.tscn" id="6_bsl2r"]
 [ext_resource type="PackedScene" uid="uid://bhvytctn2dvud" path="res://scenes/objects/check_point.tscn" id="7_v6c7n"]
+[ext_resource type="PackedScene" uid="uid://bkhp0tgramnqk" path="res://scenes/objects/collectables/gun_recharge_upgrade_pickup.tscn" id="8_rx8p6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bsl2r"]
 resource_local_to_scene = true
@@ -14,7 +15,7 @@ shader = ExtResource("5_kq305")
 shader_parameter/wave_frequency = 10.0
 shader_parameter/wave_speed = 0.05
 shader_parameter/wave_amplitude = 0.005
-shader_parameter/wave_color = Color(0.49803922, 1, 0.65882355, 1)
+shader_parameter/wave_color = Color(1, 1, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v6c7n"]
 resource_local_to_scene = true
@@ -146,14 +147,17 @@ rotation = -1.5707964
 recharges_gun = true
 
 [node name="LevelExit" parent="LevelObjects" index="4" instance=ExtResource("6_bsl2r")]
-position = Vector2(592, 240)
+position = Vector2(600, 240)
 exit_to_level = "uid://dqlylgfnga4v4"
-exit_door_id = 2
+exit_door_id = 4
 
 [node name="CheckPoint" parent="LevelObjects" index="5" instance=ExtResource("7_v6c7n")]
 offset_left = 72.0
 offset_top = -2688.0
 offset_right = 88.0
 offset_bottom = -2592.0
+
+[node name="GunRechargeUpgradePickup" parent="LevelObjects" index="6" instance=ExtResource("8_rx8p6")]
+position = Vector2(536, -2616)
 
 [editable path="TileMapLayer"]
