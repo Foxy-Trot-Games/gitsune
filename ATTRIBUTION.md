@@ -1,6 +1,6 @@
 # 
-## Gitsune
-### Contributors 
+## Undulo
+### Credits 
 crisp_lad - team lead, lead programmer
 koallary - level designer, artist
 ClownManGuy - animator, artist
