@@ -164,7 +164,7 @@ func die() -> void:
 	if is_dead:   # optional safety
 		return
 	is_dead = true
-
+	_play_death_sound()
 	set_physics_process(false)
 	animation_player.play("die")  # play death animation
 

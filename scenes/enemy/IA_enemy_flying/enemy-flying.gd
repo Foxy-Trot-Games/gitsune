@@ -152,6 +152,7 @@ func die() -> void:
 		return
 	is_dead = true
 	stop_chase()
+	_play_death_sound()
 	# Play your existing die animation
 	animation_player.play("die")
 	# Create a Tween for the shock effect
