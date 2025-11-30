@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://q71u7eat2b4j" path="res://scenes/util/pulsing_glow_vfx.gdshader" id="1_hypxc"]
 
 [resource]
+resource_local_to_scene = true
 shader = ExtResource("1_hypxc")
 shader_parameter/glow_color = Color(0.49803922, 1, 0.65882355, 1)
 shader_parameter/pulse_speed = 0.999999977648
