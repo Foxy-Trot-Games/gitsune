@@ -1,10 +1,9 @@
-# Credits
-## Collaborators
-
-### Role
-Crisp_Lad - team lead, programmer
-koallary - level design and artist
-ClownManGuy - animator and artist
+# 
+## Gitsune
+### Contributors 
+crisp_lad - team lead, lead programmer
+koallary - level designer, artist
+ClownManGuy - animator, artist
 Screen - enemy programmer
 foks - music designer
 
