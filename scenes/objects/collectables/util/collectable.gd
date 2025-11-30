@@ -21,6 +21,7 @@ enum Type {
 }
 
 const TUTORIAL_OVERLAY = preload("uid://m4lsx3aqr7pp")
+const PLAYER_PICKUP_SOUND = preload("uid://b6hkhxk81jgmv")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -45,6 +46,7 @@ func collected() -> void:
 			PlayerState.add_key(GameState.get_current_level_path())
 		Type.RUNE:
 			PlayerState.add_rune()
+			Audio.play_sfx(PLAYER_PICKUP_SOUND, self)
 		Type.MAX_AMMO:
 			PlayerState.add_max_ammo()
 		Type.RECHARGE_TIME:

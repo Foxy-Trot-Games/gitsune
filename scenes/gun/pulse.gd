@@ -5,13 +5,15 @@ signal pulse_activated_signal
 
 @onready var gun: Gun = $".."
 
-const PARTICLES = preload("uid://oc3nknueoo5d")  # SoundParticles scene with collision detection
 const KNOCKBACK_IMPULSE: float = 200.0
 
 var pulse_cooldown: float = 0.1
 var pulse_throttle := Throttle.new(pulse_cooldown)
 
 var _prev_pulse_dir : Vector2
+
+const PARTICLES_SCENE = preload("uid://oc3nknueoo5d")  # SoundParticles scene with collision detection
+const PLAYER_WAVEGUN_SOUND = preload("uid://cuq5vtch23uxj")
 
 func apply_knockback_impulse(direction: Vector2) -> void:
 	var tmp := direction * KNOCKBACK_IMPULSE
@@ -22,8 +24,9 @@ func apply_knockback_impulse(direction: Vector2) -> void:
 	_create_sound_wave(direction)
 
 func _create_sound_wave(direction: Vector2) -> void:
-	var particles: GPUParticles2D = PARTICLES.instantiate()
+	var particles: GPUParticles2D = PARTICLES_SCENE.instantiate()
 	particles.emitting = true
+	Audio.play_sfx(PLAYER_WAVEGUN_SOUND, self)
 
 	var process_material: ParticleProcessMaterial = particles.process_material
 	if direction == Vector2.ZERO:

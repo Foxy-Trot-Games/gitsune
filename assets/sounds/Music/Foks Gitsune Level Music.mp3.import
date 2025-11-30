@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cy6gimgmtjrvq"
+path="res://.godot/imported/Foks Gitsune Level Music.mp3-1587e234969045c2e405a8e0fbb4626e.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Music/Foks Gitsune Level Music.mp3"
+dest_files=["res://.godot/imported/Foks Gitsune Level Music.mp3-1587e234969045c2e405a8e0fbb4626e.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

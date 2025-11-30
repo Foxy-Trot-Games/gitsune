@@ -6,6 +6,11 @@ extends Level
 var _respawners_left := 0
 
 func _ready() -> void:
+	super()
+	
+	if Engine.is_editor_hint():
+		return
+	
 	for respawner : Respawner in Globals.get_nodes_in_group("Respawner"):
 		_respawners_left += 1
 		respawner.respawner_destroyed.connect(_respawner_destroyed)

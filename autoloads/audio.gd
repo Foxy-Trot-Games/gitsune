@@ -11,7 +11,7 @@ var sound_cooldown_times : Dictionary[AudioStream, int] = {}
 ## volume_db: how loud the sound is, defaults to -10db[br]
 ## variance: random pitch variance for the sound, defaults to .9 to 1.1 pitch[br]
 ## max_distance: how far away in pixels the player can hear the sound, defaults to 1280 (screen width)[br]
-func play_sfx(wav: AudioStreamWAV, parent_node: Node2D, sound_cooldown_ms := 100, volume_db := -10, variance: float = .1, max_distance := 1280.0) -> void:
+func play_sfx(wav: AudioStreamWAV, parent_node: CanvasItem, sound_cooldown_ms := 100, volume_db := -10, variance: float = .1, max_distance := 1280.0) -> void:
 	
 	if !wav:
 		return
@@ -27,7 +27,12 @@ func play_sfx(wav: AudioStreamWAV, parent_node: Node2D, sound_cooldown_ms := 100
 	sound_cooldown_times[wav] = current_time
 	
 	var audioplayer2d := AudioStreamPlayer2D.new()
-	audioplayer2d.position     = parent_node.global_position
+	
+	if parent_node is Control:
+		audioplayer2d.position = (parent_node as Control).global_position
+	elif parent_node is Node2D:
+		audioplayer2d.position = (parent_node as Node2D).global_position
+	
 	audioplayer2d.bus          = "SFX"
 	audioplayer2d.stream       = wav
 	audioplayer2d.pitch_scale  = 1.0 + randf_range(-variance, variance)
@@ -42,15 +47,24 @@ func play_sfx(wav: AudioStreamWAV, parent_node: Node2D, sound_cooldown_ms := 100
 	# add to level
 	Globals.add_child_to_level(audioplayer2d)
 
-func play_bgm(mp3: AudioStreamMP3, volume_db := -15) -> void:
+#func play_bgm(mp3: AudioStreamMP3, volume_db := -15) -> void:
+	#
+	#if !mp3:
+		#return
 	
-	var background_music_player : AudioStreamPlayer = get_tree().get_first_node_in_group("BGMPlayer")
-	
-	# when running level scenes directly
-	if background_music_player == null:
-		background_music_player = BACKGROUND_MUSIC_PLAYER.instantiate()
-		Globals.add_child_to_level(background_music_player)
-	
-	background_music_player.stream = mp3
-	background_music_player.volume_db = volume_db
-	background_music_player.play()
+	#var background_music_player : AudioStreamPlayer = get_tree().get_first_node_in_group("BGMPlayer")
+	#
+	#print(background_music_player, mp3)
+	#
+	#
+	## when running level scenes directly
+	#if background_music_player == null:
+		#background_music_player = BACKGROUND_MUSIC_PLAYER.instantiate()
+		#Globals.add_child_to_level(background_music_player)
+	#
+	#if background_music_player.stream == mp3:
+		#return
+	#
+	#background_music_player.stream = mp3
+	#background_music_player.volume_db = volume_db
+	#background_music_player.play()

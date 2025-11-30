@@ -29,9 +29,11 @@ enum AnimationStates {
 	DYING
 }
 
-const PLAYER_FOOTSTEP = preload("uid://xgvd557bddwe")
-const PLAYER_DAMAGED = preload("uid://bmx8smly4ucvn")
-const FAlLING_GUN = preload("uid://xwie54t8khkk")
+const FAlLING_GUN_SCENE = preload("uid://xwie54t8khkk")
+# Sounds
+const PLAYER_FOOTSTEP_SOUND = preload("uid://xgvd557bddwe")
+const PLAYER_DAMAGED_SOUND = preload("uid://ew8s6rvg1cf0")
+const PLAYER_LAND_SOUND = preload("uid://ds2iubf0qbjri")
 
 signal rune_picked_up
 
@@ -145,10 +147,12 @@ func _check_state() -> void:
 			_play_animation(&"jump")
 		AnimationStates.FALLING:
 			_play_animation(&"fall")
+			if is_on_floor():
+				Audio.play_sfx(PLAYER_LAND_SOUND, self, 100, -20)
 		AnimationStates.RUNNING:
 			_play_animation("run")
 			if is_on_floor():
-				Audio.play_sfx(PLAYER_FOOTSTEP, self, 200, -40)
+				Audio.play_sfx(PLAYER_FOOTSTEP_SOUND, self, 200, -25)
 		AnimationStates.DYING:
 			if is_on_floor() && player_sprite.animation != &"dying":
 				_play_animation(&"dying_ground")
@@ -171,10 +175,10 @@ func _player_died() -> void:
 		_update_anim_state(AnimationStates.DYING)
 		dead = true
 		
-		Audio.play_sfx(PLAYER_DAMAGED, self)
+		Audio.play_sfx(PLAYER_DAMAGED_SOUND, self)
 		
 		# spawn falling gun
-		var falling_gun : RigidBody2D = FAlLING_GUN.instantiate()
+		var falling_gun : RigidBody2D = FAlLING_GUN_SCENE.instantiate()
 		falling_gun.global_position = global_position
 		falling_gun.linear_velocity = velocity
 		falling_gun.angular_velocity = TAU if velocity.x > 0 else -TAU
@@ -186,9 +190,7 @@ func _player_died() -> void:
 			_play_animation(&"dying_flying")
 		
 		await Globals.create_timer(3)
-		# Using call_defered() here to avoid potential issues, removing collision bodies during
-		# _physics_process can lead to dumb and anoying issues. 
-		get_tree().call_deferred("reload_current_scene") 
+		SceneLoader.reload_current_scene()
 		
 func _rune_picked_up() -> void:
 	var label := Label.new()
