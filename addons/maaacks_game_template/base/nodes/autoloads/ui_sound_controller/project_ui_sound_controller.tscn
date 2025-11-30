@@ -7,7 +7,6 @@
 [node name="ProjectUISoundController" type="Node"]
 script = ExtResource("1_dmagn")
 button_hovered = ExtResource("2_7ejmi")
-button_pressed = ExtResource("3_r5ody")
 slider_hovered = ExtResource("2_7ejmi")
 slider_focused = ExtResource("2_7ejmi")
 slider_drag_ended = ExtResource("3_r5ody")
