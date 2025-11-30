@@ -2,7 +2,7 @@ class_name AmmoDisplay
 extends Control
 
 @onready var wave_animated_sprite_2d_2: AnimatedSprite2D = %WaveAnimatedSprite2D2
-@onready var ammo_animated_sprite_2d: AnimatedSprite2D = %AmmoAnimatedSprite2D
+#@onready var ammo_animated_sprite_2d: AnimatedSprite2D = %AmmoAnimatedSprite2D
 @onready var player := Globals.get_player()
 @onready var bullets_spites: Array = %Bullets.get_children()
 @onready var key: Sprite2D = $Control/Key
@@ -24,13 +24,13 @@ func _gun_charging() -> void:
 func _gun_stats_updated(current_ammo: int, max_ammo: int) -> void:
 
 	# set ammo level
-	var sprite_frames := ammo_animated_sprite_2d.sprite_frames
-	var frame_count: int = sprite_frames.get_frame_count("default")
-	ammo_animated_sprite_2d.frame = clampi(current_ammo, 0, frame_count)
-
-	# update color
-	var color_lerp : Color = lerp(Color.RED, Color(0.498, 1.0, 0.659), float(current_ammo) / float(max_ammo))
-	ammo_animated_sprite_2d.modulate = color_lerp
+	#var sprite_frames := ammo_animated_sprite_2d.sprite_frames
+	#var frame_count: int = sprite_frames.get_frame_count("default")
+	#ammo_animated_sprite_2d.frame = clampi(current_ammo, 0, frame_count)
+#
+	## update color
+	#var color_lerp : Color = lerp(Color.RED, Color(0.498, 1.0, 0.659), float(current_ammo) / float(max_ammo))
+	#ammo_animated_sprite_2d.modulate = color_lerp
 	
 	for i in range(bullets_spites.size()):
 		var sprite : AnimatedSprite2D = bullets_spites[i]
