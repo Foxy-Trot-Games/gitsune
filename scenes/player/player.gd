@@ -238,3 +238,9 @@ func freeze_for_animation() -> void:
 	gun.set_physics_process(false)
 	gun.pulse.set_physics_process(false)
 	hud.visible = false
+
+func unfreeze_for_play() -> void:
+	set_physics_process(true)
+	gun.set_physics_process(true)
+	gun.pulse.set_physics_process(true)
+	hud.visible = true

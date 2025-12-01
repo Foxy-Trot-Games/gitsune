@@ -14,6 +14,7 @@ enum ExitType {
 			total_level_runes = Globals.get_nodes_in_group("Rune").size()
 		return total_level_runes
 @export var collected_runes := 0
+@export var animation_played := false
 
 func unlock_exit() -> void:
 	exit = ExitType.UNLOCKED
