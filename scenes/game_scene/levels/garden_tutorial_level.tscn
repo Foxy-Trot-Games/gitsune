@@ -50,6 +50,7 @@ limit_bottom = 112
 
 [node name="ReactorBlastWave" parent="LevelObjects" index="0"]
 position = Vector2(1086, 8)
+enabled = true
 
 [node name="Player" parent="LevelObjects" index="1"]
 position = Vector2(86, -15)
