@@ -6,10 +6,8 @@ var pulse_radius: float = 60.0
 var travel_direction: Vector2 = Vector2.RIGHT  # Direction the pulse is traveling
 var hit_enemies: Array = []  # Track enemies we've already hit
 var spawn_position: Vector2  # Position where pulse was spawned (player position)
-var max_knockback_range: float = 150.0  # Maximum distance from player to apply knockback
 
-
-var speed: float = 800.0  # pixels per second
+var speed: float = 200.0  # pixels per second
 
 func _ready() -> void:
 	particles.emitting = true
@@ -17,43 +15,15 @@ func _ready() -> void:
 	spawn_position = global_position
 
 func _physics_process(delta: float) -> void:
-	# Use process instead of physics_process for smoother visual movement
-	var distance_this_frame := speed * delta
-	var from_pos := pulse_area.global_position
-	var to_pos := from_pos + travel_direction * distance_this_frame
-	
-	# Raycast to check for enemies we might pass through
-	var space_state := get_world_2d().direct_space_state
-	var query := PhysicsRayQueryParameters2D.create(from_pos, to_pos)
-	query.collide_with_areas = false
-	query.collide_with_bodies = true
-	query.collision_mask = 0xFFFFFFFF
-	
-	var result := space_state.intersect_ray(query)
-	
-	if result:
-		var collider : Node2D = result.collider
-		if collider.is_in_group("enemy") and collider not in hit_enemies:
-			_apply_knockback_to_enemy(collider)
-	
-	# Smooth movement
-	pulse_area.global_position += travel_direction * distance_this_frame
-	
-	# Destroy pulse after going too far
-	if pulse_area.global_position.distance_to(spawn_position) > 2000:
-		queue_free()
+	## Smooth movement
+	pulse_area.global_position += travel_direction * speed * delta
+
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy") and body not in hit_enemies:
 		_apply_knockback_to_enemy(body)
 
 func _apply_knockback_to_enemy(body: Node2D) -> void:
-	var distance_from_player := body.global_position.distance_to(spawn_position)
-	
-	if distance_from_player > max_knockback_range:
-		hit_enemies.append(body)
-		return
-	
 	var knockback_force := 600.0
 	var stun_duration := 1.2
 	if body is IAEnemy:

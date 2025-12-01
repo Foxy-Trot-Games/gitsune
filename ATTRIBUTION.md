@@ -1,5 +1,8 @@
 # 
 ## Undulo
+
+Created in one month for the Game Off 2025 Game Jam.
+
 ### Credits 
 crisp_lad - team lead, lead programmer
 koallary - level design, level artist, music

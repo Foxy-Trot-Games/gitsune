@@ -14,8 +14,8 @@ gradient = SubResource("Gradient_rflmw")
 resource_local_to_scene = true
 particle_flag_disable_z = true
 spread = 15.0
-initial_velocity_min = 100.0
-initial_velocity_max = 100.0
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
 gravity = Vector3(0, 0, 0)
 scale_min = 3.0
 scale_max = 3.0
@@ -28,14 +28,13 @@ radius = 50.0
 [node name="GunSoundParticles" type="GPUParticles2D"]
 emitting = false
 amount = 128
-lifetime = 2.0
 one_shot = true
-speed_scale = 2.0
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_rflmw")
 script = ExtResource("1_436i5")
 
 [node name="PulseArea" type="Area2D" parent="."]
+position = Vector2(-32, 0)
 script = ExtResource("2_k5a3e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PulseArea"]
