@@ -76,7 +76,7 @@ func _spawn_enemy() -> void:
 	var scene := enemy_scenes[randi() % enemy_scenes.size()]
 	var enemy := scene.instantiate()
 	active_enemies.append(enemy)
-	add_child(enemy)
+	Globals.add_child_to_level(enemy)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area is PulseArea && !_dead:

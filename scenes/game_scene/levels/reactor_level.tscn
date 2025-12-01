@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://3an4c0jv4wcj"]
+[gd_scene load_steps=23 format=4 uid="uid://3an4c0jv4wcj"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_tv48y"]
 [ext_resource type="Script" uid="uid://bvjif0sl036m1" path="res://scenes/game_scene/levels/level_utils/reactor_level.gd" id="2_4jd34"]
@@ -8,6 +8,19 @@
 [ext_resource type="PackedScene" uid="uid://dmeyxqrmciogn" path="res://scenes/enemy/IA_enemy_flying/enemy-flying.tscn" id="5_fevk0"]
 [ext_resource type="PackedScene" uid="uid://2v05act0u21s" path="res://scenes/objects/reactor_exit.tscn" id="6_fevk0"]
 [ext_resource type="PackedScene" uid="uid://bn52yhf2vy1qc" path="res://scenes/enemy/Respawner/respawner.tscn" id="7_o0fbp"]
+
+[sub_resource type="Gradient" id="Gradient_o0fbp"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.21643835, 0.64931506, 0.98630136, 0.999)
+colors = PackedColorArray(0.6491829, 0, 0.09985284, 0.25, 0.2347951, 0.07846785, 0.19641912, 0.5, 0.2347951, 0.07846785, 0.19641912, 0.18800001, 0.54102784, 0.33003333, 0.3133042, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1j06t"]
+gradient = SubResource("Gradient_o0fbp")
+width = 160
+height = 160
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fevk0"]
 resource_local_to_scene = true
@@ -156,18 +169,21 @@ position = Vector2(-332, -42)
 [node name="ReactorOrbitalZone" parent="LevelObjects" index="2" instance=ExtResource("2_fevk0")]
 position = Vector2(144, 0)
 
-[node name="GravityCollisionShape2D" parent="LevelObjects/ReactorOrbitalZone" index="0"]
+[node name="GradientTextureRect" parent="LevelObjects/ReactorOrbitalZone" index="0"]
+texture = SubResource("GradientTexture2D_1j06t")
+
+[node name="GravityCollisionShape2D" parent="LevelObjects/ReactorOrbitalZone" index="1"]
 shape = SubResource("CircleShape2D_fevk0")
 
-[node name="Sprite2D" parent="LevelObjects/ReactorOrbitalZone" index="1"]
+[node name="Sprite2D" parent="LevelObjects/ReactorOrbitalZone" index="2"]
 texture = SubResource("AtlasTexture_4jd34")
 
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="LevelObjects/ReactorOrbitalZone" index="2"]
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="LevelObjects/ReactorOrbitalZone" index="4"]
 modulate = Color(1, 1, 1, 0.2)
 sprite_frames = SubResource("SpriteFrames_o0fbp")
 autoplay = "default"
 
-[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="LevelObjects/ReactorOrbitalZone" index="3"]
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="LevelObjects/ReactorOrbitalZone" index="5"]
 modulate = Color(1, 1, 1, 0.2)
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_o0fbp")

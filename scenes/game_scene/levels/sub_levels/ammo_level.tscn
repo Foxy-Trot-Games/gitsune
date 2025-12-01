@@ -37,20 +37,20 @@ exit_to_level = "uid://btbewbohacu3h"
 exit_door_id = 4
 flip_sprite = true
 
-[node name="CheckPoint" parent="." index="4" instance=ExtResource("3_ffv4r")]
+[node name="CheckPoint" parent="LevelObjects" index="4" instance=ExtResource("3_ffv4r")]
 offset_left = -80.0
 offset_top = -408.0
 offset_right = -64.0
 offset_bottom = 176.0
 
-[node name="CheckPoint2" parent="." index="5" instance=ExtResource("3_ffv4r")]
+[node name="CheckPoint2" parent="LevelObjects" index="5" instance=ExtResource("3_ffv4r")]
 offset_left = 3088.0
 offset_top = -416.0
 offset_right = 3104.0
 offset_bottom = 176.0
 id = 2
 
-[node name="GunRechargeUpgradePickup" parent="." index="6" instance=ExtResource("4_d5ouj")]
+[node name="GunRechargeUpgradePickup" parent="LevelObjects" index="6" instance=ExtResource("4_d5ouj")]
 position = Vector2(3224, 152)
 
 [editable path="TileMapLayer"]
