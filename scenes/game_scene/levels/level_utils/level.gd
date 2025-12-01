@@ -33,6 +33,8 @@ func _ready() -> void:
 				player.global_position = current_check_point_pos
 			elif current_door_id_spawn != -1:
 				move_player_to_door(current_door_id_spawn)
+			# make sure that player is off the floor so they don't get stuck
+			player.global_position.y += -8
 		
 		#print("== Player Data ==")
 		#Globals.print_all_properties(GameState.get_player_state())
@@ -67,8 +69,6 @@ func move_player_to_door(door_id: int) -> void:
 		var exit := exits[index]
 		exit.door_used.emit()
 		player.global_position = exit.global_position
-		# make sure that player is off the floor so they don't get stuck
-		player.global_position.y += -8
 	else:
 		push_error("Door ID %s is invalid or not found! Must be between 1 and %s." % [door_id, exits.size()])
 
