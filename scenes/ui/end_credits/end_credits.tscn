@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cg6esjdn6n67r"]
+[gd_scene load_steps=6 format=3 uid="uid://cg6esjdn6n67r"]
 
 [ext_resource type="PackedScene" uid="uid://dlda00oqg0qjr" path="res://scenes/ui/credits/scrolling_credits.tscn" id="1_0sycx"]
 [ext_resource type="Script" uid="uid://c8hqorsoaq0qv" path="res://scenes/ui/end_credits/end_credits.gd" id="2_2v40y"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="3_bfvdl"]
 [ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="4_1kqi1"]
+[ext_resource type="AudioStream" uid="uid://dmc2armswkg8k" path="res://assets/sounds/Music/Main Menu Theme.mp3" id="4_xwjo0"]
 
 [node name="EndCredits" instance=ExtResource("1_0sycx")]
 script = ExtResource("2_2v40y")
@@ -11,6 +12,7 @@ main_menu_scene_path = ""
 force_mouse_mode_visible = false
 
 [node name="BackgroundMusicPlayer" parent="." index="0" instance=ExtResource("3_bfvdl")]
+stream = ExtResource("4_xwjo0")
 
 [node name="BackgroundColor" type="ColorRect" parent="." index="1"]
 layout_mode = 1
@@ -30,6 +32,42 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
+
+[node name="ScrollContainer" parent="." index="3"]
+scroll_vertical = 385
+
+[node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" index="1"]
+text = "[font_size=48]Undulo[/font_size]
+[font_size=32]Credits [/font_size]
+crisp_lad - team lead, lead programmer
+koallary - level designer, artist
+ClownManGuy - animator, artist
+Screen - enemy programmer
+foks - music designer
+
+[font_size=48]Tools[/font_size]
+[font_size=24]Godot[/font_size]
+[img=80]res:///assets/godot_engine_logo/logo_vertical_color_dark.png[/img]  
+Author: [url=https://godotengine.org/contact]Juan Linietsky, Ariel Manzur, and contributors[/url]  
+Source: [url=https://godotengine.org/]godotengine.org[/url]  
+License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT License[/url] 
+
+[font_size=24]Godot Game Template[/font_size]
+[img=80]res:///assets/plugin_logo/logo.png[/img]  
+Author: [url=https://github.com/Maaack/Godot-Game-Template/graphs/contributors]Marek Belski and contributors[/url]  
+Source: [url=https://github.com/Maaack/Godot-Game-Template]github: Godot-Game-Template[/url]  
+License: [url=LICENSE.txt]MIT License[/url]  
+
+[font_size=24]Git[/font_size]
+[img=80]res:///assets/git_logo/Git-Logo-2Color.png[/img]  
+Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  
+Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  
+License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]
+
+[font_size=24]Kenny Input Prompts[/font_size]
+Source: [url=https://kenney.nl/assets/input-prompts]https://kenney.nl[/url]
+License: (Creative Commons Zero, CC0)
+"
 
 [node name="CenterContainer" type="CenterContainer" parent="." index="4"]
 layout_mode = 0
