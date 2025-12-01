@@ -110,11 +110,13 @@ autoplay = "default"
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="AnimatableBody2D/Sprite2D"]
 sprite_frames = SubResource("SpriteFrames_jb4ro")
 autoplay = "default"
+frame = 1
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="AnimatableBody2D/Sprite2D"]
 position = Vector2(24, 0)
 sprite_frames = SubResource("SpriteFrames_lacew")
 autoplay = "default"
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 shape = SubResource("RectangleShape2D_8dp8w")

@@ -12,10 +12,6 @@ extends Path2D
 var _running := false
 var _reversing := false
 
-func _ready() -> void:
-	for child: AnimatedSprite2D in sprite_2d.get_children():
-		Globals.set_random_frame(child)
-
 func _physics_process(delta: float) -> void:
 	
 	if _running:

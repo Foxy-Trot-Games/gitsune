@@ -422,27 +422,27 @@ unique_name_in_owner = true
 position = Vector2(-4, -1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/Control/Bullets"]
-position = Vector2(-150, -18.99998)
+position = Vector2(-149, -21.99998)
 sprite_frames = SubResource("SpriteFrames_0rupv")
 animation = &"ready"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="MarginContainer/Control/Bullets"]
-position = Vector2(-157, -10.000021)
+position = Vector2(-159, -13.000021)
 sprite_frames = SubResource("SpriteFrames_0rupv")
 animation = &"ready"
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="MarginContainer/Control/Bullets"]
-position = Vector2(-161, 0)
+position = Vector2(-162, 1)
 sprite_frames = SubResource("SpriteFrames_0rupv")
 animation = &"ready"
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="MarginContainer/Control/Bullets"]
-position = Vector2(-157, 10.000021)
+position = Vector2(-159, 15.000021)
 sprite_frames = SubResource("SpriteFrames_0rupv")
 animation = &"ready"
 
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="MarginContainer/Control/Bullets"]
-position = Vector2(-150, 18.99998)
+position = Vector2(-149, 23.99998)
 sprite_frames = SubResource("SpriteFrames_0rupv")
 animation = &"ready"
 
