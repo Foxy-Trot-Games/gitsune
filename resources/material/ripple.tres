@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b4865aw3if7ye"]
+
+[ext_resource type="Shader" uid="uid://ula7reohgr3f" path="res://scenes/objects/scripts/gravity_zone.gdshader" id="1_n6erj"]
+
+[resource]
+shader = ExtResource("1_n6erj")
+shader_parameter/wave_frequency = 200.0
+shader_parameter/wave_speed = 4.0
+shader_parameter/wave_amplitude = 0.001
+shader_parameter/wave_color = Color(1, 1, 1, 1)
