@@ -66,7 +66,7 @@ func _update_label_text() -> void:
 		debug_label_2.text = "Exit to %s door %s" % [path.get_file().replace(".tscn",""), exit_door_id]
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player && !_door_disabled:
+	if body is Player && !_door_disabled && !(body as Player).dead:
 		
 		if lockable && !level_state.exit_unlocked():
 			if PlayerState.has_key(GameState.get_current_level_path()):

@@ -283,7 +283,6 @@ limit_bottom = 2528
 
 [node name="ReactorBlastWave" parent="LevelObjects" index="0"]
 position = Vector2(720, 0)
-enabled = true
 
 [node name="Player" parent="LevelObjects" index="1"]
 position = Vector2(-280, 168)
@@ -410,36 +409,36 @@ gravity_value = 1960.0
 [node name="GravityZone7" parent="LevelObjects/Zones" index="7" instance=ExtResource("6_fc740")]
 material = SubResource("ShaderMaterial_0fctf")
 offset_left = 1888.0
-offset_top = 1776.0
-offset_right = 1968.0
-offset_bottom = 1808.0
+offset_top = 1792.0
+offset_right = 1984.0
+offset_bottom = 1824.0
 rotation = 4.9741883
 gravity_value = 1960.0
 
 [node name="GravityZone8" parent="LevelObjects/Zones" index="8" instance=ExtResource("6_fc740")]
 material = SubResource("ShaderMaterial_bd7ck")
 offset_left = 2208.0
-offset_top = 1792.0
-offset_right = 2288.0
-offset_bottom = 1824.0
+offset_top = 1808.0
+offset_right = 2304.0
+offset_bottom = 1840.0
 rotation = 4.4505897
 gravity_value = 1960.0
 
 [node name="GravityZone15" parent="LevelObjects/Zones" index="9" instance=ExtResource("6_fc740")]
 material = SubResource("ShaderMaterial_3xm6o")
 offset_left = 1872.0
-offset_top = 1184.0
-offset_right = 1952.0
-offset_bottom = 1216.0
+offset_top = 1200.0
+offset_right = 1968.0
+offset_bottom = 1232.0
 rotation = 4.9741883
 gravity_value = 1960.0
 
 [node name="GravityZone16" parent="LevelObjects/Zones" index="10" instance=ExtResource("6_fc740")]
 material = SubResource("ShaderMaterial_k54d2")
 offset_left = 2208.0
-offset_top = 1200.0
-offset_right = 2288.0
-offset_bottom = 1232.0
+offset_top = 1216.0
+offset_right = 2304.0
+offset_bottom = 1248.0
 rotation = 4.4505897
 gravity_value = 1960.0
 
