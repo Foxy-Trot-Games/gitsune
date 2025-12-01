@@ -72,6 +72,7 @@ static func add_reactor_wave_recharges() -> void:
 
 static func add_key(level_path: String) -> void:
 	player_state.keys[level_path] = true
+	Events.upgrade_picked_up.emit(player_state)
 
 static func has_key(level_path: String) -> bool:
 	return player_state.keys.has(level_path)

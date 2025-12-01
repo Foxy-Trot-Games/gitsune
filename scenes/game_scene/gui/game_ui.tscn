@@ -100,7 +100,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PauseMenuController" type="Node" parent="." node_paths=PackedStringArray("focused_viewport")]
+[node name="PauseMenuController" type="Node" parent="." node_paths=PackedStringArray("focused_viewport") groups=["PauseMenuController"]]
 script = ExtResource("1_uiwav")
 pause_menu_packed = ExtResource("2_d657n")
 focused_viewport = NodePath("../ViewportContainer/ConfigurableSubViewport")

@@ -207,7 +207,7 @@ offset_left = 368.0
 offset_top = -16.0
 offset_right = 568.0
 offset_bottom = 33.0
-text = "Green Zones allows you to move in any direction"
+text = "Orange Zones allows you to move in any direction"
 fade_in_time = 2.0
 
 [node name="TutorialMessage4" parent="LevelObjects/Tutorials" index="3" instance=ExtResource("8_2lrsq")]

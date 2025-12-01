@@ -22,6 +22,7 @@ enum Type {
 
 const TUTORIAL_OVERLAY = preload("uid://m4lsx3aqr7pp")
 const PLAYER_PICKUP_SOUND = preload("uid://b6hkhxk81jgmv")
+const PLAYER_COLLECT_KEY_SOUND = preload("uid://cvdl2wycvmm30")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -44,6 +45,7 @@ func collected() -> void:
 	match upgrade_type:
 		Type.KEY:
 			PlayerState.add_key(GameState.get_current_level_path())
+			Audio.play_sfx(PLAYER_COLLECT_KEY_SOUND, self)
 		Type.RUNE:
 			PlayerState.add_rune()
 			Audio.play_sfx(PLAYER_PICKUP_SOUND, self)
@@ -51,6 +53,8 @@ func collected() -> void:
 			PlayerState.add_max_ammo()
 		Type.RECHARGE_TIME:
 			PlayerState.add_gun_recharge_time()
+		Type.REACTOR_WAVE_RECHARGES:
+			PlayerState.add_reactor_wave_recharges()
 		#Type.AIR_MOVEMENT:
 			#PlayerState.add_air_movement()
 		#Type.SUPER_JUMP:
