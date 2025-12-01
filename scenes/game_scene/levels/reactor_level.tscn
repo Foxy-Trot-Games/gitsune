@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=4 uid="uid://3an4c0jv4wcj"]
+[gd_scene load_steps=24 format=4 uid="uid://3an4c0jv4wcj"]
 
 [ext_resource type="PackedScene" uid="uid://c4fbrapcblr3k" path="res://scenes/game_scene/levels/level_utils/level_template.tscn" id="1_tv48y"]
 [ext_resource type="Script" uid="uid://bvjif0sl036m1" path="res://scenes/game_scene/levels/level_utils/reactor_level.gd" id="2_4jd34"]
 [ext_resource type="Texture2D" uid="uid://d3vntilj6j31r" path="res://assets/background/Reactor.PNG" id="2_866b4"]
 [ext_resource type="PackedScene" uid="uid://cnf23nyxdykpd" path="res://scenes/objects/orbital_zone.tscn" id="2_fevk0"]
 [ext_resource type="AudioStream" uid="uid://cy6gimgmtjrvq" path="res://assets/sounds/Music/Foks Gitsune Level Music.mp3" id="3_o0fbp"]
+[ext_resource type="PackedScene" uid="uid://c6wbjdvm46dfn" path="res://scenes/objects/reactor_blast_wave_circle.tscn" id="4_1j06t"]
 [ext_resource type="PackedScene" uid="uid://dmeyxqrmciogn" path="res://scenes/enemy/IA_enemy_flying/enemy-flying.tscn" id="5_fevk0"]
 [ext_resource type="PackedScene" uid="uid://2v05act0u21s" path="res://scenes/objects/reactor_exit.tscn" id="6_fevk0"]
 [ext_resource type="PackedScene" uid="uid://bn52yhf2vy1qc" path="res://scenes/enemy/Respawner/respawner.tscn" id="7_o0fbp"]
@@ -165,11 +166,15 @@ limit_bottom = 416
 
 [node name="ReactorBlastWave" parent="LevelObjects" index="0"]
 position = Vector2(668, 0)
+enabled = false
 
 [node name="Player" parent="LevelObjects" index="1"]
 position = Vector2(-332, -42)
 
-[node name="ReactorOrbitalZone" parent="LevelObjects" index="2" instance=ExtResource("2_fevk0")]
+[node name="ReactorBlastWaveCircle" parent="LevelObjects" index="2" instance=ExtResource("4_1j06t")]
+position = Vector2(144, 0)
+
+[node name="ReactorOrbitalZone" parent="LevelObjects" index="3" instance=ExtResource("2_fevk0")]
 position = Vector2(144, 0)
 
 [node name="GradientTextureRect" parent="LevelObjects/ReactorOrbitalZone" index="0"]
@@ -192,29 +197,29 @@ rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_o0fbp")
 autoplay = "default"
 
-[node name="Respawner" parent="LevelObjects" index="3" instance=ExtResource("7_o0fbp")]
+[node name="Respawner" parent="LevelObjects" index="4" instance=ExtResource("7_o0fbp")]
 position = Vector2(-136, 112)
 enemy_scenes = Array[PackedScene]([ExtResource("5_fevk0")])
 
-[node name="Respawner2" parent="LevelObjects" index="4" instance=ExtResource("7_o0fbp")]
+[node name="Respawner2" parent="LevelObjects" index="5" instance=ExtResource("7_o0fbp")]
 position = Vector2(424, 112)
 enemy_scenes = Array[PackedScene]([ExtResource("5_fevk0")])
 
-[node name="Respawner3" parent="LevelObjects" index="5" instance=ExtResource("7_o0fbp")]
+[node name="Respawner3" parent="LevelObjects" index="6" instance=ExtResource("7_o0fbp")]
 position = Vector2(-152, -144)
 enemy_scenes = Array[PackedScene]([ExtResource("5_fevk0")])
 
-[node name="Respawner4" parent="LevelObjects" index="6" instance=ExtResource("7_o0fbp")]
+[node name="Respawner4" parent="LevelObjects" index="7" instance=ExtResource("7_o0fbp")]
 position = Vector2(440, -144)
 enemy_scenes = Array[PackedScene]([ExtResource("5_fevk0")])
 
-[node name="ReactorExit" parent="LevelObjects" index="7" instance=ExtResource("6_fevk0")]
+[node name="ReactorExit" parent="LevelObjects" index="8" instance=ExtResource("6_fevk0")]
 position = Vector2(-368, -32)
 exit_to_level = "uid://da6wddr3vj6f0"
 exit_door_id = 2
 lockable = true
 
-[node name="EndingAnimationPlayer" type="AnimationPlayer" parent="LevelObjects" index="8"]
+[node name="EndingAnimationPlayer" type="AnimationPlayer" parent="LevelObjects" index="9"]
 root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_1j06t")

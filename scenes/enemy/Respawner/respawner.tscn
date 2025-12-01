@@ -314,7 +314,7 @@ libraries = {
 }
 
 [node name="TutorialMessage" parent="." instance=ExtResource("6_pl5qa")]
-position = Vector2(0, 24)
+position = Vector2(0, 32)
 
 [node name="Timer" type="Timer" parent="."]
 

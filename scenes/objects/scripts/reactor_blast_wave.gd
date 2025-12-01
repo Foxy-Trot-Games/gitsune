@@ -5,6 +5,7 @@ class_name ReactorBlastWave extends Node2D
 @export var wave_speed := 100 # pixels
 ## how many seconds it takes for wave to loop
 @export var wave_period := 20.0 # seconds
+@export var enabled := true
 
 @onready var area_2d: Area2D = %Area2D
 @onready var _player: Node2D = Globals.get_player()
@@ -20,6 +21,11 @@ enum Position {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	if !enabled && !Engine.is_editor_hint():
+		queue_free()
+		return
+	
 	if start_position == Position.RIGHT:
 		area_2d.gravity_direction = Vector2.LEFT
 		global_position.x = _player.global_position.x + _x_offset
