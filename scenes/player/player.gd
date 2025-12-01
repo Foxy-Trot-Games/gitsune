@@ -15,6 +15,7 @@ var PLAYER_AIR_RESISTENCE := 0.1 # higher is more resistence up to 1.0
 var _animation_state := AnimationStates.IDLING
 var _allow_gravity_zone_movement := false
 var dead := false
+var invincible := false
 var state : PlayerState :
 	get:
 		return GameState.get_player_state()
@@ -166,7 +167,7 @@ func _play_animation(animation: String) -> void:
 
 #player dying function after emiting a signal from the enemies
 func _player_died() -> void:
-	if !dead:
+	if !dead && !invincible:
 		
 		# set to background layer so player can't collect anything while dead
 		#collision_layer = 1 << 2
@@ -238,9 +239,11 @@ func freeze_for_animation() -> void:
 	gun.set_physics_process(false)
 	gun.pulse.set_physics_process(false)
 	hud.visible = false
+	invincible = true
 
 func unfreeze_for_play() -> void:
 	set_physics_process(true)
 	gun.set_physics_process(true)
 	gun.pulse.set_physics_process(true)
 	hud.visible = true
+	invincible = false

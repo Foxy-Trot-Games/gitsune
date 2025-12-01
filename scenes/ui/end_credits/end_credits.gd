@@ -12,6 +12,7 @@ extends "res://scenes/ui/credits/scrolling_credits.gd"
 @onready var exit_button : Button = %ExitButton
 @onready var menu_button : Button = %MenuButton
 @onready var init_mouse_filter : MouseFilter = mouse_filter
+@onready var thank_player: Label = $CenterContainer/EndMessagePanel/VBoxContainer/ThankPlayer
 
 func get_main_menu_scene_path() -> String:
 	if main_menu_scene_path.is_empty():
@@ -45,6 +46,8 @@ func _ready() -> void:
 	if OS.has_feature("web"):
 		exit_button.hide()
 	super._ready()
+	
+	thank_player.text = "Total Runes collected: %s/%s\nThanks for playing!" % [GameState.get_player_state().rune_number, 400]
 
 func _unhandled_input(event : InputEvent) -> void:
 	if event.is_action_released("ui_cancel"):

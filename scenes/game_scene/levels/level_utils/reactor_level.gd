@@ -1,9 +1,10 @@
 @tool
 extends Level
 
-@onready var ending_animation_player: AnimationPlayer = $LevelObjects/EndingAnimationPlayer
+@onready var ending_animation_player: AnimationPlayer = %EndingAnimationPlayer
 
 const REACTOR_SWEEP_SHORT = preload("uid://o8hmhmftbt27")
+const ENDING_LEVEL = "uid://cjdsdpsohed7q"
 
 var _respawners_left := 0
 
@@ -29,4 +30,4 @@ func _respawner_destroyed() -> void:
 		ending_animation_player.play(&"ending")
 		await ending_animation_player.animation_finished
 		# load credits scene
-		SceneLoader.load_scene(AppConfig.ending_scene_path)
+		SceneLoader.load_scene(ENDING_LEVEL)
