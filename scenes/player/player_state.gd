@@ -34,7 +34,7 @@ static func add_rune() -> void:
 	Globals.get_player().rune_picked_up.emit()
 
 static func add_max_ammo() -> void:
-	player_state.gun_max_ammo = clampi(player_state.gun_max_ammo + 1, 0, 10)
+	player_state.gun_max_ammo = clampi(player_state.gun_max_ammo + 1, 0, 5)
 	Events.upgrade_picked_up.emit(player_state)
 	Events.ammo_picked_up.emit()
 
