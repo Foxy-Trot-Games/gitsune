@@ -67,6 +67,8 @@ func move_player_to_door(door_id: int) -> void:
 		var exit := exits[index]
 		exit.door_used.emit()
 		player.global_position = exit.global_position
+		# make sure that player is off the floor so they don't get stuck
+		player.global_position.y += -8
 	else:
 		push_error("Door ID %s is invalid or not found! Must be between 1 and %s." % [door_id, exits.size()])
 

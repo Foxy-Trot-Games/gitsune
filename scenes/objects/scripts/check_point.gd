@@ -43,7 +43,7 @@ func _draw() -> void:
 	visible_on_screen_enabler_2d.rect = Rect2(Vector2.ZERO, size)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is Player && !_activated:
+	if body is Player && !_activated && !(body as Player).dead:
 		Audio.play_sfx(CHECKPOINT_TRIGGER_SOUND, self, 100, -20)
 		Globals.get_level().check_point_reached.emit(spawn_position.global_position)
 		_activated = true
