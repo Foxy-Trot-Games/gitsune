@@ -2,10 +2,10 @@
 ## Undulo
 ### Credits 
 crisp_lad - team lead, lead programmer
-koallary - level designer, artist
-ClownManGuy - animator, artist
-Screen - enemy programmer
-foks - music designer
+koallary - level design, level artist, music
+ClownManGuy - animation, artist
+Screen - enemy AI programmer
+foks - music and sound effects
 
 ## Tools
 #### Godot

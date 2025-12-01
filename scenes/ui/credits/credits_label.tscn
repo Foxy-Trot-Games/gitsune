@@ -13,12 +13,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 5
 bbcode_enabled = true
 text = "[font_size=48]Undulo[/font_size]
-[font_size=32]Contributors [/font_size]
+[font_size=32]Credits [/font_size]
 crisp_lad - team lead, lead programmer
-koallary - level designer, artist
-ClownManGuy - animator, artist
-Screen - enemy programmer
-foks - music designer
+koallary - level design, level artist, music
+ClownManGuy - animation, artist
+Screen - enemy AI programmer
+foks - music and sound effects
 
 [font_size=48]Tools[/font_size]
 [font_size=24]Godot[/font_size]

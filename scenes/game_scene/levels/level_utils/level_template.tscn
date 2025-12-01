@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4fbrapcblr3k"]
+[gd_scene load_steps=12 format=3 uid="uid://c4fbrapcblr3k"]
 
 [ext_resource type="Script" uid="uid://s3864f4i872k" path="res://scenes/game_scene/tutorials/tutorial_manager.gd" id="1_2ya6o"]
 [ext_resource type="Script" uid="uid://bog2ukuxke2rv" path="res://scenes/game_scene/levels/level_utils/level.gd" id="1_dcgko"]
 [ext_resource type="PackedScene" uid="uid://btt7i2y5c6sme" path="res://scenes/game_scene/levels/level_utils/level_tile_map_layer.tscn" id="2_ddmk6"]
 [ext_resource type="PackedScene" uid="uid://01f2htb8plmg" path="res://scenes/player/player.tscn" id="3_dcgko"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="3_wn38r"]
+[ext_resource type="AudioStream" uid="uid://deqyow4qwvj78" path="res://assets/sounds/Music/undulo.mp3" id="4_686pq"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_wn38r"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_686pq"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_3tkib"]
@@ -24,6 +25,7 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="BackgroundMusicPlayer" parent="." instance=ExtResource("3_wn38r")]
+stream = ExtResource("4_686pq")
 volume_db = -10.0
 
 [node name="CameraManager" type="Node2D" parent="."]
