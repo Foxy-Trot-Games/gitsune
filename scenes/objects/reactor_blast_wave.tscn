@@ -1,12 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnuggijmxgf0u"]
+[gd_scene load_steps=10 format=3 uid="uid://cnuggijmxgf0u"]
 
 [ext_resource type="Script" uid="uid://yp3tr0jq0jyu" path="res://scenes/objects/scripts/reactor_blast_wave.gd" id="1_tc2bw"]
 [ext_resource type="AudioStream" uid="uid://b7bu25pcmedvf" path="res://assets/sounds/background_ambience/Foks_Spaceship_Atmosphere_SFX.mp3" id="2_b1h0h"]
 [ext_resource type="PackedScene" uid="uid://dtrk3kn5lheu8" path="res://resources/particles_scenes/gravity_particles.tscn" id="3_b1h0h"]
+[ext_resource type="Shader" uid="uid://ula7reohgr3f" path="res://scenes/objects/scripts/gravity_zone.gdshader" id="3_vo5yg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a88x5"]
 resource_local_to_scene = true
 size = Vector2(32, 720)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_26v6l"]
+shader = ExtResource("3_vo5yg")
+shader_parameter/wave_frequency = 10.0
+shader_parameter/wave_speed = 4.0
+shader_parameter/wave_amplitude = 0.005
+shader_parameter/wave_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Gradient" id="Gradient_b1h0h"]
 offsets = PackedFloat32Array(0.03125, 1)
@@ -52,6 +60,7 @@ panning_strength = 3.0
 bus = &"SFX"
 
 [node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_26v6l")
 offset_left = -16.0
 offset_top = -352.0
 offset_right = 16.0

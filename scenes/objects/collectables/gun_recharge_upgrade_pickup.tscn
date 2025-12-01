@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_t7m6j"]
 script = ExtResource("2_illgk")
-description_template = "Ground recharge time has decreased by 0.2 seconds"
+description_template = "Ground recharge time has decreased by 0.1 seconds"
 metadata/_custom_type_script = "uid://cdao18a3u65km"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_illgk"]

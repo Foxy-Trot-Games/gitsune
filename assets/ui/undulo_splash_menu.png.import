@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgqrqkdmf6a1j"
-path="res://.godot/imported/Bullet count holes.png-8bccb9afa434ec28f2239710f58cd7a9.ctex"
+uid="uid://i0e62d6ri071"
+path="res://.godot/imported/undulo_splash_menu.png-4271f2d5a2b46f1f2b33c54dd9d6b93c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/Bullet count holes.png"
-dest_files=["res://.godot/imported/Bullet count holes.png-8bccb9afa434ec28f2239710f58cd7a9.ctex"]
+source_file="res://assets/ui/undulo_splash_menu.png"
+dest_files=["res://.godot/imported/undulo_splash_menu.png-4271f2d5a2b46f1f2b33c54dd9d6b93c.ctex"]
 
 [params]
 

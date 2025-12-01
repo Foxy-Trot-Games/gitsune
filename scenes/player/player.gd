@@ -193,15 +193,20 @@ func _player_died() -> void:
 		SceneLoader.reload_current_scene()
 		
 func _rune_picked_up() -> void:
+	
+	Globals.get_level().level_state.collected_runes += 1
+	
+	var level_state := Globals.get_level().level_state
+	
 	var label := Label.new()
 	
 	label.global_position = global_position - Vector2(16, 32)
 	label.z_index = 100
 	
-	var level_runes_num := Globals.get_level().level_state.total_level_runes
-	var runes_left := get_tree().get_nodes_in_group("Rune").size() - 1
+	var level_runes_num := level_state.total_level_runes
+	var runes_left := level_state.collected_runes
 	
-	label.text = "%s/%s" % [level_runes_num - runes_left, level_runes_num]
+	label.text = "%s/%s" % [runes_left, level_runes_num]
 	Globals.add_child_to_level(label)
 	
 	var tween := get_tree().create_tween().set_parallel(true)

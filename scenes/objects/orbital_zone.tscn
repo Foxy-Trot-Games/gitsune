@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnf23nyxdykpd"]
+[gd_scene load_steps=10 format=3 uid="uid://cnf23nyxdykpd"]
 
 [ext_resource type="Script" uid="uid://17ed8l8egmug" path="res://scripts/orbital_zone.gd" id="1_xp8yc"]
+[ext_resource type="Material" uid="uid://b4865aw3if7ye" path="res://resources/material/ripple.tres" id="2_k76lr"]
 [ext_resource type="Texture2D" uid="uid://d3vntilj6j31r" path="res://assets/background/Reactor.PNG" id="2_ujfpa"]
 
 [sub_resource type="Gradient" id="Gradient_xp8yc"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.6219178, 0.999, 1)
-colors = PackedColorArray(0.2347951, 0.07846785, 0.19641912, 0.5, 0.2347951, 0.07846785, 0.19641912, 0.3, 0.12315822, 0.1428257, 0.25766784, 0.1, 0.050708726, 0.07846785, 0.20285092, 0)
+offsets = PackedFloat32Array(0, 0.95342463, 0.999, 1)
+colors = PackedColorArray(0.7220274, 0.3491902, 1, 0.1, 0.78517264, 0.41277742, 0.68577677, 0.05, 0.12315822, 0.1428257, 0.25766784, 0.1, 0.050708726, 0.07846785, 0.20285092, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ujfpa"]
 gradient = SubResource("Gradient_xp8yc")
@@ -42,6 +43,7 @@ metadata/_edit_group_ = true
 [node name="GradientTextureRect" type="TextureRect" parent="."]
 z_index = -1
 texture_filter = 2
+material = ExtResource("2_k76lr")
 offset_left = -160.0
 offset_top = -160.0
 offset_right = 160.0

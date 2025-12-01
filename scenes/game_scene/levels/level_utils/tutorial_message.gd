@@ -1,14 +1,23 @@
 @tool
-class_name TutorialMessage extends Label
-
-@export var fade_in_time := 1.0
+class_name TutorialMessage extends Node2D
 
 @onready var player := Globals.get_player()
+@onready var label: Label = $Label
+
+@export_multiline var text : String : 
+	set(value):
+		text = value
+		if label:
+			label.text = value
+@export var fade_in_time := 1.0
 
 var _player_in_range := false
 var _detection_range_squared := 200.0 ** 2
 
 func _ready() -> void:
+	
+	label.text = text
+	
 	if Engine.is_editor_hint():
 		modulate = Color.WHITE
 		set_process(false)

@@ -40,21 +40,21 @@ var message := [
 ]
 
 var dead_message := [
-	"...free...finally...",
-	"...beginning...end...",
+	"...free...fin...ally...",
+	"...beg...inning...and...end...",
 	"...rest...now...",
-	"...finally...",
-	"...empty...always...",
+	"...fin...ally...",
+	"...em...pty...always...",
 	"...wave...gone...",
 	"...chains...gone..",
 	"...void...here...",
 	"...pain...gone...",
-	"...silence...",
-	"...whispers...gone...",
-	"...prison...gone...",
-	"...curse...lifted...",
-	"...escape...",
-	"...thank...you..."
+	"...sil...ence...",
+	"...whis...pers...gone...",
+	"...pris...on...gone...",
+	"...curse...lif...ted...",
+	"...es...cape...",
+	"...tha...nk...you..."
 ]
 
 func _ready() -> void:
@@ -74,7 +74,10 @@ func _spawn_enemy() -> void:
 	if enemy_scenes.is_empty():
 		return
 	var scene := enemy_scenes[randi() % enemy_scenes.size()]
-	var enemy := scene.instantiate()
+	
+	var enemy : IAEnemy = scene.instantiate()
+	enemy.global_position = global_position
+	
 	active_enemies.append(enemy)
 	Globals.add_child_to_level(enemy)
 

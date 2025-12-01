@@ -314,14 +314,7 @@ libraries = {
 }
 
 [node name="TutorialMessage" parent="." instance=ExtResource("6_pl5qa")]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -100.0
-offset_top = 17.45
-offset_right = 100.0
-offset_bottom = 40.45001
-grow_horizontal = 2
+position = Vector2(0, 24)
 
 [node name="Timer" type="Timer" parent="."]
 

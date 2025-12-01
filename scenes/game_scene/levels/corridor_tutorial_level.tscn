@@ -188,112 +188,78 @@ id = 3
 [node name="Tutorials" type="Node2D" parent="LevelObjects" index="9"]
 
 [node name="TutorialMessage" parent="LevelObjects/Tutorials" index="0" instance=ExtResource("8_2lrsq")]
-offset_left = -456.0
-offset_top = 8.0
-offset_right = -246.0
-offset_bottom = 57.0
+position = Vector2(-352, 24)
 text = "Zones boosts to new areas"
 fade_in_time = 2.0
 
 [node name="TutorialMessage2" parent="LevelObjects/Tutorials" index="1" instance=ExtResource("8_2lrsq")]
-offset_left = -56.0
-offset_right = 154.0
-offset_bottom = 49.0
-text = "Yellow Zones both boosts and recharges  ammo"
+position = Vector2(48, 24)
+text = "Orange Zones both boosts and recharges  ammo"
 fade_in_time = 2.0
 
 [node name="TutorialMessage3" parent="LevelObjects/Tutorials" index="2" instance=ExtResource("8_2lrsq")]
-offset_left = 368.0
-offset_top = -16.0
-offset_right = 568.0
-offset_bottom = 33.0
-text = "Orange Zones allows you to move in any direction"
+position = Vector2(472, 8)
+text = "Green zones allow you to move in any direction"
 fade_in_time = 2.0
 
 [node name="TutorialMessage4" parent="LevelObjects/Tutorials" index="3" instance=ExtResource("8_2lrsq")]
-offset_left = 768.0
-offset_top = 64.0
-offset_right = 978.0
-offset_bottom = 113.0
-text = "They don't recharge ammo though..."
+position = Vector2(904, 80)
+text = "Green zones don't recharge ammo"
 fade_in_time = 2.0
 
 [node name="TutorialMessage8" parent="LevelObjects/Tutorials" index="4" instance=ExtResource("8_2lrsq")]
-offset_left = 2109.0
-offset_top = 56.0
-offset_right = 2309.0
-offset_bottom = 105.0
-text = "They also don't recharge ammo!"
+position = Vector2(3024, 80)
+text = "Grey zones don't recharge ammo"
 fade_in_time = 2.0
 
 [node name="TutorialMessage5" parent="LevelObjects/Tutorials" index="5" instance=ExtResource("8_2lrsq")]
-offset_left = 1481.0
-offset_top = -56.0
-offset_right = 1681.0
-offset_bottom = 19.0
+position = Vector2(1584, -32)
 text = "Zones can boost in any direction"
 fade_in_time = 2.0
 
 [node name="TutorialMessage6" parent="LevelObjects/Tutorials" index="6" instance=ExtResource("8_2lrsq")]
-offset_left = 1913.0
-offset_top = -48.0
-offset_right = 2113.0
-offset_bottom = 1.0
-text = "Grey zones keep your momentum!"
+position = Vector2(2016, -24)
+text = "Grey zones keep your momentum"
 fade_in_time = 2.0
 
 [node name="TutorialMessage7" parent="LevelObjects/Tutorials" index="7" instance=ExtResource("8_2lrsq")]
-offset_left = 3364.0
-offset_top = -16.0
-offset_right = 3564.0
-offset_bottom = 33.0
+position = Vector2(3464, 24)
 text = "Orbit around circular zones"
 fade_in_time = 2.0
 
 [node name="TutorialMessage9" parent="LevelObjects/Tutorials" index="8" instance=ExtResource("8_2lrsq")]
-offset_left = 5209.0
-offset_top = 64.0
-offset_right = 5409.0
-offset_bottom = 87.0
+position = Vector2(5152, 56)
 text = "Push"
 fade_in_time = 2.0
 
 [node name="TutorialMessage10" parent="LevelObjects/Tutorials" index="9" instance=ExtResource("8_2lrsq")]
-offset_left = 5632.0
-offset_top = 40.0
-offset_right = 5832.0
-offset_bottom = 63.0
+position = Vector2(5728, 40)
 text = "PUSH!"
 fade_in_time = 2.0
 
 [node name="TutorialMessage11" parent="LevelObjects/Tutorials" index="10" instance=ExtResource("8_2lrsq")]
-offset_left = 4209.0
-offset_top = -4.0
-offset_right = 4409.0
-offset_bottom = 19.0
-text = "Danger"
+position = Vector2(4312, 8)
+text = "Danger!"
 fade_in_time = 2.0
 
-[node name="TutorialMessage13" parent="LevelObjects/Tutorials" index="11" instance=ExtResource("8_2lrsq")]
+[node name="TutorialMessage14" parent="LevelObjects/Tutorials" index="11" instance=ExtResource("8_2lrsq")]
+position = Vector2(5064, 24)
+text = "Danger..."
+fade_in_time = 2.0
+
+[node name="TutorialMessage13" parent="LevelObjects/Tutorials" index="12" instance=ExtResource("8_2lrsq")]
 z_index = 1
-offset_left = 3968.0
-offset_top = 136.0
-offset_right = 4168.0
-offset_bottom = 159.0
+position = Vector2(4064, 144)
 text = "Optional challenge room"
 fade_in_time = 2.0
 
-[node name="TutorialMessage12" parent="LevelObjects/Tutorials" index="12" instance=ExtResource("8_2lrsq")]
-offset_left = 376.0
-offset_top = 40.0
-offset_right = 576.0
-offset_bottom = 63.0
+[node name="TutorialMessage12" parent="LevelObjects/Tutorials" index="13" instance=ExtResource("8_2lrsq")]
+position = Vector2(376, 48)
 text = ""
 metadata/_edit_group_ = true
 
 [node name="MoveTutorial" type="HBoxContainer" parent="LevelObjects/Tutorials/TutorialMessage12" index="0"]
 z_index = -1
-layout_mode = 0
 offset_right = 498.0
 offset_bottom = 64.0
 scale = Vector2(0.335, 0.335)
