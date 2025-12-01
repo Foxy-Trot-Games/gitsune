@@ -72,6 +72,9 @@ func _ready() -> void:
 	_hide_exit_for_web()
 	_hide_options_if_unset()
 	_hide_main_menu_if_unset()
+	
+	print(123)
+	
 	if Input.is_action_pressed("ui_cancel"):
 		_ignore_first_cancel = true
 
