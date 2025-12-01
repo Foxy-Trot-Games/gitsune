@@ -2,13 +2,25 @@
 
 [ext_resource type="Script" uid="uid://dd2w03lcpf61q" path="res://scenes/game_scene/levels/level_utils/tutorial_message.gd" id="1_x8ruq"]
 
-[node name="TutorialMessage" type="Label"]
-z_index = -1
-custom_minimum_size = Vector2(200, 0)
-offset_right = 200.0
-offset_bottom = 23.0
+[node name="TutorialMessage" type="Node2D"]
+script = ExtResource("1_x8ruq")
+text = "You are doing great!"
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+custom_minimum_size = Vector2(210, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -12.0
+offset_right = 100.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 text = "You are doing great!"
 horizontal_alignment = 1
 autowrap_mode = 3
-script = ExtResource("1_x8ruq")
